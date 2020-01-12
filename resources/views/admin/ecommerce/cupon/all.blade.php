@@ -70,7 +70,8 @@
 												@else
 													<a  href="{{url('admin/cupon/active/'.$data->id)}}" class="btn btn-default btn-sm text-white" data-toggle="tooltip" data-placement="right" title="active" data-original-title="Deactive"><i class="far fa-thumbs-down"></i></a>
 												@endif
-		                                           	| <a class="editcat btn btn-sm btn-blue text-white" data-id="" title="edit"  data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></a> |
+		                                           	| <a href="{{url('admin/cupon/edit/'.$data->id)}}" class="btn btn-info btn-sm text-white" title="edit" data-original-title="edit"><i class="fas fa-pencil-alt"></i></a> |
+
 		                                            <a id="delete" href="{{url('admin/cupon/softdelete/'.$data->id)}}" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
 		                                       </td>
 		                                  </tr>

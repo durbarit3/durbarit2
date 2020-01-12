@@ -118,6 +118,8 @@ Route::post(md5('admin/cupon/insert'), 'Admin\CuponController@insert')->name('ad
 Route::get('admin/cupon/deactive/{id}', 'Admin\CuponController@deactive');
 Route::get('admin/cupon/active/{id}', 'Admin\CuponController@active');
 Route::get('admin/cupon/softdelete/{id}', 'Admin\CuponController@softdelete');
+Route::get('admin/cupon/edit/{id}', 'Admin\CuponController@edit');
+Route::post('admin/cupon/update', 'Admin\CuponController@update')->name('admin.cupon.update');
 
 // product controller
 Route::get(md5('admin/product/producttype'), 'Admin\ProductController@producttype')->name('admin.product.producttype');
@@ -171,6 +173,7 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 
 
 
+
 //Harrison start
 Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'namespace'=> 'Admin'], function(){
 
@@ -179,3 +182,10 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 
 });
 //Harrison start ended
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
