@@ -100,7 +100,7 @@
 														$allcolor=App\Color::where('is_deleted',0)->where('color_status',1)->get();
 													@endphp
 													@foreach($allcolor as $color)
-													<option value="{{$color->color_code}}" <?php if(in_array($color->color_code, json_decode($data->colors))) echo 'selected'?>>{{$color->color_name}}</option>
+													<option value="{{$color->color_code}}"<?php if(in_array($color->color_code, json_decode($data->colors))) echo 'selected'?> >{{$color->color_name}}</option>
 													@endforeach
 												</select>
 											</div>

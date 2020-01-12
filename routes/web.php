@@ -118,6 +118,8 @@ Route::post(md5('admin/cupon/insert'), 'Admin\CuponController@insert')->name('ad
 Route::get('admin/cupon/deactive/{id}', 'Admin\CuponController@deactive');
 Route::get('admin/cupon/active/{id}', 'Admin\CuponController@active');
 Route::get('admin/cupon/softdelete/{id}', 'Admin\CuponController@softdelete');
+Route::get('admin/cupon/edit/{id}', 'Admin\CuponController@edit');
+Route::post('admin/cupon/update', 'Admin\CuponController@update')->name('admin.cupon.update');
 
 // product controller
 Route::get(md5('admin/product/producttype'), 'Admin\ProductController@producttype')->name('admin.product.producttype');
