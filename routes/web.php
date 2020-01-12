@@ -169,4 +169,10 @@ Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurement
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
 
-// foysal new new 
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
