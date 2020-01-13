@@ -169,6 +169,17 @@ Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurement
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
 
-// qayum hasan route start
-Route::view('/website', 'layouts.websiteapp');
-// qayum hasan route end
+
+//  Frontend route start from here ============================================ //
+
+// front end controller
+
+Route::get('/', 'Frontend\FrontendController@index');
+Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
+Route::get(md5('/category/page'), 'Frontend\FrontendController@category')->name('category.page');
+Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
+Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
+Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
+Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
+Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
