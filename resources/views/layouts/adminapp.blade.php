@@ -347,6 +347,17 @@
                                 <li><a href="{{route('admin.cupon.add')}}">Add Cupon</a></li>
                               </ul>
                         </li>
+                        <li class="single-nav-wrapper">
+                            <a class="has-arrow menu-item" href="#" aria-expanded="false">
+                              <span class="left-icon"><i class="fas fa-people-carry"></i></span>
+                                <span class="menu-text">Forntend Setup</span>
+                            </a>
+                              <ul class="dashboard-menu">
+                                <li><a href="{{route('admin.aboutus')}}">About us</a></li>
+                                <li><a href="{{route('admin.termscondition')}}">Terms & Condition</a></li>
+                                <li><a href="{{route('admin.faq.all')}}">Faq</a></li>
+                              </ul>
+                        </li>
                         
                         <li class="single-nav-wrapper">
                             <a class="has-arrow menu-item" href="#" aria-expanded="false">
@@ -361,6 +372,8 @@
                                 <li><a href="{{route('admin.trash.color')}}">Color</a></li>
                                 <li><a href="{{route('admin.trash.brand')}}">Brand</a></li>
                                 <li><a href="{{route('admin.trash.measurement')}}">Measurement</a></li>
+                                <li><a href="{{route('admin.trash.cupon')}}">Cupon</a></li>
+                                <li><a href="{{route('admin.trash.faq')}}">Faq</a></li>
                               </ul>
                         </li>
                         
@@ -433,6 +446,9 @@
         <script>
         CKEDITOR.replace('editor3');
        </script>
+       <script>
+         CKEDITOR.replace('aboutus');
+    </script>
       <!--   <script>
             CKEDITOR.replace('editor3');
         </script>

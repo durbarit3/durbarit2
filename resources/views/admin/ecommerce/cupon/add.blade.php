@@ -35,7 +35,7 @@
 								  <div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Cupon Code:</label>
 								    <div class="col-sm-6">
-								      <input type="text" class="form-control" name="cupon_code">
+								      <input type="text" class="form-control" name="cupon_code" required>
 								    </div>
 								  </div>
 								<div id="fortotalorder" style="display: none">
@@ -53,10 +53,11 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product</label>
 								   <div class="col-sm-6">
 											<div class="select2-purple">
-												<select class="select2" name="product_id[]" id="product_id" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
+												<select class="select2" name="product_id[]" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
 													@php
 														$allproduct=App\Product::where('is_deleted',0)->OrderBy('id','DESC')->get();
 													@endphp
+													<option value="1" selected>select</option>
 													@foreach($allproduct as $product)
 													<option value="{{$product->id}}">{{$product->product_name}}</option>
 													@endforeach
@@ -81,10 +82,10 @@
 								<div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Date</label>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date">
+								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date" required>
 								    </div>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date">
+								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date" required>
 								    </div>
 								</div>
 								  
