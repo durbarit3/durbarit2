@@ -15,14 +15,12 @@ class CreateFlashDealsTable extends Migration
     {
         Schema::create('flash_deals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('product_id');
             $table->string('title');
             $table->string('start_date');
             $table->string('end_date');
             $table->boolean('is_deleted')->default(0);
             $table->boolean('status')->default(1);
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

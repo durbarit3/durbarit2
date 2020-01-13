@@ -355,7 +355,7 @@
                             </a>
                               <ul class="dashboard-menu">
                               <li><a href="{{ route('admin.flash.deal.create') }}">Add Flash Deal</a></li>
-                                <li><a href="">All Flash Deal</a></li>
+                              <li><a href="{{ route('admin.flash.deal.index') }}">All Flash Deal</a></li>
                               </ul>
                         </li>
 

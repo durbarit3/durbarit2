@@ -174,8 +174,15 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 //Harrison start
 Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'namespace'=> 'Admin'], function(){
 
+    Route::get('/', 'FlashDealController@index')->name('admin.flash.deal.index');
     Route::get('create', 'FlashDealController@create')->name('admin.flash.deal.create');
-    Route::get('store', 'FlashDealController@create')->name('admin.flash.deal.insert');
+    Route::post('store', 'FlashDealController@insert')->name('admin.flash.deal.insert');
+    Route::get('change/status/{flashDealId}', 'FlashDealController@changeStatus')->name('admin.flash.deal.change.status');
+    Route::get('edit/{flashDealId}', 'FlashDealController@edit')->name('admin.flash.deal.edit');
+    Route::patch('update/{flashDealId}', 'FlashDealController@update')->name('admin.flash.deal.update');
+    // Ajax call route
+    Route::get('get/selected/products/by/ajax', 'FlashDealController@getProductsByAjax');
+    // Ajax call route end
 
 });
 //Harrison start ended
