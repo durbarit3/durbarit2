@@ -12,21 +12,24 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="panel_title">
-											<span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All Cupon</span>
+											<span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All Deleted Faq</span>
 										</div>
 									</div>
 									<div class="col-md-6 text-right">
-										<div class="panel_title">
-											<a href="{{route('admin.cupon.add')}}" class="btn btn-success"><i class="fas fa-plus"></i></span> <span>Add Cupon</span></a>
-										</div>
+									
 									</div>
 								</div>
 								
 							</div>
-							<form action="{{url('admin/cupon/multiplesoftdelete')}}" method="Post">
+							<form action="{{url('admin/trash/multihearddelfaq')}}" method="Post">
 						     @csrf
-							<button type="submit" style="margin: 5px;" class="btn btn-danger" ><i class="fa fa-trash"></i> Delete All</button>
-             				<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-recycle"></i> <a href="{{route('admin.trash.cupon')}}" style="color: #fff;">Restore</a></button>
+						      <button type="submit" style="margin: 5px;" name="submit" class="btn btn-danger" value="delete" ><i class="fa fa-trash"></i> Delete All</button>
+
+				             <button type="submit" style="margin: 5px;" name="submit" class="btn btn-success" value="restore" ><i class="fas fa-trash-restore-alt"></i> Restore All</button>
+
+				             <button type="button"  style="margin: 5px;" class="btn btn-info" ><i class="fas fa-undo"></i> <a href="{{route('admin.faq.all')}}" style="color: #fff;">Back</a></button>
+
+							
 							<div class="panel_body">
 								<div class="table-responsive">
 		                         <table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
@@ -38,16 +41,14 @@
 													<span class="checkmark"></span>
 												</label>
 		                                      </th>
-		                                      <th>Cupon Type</th>
-		                                      <th>Cupon Code</th>
-		                           
-		                                      <th>Discount</th>
-		                                      <th>Status</th>
+		                                      <th>Faq Ques</th>
+		                                      <th>Faq Ans</th>
+		                                      
 		                                      <th>manage</th>
 		                                  </tr>
 		                              </thead>
 		                              <tbody>
-		                              @foreach($allcupon as $data)
+		                              @foreach($allfaq as $data)
 		                                  <tr>
 	                                  		  <td>
 												<label class="chech_container mb-4">
@@ -55,24 +56,12 @@
 													<span class="checkmark"></span>
 												</label>
 		                                      </td>
-		                                      <td>@if($data->cupon_type==1) For Total Order @else For Products @endif</td>
-		                                      <td>{{$data->cupon_code}}</td>
-		                                   
-		                                      <td>{{$data->discount}}</td>
-		                                      @if($data->status==1)
-					                          <td class="center"><span class="btn-success">Active</span></td>
-					                     	  @else
-					                          <td class="center"><span class="btn-danger">Deactive</span></td>
-						                      @endif
+		                                      <td>{{$data->faq_ques}}</td>
+		                                      <td>{{ Str::limit($data->faq_ans,80)}}</td>
+		                                      
 		                                       <td>
-		                                       	@if($data->status==1)
-		                                           	<a  href="{{url('admin/cupon/deactive/'.$data->id)}}" class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-placement="right" title="active" data-original-title="active"><i class="far fa-thumbs-up"></i></a>
-												@else
-													<a  href="{{url('admin/cupon/active/'.$data->id)}}" class="btn btn-default btn-sm text-white" data-toggle="tooltip" data-placement="right" title="active" data-original-title="Deactive"><i class="far fa-thumbs-down"></i></a>
-												@endif
-		                                           	| <a href="{{url('admin/cupon/edit/'.$data->id)}}" class="btn btn-info btn-sm text-white" title="edit" data-original-title="edit"><i class="fas fa-pencil-alt"></i></a> |
-
-		                                            <a id="delete" href="{{url('admin/cupon/softdelete/'.$data->id)}}" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
+		                                           	<a href="{{url('admin/faq/recover/'.$data->id)}}" class="btn btn-info btn-sm text-white" title="edit" data-original-title="edit"><i class="fas fa-recycle"></i></a> |
+		                                            <a id="delete" href="{{url('admin/faq/faqhearddelete/'.$data->id)}}" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
 		                                       </td>
 		                                  </tr>
 		                                 @endforeach
