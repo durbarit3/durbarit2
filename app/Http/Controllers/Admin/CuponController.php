@@ -147,4 +147,70 @@ class CuponController extends Controller
             }
     }
 
+    // multisoft
+    public function multiplesoftdelete(Request $request){
+        $deleteid=$request->Input('delid');
+                     if($deleteid){
+                     $delet=Cupon::whereIn('id',$deleteid)->update([
+                            'is_deleted'=>'1',
+                            'updated_at'=>Carbon::now()->toDateTimeString(),
+                     ]);
+                     if($delet){
+                         $notification=array(
+                            'messege'=>'success',
+                            'alert-type'=>'success'
+                             );
+                         return redirect()->back()->with($notification);
+                     }else{
+                         $notification=array(
+                            'messege'=>'error',
+                            'alert-type'=>'error'
+                             );
+                         return redirect()->back()->with($notification);
+                        }
+                     }else{
+                        $notification=array(
+                            'messege'=>'Nothing To Delete',
+                            'alert-type'=>'info'
+                             );
+                         return redirect()->back()->with($notification);
+                     }
+    }
+// restore
+    public function restore($id){
+        $restore=Cupon::where('id',$id)->update([
+            'is_deleted'=>'0',
+            'created_at'=>Carbon::now()->toDateTimeString(),
+        ]);
+        if($restore){
+            $notification=array(
+                'messege'=>'Recover success',
+                'alert-type'=>'success'
+                 );
+                return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'messege'=>'error',
+                'alert-type'=>'error'
+                 );
+                return redirect()->back()->with($notification);
+        }
+    }
+    // single heard delete
+    public function delete($id){
+        $delete=Cupon::where('id',$id)->delete();
+        if($delete){
+            $notification=array(
+                'messege'=>'Delete success',
+                'alert-type'=>'success'
+                 );
+                return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'messege'=>'Delete Faild',
+                'alert-type'=>'error'
+                 );
+                return redirect()->back()->with($notification);
+        }
+    }
 }
