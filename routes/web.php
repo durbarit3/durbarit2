@@ -118,6 +118,11 @@ Route::post(md5('admin/cupon/insert'), 'Admin\CuponController@insert')->name('ad
 Route::get('admin/cupon/deactive/{id}', 'Admin\CuponController@deactive');
 Route::get('admin/cupon/active/{id}', 'Admin\CuponController@active');
 Route::get('admin/cupon/softdelete/{id}', 'Admin\CuponController@softdelete');
+Route::get('admin/cupon/edit/{id}', 'Admin\CuponController@edit');
+Route::post('admin/cupon/update', 'Admin\CuponController@update')->name('admin.cupon.update');
+Route::post('admin/cupon/multiplesoftdelete', 'Admin\CuponController@multiplesoftdelete');
+Route::get('admin/cupon/restore/{id}', 'Admin\CuponController@restore');
+Route::get('admin/cupon/delete/{id}', 'Admin\CuponController@delete');
 
 // product controller
 Route::get(md5('admin/product/producttype'), 'Admin\ProductController@producttype')->name('admin.product.producttype');
@@ -151,6 +156,25 @@ Route::get('admin/product/producteditthree/{id}', 'Admin\ProductController@produ
 // product type affiliate edit
 Route::get('admin/product/producteditfour/{id}', 'Admin\ProductController@producteditfour');
 
+// general setting
+
+Route::get(md5('admin/forntendsetup/aboutus'), 'Admin\ForntendSetupController@aboutus')->name('admin.aboutus');
+Route::post('admin/forntendsetup/aboutus/update', 'Admin\ForntendSetupController@aboutusupdate')->name('admin.aboutus.update');
+Route::get(md5('admin/forntendsetup/termscondition'), 'Admin\ForntendSetupController@termsandcondition')->name('admin.termscondition');
+Route::post(md5('admin/forntendsetup/termsconditionupdate'),'Admin\ForntendSetupController@termsandconditionupdate')->name('admin.termsandcondition.update');
+Route::get(md5('admin/forntendsetup/faq/add'), 'Admin\ForntendSetupController@faq')->name('admin.faq');
+
+Route::post(md5('admin/forntendsetup/faq/insert'), 'Admin\ForntendSetupController@faqinsert')->name('admin.faq.insert');
+Route::get(md5('admin/forntendsetup/faq/all'), 'Admin\ForntendSetupController@allfaq')->name('admin.faq.all');
+
+Route::get('admin/faq/deactive/{id}', 'Admin\ForntendSetupController@faqdeactive');
+Route::get('admin/faq/active/{id}', 'Admin\ForntendSetupController@faqactive');
+Route::get('/get/faq/edit/{faqid}', 'Admin\ForntendSetupController@faqedit');
+Route::post('admin/faq/update', 'Admin\ForntendSetupController@faqupdate')->name('admin.faq.update');
+Route::get('admin/faq/softdelete/{id}', 'Admin\ForntendSetupController@faqsoftdelete');
+Route::post('admin/faq/multisoftdelete', 'Admin\ForntendSetupController@faqmultidelete');
+Route::get('admin/faq/recover/{id}', 'Admin\ForntendSetupController@faqrecover');
+Route::get('admin/faq/faqhearddelete/{id}', 'Admin\ForntendSetupController@faqhearddelete');
 
 // trash controller
 Route::get(md5('admin/trash/category'), 'Admin\TrashController@category')->name('admin.trash.category');
@@ -169,6 +193,15 @@ Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurement
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
 
+// cupon
+Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
+Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
+Route::get(md5('admin/trash/faq'), 'Admin\TrashController@faqtrash')->name('admin.trash.faq');
+Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddelfaq')->name('');
+
+
+
+
 
 
 //Harrison start
@@ -186,3 +219,10 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 
 });
 //Harrison start ended
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
