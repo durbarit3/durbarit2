@@ -15,11 +15,18 @@ return array(
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
 
+    'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
+    'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
+    'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
+    'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
+
+
     'App\\Faq' => $baseDir . '/app/Faq.php',
 
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
 
     'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
+
 
 
 
@@ -50,6 +57,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Frontend\\FrontendController' => $baseDir . '/app/Http/Controllers/Frontend/FrontendController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

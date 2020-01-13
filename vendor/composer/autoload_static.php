@@ -444,6 +444,12 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
 
+        'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
+        'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
+        'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+        'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
+
+
         'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
 
         'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
@@ -479,6 +485,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
