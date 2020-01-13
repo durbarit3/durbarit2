@@ -19,12 +19,20 @@ return array(
 
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
 
+    'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
+
+
+
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\ColorController' => $baseDir . '/app/Http/Controllers/Admin/ColorController.php',
     'App\\Http\\Controllers\\Admin\\CuponController' => $baseDir . '/app/Http/Controllers/Admin/CuponController.php',
+
+    'App\\Http\\Controllers\\Admin\\FlashDealController' => $baseDir . '/app/Http/Controllers/Admin/FlashDealController.php',
+
     'App\\Http\\Controllers\\Admin\\ForntendSetupController' => $baseDir . '/app/Http/Controllers/Admin/ForntendSetupController.php',
+
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
     'App\\Http\\Controllers\\Admin\\MeasurementController' => $baseDir . '/app/Http/Controllers/Admin/MeasurementController.php',
     'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',

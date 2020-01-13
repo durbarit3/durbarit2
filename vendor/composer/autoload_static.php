@@ -448,12 +448,20 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
 
         'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
 
+        'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
+
+
+
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\ColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ColorController.php',
         'App\\Http\\Controllers\\Admin\\CuponController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CuponController.php',
+
+        'App\\Http\\Controllers\\Admin\\FlashDealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FlashDealController.php',
+
         'App\\Http\\Controllers\\Admin\\ForntendSetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ForntendSetupController.php',
+
         'App\\Http\\Controllers\\Admin\\GatewayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GatewayController.php',
         'App\\Http\\Controllers\\Admin\\MeasurementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MeasurementController.php',
         'App\\Http\\Controllers\\Admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductController.php',
