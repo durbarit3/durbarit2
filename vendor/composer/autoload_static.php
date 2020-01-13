@@ -443,7 +443,11 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+
         'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
+
+        'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
+
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
