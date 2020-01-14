@@ -42,6 +42,7 @@ return array(
 
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
     'App\\Http\\Controllers\\Admin\\MeasurementController' => $baseDir . '/app/Http/Controllers/Admin/MeasurementController.php',
+    'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
     'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',
     'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\SeoController' => $baseDir . '/app/Http/Controllers/Admin/SeoController.php',
@@ -68,6 +69,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Mesurement' => $baseDir . '/app/Mesurement.php',
+    'App\\Page' => $baseDir . '/app/Page.php',
     'App\\Product' => $baseDir . '/app/Product.php',
     'App\\ProductImage' => $baseDir . '/app/ProductImage.php',
     'App\\ProductLicense' => $baseDir . '/app/ProductLicense.php',

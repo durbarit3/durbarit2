@@ -175,6 +175,21 @@ Route::get('admin/faq/softdelete/{id}', 'Admin\ForntendSetupController@faqsoftde
 Route::post('admin/faq/multisoftdelete', 'Admin\ForntendSetupController@faqmultidelete');
 Route::get('admin/faq/recover/{id}', 'Admin\ForntendSetupController@faqrecover');
 Route::get('admin/faq/faqhearddelete/{id}', 'Admin\ForntendSetupController@faqhearddelete');
+//page controller
+Route::get(md5('admin/page/all'), 'Admin\PageController@index')->name('admin.page.all');
+Route::post(md5('admin/page/insert'), 'Admin\PageController@insert')->name('admin.page.insert');
+Route::get('admin/page/deactive/{id}', 'Admin\PageController@deactive');
+Route::get('admin/page/active/{id}', 'Admin\PageController@active');
+Route::get('admin/page/softdelete/{id}', 'Admin\PageController@pagesoftdel');
+Route::get('/get/page/edit/{page_id}', 'Admin\PageController@edit');
+Route::post('admin/page/update', 'Admin\PageController@update')->name('admin.page.update');
+Route::post('admin/page/multisoftdelete', 'Admin\PageController@pagemultidel')->name('admin.page.multisoftdelete');
+Route::get('admin/page/recover/{id}','Admin\PageController@recover');
+Route::get('admin/page/hearddelete/{id}','Admin\PageController@hearddelete');
+
+
+
+
 
 // trash controller
 Route::get(md5('admin/trash/category'), 'Admin\TrashController@category')->name('admin.trash.category');
@@ -213,6 +228,12 @@ Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin
 Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
 Route::get(md5('admin/trash/faq'), 'Admin\TrashController@faqtrash')->name('admin.trash.faq');
 Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddelfaq')->name('');
+
+// page trash
+Route::get(md5('admin/trash/page'), 'Admin\TrashController@page')->name('admin.trash.page');
+Route::post(md5('admin/trash/multidelpage'), 'Admin\TrashController@pagemultdel')->name('admin.trash.pagemultidel');
+// foysal new new 
+
 
 
 
