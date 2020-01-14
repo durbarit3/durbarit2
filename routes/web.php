@@ -259,9 +259,17 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
     Route::post('store', 'FlashDealController@insert')->name('admin.flash.deal.insert');
     Route::get('change/status/{flashDealId}', 'FlashDealController@changeStatus')->name('admin.flash.deal.change.status');
     Route::get('edit/{flashDealId}', 'FlashDealController@edit')->name('admin.flash.deal.edit');
-    Route::patch('update/{flashDealId}', 'FlashDealController@update')->name('admin.flash.deal.update');
+    Route::post('update/{flashDealId}', 'FlashDealController@update')->name('admin.flash.deal.update');
+    Route::get('soft/delete/{flashDealId}', 'FlashDealController@softDelete')->name('admin.flash.deal.soft.delete');
+    Route::post('multiple.soft.delete', 'FlashDealController@multipleSoftDelete')->name('admin.flash.deal.multiple.soft.delete');
+    Route::get('all/trash/view', 'FlashDealController@allFlashDealTrashView')->name('admin.flash.deal.trash.view');
+
+    Route::get('single/refactor/{flashDealId}', 'FlashDealController@singleRefactor')->name('admin.flash.deal.single.refactor');
+    Route::get('single/force/delete/{flashDealId}', 'FlashDealController@singleForceDelete')->name('admin.flash.deal.single.force.delete');
+    Route::post('multiple/force/delete', 'FlashDealController@multipleForceDelete')->name('admin.flash.deal.multiple.force.delete');
     // Ajax call route
     Route::get('get/selected/products/by/ajax', 'FlashDealController@getProductsByAjax');
+    Route::get('get/selected/previous/and/new/products/by/ajax', 'FlashDealController@getProductsPreviousAndNewByAjax');
     // Ajax call route end
 
 });
