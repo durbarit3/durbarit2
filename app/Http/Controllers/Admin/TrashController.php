@@ -13,6 +13,7 @@ use App\Product;
 use App\Brand;
 use App\Cupon;
 use App\Faq;
+use App\Page;
 use Carbon\Carbon;
 use Session;
 use Image;
@@ -621,7 +622,7 @@ class TrashController extends Controller
          $allfaq=Faq::where('is_deleted',1)->get();
         return view('admin.ecommerce.trash.faq',compact('allfaq'));
     }
-    // faq multi delete & recover
+    // faqmulti delete & recover
     public function multihearddelfaq(Request $request){
       switch($request->input('submit')){
                 case 'delete':
@@ -655,6 +656,72 @@ class TrashController extends Controller
                   $deleteid=$request['delid'];
                  if($deleteid){
                     $delet=Faq::whereIn('id',$deleteid)->update([
+                        'is_deleted'=>'0',
+                        'updated_at'=>Carbon::now()->toDateTimeString(),
+                    ]);
+                      if($delet){
+                            $notification=array(
+                            'messege'=>'Multiple Recover Successfully',
+                            'alert-type'=>'success'
+                             );
+                            return Redirect()->back()->with($notification); 
+                        }
+                        else{
+                            $notification=array(
+                                'messege'=>'Multiple Recover Faild',
+                                'alert-type'=>'errors'
+                                 );
+                               return Redirect()->back()->with($notification); 
+                        }
+                    }else{
+                        $notification=array(
+                                'messege'=>'Nothing To Recover',
+                                'alert-type'=>'info'
+                                 );
+                               return Redirect()->back()->with($notification);
+                    }
+                break;
+            }
+    }
+    // page
+    public function page(){
+      $page=Page::where('is_deleted',1)->get();
+      return view('admin.ecommerce.trash.page',compact('page'));
+    }
+    // page heard delete and recover
+    public function pagemultdel(Request $request){
+      switch($request->input('submit')){
+                case 'delete':
+                  $deleteid=$request['delid'];
+                  if($deleteid){
+                      $deletpost=Page::whereIn('id',$deleteid)->delete();
+                      if($deletpost){
+                            $notification=array(
+                            'messege'=>'Multidelete Delete Successfully',
+                            'alert-type'=>'success'
+                             );
+                            return Redirect()->back()->with($notification); 
+                        }
+                        else{
+                            $notification=array(
+                                'messege'=>'Multiple Delete Faild',
+                                'alert-type'=>'errors'
+                                 );
+                               return Redirect()->back()->with($notification); 
+                        }
+                    }
+                 else{
+                        $notification=array(
+                            'messege'=>'Nothing To Delete',
+                            'alert-type'=>'info'
+                             );
+                           return Redirect()->back()->with($notification);
+                    }
+                break;
+                case 'restore':
+                  $deleteid=$request['delid'];
+                 if($deleteid){
+                    $delet=Page::whereIn('id',$deleteid)->update([
                         'is_deleted'=>'0',
                         'updated_at'=>Carbon::now()->toDateTimeString(),
                     ]);

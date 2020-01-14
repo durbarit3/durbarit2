@@ -356,6 +356,7 @@
                                 <li><a href="{{route('admin.aboutus')}}">About us</a></li>
                                 <li><a href="{{route('admin.termscondition')}}">Terms & Condition</a></li>
                                 <li><a href="{{route('admin.faq.all')}}">Faq</a></li>
+                                <li><a href="{{route('admin.page.all')}}">Page</a></li>
                               </ul>
                         </li>
                         
@@ -374,6 +375,7 @@
                                 <li><a href="{{route('admin.trash.measurement')}}">Measurement</a></li>
                                 <li><a href="{{route('admin.trash.cupon')}}">Cupon</a></li>
                                 <li><a href="{{route('admin.trash.faq')}}">Faq</a></li>
+                                <li><a href="{{route('admin.trash.page')}}">Page</a></li>
                               </ul>
                         </li>
                         
