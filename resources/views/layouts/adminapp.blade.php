@@ -36,7 +36,7 @@
         <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-       
+
 
     <!-- Styles -->
   {{--   <link href="{{ asset('public/css/app.css') }}" rel="stylesheet"> --}}
@@ -50,7 +50,7 @@
 
             @guest
             @else
-              <div class="wrapper">  
+              <div class="wrapper">
               <!-- header area -->
               <header class="header_area">
                   <!-- logo -->
@@ -68,7 +68,7 @@
                           <div class="modal fade search_box" id="myModal">
                                 <button type="button" class="close m-2 text-white float-right" data-dismiss="modal">&times;</button>
                                 <form action="#" class="modal-dialog modal-lg">
-                                  
+
                                   <div class="modal-content bg-transparent">
                                         <!-- Modal body -->
                                         <div class="modal-body">
@@ -76,7 +76,7 @@
                                           <button class="btn btn-lg submit-btn" type="submit">Search</button>
                                         </div>
                                   </div>
-                                   
+
                                 </form>
                           </div>
                       </li>
@@ -280,7 +280,7 @@
                                     @else
                                           <a href="#" class="user_link"><img src="{{ asset(Auth::user()->avatar) }}" alt=""></a>
                                     @endif
-                                    
+
                                   </div>
                               <ul>
                                   <li><a href="{{ route('admin.profile') }}"><span><i class="fas fa-user"></i></span> User Profile</a> </li>
@@ -313,7 +313,7 @@
                                 <li><a href="{{route('admin.category.all')}}">All Category</a></li>
                                 <li><a href="{{route('admin.subcategory.all')}}">All SubCategory</a></li>
                                 <li><a href="{{route('admin.resubcategory.all')}}">All ReSubCategory</a></li>
-        
+
                               </ul>
                         </li>
                          <li class="single-nav-wrapper">
@@ -347,6 +347,7 @@
                                 <li><a href="{{route('admin.cupon.add')}}">Add Cupon</a></li>
                               </ul>
                         </li>
+
                         <li class="single-nav-wrapper">
                             <a class="has-arrow menu-item" href="#" aria-expanded="false">
                               <span class="left-icon"><i class="fas fa-people-carry"></i></span>
@@ -360,6 +361,20 @@
                               </ul>
                         </li>
                         
+
+
+                        <li class="single-nav-wrapper">
+                            <a class="has-arrow menu-item" href="#" aria-expanded="false">
+                                <span class="left-icon"><i class="fas fa-people-carry"></i></span>
+                                <span class="menu-text">Flash Deal</span>
+                            </a>
+                              <ul class="dashboard-menu">
+                              <li><a href="{{ route('admin.flash.deal.create') }}">Add Flash Deal</a></li>
+                              <li><a href="{{ route('admin.flash.deal.index') }}">All Flash Deal</a></li>
+                              </ul>
+                        </li>
+
+
                         <li class="single-nav-wrapper">
                             <a class="has-arrow menu-item" href="#" aria-expanded="false">
                               <span class="left-icon"><i class="far fa-trash-alt"></i></span>
@@ -378,8 +393,8 @@
                                 <li><a href="{{route('admin.trash.page')}}">Page</a></li>
                               </ul>
                         </li>
-                        
-                      
+
+
                         <li class="single-nav-wrapper">
                             <a class="has-arrow menu-item" href="#" aria-expanded="false">
                               <span class="left-icon"><i class="far fa-copy"></i></span>
@@ -394,7 +409,7 @@
                               <li><a href="{{ route('admin.payment.gateway') }}">Payment Gateway</a></li>
                             </ul>
                         </li>
-                     
+
                       </ul>
                 </nav>
               </aside><!-- /sidebar Area-->
@@ -402,7 +417,7 @@
 
             @yield('admin_content')
 
-    </div> 
+    </div>
 
 
         <!-- jquery -->
@@ -465,7 +480,7 @@
 
        <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
        <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-        
+
         <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js"></script>  -->
        <script>
             @if(Session::has('messege'))
@@ -493,7 +508,7 @@
 
          });
         </script>
-     
+
         <script>
                 $(document).on("click", "#delete", function(e){
                 e.preventDefault();
@@ -523,7 +538,7 @@
               type : 'materialize',
               suggestions: ['Category', 'Ecommerce', 'Shirt', 'Pant', 'Product']
             });
-            
+
 
             $('input[name="resubcate_tag"]').amsifySuggestags({
               type : 'materialize',
@@ -536,11 +551,11 @@
             });
             $('.choice_tag').amsifySuggestags({
               type : 'materialize',
-             
+
             });
       </script>
 
- 
+
 
       <script>
       $(function(){
@@ -563,7 +578,7 @@
       });
 
       $('#container').removeClass('mainnav-lg').addClass('mainnav-sm');
-            
+
         $("#photos").spartanMultiImagePicker({
           fieldName:        'photos[]',
           maxCount:         10,
@@ -587,8 +602,8 @@
 
     $(document).ready(function(){
       $('#container').removeClass('mainnav-lg').addClass('mainnav-sm');
-        
-      
+
+
       $("#thumbnail_img").spartanMultiImagePicker({
         fieldName:        'thumbnail_img',
         maxCount:         1,
@@ -605,8 +620,8 @@
           alert('File size too big');
         }
       });
-  
-      
+
+
       $("#t_img").spartanMultiImagePicker({
         fieldName:        't_img',
         maxCount:         1,

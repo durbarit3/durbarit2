@@ -9,39 +9,39 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //admin routes
    Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-   Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');  
+   Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');
    Route::post('admin/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
    Route::get('admin/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
    Route::post('admin/password/reset', 'Auth\AdminResetPasswordController@reset');
    Route::get('admin/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
    Route::get('/admin', 'AdminController@index')->name('admin.dashboard'); //admin dashboard
          //admin setting section
-   Route::get('admin/profile', 'AdminController@AdminProfile')->name('admin.profile'); 
-   Route::get('admin/edit/profile', 'AdminController@AdminEditProfile')->name('admin.edit.profile'); 
-   Route::post('admin/update/profile', 'AdminController@AdminUpdateProfile')->name('admin.update.profile'); 
-   Route::get('admin/password/change', 'AdminController@AdminPasswordChange')->name('admin.password.change'); 
-   Route::post('admin/password/update', 'AdminController@AdminPasswordUpdate')->name('admin.password.update'); 
-   Route::get('admin/profile/lock', 'AdminController@AdminLockScreen')->name('admin.lock.screen'); 
-   Route::post('/admin/unlock/screen','AdminController@UnlockScreen')->name('admin.unlock.screen'); 
-   Route::get('admin/log/out', 'AdminController@AdminLogOut')->name('admin.logout'); 
+   Route::get('admin/profile', 'AdminController@AdminProfile')->name('admin.profile');
+   Route::get('admin/edit/profile', 'AdminController@AdminEditProfile')->name('admin.edit.profile');
+   Route::post('admin/update/profile', 'AdminController@AdminUpdateProfile')->name('admin.update.profile');
+   Route::get('admin/password/change', 'AdminController@AdminPasswordChange')->name('admin.password.change');
+   Route::post('admin/password/update', 'AdminController@AdminPasswordUpdate')->name('admin.password.update');
+   Route::get('admin/profile/lock', 'AdminController@AdminLockScreen')->name('admin.lock.screen');
+   Route::post('/admin/unlock/screen','AdminController@UnlockScreen')->name('admin.unlock.screen');
+   Route::get('admin/log/out', 'AdminController@AdminLogOut')->name('admin.logout');
 
         //seo setting
-Route::get('admin/seo/setting', 'Admin\SeoController@Seo')->name('admin.seo.setting'); 
-Route::post('admin/seo/update', 'Admin\SeoController@SeoUpdate')->name('admin.seo.update'); 
-Route::get('admin/social/setting', 'Admin\SeoController@Social')->name('admin.social.setting'); 
-Route::post('admin/social/update', 'Admin\SeoController@SocialUpdate')->name('admin.social.update'); 
-Route::get('admin/logo/setting', 'Admin\SeoController@LogoSetting')->name('admin.logo.setting'); 
-Route::post('admin/panel/logo/update', 'Admin\SeoController@AdminLogoUpdate')->name('admin.panel.logo'); 
-Route::post('admin/frontlogo/update', 'Admin\SeoController@AdminFrontLogoUpdate')->name('admin.front.logo'); 
+Route::get('admin/seo/setting', 'Admin\SeoController@Seo')->name('admin.seo.setting');
+Route::post('admin/seo/update', 'Admin\SeoController@SeoUpdate')->name('admin.seo.update');
+Route::get('admin/social/setting', 'Admin\SeoController@Social')->name('admin.social.setting');
+Route::post('admin/social/update', 'Admin\SeoController@SocialUpdate')->name('admin.social.update');
+Route::get('admin/logo/setting', 'Admin\SeoController@LogoSetting')->name('admin.logo.setting');
+Route::post('admin/panel/logo/update', 'Admin\SeoController@AdminLogoUpdate')->name('admin.panel.logo');
+Route::post('admin/frontlogo/update', 'Admin\SeoController@AdminFrontLogoUpdate')->name('admin.front.logo');
      //mail setting
-Route::get('admin/mail/setting', 'Admin\SeoController@MailSetting')->name('admin.mail.setting'); 
-Route::post('admin/smtp/update', 'Admin\SeoController@smtpUpdate')->name('admin.smtp.update'); 
-Route::post('admin/mailgun/update', 'Admin\SeoController@mailgunUpdate')->name('admin.mailgun.update'); 
+Route::get('admin/mail/setting', 'Admin\SeoController@MailSetting')->name('admin.mail.setting');
+Route::post('admin/smtp/update', 'Admin\SeoController@smtpUpdate')->name('admin.smtp.update');
+Route::post('admin/mailgun/update', 'Admin\SeoController@mailgunUpdate')->name('admin.mailgun.update');
    //payment gateway
-Route::get('admin/payment/gateway', 'Admin\GatewayController@PaymentGateway')->name('admin.payment.gateway');   
-Route::post('admin/stripe/gateway', 'Admin\GatewayController@StripeUpdate')->name('admin.stripe.update');   
-Route::post('admin/paypal/gateway', 'Admin\GatewayController@PaypalUpdate')->name('admin.paypal.update');   
-Route::post('admin/twocheckout/gateway', 'Admin\GatewayController@twocheckoutUpdate')->name('admin.twocheckout.update');   
+Route::get('admin/payment/gateway', 'Admin\GatewayController@PaymentGateway')->name('admin.payment.gateway');
+Route::post('admin/stripe/gateway', 'Admin\GatewayController@StripeUpdate')->name('admin.stripe.update');
+Route::post('admin/paypal/gateway', 'Admin\GatewayController@PaypalUpdate')->name('admin.paypal.update');
+Route::post('admin/twocheckout/gateway', 'Admin\GatewayController@twocheckoutUpdate')->name('admin.twocheckout.update');
 Route::post('admin/mollie/gateway', 'Admin\GatewayController@MollieUpdate')->name('admin.mollie.update');
 
 
@@ -207,12 +207,59 @@ Route::post('admin/trash/brand/delete', 'Admin\TrashController@brandhearddelete'
 Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurementhearddelete')->name('admin.trash.measurement.delete');
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
+
+
+
+//  Frontend route start from here ============================================ //
+
+// front end controller
+
+Route::get('/', 'Frontend\FrontendController@index');
+Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
+Route::get(md5('/category/page'), 'Frontend\FrontendController@category')->name('category.page');
+Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
+Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
+Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
+Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
+Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
 // cupon
 Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
 Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
 Route::get(md5('admin/trash/faq'), 'Admin\TrashController@faqtrash')->name('admin.trash.faq');
 Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddelfaq')->name('');
+
 // page trash
 Route::get(md5('admin/trash/page'), 'Admin\TrashController@page')->name('admin.trash.page');
 Route::post(md5('admin/trash/multidelpage'), 'Admin\TrashController@pagemultdel')->name('admin.trash.pagemultidel');
 // foysal new new 
+
+
+
+
+
+
+
+//Harrison start
+Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'namespace'=> 'Admin'], function(){
+
+    Route::get('/', 'FlashDealController@index')->name('admin.flash.deal.index');
+    Route::get('create', 'FlashDealController@create')->name('admin.flash.deal.create');
+    Route::post('store', 'FlashDealController@insert')->name('admin.flash.deal.insert');
+    Route::get('change/status/{flashDealId}', 'FlashDealController@changeStatus')->name('admin.flash.deal.change.status');
+    Route::get('edit/{flashDealId}', 'FlashDealController@edit')->name('admin.flash.deal.edit');
+    Route::patch('update/{flashDealId}', 'FlashDealController@update')->name('admin.flash.deal.update');
+    // Ajax call route
+    Route::get('get/selected/products/by/ajax', 'FlashDealController@getProductsByAjax');
+    // Ajax call route end
+
+});
+//Harrison start ended
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
+
