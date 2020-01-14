@@ -176,10 +176,20 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 
 Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
-Route::get(md5('/category/page'), 'Frontend\FrontendController@category')->name('category.page');
+Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('product.page');
 Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
+Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
+Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
+
+
+Route::get(md5('/customer/account'), 'Frontend\FrontendController@customerAccount')->name('customer.account');
+Route::get(md5('/customer/order'), 'Frontend\FrontendController@customerOrder')->name('customer.order');
+Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrderInfo')->name('customer.order.info');
+Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
+Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
 

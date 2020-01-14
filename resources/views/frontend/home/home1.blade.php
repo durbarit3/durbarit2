@@ -5,7 +5,7 @@
         <div class="row row_a90w  row-style ">
 
             <!-- Include all categores for home page one ============================================ -->
-            @include('frontend.include.categories.home1')
+            @include('frontend.include.sidemenu.home1')
 
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col_anla  slider-right">
                 <div class="row row_ci4f  ">
