@@ -59,6 +59,10 @@ ul {
   background-color: #fff;
   z-index: 100000000000;
 }
+.theme_option_text{
+  font-size: 20px;
+  font-weight: bold;
+}
 .preloader img{
   position:absolute;
   top:50%;

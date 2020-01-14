@@ -488,6 +488,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+        'App\\ThemeOption' => __DIR__ . '/../..' . '/app/ThemeOption.php',
         'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',

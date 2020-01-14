@@ -59,6 +59,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
+    'App\\ThemeOption' => $baseDir . '/app/ThemeOption.php',
     'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',

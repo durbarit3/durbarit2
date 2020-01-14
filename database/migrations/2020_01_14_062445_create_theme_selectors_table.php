@@ -20,6 +20,8 @@ class CreateThemeSelectorsTable extends Migration
             $table->string('header_name')->unique();
             $table->string('footer_name')->unique();
             $table->string('theme_name')->unique();
+            $table->string('theme_display_name')->unique();
+            $table->string('theme_image')->unique();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
