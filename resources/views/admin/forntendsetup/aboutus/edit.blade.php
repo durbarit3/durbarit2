@@ -1,65 +1,80 @@
 @extends('layouts.adminapp')
-@section('admin_content')
+@section('admin_content')  
 <link rel="stylesheet" href="{{asset('public/adminpanel')}}/assets/plugins/select2/css/select2.min.css">
       <!-- content wrpper -->
 			<div class="content_wrapper">
 				<!--middle content wrapper-->
 				<div class="middle_content_wrapper">
-
+					
 				<section class="page_area">
 					<div class="panel">
 						<div class="panel_header">
 							<div class="row">
 								<div class="col-md-6">
-									<div class="panel_title"><span class="panel_icon"><i class="fas fa-plus-square"></i></span><span>Add Cupon</span></div>
+									<div class="panel_title"><span class="panel_icon"><i class="fas fa-plus-square"></i></span><span>Update Cupon</span></div>
 								</div>
 								<div class="col-md-6 text-right">
 									<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-award"></i> <a href="{{route('admin.cupon.all')}}" style="color: #fff;">All Cupon</a></button>
 								</div>
 							</div>
-
+							
 						</div>
 						<div class="panel_body">
-							<form action="{{route('admin.cupon.insert')}}" method="POST" id="choice_form" enctype="multipart/form-data">
+							<form action="{{route('admin.cupon.update')}}" method="POST" id="choice_form" enctype="multipart/form-data">
 								@csrf
 								  <div class="form-group row">
 								    <label for="" class="col-sm-3 col-form-label text-right">Cupon Type:</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="cupon_type">
+								     
+								      	@if($data->cupon_type==1)
+								      	<option>Select</option>
+								      	<option value="1" selected>For Total Order</option>
+								      	<option value="2">For Products</option>
+								      	@elseif($data->cupon_type==2)
 								      	<option>Select</option>
 								      	<option value="1">For Total Order</option>
+								      	<option value="2" selected>For Products</option>
+								      	@else
+										<option>Select</option>
+								      	<option value="1">For Total Order</option>
 								      	<option value="2">For Products</option>
+								      	@endif
 								      </select>
 								    </div>
 								  </div>
 								  <div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Cupon Code:</label>
 								    <div class="col-sm-6">
-								      <input type="text" class="form-control" name="cupon_code" required>
+								      <input type="text" class="form-control" name="cupon_code" value="{{$data->cupon_code}}" required>
+								      <input type="hidden" name="id" value="{{$data->id}}">
 								    </div>
 								  </div>
-								<div id="fortotalorder" style="display: none">
-
+								<div id="fortotalorder" @if($data->cupon_type==1) @else style="display: none" @endif>
+								  
 								  <div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Minimum Shopping:</label>
 								    <div class="col-sm-6">
-								      <input type="number" class="form-control" name="minimum_shopping">
+								      <input type="number" class="form-control" name="minimum_shopping" value="{{$data->minimum_shopping}}">
 								    </div>
 								  </div>
 								</div>
 								<!--  -->
-							<div id="forproduct" style="display: none">
+							<div id="forproduct" @if($data->cupon_type==2) @else style="display: none" @endif>
 								<div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product</label>
 								   <div class="col-sm-6">
 											<div class="select2-purple">
-												<select class="select2" name="product_id[]" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
+												<select class="select2" name="product_id[]" id="product_id" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
 													@php
 														$allproduct=App\Product::where('is_deleted',0)->OrderBy('id','DESC')->get();
 													@endphp
-													<option value="1" selected>select</option>
+													<option value="">select</option>
 													@foreach($allproduct as $product)
-													<option value="{{$product->id}}">{{$product->product_name}}</option>
+													
+									
+
+<option value="{{$product->id}}"  @if( in_array($product->id ,json_decode($data->product_id))) selected @else @endif > {{$product->product_name}}</option>
 													@endforeach
 												</select>
 											</div>
@@ -70,35 +85,60 @@
 								<div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Discount:</label>
 								    <div class="col-sm-5">
-								      <input type="number" class="form-control" name="discount">
+								      <input type="number" class="form-control" name="discount" value="{{$data->discount}}">
 								    </div>
 								    <div class="col-sm-1">
 								      <select class="form-control" name="discount_type">
-								      	<option value="1">Amount</option>
-								      	<option value="2">%</option>
+								      	<option value="1" @if($data->discount_type==1) selected @else @endif>Amount</option>
+								      	<option value="2" @if($data->discount_type==2) selected @else @endif>%</option>
 								      </select>
 								    </div>
 								</div>
 								<div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Date</label>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date" required>
+								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date" value="{{$data->cupon_start_date}}" required>
 								    </div>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date" required>
+								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date" value="{{$data->cupon_end_date}}" required>
 								    </div>
 								</div>
+								  
+								 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 								<div class="form-group row">
 									<div class="col-md-12 text-center">
 										<button type="submit" class="btn btn-primary">Add Cupon</button>
 									</div>
 								</div>
 							</form>
-
-						</div>
+								
+						</div>	
 					</div>
 				</section>
-			</div><!--/middle content wrapper-->
+			</div><!--/middle content wrapper-->  
 			</div><!--/ content wrapper -->
    <!-- script code start -->
  <script>
@@ -124,7 +164,7 @@
         	$("#forproduct").hide();
         	$("#fortotalorder").hide();
         }
-
+        
 
      });
  });
