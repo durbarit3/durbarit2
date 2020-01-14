@@ -511,6 +511,10 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
 
+        'App\\ThemeOption' => __DIR__ . '/../..' . '/app/ThemeOption.php',
+
+
+
         'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
 
         'App\\TermsAndCondition' => __DIR__ . '/../..' . '/app/TermsAndCondition.php',

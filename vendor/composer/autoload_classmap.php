@@ -83,6 +83,9 @@ return array(
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
 
+    'App\\ThemeOption' => $baseDir . '/app/ThemeOption.php',
+
+
     'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
 
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',

@@ -234,6 +234,13 @@ Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrd
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
 
+
+
+// Theme Selector area start
+
+Route::get(md5('admin/theme/selector/show'), 'Admin\ThemeOptionController@themeSelectorPageShow')->name('theme.selector.show');
+Route::post('admin/theme/selector/change', 'Admin\ThemeOptionController@themeSelectorPageChange')->name('admin.theme.option.change');
+
 // cupon
 Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
 Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
@@ -278,6 +285,7 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 // qayum hasan route start
 Route::view('/website', 'layouts.websiteapp');
 // qayum hasan route end
+
 
 
 
