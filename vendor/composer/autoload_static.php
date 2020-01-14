@@ -435,6 +435,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
     );
 
     public static $classMap = array (
+        'App\\AboutUs' => __DIR__ . '/../..' . '/app/AboutUs.php',
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
@@ -442,16 +443,36 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+
+        'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
+        'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
+        'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+
+        'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
+
+
+        'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
+
         'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
+
         'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
+
+
+
+
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\ColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ColorController.php',
         'App\\Http\\Controllers\\Admin\\CuponController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CuponController.php',
+
         'App\\Http\\Controllers\\Admin\\FlashDealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FlashDealController.php',
+
+        'App\\Http\\Controllers\\Admin\\ForntendSetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ForntendSetupController.php',
+
         'App\\Http\\Controllers\\Admin\\GatewayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GatewayController.php',
         'App\\Http\\Controllers\\Admin\\MeasurementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MeasurementController.php',
+        'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
         'App\\Http\\Controllers\\Admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductController.php',
         'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\SeoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SeoController.php',
@@ -467,6 +488,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -477,6 +499,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mesurement' => __DIR__ . '/../..' . '/app/Mesurement.php',
+        'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\ProductImage' => __DIR__ . '/../..' . '/app/ProductImage.php',
         'App\\ProductLicense' => __DIR__ . '/../..' . '/app/ProductLicense.php',
@@ -487,6 +510,11 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+
+        'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
+
+        'App\\TermsAndCondition' => __DIR__ . '/../..' . '/app/TermsAndCondition.php',
+
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

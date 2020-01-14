@@ -118,6 +118,11 @@ Route::post(md5('admin/cupon/insert'), 'Admin\CuponController@insert')->name('ad
 Route::get('admin/cupon/deactive/{id}', 'Admin\CuponController@deactive');
 Route::get('admin/cupon/active/{id}', 'Admin\CuponController@active');
 Route::get('admin/cupon/softdelete/{id}', 'Admin\CuponController@softdelete');
+Route::get('admin/cupon/edit/{id}', 'Admin\CuponController@edit');
+Route::post('admin/cupon/update', 'Admin\CuponController@update')->name('admin.cupon.update');
+Route::post('admin/cupon/multiplesoftdelete', 'Admin\CuponController@multiplesoftdelete');
+Route::get('admin/cupon/restore/{id}', 'Admin\CuponController@restore');
+Route::get('admin/cupon/delete/{id}', 'Admin\CuponController@delete');
 
 // product controller
 Route::get(md5('admin/product/producttype'), 'Admin\ProductController@producttype')->name('admin.product.producttype');
@@ -151,6 +156,40 @@ Route::get('admin/product/producteditthree/{id}', 'Admin\ProductController@produ
 // product type affiliate edit
 Route::get('admin/product/producteditfour/{id}', 'Admin\ProductController@producteditfour');
 
+// general setting
+
+Route::get(md5('admin/forntendsetup/aboutus'), 'Admin\ForntendSetupController@aboutus')->name('admin.aboutus');
+Route::post('admin/forntendsetup/aboutus/update', 'Admin\ForntendSetupController@aboutusupdate')->name('admin.aboutus.update');
+Route::get(md5('admin/forntendsetup/termscondition'), 'Admin\ForntendSetupController@termsandcondition')->name('admin.termscondition');
+Route::post(md5('admin/forntendsetup/termsconditionupdate'),'Admin\ForntendSetupController@termsandconditionupdate')->name('admin.termsandcondition.update');
+Route::get(md5('admin/forntendsetup/faq/add'), 'Admin\ForntendSetupController@faq')->name('admin.faq');
+
+Route::post(md5('admin/forntendsetup/faq/insert'), 'Admin\ForntendSetupController@faqinsert')->name('admin.faq.insert');
+Route::get(md5('admin/forntendsetup/faq/all'), 'Admin\ForntendSetupController@allfaq')->name('admin.faq.all');
+
+Route::get('admin/faq/deactive/{id}', 'Admin\ForntendSetupController@faqdeactive');
+Route::get('admin/faq/active/{id}', 'Admin\ForntendSetupController@faqactive');
+Route::get('/get/faq/edit/{faqid}', 'Admin\ForntendSetupController@faqedit');
+Route::post('admin/faq/update', 'Admin\ForntendSetupController@faqupdate')->name('admin.faq.update');
+Route::get('admin/faq/softdelete/{id}', 'Admin\ForntendSetupController@faqsoftdelete');
+Route::post('admin/faq/multisoftdelete', 'Admin\ForntendSetupController@faqmultidelete');
+Route::get('admin/faq/recover/{id}', 'Admin\ForntendSetupController@faqrecover');
+Route::get('admin/faq/faqhearddelete/{id}', 'Admin\ForntendSetupController@faqhearddelete');
+//page controller
+Route::get(md5('admin/page/all'), 'Admin\PageController@index')->name('admin.page.all');
+Route::post(md5('admin/page/insert'), 'Admin\PageController@insert')->name('admin.page.insert');
+Route::get('admin/page/deactive/{id}', 'Admin\PageController@deactive');
+Route::get('admin/page/active/{id}', 'Admin\PageController@active');
+Route::get('admin/page/softdelete/{id}', 'Admin\PageController@pagesoftdel');
+Route::get('/get/page/edit/{page_id}', 'Admin\PageController@edit');
+Route::post('admin/page/update', 'Admin\PageController@update')->name('admin.page.update');
+Route::post('admin/page/multisoftdelete', 'Admin\PageController@pagemultidel')->name('admin.page.multisoftdelete');
+Route::get('admin/page/recover/{id}','Admin\PageController@recover');
+Route::get('admin/page/hearddelete/{id}','Admin\PageController@hearddelete');
+
+
+
+
 
 // trash controller
 Route::get(md5('admin/trash/category'), 'Admin\TrashController@category')->name('admin.trash.category');
@@ -168,6 +207,47 @@ Route::post('admin/trash/brand/delete', 'Admin\TrashController@brandhearddelete'
 Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurementhearddelete')->name('admin.trash.measurement.delete');
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
+
+
+
+//  Frontend route start from here ============================================ //
+
+// front end controller
+
+Route::get('/', 'Frontend\FrontendController@index');
+Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
+Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('product.page');
+Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
+Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
+Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
+Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
+Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
+
+Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
+Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
+
+
+Route::get(md5('/customer/account'), 'Frontend\FrontendController@customerAccount')->name('customer.account');
+Route::get(md5('/customer/order'), 'Frontend\FrontendController@customerOrder')->name('customer.order');
+Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrderInfo')->name('customer.order.info');
+Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
+Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
+
+// cupon
+Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
+Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
+Route::get(md5('admin/trash/faq'), 'Admin\TrashController@faqtrash')->name('admin.trash.faq');
+Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddelfaq')->name('');
+
+// page trash
+Route::get(md5('admin/trash/page'), 'Admin\TrashController@page')->name('admin.trash.page');
+Route::post(md5('admin/trash/multidelpage'), 'Admin\TrashController@pagemultdel')->name('admin.trash.pagemultidel');
+// foysal new new 
+
+
+
+
 
 
 
@@ -194,3 +274,12 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 
 });
 //Harrison start ended
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
+
+
