@@ -16,7 +16,7 @@
 
 	<!-- Include all css for home page ============================================ -->
 
-		@foreach(App\FrontendCssJs::where('status',0)->get() as $css)	
+		@foreach(App\ThemeSelector::where('status',1)->get() as $css)	
 			@include($css->css_name)
 		@endforeach
 	
@@ -27,7 +27,7 @@
 
 		<!-- Include all header file for home page one ============================================ -->
 		
-		@foreach(App\FrontenHeader::where('status',0)->get() as $header)	
+		@foreach(App\ThemeSelector::where('status',1)->get() as $header)	
 			@include($header->header_name)
 		@endforeach
 
@@ -36,7 +36,7 @@
 
 		<!-- Include navigation option for home page ============================================ -->
 
-		@if(App\FrontenHeader::where('status',0)->first()->header_name !='frontend.include.header.home2')
+		@if(App\ThemeSelector::where('status',1)->first()->header_name !='frontend.include.header.home2')
 			@include('frontend.include.navigation.home1')
 		@else
 			''
@@ -50,7 +50,7 @@
 
 	<!-- Include footer option for home page one ============================================ -->
 
-	@foreach(App\FrontenFooter::where('status',0)->get() as $footer)	
+	@foreach(App\ThemeSelector::where('status',1)->get() as $footer)	
 		@include($footer->footer_name)
 	@endforeach
 	
@@ -59,7 +59,7 @@
 
 	<!-- Include all js for home page one ============================================ -->
 
-	@foreach(App\FrontendCssJs::where('status',0)->get() as $js)	
+	@foreach(App\ThemeSelector::where('status',1)->get() as $js)	
 			@include($js->js_name)
 	@endforeach
 </body>

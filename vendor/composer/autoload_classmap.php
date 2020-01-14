@@ -18,6 +18,7 @@ return array(
     'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
     'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
     'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
+
     'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
 
 
@@ -26,6 +27,7 @@ return array(
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
 
     'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
+
 
 
 
@@ -80,7 +82,11 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
+
+    'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
+
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
+
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

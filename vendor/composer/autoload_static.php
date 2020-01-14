@@ -447,6 +447,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
         'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
         'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+
         'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
 
 
@@ -455,6 +456,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
 
         'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
+
 
 
 
@@ -508,7 +510,11 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+
+        'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
+
         'App\\TermsAndCondition' => __DIR__ . '/../..' . '/app/TermsAndCondition.php',
+
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

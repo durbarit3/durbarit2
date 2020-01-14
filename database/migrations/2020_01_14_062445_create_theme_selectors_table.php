@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFrontendCssJsTable extends Migration
+class CreateThemeSelectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateFrontendCssJsTable extends Migration
      */
     public function up()
     {
-        Schema::create('frontend_css_js', function (Blueprint $table) {
+        Schema::create('theme_selectors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('css_name')->unique();
             $table->string('js_name')->unique();
+            $table->string('header_name')->unique();
+            $table->string('footer_name')->unique();
+            $table->string('theme_name')->unique();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ class CreateFrontendCssJsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('frontend_css_js');
+        Schema::dropIfExists('theme_selectors');
     }
 }
