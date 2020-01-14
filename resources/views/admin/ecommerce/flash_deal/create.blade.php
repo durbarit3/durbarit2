@@ -16,7 +16,7 @@
                                     </div>
 								</div>
 								<div class="col-md-6 text-right">
-									<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-award"></i> <a href="" style="color: #fff;">All Flash Deal</a></button>
+                                <button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-award"></i> <a href="{{ route('admin.flash.deal.index') }}" style="color: #fff;">All Flash Deal</a></button>
 								</div>
 							</div>
 
@@ -68,10 +68,12 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-6 ">
                                         <div class="selected-products-table">
-                                            <table class="table table-sm">
+                                            <table class="table table-sm table-bordered">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Product Name</th>
+                                                    <tr class="text-center">
+                                                        <th>Product Id</th>
+                                                        <th>Name</th>
+                                                        <th>Photo</th>
                                                         <th>Base Price</th>
                                                         <th>Discount</th>
                                                         <th>Type</th>

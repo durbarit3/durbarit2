@@ -372,6 +372,7 @@
                                 <li><a href="{{route('admin.trash.color')}}">Color</a></li>
                                 <li><a href="{{route('admin.trash.brand')}}">Brand</a></li>
                                 <li><a href="{{route('admin.trash.measurement')}}">Measurement</a></li>
+                                <li><a href="{{route('admin.flash.deal.trash.view')}}">Flash Deal</a></li>
                               </ul>
                         </li>
 

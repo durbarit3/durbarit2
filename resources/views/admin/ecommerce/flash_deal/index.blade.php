@@ -20,7 +20,7 @@
 									</div>
 								</div>
 							</div>
-							<form action="{{url('admin/category/multiplesoftdelete')}}" method="Post">
+							<form action="{{route('admin.flash.deal.multiple.soft.delete')}}" method="Post">
 						     @csrf
 							<button type="submit" style="margin: 5px;" class="btn btn-danger" ><i class="fa fa-trash"></i> Delete All</button>
              				<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-recycle"></i> <a href="" style="color: #fff;">Restore</a></button>
@@ -67,7 +67,7 @@
 													@endif
 
                                                     <a href="{{ route('admin.flash.deal.edit', $flashDeal->id) }}" class="btn btn-sm btn-blue text-white" ><i class="fas fa-pencil-alt"></i></a> |
-		                                            <a id="delete" href="" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
+		                                            <a id="delete" href="{{ route('admin.flash.deal.soft.delete', $flashDeal->id) }}" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
 		                                       </td>
 		                                  </tr>
 		                                 @endforeach
