@@ -444,6 +444,10 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
 
+        'App\\FooterOption' => __DIR__ . '/../..' . '/app/FooterOption.php',
+
+
+
         'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
         'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
         'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
@@ -477,6 +481,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\SeoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SeoController.php',
         'App\\Http\\Controllers\\Admin\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategoryController.php',
+        'App\\Http\\Controllers\\Admin\\ThemeOptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ThemeOptionController.php',
         'App\\Http\\Controllers\\Admin\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrashController.php',
         'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\AdminLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminLoginController.php',
@@ -498,6 +503,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Logo' => __DIR__ . '/../..' . '/app/Logo.php',
         'App\\Mesurement' => __DIR__ . '/../..' . '/app/Mesurement.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
@@ -512,6 +518,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
 
         'App\\ThemeOption' => __DIR__ . '/../..' . '/app/ThemeOption.php',
+
 
 
 

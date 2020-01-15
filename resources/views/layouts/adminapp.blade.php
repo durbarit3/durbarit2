@@ -412,6 +412,7 @@
                               <li><a href="{{ route('admin.mail.setting') }}">Mail Setting</a></li>
                               <li><a href="{{ route('admin.payment.gateway') }}">Payment Gateway</a></li>
                               <li><a href="{{ route('theme.selector.show') }}">Theme Option</a></li>
+                              <li><a href="{{ route('admin.footer.option') }}">Footer Option</a></li>
                             </ul>
                         </li>
 

@@ -2,6 +2,8 @@
 @section('admin_content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 <div class="content_wrapper">
     <div class="middle_content_wrapper">
         <section class="page_area">
@@ -19,7 +21,7 @@
                                     <img src="{{asset('public/frontend/image/catalog/demo/menu/feature/')}}/{{$data->theme_image}}" style="height: 160px; width: 100%;"><br><br>
                                     <span class="theme_option_text" col-form-label">{{$data->theme_display_name}}</span><br><br>
                                     <label class="switch">
-                                        <input type="checkbox" id="themecheckbox{{ $data->id }}" onchange="update_todays_deal(this)" value="{{ $data->id }}" <?php if ($data->status == 1) echo "checked"; ?>>
+                                        <input type="checkbox" class="themeselector" onclick="myfunction()" onchange="update_todays_deal(this)" value="{{ $data->id }}" <?php if ($data->status == 1) echo "checked"; ?>>
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
@@ -50,10 +52,16 @@
             function(data) {
                 console.log(data);
                 if (data == 1) {
-                    showAlert('success', 'Published products updated successfully');
-                } else {
-                    showAlert('danger', 'Something went wrong');
-                }
+                    toastr.success("Theme Changed successfully");
+                } 
             });
+    }
+</script>
+
+<script>
+    function myfunction(){
+        $('input:checkbox').click(function() {
+            $('input:checkbox').not(this).prop('checked', false);
+        });
     }
 </script>
