@@ -9,39 +9,39 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //admin routes
    Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-   Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');  
+   Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');
    Route::post('admin/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
    Route::get('admin/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
    Route::post('admin/password/reset', 'Auth\AdminResetPasswordController@reset');
    Route::get('admin/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
    Route::get('/admin', 'AdminController@index')->name('admin.dashboard'); //admin dashboard
          //admin setting section
-   Route::get('admin/profile', 'AdminController@AdminProfile')->name('admin.profile'); 
-   Route::get('admin/edit/profile', 'AdminController@AdminEditProfile')->name('admin.edit.profile'); 
-   Route::post('admin/update/profile', 'AdminController@AdminUpdateProfile')->name('admin.update.profile'); 
-   Route::get('admin/password/change', 'AdminController@AdminPasswordChange')->name('admin.password.change'); 
-   Route::post('admin/password/update', 'AdminController@AdminPasswordUpdate')->name('admin.password.update'); 
-   Route::get('admin/profile/lock', 'AdminController@AdminLockScreen')->name('admin.lock.screen'); 
-   Route::post('/admin/unlock/screen','AdminController@UnlockScreen')->name('admin.unlock.screen'); 
-   Route::get('admin/log/out', 'AdminController@AdminLogOut')->name('admin.logout'); 
+   Route::get('admin/profile', 'AdminController@AdminProfile')->name('admin.profile');
+   Route::get('admin/edit/profile', 'AdminController@AdminEditProfile')->name('admin.edit.profile');
+   Route::post('admin/update/profile', 'AdminController@AdminUpdateProfile')->name('admin.update.profile');
+   Route::get('admin/password/change', 'AdminController@AdminPasswordChange')->name('admin.password.change');
+   Route::post('admin/password/update', 'AdminController@AdminPasswordUpdate')->name('admin.password.update');
+   Route::get('admin/profile/lock', 'AdminController@AdminLockScreen')->name('admin.lock.screen');
+   Route::post('/admin/unlock/screen','AdminController@UnlockScreen')->name('admin.unlock.screen');
+   Route::get('admin/log/out', 'AdminController@AdminLogOut')->name('admin.logout');
 
         //seo setting
-Route::get('admin/seo/setting', 'Admin\SeoController@Seo')->name('admin.seo.setting'); 
-Route::post('admin/seo/update', 'Admin\SeoController@SeoUpdate')->name('admin.seo.update'); 
-Route::get('admin/social/setting', 'Admin\SeoController@Social')->name('admin.social.setting'); 
-Route::post('admin/social/update', 'Admin\SeoController@SocialUpdate')->name('admin.social.update'); 
-Route::get('admin/logo/setting', 'Admin\SeoController@LogoSetting')->name('admin.logo.setting'); 
-Route::post('admin/panel/logo/update', 'Admin\SeoController@AdminLogoUpdate')->name('admin.panel.logo'); 
-Route::post('admin/frontlogo/update', 'Admin\SeoController@AdminFrontLogoUpdate')->name('admin.front.logo'); 
+Route::get('admin/seo/setting', 'Admin\SeoController@Seo')->name('admin.seo.setting');
+Route::post('admin/seo/update', 'Admin\SeoController@SeoUpdate')->name('admin.seo.update');
+Route::get('admin/social/setting', 'Admin\SeoController@Social')->name('admin.social.setting');
+Route::post('admin/social/update', 'Admin\SeoController@SocialUpdate')->name('admin.social.update');
+Route::get('admin/logo/setting', 'Admin\SeoController@LogoSetting')->name('admin.logo.setting');
+Route::post('admin/panel/logo/update', 'Admin\SeoController@AdminLogoUpdate')->name('admin.panel.logo');
+Route::post('admin/frontlogo/update', 'Admin\SeoController@AdminFrontLogoUpdate')->name('admin.front.logo');
      //mail setting
-Route::get('admin/mail/setting', 'Admin\SeoController@MailSetting')->name('admin.mail.setting'); 
-Route::post('admin/smtp/update', 'Admin\SeoController@smtpUpdate')->name('admin.smtp.update'); 
-Route::post('admin/mailgun/update', 'Admin\SeoController@mailgunUpdate')->name('admin.mailgun.update'); 
+Route::get('admin/mail/setting', 'Admin\SeoController@MailSetting')->name('admin.mail.setting');
+Route::post('admin/smtp/update', 'Admin\SeoController@smtpUpdate')->name('admin.smtp.update');
+Route::post('admin/mailgun/update', 'Admin\SeoController@mailgunUpdate')->name('admin.mailgun.update');
    //payment gateway
-Route::get('admin/payment/gateway', 'Admin\GatewayController@PaymentGateway')->name('admin.payment.gateway');   
-Route::post('admin/stripe/gateway', 'Admin\GatewayController@StripeUpdate')->name('admin.stripe.update');   
-Route::post('admin/paypal/gateway', 'Admin\GatewayController@PaypalUpdate')->name('admin.paypal.update');   
-Route::post('admin/twocheckout/gateway', 'Admin\GatewayController@twocheckoutUpdate')->name('admin.twocheckout.update');   
+Route::get('admin/payment/gateway', 'Admin\GatewayController@PaymentGateway')->name('admin.payment.gateway');
+Route::post('admin/stripe/gateway', 'Admin\GatewayController@StripeUpdate')->name('admin.stripe.update');
+Route::post('admin/paypal/gateway', 'Admin\GatewayController@PaypalUpdate')->name('admin.paypal.update');
+Route::post('admin/twocheckout/gateway', 'Admin\GatewayController@twocheckoutUpdate')->name('admin.twocheckout.update');
 Route::post('admin/mollie/gateway', 'Admin\GatewayController@MollieUpdate')->name('admin.mollie.update');
 
 
@@ -118,6 +118,11 @@ Route::post(md5('admin/cupon/insert'), 'Admin\CuponController@insert')->name('ad
 Route::get('admin/cupon/deactive/{id}', 'Admin\CuponController@deactive');
 Route::get('admin/cupon/active/{id}', 'Admin\CuponController@active');
 Route::get('admin/cupon/softdelete/{id}', 'Admin\CuponController@softdelete');
+Route::get('admin/cupon/edit/{id}', 'Admin\CuponController@edit');
+Route::post('admin/cupon/update', 'Admin\CuponController@update')->name('admin.cupon.update');
+Route::post('admin/cupon/multiplesoftdelete', 'Admin\CuponController@multiplesoftdelete');
+Route::get('admin/cupon/restore/{id}', 'Admin\CuponController@restore');
+Route::get('admin/cupon/delete/{id}', 'Admin\CuponController@delete');
 
 // product controller
 Route::get(md5('admin/product/producttype'), 'Admin\ProductController@producttype')->name('admin.product.producttype');
@@ -151,6 +156,40 @@ Route::get('admin/product/producteditthree/{id}', 'Admin\ProductController@produ
 // product type affiliate edit
 Route::get('admin/product/producteditfour/{id}', 'Admin\ProductController@producteditfour');
 
+// general setting
+
+Route::get(md5('admin/forntendsetup/aboutus'), 'Admin\ForntendSetupController@aboutus')->name('admin.aboutus');
+Route::post('admin/forntendsetup/aboutus/update', 'Admin\ForntendSetupController@aboutusupdate')->name('admin.aboutus.update');
+Route::get(md5('admin/forntendsetup/termscondition'), 'Admin\ForntendSetupController@termsandcondition')->name('admin.termscondition');
+Route::post(md5('admin/forntendsetup/termsconditionupdate'),'Admin\ForntendSetupController@termsandconditionupdate')->name('admin.termsandcondition.update');
+Route::get(md5('admin/forntendsetup/faq/add'), 'Admin\ForntendSetupController@faq')->name('admin.faq');
+
+Route::post(md5('admin/forntendsetup/faq/insert'), 'Admin\ForntendSetupController@faqinsert')->name('admin.faq.insert');
+Route::get(md5('admin/forntendsetup/faq/all'), 'Admin\ForntendSetupController@allfaq')->name('admin.faq.all');
+
+Route::get('admin/faq/deactive/{id}', 'Admin\ForntendSetupController@faqdeactive');
+Route::get('admin/faq/active/{id}', 'Admin\ForntendSetupController@faqactive');
+Route::get('/get/faq/edit/{faqid}', 'Admin\ForntendSetupController@faqedit');
+Route::post('admin/faq/update', 'Admin\ForntendSetupController@faqupdate')->name('admin.faq.update');
+Route::get('admin/faq/softdelete/{id}', 'Admin\ForntendSetupController@faqsoftdelete');
+Route::post('admin/faq/multisoftdelete', 'Admin\ForntendSetupController@faqmultidelete');
+Route::get('admin/faq/recover/{id}', 'Admin\ForntendSetupController@faqrecover');
+Route::get('admin/faq/faqhearddelete/{id}', 'Admin\ForntendSetupController@faqhearddelete');
+//page controller
+Route::get(md5('admin/page/all'), 'Admin\PageController@index')->name('admin.page.all');
+Route::post(md5('admin/page/insert'), 'Admin\PageController@insert')->name('admin.page.insert');
+Route::get('admin/page/deactive/{id}', 'Admin\PageController@deactive');
+Route::get('admin/page/active/{id}', 'Admin\PageController@active');
+Route::get('admin/page/softdelete/{id}', 'Admin\PageController@pagesoftdel');
+Route::get('/get/page/edit/{page_id}', 'Admin\PageController@edit');
+Route::post('admin/page/update', 'Admin\PageController@update')->name('admin.page.update');
+Route::post('admin/page/multisoftdelete', 'Admin\PageController@pagemultidel')->name('admin.page.multisoftdelete');
+Route::get('admin/page/recover/{id}','Admin\PageController@recover');
+Route::get('admin/page/hearddelete/{id}','Admin\PageController@hearddelete');
+
+
+
+
 
 // trash controller
 Route::get(md5('admin/trash/category'), 'Admin\TrashController@category')->name('admin.trash.category');
@@ -174,6 +213,7 @@ Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->nam
 
 
 
+
 //  Frontend route start from here ============================================ //
 
 // front end controller
@@ -186,6 +226,7 @@ Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name(
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
 
 Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
 Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
@@ -203,4 +244,56 @@ Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerG
 
 Route::get(md5('admin/theme/selector/show'), 'Admin\ThemeOptionController@themeSelectorPageShow')->name('theme.selector.show');
 Route::post('admin/theme/selector/change', 'Admin\ThemeOptionController@themeSelectorPageChange')->name('admin.theme.option.change');
+
 Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal');
+
+
+// cupon
+Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
+Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
+Route::get(md5('admin/trash/faq'), 'Admin\TrashController@faqtrash')->name('admin.trash.faq');
+Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddelfaq')->name('');
+
+// page trash
+Route::get(md5('admin/trash/page'), 'Admin\TrashController@page')->name('admin.trash.page');
+Route::post(md5('admin/trash/multidelpage'), 'Admin\TrashController@pagemultdel')->name('admin.trash.pagemultidel');
+// foysal new new 
+
+
+
+
+
+
+
+//Harrison start
+Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'namespace'=> 'Admin'], function(){
+
+    Route::get('/', 'FlashDealController@index')->name('admin.flash.deal.index');
+    Route::get('create', 'FlashDealController@create')->name('admin.flash.deal.create');
+    Route::post('store', 'FlashDealController@insert')->name('admin.flash.deal.insert');
+    Route::get('change/status/{flashDealId}', 'FlashDealController@changeStatus')->name('admin.flash.deal.change.status');
+    Route::get('edit/{flashDealId}', 'FlashDealController@edit')->name('admin.flash.deal.edit');
+    Route::post('update/{flashDealId}', 'FlashDealController@update')->name('admin.flash.deal.update');
+    Route::get('soft/delete/{flashDealId}', 'FlashDealController@softDelete')->name('admin.flash.deal.soft.delete');
+    Route::post('multiple.soft.delete', 'FlashDealController@multipleSoftDelete')->name('admin.flash.deal.multiple.soft.delete');
+    Route::get('all/trash/view', 'FlashDealController@allFlashDealTrashView')->name('admin.flash.deal.trash.view');
+
+    Route::get('single/refactor/{flashDealId}', 'FlashDealController@singleRefactor')->name('admin.flash.deal.single.refactor');
+    Route::get('single/force/delete/{flashDealId}', 'FlashDealController@singleForceDelete')->name('admin.flash.deal.single.force.delete');
+    Route::post('multiple/force/delete', 'FlashDealController@multipleForceDelete')->name('admin.flash.deal.multiple.force.delete');
+    // Ajax call route
+    Route::get('get/selected/products/by/ajax', 'FlashDealController@getProductsByAjax');
+    Route::get('get/selected/previous/and/new/products/by/ajax', 'FlashDealController@getProductsPreviousAndNewByAjax');
+    // Ajax call route end
+
+});
+//Harrison start ended
+
+// qayum hasan route start
+Route::view('/website', 'layouts.websiteapp');
+// qayum hasan route end
+
+
+
+
+

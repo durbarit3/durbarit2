@@ -124,7 +124,7 @@
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image:</label>
 			    <div class="col-sm-8">
 			      <input type="file" name="pic" required>
-			  		 <p>(120px*120px)</p>
+			  		 <p>(270px*270px)</p>
 			    </div>
 			  </div>
 
@@ -133,7 +133,47 @@
 
 			    <div class="col-sm-8">
 			      <input type="file" name="icon" required>
-			      <p>(32px*32px)</p>
+			      <p>(20px*20px)</p>
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Choich Section</label>
+			    <div class="col-sm-8 row">
+			     <div class="col-md-8">
+			     	<input type="radio" name="section_id" value="1">
+			     	<img src="{{asset('public/adminpanel')}}/Capture.PNG" alt="asif" height="70px" width="150px">
+			     </div>
+			     <br>
+			     <br>
+			     <br>
+			     <div class="col-md-8">
+			     	<input type="radio" name="section_id" value="2">
+			     	<img src="{{asset('public/adminpanel')}}/Capture2.PNG" alt="asif" height="70px" width="150px">
+			     </div>
+			     <br>
+			     <br>
+			     <br>  
+			     <div class="col-md-8">
+			     	<input type="radio" name="section_id" value="3">
+			     	<img src="{{asset('public/adminpanel')}}/Capture3.PNG" alt="asif" height="70px" width="150px">
+			     </div>
+			     <br>
+			     <br>
+			     <br>  
+			     <div class="col-md-8">
+			     	<input type="radio" name="section_id" value="4">
+			     	<img src="{{asset('public/adminpanel')}}/Capture4.PNG" alt="asif" height="70px" width="150px">
+			     </div>
+			     <div class="col-md-8">
+			     	<input type="radio" name="section_id" value="5" checked>
+			     	<img src="{{asset('public/adminpanel')}}/Capture5.PNG" alt="asif" height="70px" width="150px">
+			     </div>
+			     <br>
+			     <br>
+			     <br>
+
+
+			    
 			    </div>
 			  </div>
 

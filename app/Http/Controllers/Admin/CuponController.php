@@ -102,12 +102,115 @@ class CuponController extends Controller
                 return Redirect()->back()->with($notification);
             }else{
                 $notification=array(
-                'messege'=>'Cupon softdelete Success',
+                'messege'=>'Cupon softdelete Faild',
+                'alert-type'=>'error'
+                 );
+                return Redirect()->back()->with($notification);
+            }
+    }
+// edit
+    public function edit($id){
+        $data=Cupon::where('id',$id)->first();
+        $proid=json_decode($data->product_id);
+
+        return view('admin.ecommerce.cupon.edit',compact('data','proid'));
+    }
+
+    // update
+    public function update(Request $request){
+         $id=$request->id;
+         $update=Cupon::where('id',$id)->update([
+
+            'cupon_type'=>$request['cupon_type'],
+            'cupon_code'=>$request['cupon_code'],
+            'minimum_shopping'=>$request['minimum_shopping'],
+            'product_id'=>json_encode($request['product_id']),
+            'discount'=>$request['discount'],
+            'discount_type'=>$request['discount_type'],
+            'cupon_start_date'=>$request['cupon_start_date'],
+            'cupon_end_date'=>$request['cupon_end_date'],
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+
+         ]);
+         if($update){
+            $notification=array(
+                'messege'=>'Cupon Update Success',
+                'alert-type'=>'success'
+                 );
+                return Redirect()->back()->with($notification);
+            }else{
+                 $notification=array(
+                'messege'=>'Cupon update Faild',
                 'alert-type'=>'error'
                  );
                 return Redirect()->back()->with($notification);
             }
     }
 
-
+    // multisoft
+    public function multiplesoftdelete(Request $request){
+        $deleteid=$request->Input('delid');
+                     if($deleteid){
+                     $delet=Cupon::whereIn('id',$deleteid)->update([
+                            'is_deleted'=>'1',
+                            'updated_at'=>Carbon::now()->toDateTimeString(),
+                     ]);
+                     if($delet){
+                         $notification=array(
+                            'messege'=>'success',
+                            'alert-type'=>'success'
+                             );
+                         return redirect()->back()->with($notification);
+                     }else{
+                         $notification=array(
+                            'messege'=>'error',
+                            'alert-type'=>'error'
+                             );
+                         return redirect()->back()->with($notification);
+                        }
+                     }else{
+                        $notification=array(
+                            'messege'=>'Nothing To Delete',
+                            'alert-type'=>'info'
+                             );
+                         return redirect()->back()->with($notification);
+                     }
+    }
+// restore
+    public function restore($id){
+        $restore=Cupon::where('id',$id)->update([
+            'is_deleted'=>'0',
+            'created_at'=>Carbon::now()->toDateTimeString(),
+        ]);
+        if($restore){
+            $notification=array(
+                'messege'=>'Recover success',
+                'alert-type'=>'success'
+                 );
+                return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'messege'=>'error',
+                'alert-type'=>'error'
+                 );
+                return redirect()->back()->with($notification);
+        }
+    }
+    // single heard delete
+    public function delete($id){
+        $delete=Cupon::where('id',$id)->delete();
+        if($delete){
+            $notification=array(
+                'messege'=>'Delete success',
+                'alert-type'=>'success'
+                 );
+                return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'messege'=>'Delete Faild',
+                'alert-type'=>'error'
+                 );
+                return redirect()->back()->with($notification);
+        }
+    }
 }

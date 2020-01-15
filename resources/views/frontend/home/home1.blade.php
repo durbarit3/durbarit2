@@ -16,7 +16,7 @@
                                     <div class="so-homeslider yt-content-slider full_slider owl-drag" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="yes" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
                                         <div class="item">
                                             <a href=" #   " title="slide 1 - 1" target="_self">
-                                                <img class="responsive" <img src="{{asset('public/frontend/')}}/image/catalog/demo/slider/home1/slider.jpg" alt="slide 1 - 1">
+                                                <img class="responsive"src="{{asset('public/frontend/')}}/image/catalog/demo/slider/home1/slider.jpg" alt="slide 1 - 1">
                                             </a>
                                             <div class="sohomeslider-description">
                                             </div>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="modcontent">
                             <div class="so-deal modcontent products-list grid clearfix clearfix preset00-3 preset01-3 preset02-2 preset03-2 preset04-1  button-type1  style2">
-                                <div class="category-slider-inner products-list yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="3" data-items_column0="3" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
+                                <div class="category-slider-inner products-list yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="5" data-items_column0="5" data-items_column1="5" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
                                     <div class="item">
                                         <div class="transition product-layout">
                                             <div class="product-item-container ">
@@ -232,27 +232,34 @@
             </div>
         </div>
     </section>
+    <!-- first category -->
+    @php
+        $cate=App\Category::where('section_id',1)->where('is_deleted',0)->orderBy('id','DESC')->get();
+    @endphp
+
     <section id="box-link2" class="section-style">
         <div class="container page-builder-ltr">
+                
             <div class="row row-style row_a2">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_1bi4  col-style block block_5 title_neo2">
-                    <div class="module so-listing-tabs-ltr default-nav clearfix img-float label-1 home-lt1">
+                @foreach($cate as $maincate)
+                <div class="col-md-12 col_1bi4  col-style block block_5 title_neo2">
+                <div class="module so-listing-tabs-ltr default-nav clearfix img-float label-1 home-lt1">
                         <div class="head-title font-ct">
-                            <h2 class="modtitle">Spa &amp; Massage</h2>
+                            <h2 class="modtitle">{{$maincate->cate_name}}</h2>
                         </div>
                         <div class="modcontent">
                             <div id="so_listing_tabs_1" class="so-listing-tabs first-load">
                                 <div class="ltabs-wrap">
-                                    <div class="ltabs-tabs-container" data-delay="300" data-duration="600" data-effect="starwars" data-ajaxurl="" data-type_source="0" data-lg="4" data-md="3" data-sm="3" data-xs="2" data-margin="0">
+                                    <div class="ltabs-tabs-container" data-delay="300" data-duration="600" data-effect="starwars" data-ajaxurl="" data-type_source="0" data-lg="4" data-md="3" data-sm="3" data-xs="4" data-margin="0">
                                         <!--Begin Tabs-->
                                         <div class="ltabs-tabs-wrap">
                                             <span class="ltabs-tab-selected"></span>
                                             <span class="ltabs-tab-arrow">▼</span>
                                             <div class="item-sub-cat">
                                                 <ul class="ltabs-tabs cf">
-                                                    <li class="ltabs-tab tab-sel" data-category-id="1" data-active-content=".items-category-1"> <span class="ltabs-tab-label">Best Seller</span> </li>
-                                                    <li class="ltabs-tab " data-category-id="2" data-active-content=".items-category-2"> <span class="ltabs-tab-label">New Arrivals</span> </li>
-                                                    <li class="ltabs-tab " data-category-id="3" data-active-content=".items-category-3"> <span class="ltabs-tab-label">Most Rating</span> </li>
+                                                    <li class="ltabs-tab tab-sel" data-category-id="" data-active-content=".items-category-1"> <span class="ltabs-tab-label">Best Seller</span> </li>
+                                                    <!-- <li class="ltabs-tab " data-category-id="2" data-active-content=".items-category-2"> <span class="ltabs-tab-label">New Arrivals</span> </li>
+                                                    <li class="ltabs-tab " data-category-id="3" data-active-content=".items-category-3"> <span class="ltabs-tab-label">Most Rating</span> </li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -261,53 +268,23 @@
 
                                     <div class="wap-listing-tabs ltabs-items-container products-list grid">
                                         <!--Begin Items-->
-                                        <div class="ltabs-items ltabs-items-selected items-category-1" data-total="16">
+                                        <div class="ltabs-items ltabs-items-selected items-category-{{$maincate->id}}" data-total="16">
+                                            
                                             <div class="ltabs-items-inner ltabs-slider">
-                                                <div class="ltabs-item">
-                                                    <div class="item-inner product-layout transition product-grid">
+                                                <!-- grid -->
+                                                @php
+                                                        $cate_id=$maincate->id;
+                                                        $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->limit(4)->get();
+                                                    @endphp
+                                                    @foreach($products as $product)
+                                                <div class="ltabs-item col-md-3">
+                                                    
+                                                    <div class="item-inner product-layout transition product-grid ">
                                                         <div class="product-item-container">
                                                             <div class="left-block">
                                                                 <div class="image product-image-container ">
                                                                     <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/1-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="product.html" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/5-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
+                                                                        <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                     </a>
                                                                 </div>
                                                                 <div class="box-label"><span class="label-product label-sale">Sale</span></div>
@@ -340,14 +317,23 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    <!-- product -->
                                                 </div>
-                                                <div class="ltabs-item">
-                                                    <div class="item-inner product-layout transition product-grid">
+                                                @endforeach
+                                                @php
+                                                        $cate_id=$maincate->id;
+                                                        $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->skip(4)->limit(4)->get();
+                                                    @endphp
+                                                    @foreach($products as $product)
+                                                <div class="ltabs-item col-md-3">
+                                                    
+                                                    <div class="item-inner product-layout transition product-grid ">
                                                         <div class="product-item-container">
                                                             <div class="left-block">
                                                                 <div class="image product-image-container ">
                                                                     <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/2-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
+                                                                        <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                     </a>
                                                                 </div>
                                                                 <div class="box-label"><span class="label-product label-sale">Sale</span></div>
@@ -380,202 +366,15 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/6-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    
+                                                    <!-- product -->
                                                 </div>
-                                                <div class="ltabs-item">
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/3-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/7-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="ltabs-item">
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/4-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-inner product-layout transition product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="image product-image-container ">
-                                                                    <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/11-270x270.jpg" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
-                                                                    <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
-                                                                        <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="button-group">
-                                                                    <div class="button-inner so-quickview">
-                                                                        <a class="lt-image hidden" href="product.html" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                            <i class="fa fa-exchange"></i>
-                                                                        </button>
-                                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                            <span class="hidden">Add to cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforeach
+                                                  <!-- grid -->
                                             </div>
+                                            
+
+
                                         </div>
                                         <div class="ltabs-items items-category-2 grid" data-total="16">
                                             <div class="ltabs-loading"></div>
@@ -589,16 +388,24 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
+             
         </div>
     </section>
+    <!-- end first cate -->
+    <!-- seceond section -->
+    @php
+        $catesecond=App\Category::where('section_id',2)->where('is_deleted',0)->orderBy('id','DESC')->get();
+    @endphp
     <section id="box-link3" class="section-style">
         <div class="container page-builder-ltr">
             <div class="row row-style row_a3">
+                @foreach($catesecond as $catename)
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_nvxr  block block_6 title_neo3">
                     <div class="module so-listing-tabs-ltr home1-lt-style2 default-nav clearfix img-float home-lt1">
                         <div class="head-title font-ct">
-                            <h2 class="modtitle">Fashion &amp; Accessories</h2>
+                            <h2 class="modtitle">{{$catename->cate_name}}</h2>
                         </div>
                         <div class="modcontent">
                             <div id="so_listing_tabs_2" class="so-listing-tabs first-load">
@@ -633,193 +440,20 @@
                                         <div class="ltabs-items-container">
                                             <div class="ltabs-items ltabs-items-selected items-category-4" data-total="16">
                                                 <div class="ltabs-items-inner ltabs-slider ">
+                                                   
+                                                  
                                                     <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Amazing Yoga Sport Poses Most People Wouldn't Dream ">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/10-270x270.jpg" alt="Amazing Yoga Sport Poses Most People Wouldn't Dream ">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="box-label">
-                                                                        <span class="label-product label-sale">Sale</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Amazing Yoga Sport Poses Most People Wouldn't Dream " target="_self">Amazing Yoga Sport Poses Most People Wouldn't Dre..</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$108.80</span>
-                                                                                <span class="price-old">$122.00</span>
-                                                                            </div>
-                                                                            <div class="price-sale price-right">
-                                                                                <span class="discount 123">-11%<strong>OFF</strong></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Amazing Yoga Sport Poses Most People Wouldn't Dream "></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Est Officia Including Shoes Beautiful Pieces Canaz">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/15-270x270.png" alt="Est Officia Including Shoes Beautiful Pieces Canaz">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="box-label">
-                                                                        <span class="label-product label-sale">Sale</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Est Officia Including Shoes Beautiful Pieces Canaz" target="_self">Est Officia Including Shoes Beautiful Pieces Canaz</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$62.00</span>
-                                                                                <span class="price-old">$337.99</span>
-                                                                            </div>
-                                                                            <div class="price-sale price-right">
-                                                                                <span class="discount 123">-82%<strong>OFF</strong></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Est Officia Including Shoes Beautiful Pieces Canaz"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Girly Summer Outfit Ideas To Upgrade Your Wardrobe">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/2-270x270.jpg" alt="Girly Summer Outfit Ideas To Upgrade Your Wardrobe">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Girly Summer Outfit Ideas To Upgrade Your Wardrobe" target="_self">Girly Summer Outfit Ideas To Upgrade Your Wardrob..</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$128.80</span>
-                                                                                <span class="price-old"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Girly Summer Outfit Ideas To Upgrade Your Wardrobe"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Cras idrisusiopsa quo voluptas nulla pariatur shoprer">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/4-270x270.jpg" alt="Cras idrisusiopsa quo voluptas nulla pariatur shoprer">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Cras idrisusiopsa quo voluptas nulla pariatur shoprer" target="_self">Cras idrisusiopsa quo voluptas nulla par...</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$242.00</span>
-                                                                                <span class="price-old"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Cras idrisusiopsa quo voluptas nulla pariatur shoprer"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
+                                                        @php
+                                                            $cate_id=$catename->id;
+                                                            $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->limit(2)->get();
+                                                        @endphp
+                                                        @foreach($products as $product)
                                                         <div class="item-inner product-layout transition product-grid">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/16-270x270.png" alt="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -855,36 +489,39 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
+                                                        <!--  -->
+                                                    </div>
+                                                     <div class="ltabs-item">
+                                                        @php
+                                                            $cate_id=$catename->id;
+                                                            $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->skip(2)->limit(2)->get();
+                                                        @endphp
+                                                        @foreach($products as $product)
                                                         <div class="item-inner product-layout transition product-grid">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Est Officia Including Shoes Beautiful Pieces Canaz">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/fashion/24-270x270.png" alt="Est Officia Including Shoes Beautiful Pieces Canaz">
+                                                                        <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
                                                                         </a>
-                                                                    </div>
-                                                                    <div class="box-label">
-                                                                        <span class="label-product label-sale">Sale</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Est Officia Including Shoes Beautiful Pieces Canaz" target="_self">Est Officia Including Shoes Beautiful Pieces Canaz</a>
+                                                                            <a href="product.html" title="Invisible Hidden Spy Earphone Micro Wireless" target="_self">Invisible Hidden Spy Earphone Micro Wireless</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$98.00</span>
-                                                                                <span class="price-old">$122.00</span>
-                                                                            </div>
-                                                                            <div class="price-sale price-right">
-                                                                                <span class="discount 123">-20%<strong>OFF</strong></span>
+                                                                                <span class="price-new">$122.00</span>
+                                                                                <span class="price-old"></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Est Officia Including Shoes Beautiful Pieces Canaz"></a>
+                                                                            <a class="lt-image hidden" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless"></a>
                                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
@@ -902,7 +539,63 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
+                                                        <!--  -->
                                                     </div>
+                                                     <div class="ltabs-item">
+                                                        @php
+                                                            $cate_id=$catename->id;
+                                                            $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->skip(4)->limit(2)->get();
+                                                        @endphp
+                                                        @foreach($products as $product)
+                                                        <div class="item-inner product-layout transition product-grid">
+                                                            <div class="product-item-container">
+                                                                <div class="left-block">
+                                                                    <div class="image product-image-container ">
+                                                                        <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="right-block">
+                                                                    <div class="caption">
+                                                                        <h4>
+                                                                            <a href="product.html" title="Invisible Hidden Spy Earphone Micro Wireless" target="_self">Invisible Hidden Spy Earphone Micro Wireless</a>
+                                                                        </h4>
+                                                                        <div class="total-price clearfix">
+                                                                            <div class="price price-left">
+                                                                                <span class="price-new">$122.00</span>
+                                                                                <span class="price-old"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="button-group">
+                                                                        <div class="button-inner so-quickview">
+                                                                            <a class="lt-image hidden" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless"></a>
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                                <i class="fa fa-search"></i>
+                                                                            </a>
+                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
+                                                                                <i class="fa fa-heart"></i>
+                                                                            </button>
+                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
+                                                                                <i class="fa fa-exchange"></i>
+                                                                            </button>
+                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
+                                                                                <span class="hidden">Add to cart</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                        <!--  -->
+                                                    </div>
+
+
+
+
                                                 </div>
                                             </div>
                                             <div class="ltabs-items  items-category-5 grid" data-total="16">
@@ -920,16 +613,21 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @php
+        $newcate=App\Category::where('is_deleted',0)->where('section_id',3)->get();
+    @endphp
     <section id="box-link4" class="section-style">
         <div class="container page-builder-ltr">
             <div class="row row-style row_a4">
+                @foreach($newcate as $catesection)
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_mfpr  block block_7 title_neo4">
                     <div class="module so-listing-tabs-ltr home1-lt-style3 default-nav clearfix img-float home-lt1">
                         <div class="head-title font-ct">
-                            <h2 class="modtitle">Travel & Vacation</h2>
+                            <h2 class="modtitle">{{$catesection->cate_name}}</h2>
                         </div>
                         <div class="modcontent">
                             <div id="so_listing_tabs_3" class="so-listing-tabs first-load">
@@ -962,15 +660,21 @@
                                             </div>
                                         </div>
                                         <div class="ltabs-items-container">
-                                            <div class="ltabs-items ltabs-items-selected items-category-4" data-total="16">
+                                            <div class="ltabs-items ltabs-items-selected items-category-{{$catesection->id}}" data-total="16">
                                                 <div class="ltabs-items-inner ltabs-slider">
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
+
+                                                    <div class="ltabs-item col-md-4">
+                                                        @php
+                                                            $catego=$catesection->id;
+                                                            $pro=App\Product::where('is_deleted',0)->where('cate_id',$catego)->orderBy('id','DESC')->limit(2)->get();
+                                                        @endphp
+                                                        @foreach($pro as $product)
+                                                        <div class="item-inner product-layout transition product-grid ">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/10-270x270.jpg" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label">
@@ -1012,12 +716,22 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
+                                                        <!-- product end -->
+                                                    </div>
+                                                    <!-- grid end -->
+                                                    <div class="ltabs-item col-md-4">
+                                                        @php
+                                                            $catego=$catesection->id;
+                                                            $pro=App\Product::where('is_deleted',0)->where('cate_id',$catego)->orderBy('id','DESC')->skip(2)->limit(2)->get();
+                                                        @endphp
+                                                        @foreach($pro as $product)
                                                         <div class="item-inner product-layout transition product-grid">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan ">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/8-270x270.jpg" alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                                        <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label">
@@ -1027,138 +741,7 @@
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Philipin Tour Group Manila/ Pattaya / Mactan " target="_self">Philipin Tour Group Manila/ Pattaya / Mactan </a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$74.00</span>
-                                                                                <span class="price-old">$122.00</span>
-                                                                            </div>
-                                                                            <div class="price-sale price-right">
-                                                                                <span class="discount 123">-40%<strong>OFF</strong></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan "></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Burger King Japan debuts Monster Baby, Double, Canada">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/1-270x270.jpg" alt="Burger King Japan debuts Monster Baby, Double, Canada">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Burger King Japan debuts Monster Baby, Double, Canada" target="_self">Burger King Japan debuts Monster Baby, Double, Canada</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$1,202.00</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Burger King Japan debuts Monster Baby, Double, Canada"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Thailand Group Departure / Pattaya / Bangkok">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/15-270x270.jpg" alt="Thailand Group Departure / Pattaya / Bangkok">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Thailand Group Departure / Pattaya / Bangkok" target="_self">Thailand Group Departure / Pattaya / Bangkok</a>
-                                                                        </h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left">
-                                                                                <span class="price-new">$122.00</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Thailand Group Departure / Pattaya / Bangkok"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Chicago Tour Departure / Pattaya / Solimania...">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/5-270x270.jpg" alt="Chicago Tour Departure / Pattaya / Solimania/ Tokyo/ Canada">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="box-label">
-                                                                        <span class="label-product label-sale">Sale</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4>
-                                                                            <a href="product.html" title="Chicago Tour Departure / Pattaya / Solimania/ Tokyo/ Canada" target="_self">Chicago Tour Departure / Pattaya / Solimania...</a>
+                                                                            <a href="product.html" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo" target="_self">Bougainvilleas On Lombard Street, San Francisco, Tokyo</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
@@ -1172,7 +755,7 @@
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Chicago Tour Departure / Pattaya / Solimania/ Tokyo/ Canada"></a>
+                                                                            <a class="lt-image hidden" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo"></a>
                                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
@@ -1190,29 +773,45 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
+                                                        <!-- product end -->
+                                                    </div>
+                                                    <div class="ltabs-item col-md-4">
+                                                        @php
+                                                            $catego=$catesection->id;
+                                                            $pro=App\Product::where('is_deleted',0)->where('cate_id',$catego)->orderBy('id','DESC')->limit(2)->skip(4)->get();
+                                                        @endphp
+                                                        @foreach($pro as $product)
                                                         <div class="item-inner product-layout transition product-grid">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
-                                                                        <a class="lt-image" href="#" target="_self" title="Tokyo Temple on Elevated Area Under Blue Sky and White">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/13-270x270.jpg" alt="Tokyo Temple on Elevated Area Under Blue Sky and White">
+                                                                        <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
+                                                                    </div>
+                                                                    <div class="box-label">
+                                                                        <span class="label-product label-sale">Sale</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Tokyo Temple on Elevated Area Under Blue Sky and White" target="_self">Tokyo Temple on Elevated Area Under Blue Sky and White</a>
+                                                                            <a href="product.html" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo" target="_self">Bougainvilleas On Lombard Street, San Francisco, Tokyo</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$122.00</span>
+                                                                                <span class="price-new">$108.80</span>
+                                                                                <span class="price-old">$122.00</span>
+                                                                            </div>
+                                                                            <div class="price-sale price-right">
+                                                                                <span class="discount 123">-11%<strong>OFF</strong></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" href="#" target="_self" title="Tokyo Temple on Elevated Area Under Blue Sky and White"></a>
+                                                                            <a class="lt-image hidden" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo"></a>
                                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
@@ -1230,7 +829,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
+                                                        <!-- product end -->
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="ltabs-items  items-category-7 grid" data-total="16">
@@ -1248,18 +850,24 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
     <!-- Digital & Electronics -->
+    <!-- section four -->
+    @php
+        $sectionfour=App\Category::where('is_deleted',0)->where('section_id',4)->get();
+    @endphp
     <section id="box-link5" class="section-style">
         <div class="container page-builder-ltr">
             <div class="row row-style row_a5">
+                @foreach($sectionfour as $key => $catefour)
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_iunl  block block_8 title_neo5">
                     <div class="module so-listing-tabs-ltr home1-lt-style4 default-nav clearfix img-float home-lt1">
                         <div class="head-title font-ct">
                             <h2 class="modtitle">
-                                <span>Digital & Electronics</span>
+                                <span>{{$catefour->cate_name}}</span>
                             </h2>
                         </div>
                         <div class="modcontent">
@@ -1286,13 +894,21 @@
                                             <!--Begin Items-->
                                             <div class="ltabs-items ltabs-items-selected items-category-1" data-total="16">
                                                 <div class="ltabs-items-inner ltabs-slider">
+                                                    <!-- grid -->
+                                                          @php
+                                                        $category_id=$catefour->id;
+                                                        $products=App\Product::where('is_deleted',0)->where('cate_id',$category_id)->orderBy('id','DESC')->limit(4)->get();
+                                                    @endphp
+                                                    @foreach($products as $product)
                                                     <div class="ltabs-item">
+                                                        <!-- product -->
+                                                  
                                                         <div class="item-inner product-layout transition product-grid">
                                                             <div class="product-item-container">
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" data-product="114" href="#" target="_self" title=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/1-270x270.jpg" alt=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
+                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label"><span class="label-product label-sale">Sale</span></div>
@@ -1325,125 +941,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                         
                                                     </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" data-product="114" href="#" target="_self" title="Compact (External Battery Power Bank) with Premium">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/12-270x270.jpg" alt="Compact (External Battery Power Bank) with Premium">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4><a href="product.html" title="Compact (External Battery Power Bank) with Premium" target="_self">Compact (External Battery Power Bank) with Premium</a></h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left"><span class="price-new">$122.00</span><span class="price-old"></span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" data-product="114" href="#" target="_self" title="Compact (External Battery Power Bank) with Premium"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" data-product="114" href="#" target="_self" title="Compact Portable Charger (External Battery)">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/13-270x270.jpg" alt="Compact Portable Charger (External Battery)">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4><a href="product.html" title="Compact Portable Charger (External Battery)" target="_self">Compact Portable Charger (External Battery)</a></h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left"><span class="price-new">$98.00</span><span class="price-old"></span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" data-product="114" href="#" target="_self" title="Compact Portable Charger (External Battery)"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ltabs-item">
-                                                        <div class="item-inner product-layout transition product-grid">
-                                                            <div class="product-item-container">
-                                                                <div class="left-block">
-                                                                    <div class="image product-image-container ">
-                                                                        <a class="lt-image" data-product="114" href="#" target="_self" title="Compact Portable Charger (External Battery) T22">
-                                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/21-270x270.jpg" alt="Compact Portable Charger (External Battery) T22">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="box-label"><span class="label-product label-sale">Sale</span></div>
-                                                                </div>
-                                                                <div class="right-block">
-                                                                    <div class="caption">
-                                                                        <h4><a href="product.html" title="Compact Portable Charger (External Battery) T22" target="_self">Compact Portable Charger (External Battery) T22</a></h4>
-                                                                        <div class="total-price clearfix">
-                                                                            <div class="price price-left"><span class="price-new">$98.00</span><span class="price-old">$122.00</span></div>
-                                                                            <div class="price-sale price-right"><span class="discount 123">-20%<strong>OFF</strong></span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <div class="button-inner so-quickview">
-                                                                            <a class="lt-image hidden" data-product="114" href="#" target="_self" title="Compact Portable Charger (External Battery) T22"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
-                                                                                <i class="fa fa-search"></i>
-                                                                            </a>
-                                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
-                                                                                <i class="fa fa-heart"></i>
-                                                                            </button>
-                                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
-                                                                                <i class="fa fa-exchange"></i>
-                                                                            </button>
-                                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
-                                                                                <span class="hidden">Add to cart</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
+                                                    @endforeach
                                                 </div>
                                             </div>
                                             <div class="ltabs-items items-category-9 grid" data-total="16">
@@ -1471,6 +971,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
