@@ -37,6 +37,7 @@ class CategoryController extends Controller
     		'cate_image'=>'',
             'cate_icon'=>'',
     		'cate_slug'=>$inputslug,
+            'section_id'=>$request['section_id'],
             'cate_tag'=>$request['cate_tag'],
     		'created_at'=>Carbon::now()->toDateTimeString(),
 
@@ -51,7 +52,7 @@ class CategoryController extends Controller
                         ]);
                         $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$insert)->update([
                             'cate_icon'=>$ImageName,
                         ]); 
@@ -67,7 +68,7 @@ class CategoryController extends Controller
               elseif($request->hasFile('icon')){
                     $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$insert)->update([
                             'cate_icon'=>$ImageName,
                         ]);
@@ -97,6 +98,7 @@ class CategoryController extends Controller
     		'cate_image'=>'',
             'cate_icon'=>'',
     		'cate_slug'=>$slug,
+            'section_id'=>$request['section_id'],
             'cate_tag'=>$request['cate_tag'],
     		'created_at'=>Carbon::now()->toDateTimeString(),
 
@@ -111,7 +113,7 @@ class CategoryController extends Controller
                         ]);
                         $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$insert)->update([
                             'cate_icon'=>$ImageName,
                         ]); 
@@ -127,7 +129,7 @@ class CategoryController extends Controller
               elseif($request->hasFile('icon')){
                     $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$insert)->update([
                             'cate_icon'=>$ImageName,
                         ]);
@@ -188,7 +190,7 @@ class CategoryController extends Controller
                       
                         $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$id)->update([
                             'cate_icon'=>$ImageName,
                         ]);
@@ -202,7 +204,7 @@ class CategoryController extends Controller
                         ]);
                         $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$id)->update([
                             'cate_icon'=>$ImageName,
                         ]);
@@ -231,7 +233,7 @@ class CategoryController extends Controller
               elseif($request->hasFile('icon')){
                     $image=$request->file('icon');
                         $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(32,32)->save('public/uploads/category/'.$ImageName);
+                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                         Category::where('id',$id)->update([
                             'cate_icon'=>$ImageName,
                         ]);
