@@ -102,19 +102,23 @@
                                         
                                         <h4 class="title-footer" style="background: url({{asset(App\Logo::first()->front_logo)}}) no-repeat center">Our Contact</h4>
                                     
+
+                                    @php
+                                        $footeroption = App\FooterOption::findOrFail(11); 
+                                    @endphp
                                     <p>They key is to have every key, the key to open every door. We will never see them</p>
                                     <div class="content-footer">
                                         <div class="address">
                                             <label><i class="fa fa-map-marker" aria-hidden="true"></i></label>
-                                            <span>100 S Manhattan St, Amarillo, TX 79104, North America</span>
+                                            <span>{{$footeroption->address}}</span>
                                         </div>
                                         <div class="phone">
                                             <label><i class="fa fa-phone" aria-hidden="true"></i></label>
-                                            <span>( +123 )4 567 890 - ( +123 )4 567 899</span>
+                                            <span>{{$footeroption->phone}}</span>
                                         </div>
                                         <div class="email">
                                             <label><i class="fa fa-envelope"></i></label>
-                                            <a href="#">Contact@TopDeals.Com</a>
+                                            <a href="#">{{$footeroption->email}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -142,10 +146,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7  col-sm-7 copyright">
-                    So TopDeal © 2016 - 2018. All Rights Reserved. Designed by <a href="http://www.opencartworks.com/" target="_blank">OpenCartWorks.Com</a>
+                {{$footeroption->copyright}}
                 </div>
                 <div class="col-md-5 col-sm-5 paymen">
-                    <img src="{{asset('public/frontend/')}}/image/catalog/demo/payment/payments-1.png" alt="imgpayment">
+                    <img src="{{asset('public/uploads/footerpayment/')}}/{{$footeroption->payment_image}}" alt="imgpayment">
                 </div>
             </div>
         </div>
