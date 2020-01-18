@@ -20,7 +20,7 @@ class CreateFooterOptionsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('copyright');
-            $table->string('payment_image');
+            $table->string('payment_image')->nullable();
             $table->timestamps();
         });
     }

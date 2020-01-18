@@ -211,6 +211,8 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 // footer option area start
 Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->name('admin.footer.option');
 
+Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')->name('admin.footer.option.update');
+
 
 
 
@@ -244,6 +246,7 @@ Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerG
 
 Route::get(md5('admin/theme/selector/show'), 'Admin\ThemeOptionController@themeSelectorPageShow')->name('theme.selector.show');
 Route::post('admin/theme/selector/change', 'Admin\ThemeOptionController@themeSelectorPageChange')->name('admin.theme.option.change');
+
 
 Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal');
 
@@ -292,6 +295,7 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 // qayum hasan route start
 Route::view('/website', 'layouts.websiteapp');
 // qayum hasan route end
+
 
 
 
