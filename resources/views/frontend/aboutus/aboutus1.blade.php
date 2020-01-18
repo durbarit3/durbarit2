@@ -14,57 +14,38 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-6 about-us-content">
 							<div class="content-about">
-								<h2 class="about-title">About Us</h2> <img src="{{asset('public/frontend/')}}/image/catalog/demo/about/about-us-demo4.jpg" alt="About Us">
-								<p class="description-about"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-									<br> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec vulputate </p>
+								<h2 class="about-title">About Us</h2> 
+								@php
+									$aboutus=App\AboutUs::where('id',1)->first();
+								@endphp
+								<img src="{{asset('public/uploads/aboutus/'.$aboutus->	image)}}" alt="About Us">
+								<p class="description-about">{!! $aboutus->about_text !!}</p>
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-6 faq-about-us">
 							<h2 class="about-title">Faqs</h2>
 							<div class="content-faq">
 								<div id="accordion" role="tablist" aria-multiselectable="true">
+									@php
+										$faqall=App\Faq::where('is_deleted',0)->where('faq_status',1)->get();
+									@endphp
+									<!-- start faq -->
+									@foreach($faqall as $key => $faq)
 									<div class="panel">
-										<div class="panel-head" role="tab" id="headingOne">
-											<h4 class="panel-title">						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">						  <span>Etharums ser quidem rerum?</span>						</a>					  </h4> </div>
-										<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
+										<div class="panel-head" role="tab" id="{{$key}}">
+											<h4 class="panel-title">
+												<a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{$faq->id}}" aria-expanded="false" aria-controls="{{$faq->id}}" class="collapsed">
+												 <span>{{$faq->faq_ques}}</span>
+												</a>
+											</h4> 
+
+										</div>
+										<div id="{{$faq->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$key}}" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">{{$faq->faq_ans}}</div>
 										</div>
 									</div>
-									<div class="panel">
-										<div class="panel-head" role="tab" id="headingTwo">
-											<h4 class="panel-title">						<a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">						  <span>Lorem ipsum dolor sit amet?</span>						</a>					  </h4> </div>
-										<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="true">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="panel-head" role="tab" id="headingThree">
-											<h4 class="panel-title">						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">						  <span>Nam vitae felis pretium, euismod ipsum nec?</span>						</a>					  </h4> </div>
-										<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="panel-head" role="tab" id="headingFour">
-											<h4 class="panel-title">						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">						  <span>Quisque posuere dolor in malesuada?</span>						</a>					  </h4> </div>
-										<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="panel-head" role="tab" id="headingFive">
-											<h4 class="panel-title">						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">						  <span>Quisque posuere dolor in malesuada?</span>						</a>					  </h4> </div>
-										<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false" style="height: 0px;">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="panel-head" role="tab" id="headingSix">
-											<h4 class="panel-title">						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">						  <span>Lorem ipsum dolor sit amet?</span>						</a>					  </h4> </div>
-										<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
-											<div class="panel-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
-										</div>
-									</div>
+									@endforeach
+								<!-- end faq -->
 								</div>
 							</div>
 						</div>

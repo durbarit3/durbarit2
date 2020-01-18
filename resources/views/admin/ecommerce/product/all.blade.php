@@ -41,8 +41,7 @@
 		                                      <th>Current qty</th>
 		                                      <th>Price</th>
 		                                      <th>Category</th>
-		                                      <th>SubCategory</th>
-		                                      <th>ReSubCategory</th>
+		                                      
 		                                      <th>Image</th>
 		                                      <th>Today Deal</th>
 		                                      <th>Publish</th>
@@ -61,11 +60,10 @@
 		                                      <td>{{$data->product_name}}</td>
 		                                      <td>{{$data->product_qty}}</td>
 		                                      <td>{{$data->product_price}}</td>
-		                                      <td>{{$data->cate_name}}</td>
-		                                      <td>{{$data->subcate_name}}</td>
-		                                      <td>{{$data->resubcate_name}}</td>
+		                                      <td>{{$data->category->cate_name}}</td>
+		                                      
 		                                      <td>
-		                                      	<img src="{{asset('/'.$data->thumbnail_img)}}" height="45px">
+		                                      	<img src="{{asset('public/uploads/products/thumbnail/'.$data->thumbnail_img)}}" height="45px">
 		                                      </td>
 		                                      <td>
 		                                      	<label class="switch">

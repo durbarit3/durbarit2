@@ -139,12 +139,14 @@ Route::get('/get/resubcategory/all/{subcate_id}', 'Admin\ProductController@resub
 Route::post('/get/admin/todays_deal', 'Admin\ProductController@updatetodaydeal')->name('products.todays_deal');
 Route::post('/get/admin/published', 'Admin\ProductController@updatepublished')->name('products.published');
 Route::get('admin/product/view/{id}', 'Admin\ProductController@view');
-Route::get('admin/product/varient', 'Admin\ProductController@provarient')->name('products.variant_price');
+
 Route::post('admin/product/multisoftdelete', 'Admin\ProductController@productmultisoftdelete');
 Route::get('admin/product/restore/{id}', 'Admin\ProductController@prorecover');
 Route::get('admin/product/lincencepro/{id}', 'Admin\ProductController@licencepro')->name('admin.licencepro.delete');
 Route::get('admin/product/softdelete/{id}', 'Admin\ProductController@softdelete');
 Route::get('admin/product/hearddelete/{id}', 'Admin\ProductController@hearddelete');
+
+
 
 
 // product type physical edit
@@ -223,11 +225,14 @@ Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')
 Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
 Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('product.page');
-Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
+
+Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
+
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
 
 
 Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
@@ -239,6 +244,8 @@ Route::get(md5('/customer/order'), 'Frontend\FrontendController@customerOrder')-
 Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrderInfo')->name('customer.order.info');
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
+
+Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
 
 
 

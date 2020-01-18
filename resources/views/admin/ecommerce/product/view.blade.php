@@ -75,8 +75,7 @@
 							</div>
 							<div class="col-md-6"></div>
 							<div class="col-md-6" id="chosen_price_div">
-								<h3>Price Total: 
-									<strong id="chosen_price"></strong></h3>
+								<h3>Price Total:<strong id="chosen_price"></strong></h3>
 							</div>
 						
 						</div>
