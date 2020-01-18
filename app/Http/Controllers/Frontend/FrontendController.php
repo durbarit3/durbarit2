@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\ThemeSelector;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Color;
 
 class FrontendController extends Controller
 {
@@ -34,9 +36,10 @@ class FrontendController extends Controller
 
     // Product Details page show
 
-    public function productDetails()
-    {
-        return view('frontend.products.product_details');
+    public function productDetails($id)
+    {    $productdetails=Product::where('id',$id)->first();
+        return view('frontend.products.product_details',compact('productdetails'));
+        
     }
 
     // Add to cart page show
@@ -51,14 +54,11 @@ class FrontendController extends Controller
     {
         return view('frontend.shopping.checkout');
     }
-
     // Product compare page show
-    
     public function productCompare()
     {
         return view('frontend.shopping.product_compare');
     }
-
     // Product wishlist page show
     
     public function productWishlist()
@@ -109,6 +109,47 @@ class FrontendController extends Controller
     {
         return view('frontend.accounts.gift_voucher');
     }
+
+    // product view single
+     // modal
+   public function productmodal($id){
+    $productdetails=Product::where('id',$id)->first();
+    return view('frontend.products.productmodal',compact('productdetails'));
+   }
+
+   // price show variant wise
+   public function provarient(Request $request){
+        //echo "ok";
+      
+         $product = Product::find($request->id);
+      
+        $str = '';
+        $quantity = 0;
+
+        if($request->has('color')){
+            $data['color'] = $request['color'];
+            $str = Color::where('color_code', $request['color'])->first()->color_name;
+        }
+
+        foreach (json_decode(Product::find($request->id)->choice_options) as $key => $choice) {
+            if($str != null){
+                $str .= '-'.str_replace(' ', '', $request[$choice->name]);
+            }
+            else{
+                $str .= str_replace(' ', '', $request[$choice->name]);
+            }
+        }
+
+        if($str != null){
+            $price = json_decode($product->variations)->$str->price;
+            
+        }
+        else{
+            $price = $product->product_price;
+        }
+        return array('price' => $price);
+    }
+
      
      
 

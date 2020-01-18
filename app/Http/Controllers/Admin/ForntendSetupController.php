@@ -41,14 +41,14 @@ class ForntendSetupController extends Controller
     	 				unlink('public/uploads/aboutus/'.$oldpic);
 	            	$image=$request->file('pic');
 	                $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-	                Image::make($image)->resize(1170,550)->save('public/uploads/aboutus/'.$ImageName);
+	                Image::make($image)->resize(570,356)->save('public/uploads/aboutus/'.$ImageName);
 	                AboutUs::where('id',$id)->update([
 	                    'image'=>$ImageName,
 	                ]);
 	            }else{
 	            	$image=$request->file('pic');
 	                $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-	                Image::make($image)->resize(1170,550)->save('public/uploads/aboutus/'.$ImageName);
+	                Image::make($image)->resize(570,356)->save('public/uploads/aboutus/'.$ImageName);
 	                AboutUs::where('id',$id)->update([
 	                    'image'=>$ImageName,
 	                ]);

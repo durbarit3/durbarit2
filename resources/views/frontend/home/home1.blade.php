@@ -1,5 +1,6 @@
 @extends('layouts.websiteapp')
 @section('main_content')  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div class="so-page-builder">
     <div class="container page-builder-ltr">
         <div class="row row_a90w  row-style ">
@@ -75,6 +76,7 @@
                         <div class="modcontent">
                             <div class="so-deal modcontent products-list grid clearfix clearfix preset00-3 preset01-3 preset02-2 preset03-2 preset04-1  button-type1  style2">
                                 <div class="category-slider-inner products-list yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="5" data-items_column0="5" data-items_column1="5" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
+                                    <!-- product start -->
                                     <div class="item">
                                         <div class="transition product-layout">
                                             <div class="product-item-container ">
@@ -83,7 +85,6 @@
                                                         <a href="product.html" target="_self">
                                                             <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/10-370x370.jpg" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-responsive">
                                                         </a>
-                                                        <div class="text-location"><span>Thailand</span></div>
                                                     </div>
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">Sale</span>
@@ -119,92 +120,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="item">
-                                        <div class="transition product-layout">
-                                            <div class="product-item-container ">
-                                                <div class="left-block so-quickview">
-                                                    <div class="image">
-                                                        <a href="#" target="_self">
-                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/2-370x370.jpg" alt="Canada Travel One or Two European Facials at  Studio" class="img-responsive">
-                                                        </a>
-                                                        <div class="text-location"><span>Ha Lan</span></div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                    <div class="button-group">
-                                                        <div class="button-inner so-quickview">
-                                                            <a class="lt-image hidden" data-product="35" href="#" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">
-                                                            </a><a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"><i class="fa fa-search"></i></a>
-                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('35');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('35');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
-                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4><a href="product.html" target="_self" title="Canada Travel One or Two European Facials at  Studio">Canada Travel One or Two European Facials at Studio</a></h4>
-                                                        <div class="total-price clearfix">
-                                                            <div class="price price-left">
-                                                                <span class="price-new">$86.00</span>
-                                                                <span class="price-old">$122.00</span>
-                                                            </div>
-                                                            <div class="price-sale price-right">
-                                                                <span class="discount">
-                                                                    -30%
-                                                                    <strong>OFF</strong>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="transition product-layout">
-                                            <div class="product-item-container ">
-                                                <div class="left-block so-quickview">
-                                                    <div class="image">
-                                                        <a href="product.html" target="_self">
-                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/5-370x370.jpg" alt="Chicago Tour Departure / Pattaya / Solimania..." class="img-responsive">
-                                                        </a>
-                                                        <div class="text-location"><span>Canada</span></div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                    <div class="button-group">
-                                                        <div class="button-inner so-quickview">
-                                                            <a class="lt-image hidden" data-product="35" href="#" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">
-                                                            </a><a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"><i class="fa fa-search"></i></a>
-                                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('35');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('35');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
-                                                            <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4><a href="product.html" target="_self" title="Chicago Tour Departure / Pattaya / Solimania/ Tokyo/ Canada">Chicago Tour Departure / Pattaya / Solimania...</a></h4>
-                                                        <div class="total-price clearfix">
-                                                            <div class="price price-left">
-                                                                <span class="price-new">$108.80</span>
-                                                                <span class="price-old">$122.00</span>
-                                                            </div>
-                                                            <div class="price-sale price-right">
-                                                                <span class="discount">
-                                                                    -11%
-                                                                    <strong>OFF</strong>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- end product -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -231,7 +148,6 @@
     @php
         $cate=App\Category::where('section_id',1)->where('is_deleted',0)->orderBy('id','DESC')->get();
     @endphp
-
     <section id="box-link2" class="section-style">
         <div class="container page-builder-ltr">
                 
@@ -253,8 +169,7 @@
                                             <div class="item-sub-cat">
                                                 <ul class="ltabs-tabs cf">
                                                     <li class="ltabs-tab tab-sel" data-category-id="" data-active-content=".items-category-1"> <span class="ltabs-tab-label">Best Seller</span> </li>
-                                                    <!-- <li class="ltabs-tab " data-category-id="2" data-active-content=".items-category-2"> <span class="ltabs-tab-label">New Arrivals</span> </li>
-                                                    <li class="ltabs-tab " data-category-id="3" data-active-content=".items-category-3"> <span class="ltabs-tab-label">Most Rating</span> </li> -->
+                                                
                                                 </ul>
                                             </div>
                                         </div>
@@ -279,23 +194,25 @@
                                                             <div class="left-block">
                                                                 <div class="image product-image-container ">
                                                                     <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
+                                                                        <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                     </a>
                                                                 </div>
                                                                 <div class="box-label"><span class="label-product label-sale">Sale</span></div>
                                                             </div>
                                                             <div class="right-block">
                                                                 <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
+                                                                    <h4>
+                                                                <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
+                                                                    </h4>
                                                                     <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
+                                                                        <div class="price price-left"><span class="price-new">৳ {{$product->product_price}}</span><span class="price-old">$98.00</span></div>
                                                                         <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="button-group">
                                                                     <div class="button-inner so-quickview">
                                                                         <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                             <i class="fa fa-search"></i>
                                                                         </a>
                                                                         <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
@@ -312,7 +229,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
                                                     <!-- product -->
                                                 </div>
                                                 @endforeach
@@ -328,23 +244,23 @@
                                                             <div class="left-block">
                                                                 <div class="image product-image-container ">
                                                                     <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
-                                                                        <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
+                                                                        <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                     </a>
                                                                 </div>
                                                                 <div class="box-label"><span class="label-product label-sale">Sale</span></div>
                                                             </div>
                                                             <div class="right-block">
                                                                 <div class="caption">
-                                                                    <h4><a href="product.html" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa" target="_self">Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa</a></h4>
+                                                                    <h4><a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a></h4>
                                                                     <div class="total-price clearfix">
-                                                                        <div class="price price-left"><span class="price-new">$86.00</span><span class="price-old">$98.00</span></div>
+                                                                        <div class="price price-left"><span class="price-new">${{$product->product_price}}</span><span class="price-old">$98.00</span></div>
                                                                         <div class="price-sale price-right"><span class="discount 123">-13%<strong>OFF</strong></span></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="button-group">
                                                                     <div class="button-inner so-quickview">
                                                                         <a class="lt-image hidden" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                        <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                             <i class="fa fa-search"></i>
                                                                         </a>
                                                                         <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
@@ -448,26 +364,26 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
-                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
                                                                         </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Invisible Hidden Spy Earphone Micro Wireless" target="_self">Invisible Hidden Spy Earphone Micro Wireless</a>
+                                                                           <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$122.00</span>
-                                                                                <span class="price-old"></span>
+                                                                                <span class="price-new">৳ {{$product->product_price}}</span>
+                                                                                <span class="price-old">৳ 100</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -498,14 +414,14 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
-                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
                                                                         </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Invisible Hidden Spy Earphone Micro Wireless" target="_self">Invisible Hidden Spy Earphone Micro Wireless</a>
+                                                                           <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
@@ -517,7 +433,7 @@
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -555,11 +471,11 @@
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Invisible Hidden Spy Earphone Micro Wireless" target="_self">Invisible Hidden Spy Earphone Micro Wireless</a>
+                                                                           <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$122.00</span>
+                                                                                <span class="price-new">৳ {{$product->product_price}}</span>
                                                                                 <span class="price-old"></span>
                                                                             </div>
                                                                         </div>
@@ -567,7 +483,7 @@
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -613,7 +529,7 @@
         </div>
     </section>
     @php
-        $newcate=App\Category::where('is_deleted',0)->where('section_id',3)->get();
+        $newcate=App\Category::where('is_deleted',0)->where('section_id',3)->orderBy('id','DESC')->get();
     @endphp
     <section id="box-link4" class="section-style">
         <div class="container page-builder-ltr">
@@ -669,7 +585,7 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
-                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label">
@@ -679,12 +595,12 @@
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo" target="_self">Bougainvilleas On Lombard Street, San Francisco, Tokyo</a>
+                                                                            <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$108.80</span>
-                                                                                <span class="price-old">$122.00</span>
+                                                                                <span class="price-new">৳ {{$product->product_price}}</span>
+                                                                                <span class="price-old">৳ {{$product->product_price}}</span>
                                                                             </div>
                                                                             <div class="price-sale price-right">
                                                                                 <span class="discount 123">-11%<strong>OFF</strong></span>
@@ -694,7 +610,7 @@
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -726,7 +642,7 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
-                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label">
@@ -736,11 +652,11 @@
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo" target="_self">Bougainvilleas On Lombard Street, San Francisco, Tokyo</a>
+                                                                            <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$108.80</span>
+                                                                                <span class="price-new">৳ {{$product->product_price}}</span>
                                                                                 <span class="price-old">$122.00</span>
                                                                             </div>
                                                                             <div class="price-sale price-right">
@@ -751,7 +667,7 @@
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -782,7 +698,7 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
-                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Bougainvilleas On Lombard Street, San Francisco, Tokyo">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label">
@@ -792,11 +708,11 @@
                                                                 <div class="right-block">
                                                                     <div class="caption">
                                                                         <h4>
-                                                                            <a href="product.html" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo" target="_self">Bougainvilleas On Lombard Street, San Francisco, Tokyo</a>
+                                                                           <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                                         </h4>
                                                                         <div class="total-price clearfix">
                                                                             <div class="price price-left">
-                                                                                <span class="price-new">$108.80</span>
+                                                                                <span class="price-new">৳ {{$product->product_price}}</span>
                                                                                 <span class="price-old">$122.00</span>
                                                                             </div>
                                                                             <div class="price-sale price-right">
@@ -807,7 +723,7 @@
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" href="#" target="_self" title="Bougainvilleas On Lombard Street, San Francisco, Tokyo"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
@@ -852,7 +768,7 @@
     <!-- Digital & Electronics -->
     <!-- section four -->
     @php
-        $sectionfour=App\Category::where('is_deleted',0)->where('section_id',4)->get();
+        $sectionfour=App\Category::where('is_deleted',0)->where('section_id',4)->orderBy('id','DESC')->get();
     @endphp
     <section id="box-link5" class="section-style">
         <div class="container page-builder-ltr">
@@ -903,23 +819,23 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" data-product="114" href="#" target="_self" title=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
-                                                                            <img src="{{asset('/'.$product->thumbnail_img)}}" alt=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus">
                                                                         </a>
                                                                     </div>
                                                                     <div class="box-label"><span class="label-product label-sale">Sale</span></div>
                                                                 </div>
                                                                 <div class="right-block">
                                                                     <div class="caption">
-                                                                        <h4><a href="product.html" title=" Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus" target="_self"> Magnetic Air Vent Phone Holder for iPhone 7 / 7 Plus</a></h4>
+                                                                        <h4><a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a></h4>
                                                                         <div class="total-price clearfix">
-                                                                            <div class="price price-left"><span class="price-new">$98.00</span><span class="price-old">$122.00</span></div>
+                                                                            <div class="price price-left"><span class="price-new">৳ {{$product->product_price}}</span><span class="price-old">$122.00</span></div>
                                                                             <div class="price-sale price-right"><span class="discount 123">-20%<strong>OFF</strong></span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <div class="button-inner so-quickview">
                                                                             <a class="lt-image hidden" data-product="114" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa"></a>
-                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
+                                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                 <i class="fa fa-search"></i>
                                                                             </a>
                                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('114');" data-original-title="Add to Wish List">
@@ -970,13 +886,18 @@
             </div>
         </div>
     </section>
-    <!--Extra-->
+    <!-- Extra -->
+    <!-- section 5 -->
+    @php
+        $footcate=App\Category::where('section_id',5)->where('is_deleted',0)->orderBy('id','DESC')->limit(3)->get();
+    @endphp
     <div class="container page-builder-ltr">
         <div class="row row-style row_a6">
+            @foreach($footcate as $cate)
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_siw1  block block_9">
                 <div class="moduletable module so-extraslider-ltr home1-extra clearfix">
                     <div class="head-title font-ct">
-                        <h2 class="modtitle">Sport &amp; Entertaiment</h2>
+                        <h2 class="modtitle">{{$cate->cate_name}}</h2>
                     </div>
                     <div class="modcontent">
                         <div id="so_extra_slider_sport" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
@@ -984,12 +905,17 @@
                                 <div class="category-slider-inner products-list yt-content-slider-2" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
                                     <div class="item products-list grid">
                                         <div class="item-wrap product-layout style1 ">
+                                            @php
+                                                $cate_id=$cate->id;
+                                                $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->limit(3)->get();
+                                            @endphp
+                                            @foreach($products as $product)
                                             <div class="item-wrap-inner product-item-container">
                                                 <div class="left-block">
                                                     <div class="item-image">
                                                         <div class="item-img-info product-image-container ">
                                                             <a class="lt-image" data-product="55" href="#" target="_self" title="Men Collection Outfit Grid, Outfit and  Colored Sport ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/sport/9-120x120.jpg" alt="Men Collection Outfit Grid, Outfit and  Colored Sport ">
+                                                                <img src="{{asset('public/uploads/products/thumbnail/smallthum/'.$product->thumbnail_img)}}" alt="Men Collection Outfit Grid, Outfit and  Colored Sport " height="120px" width="120px">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -1000,16 +926,14 @@
                                                 <div class="right-block">
                                                     <div class="caption">
                                                         <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Men Collection Outfit Grid, Outfit and  Colored Sport ">
-                                                                Men Collection Outfit Grid, Outfit and Colored Sport
-                                                            </a>
+                                                            <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                         </h4>
                                                         <!-- Begin item-content -->
                                                         <div class="item-content">
                                                             <div class="total-price">
                                                                 <div class="price price-left">
                                                                     <span class="price product-price">
-                                                                        $74.20
+                                                                        ৳ {{$product->product_price}}
                                                                     </span>
                                                                     <span class="price-old">$122.00</span>
                                                                 </div>
@@ -1025,93 +949,23 @@
                                                     <!-- End item-info -->
                                                 </div>
                                             </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Xumstick teachings  uttempor the actual of the great">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/sport/6-120x120.jpg" alt="Xumstick teachings  uttempor the actual of the great">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Xumstick teachings  uttempor the actual of the great">
-                                                                Xumstick teachings uttempor the actual of...
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $98.00
-                                                                    </span>
-                                                                    <span class="price-old">$122.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-20%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Amy Byer Big Girls' Colorblock  Trapeze Dress orilamra">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/sport/1-120x120.jpg" alt="Amy Byer Big Girls' Colorblock  Trapeze Dress orilamra">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Amy Byer Big Girls' Colorblock  Trapeze Dress orilamra">
-                                                                Amy Byer Big Girls' Colorblock Trapeze Dre...
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $122.00
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
+                                            @endforeach
                                             <!-- End item-wrap-inner -->
                                         </div>
                                     </div>
                                     <div class="item products-list grid">
                                         <div class="item-wrap product-layout style1 ">
+                                             @php
+                                                $cate_id=$cate->id;
+                                                $products=App\Product::where('is_deleted',0)->where('cate_id',$cate_id)->orderBy('id','DESC')->skip(3)->limit(3)->get();
+                                            @endphp
+                                             @foreach($products as $product)
                                             <div class="item-wrap-inner product-item-container">
                                                 <div class="left-block">
                                                     <div class="item-image">
                                                         <div class="item-img-info product-image-container ">
                                                             <a class="lt-image" data-product="55" href="#" target="_self" title="Drumstick uttempor the actual teachings of the great">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/12-120x120.jpg" alt="Drumstick uttempor the actual teachings of the great">
+                                                                <img src="{{asset('public/uploads/products/thumbnail/smallthum/'.$product->thumbnail_img)}}" alt="Drumstick uttempor the actual teachings of the great">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -1121,16 +975,14 @@
                                                 <div class="right-block">
                                                     <div class="caption">
                                                         <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Drumstick uttempor the actual teachings of the great">
-                                                                Drumstick uttempor the actual teachings of the great
-                                                            </a>
+                                                            <a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a>
                                                         </h4>
                                                         <!-- Begin item-content -->
                                                         <div class="item-content">
                                                             <div class="total-price">
                                                                 <div class="price price-left">
                                                                     <span class="price product-price">
-                                                                        $123.20
+                                                                       ৳ {{$product->product_price}}
                                                                     </span>
                                                                 </div>
                                                                 <div class="price-sale price-right">
@@ -1142,83 +994,7 @@
                                                     <!-- End item-info -->
                                                 </div>
                                             </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Drumstick uttempor the actual teachings of the great">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/sport/1-120x120.jpg" alt="Drumstick uttempor the actual teachings of the great">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Drumstick uttempor the actual teachings of the great">
-                                                                Drumstick uttempor the actual teachings of the great
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $122.00
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Amy Byer Big Girls' Colorblock  Trapeze orilamra ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/sport/4-120x120.jpg" alt="Amy Byer Big Girls' Colorblock  Trapeze orilamra ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Amy Byer Big Girls' Colorblock  Trapeze orilamra">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $1,990.00
-                                                                    </span>
-                                                                    <span class="price-old">$2,000.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-1%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
+                                            @endforeach
                                             <!-- End item-wrap-inner -->
                                         </div>
                                     </div>
@@ -1228,739 +1004,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_lhsd  block block_9">
-                <div class="moduletable module so-extraslider-ltr home1-extra clearfix home1-extra-style2">
-                    <div class="head-title font-ct">
-                        <h2 class="modtitle">Food & Restaurant</h2>
-                    </div>
-                    <div class="modcontent">
-                        <div id="so_extra_slider_food" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
-                            <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate">
-                                <div class="category-slider-inner products-list yt-content-slider-2" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
-                                    <div class="item products-list grid">
-                                        <div class="item-wrap product-layout style1 ">
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/2-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $123.20
-                                                                    </span>
-                                                                    <span class="price-old">$98.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-13%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/8-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $123.20
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/1-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $123.20
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <!-- End item-wrap-inner -->
-                                        </div>
-                                    </div>
-                                    <div class="item products-list grid">
-                                        <div class="item-wrap product-layout style1 ">
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/9-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $123.20
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/7-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $182.00
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/food/4-120x120.jpg" alt="Vitaeelit pilama loves or pursues or desires to pain">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Vitaeelit pilama loves or pursues or desires to pain ">
-                                                                Vitaeelit pilama loves or pursues or desires to pain
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $182.00
-                                                                    </span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <!-- End item-wrap-inner -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_dkfx  block block_9">
-                <div class="moduletable module so-extraslider-ltr home1-extra clearfix home1-extra-style3">
-                    <div class="head-title font-ct">
-                        <h2 class="modtitle">Book Stationery</h2>
-                    </div>
-                    <div class="modcontent">
-                        <div id="so_extra_slider_book" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
-                            <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate">
-                                <div class="category-slider-inner products-list yt-content-slider-2" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
-                                    <div class="item products-list grid">
-                                        <div class="item-wrap product-layout style1 ">
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/3-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $98.00
-                                                                    </span>
-                                                                    <span class="price-old">$122.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-20%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/5-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $108.80
-                                                                    </span>
-                                                                    <span class="price-old">$122.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-20%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/8-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $122.00
-                                                                    </span>
-                                                                    <span class="price-old">$146.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-17%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <!-- End item-wrap-inner -->
-                                        </div>
-                                    </div>
-                                    <div class="item products-list grid">
-                                        <div class="item-wrap product-layout style1 ">
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/9-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $42.80
-                                                                    </span>
-                                                                    <span class="price-old">$1,202.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-97%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/1-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $50.00
-                                                                    </span>
-                                                                    <span class="price-old">$122.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-60%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <div class="item-wrap-inner product-item-container">
-                                                <div class="left-block">
-                                                    <div class="item-image">
-                                                        <div class="item-img-info product-image-container ">
-                                                            <a class="lt-image" data-product="55" href="#" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/book/2-120x120.jpg" alt="Bazem Carlo again is there anyone who loves oreos ">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-label">
-                                                        <span class="label-product label-sale">Sale</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <div class="caption">
-                                                        <h4 class="item-title">
-                                                            <a href="product.html" target="_self" title="Bazem Carlo again is there anyone who loves oreos ">
-                                                                Bazem Carlo again is there anyone who loves oreos
-                                                            </a>
-                                                        </h4>
-                                                        <!-- Begin item-content -->
-                                                        <div class="item-content">
-                                                            <div class="total-price">
-                                                                <div class="price price-left">
-                                                                    <span class="price product-price">
-                                                                        $56.00
-                                                                    </span>
-                                                                    <span class="price-old">$62.00</span>
-                                                                </div>
-                                                                <div class="price-sale price-right">
-                                                                    <span class="discount">-10%
-                                                                        <strong>OFF</strong>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End item-content -->
-                                                    </div>
-                                                    <!-- End item-info -->
-                                                </div>
-                                            </div>
-                                            <!-- End item-wrap-inner -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_5dfs  block block_10">
-                <div class="clearfix home1-sevices">
-                    <ul class="category-slider-inner products-list yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column00="4" data-items_column0="4" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
-                        <li class="item payment col-md-3">
-                            <div class="icon">
-                            </div>
-                            <div class="text">
-                                <h5><a href="#">Payment on Delivery</a></h5>
-                                <p>Cash on delivery option</p>
-                            </div>
-                        </li>
-                        <li class="item free col-md-3">
-                            <div class="icon">
-                            </div>
-                            <div class="text">
-                                <h5><a href="#">Free shipping</a></h5>
-                                <p>Free shipping on oder over $100</p>
-                            </div>
-                        </li>
-                        <li class="item secure col-md-3">
-                            <div class="icon">
-                            </div>
-                            <div class="text">
-                                <h5><a href="#">Secure Payment</a></h5>
-                                <p>We value your security</p>
-                            </div>
-                        </li>
-                        <li class="item support col-md-3">
-                            <div class="icon">
-                            </div>
-                            <div class="text">
-                                <h5><a href="#">Online support</a></h5>
-                                <p>We have support 24/7</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_cfay  block block_11">
-                <div class="module so-latest-blog custom-ourblog clearfix default-nav preset01-2 preset02-2 preset03-2 preset04-2 preset05-1">
-                    <h2 class="modtitle"><span>Latest Blog</span></h2>
-                    <div class="modcontent">
-                        <div id="so_latest_blog_1" class="so-blog-external button-type2 button-type2">
-                            <div class="category-slider-inner products-list yt-content-slider blog-external clearfix " data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="2" data-items_column0="2" data-items_column1="2" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="yes" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/8-260x190.jpg" alt="Aestibulum ipsum a ornare car">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Aestibulum ipsum a ornare car" target="_self">Aestibulum ipsum a ornare car</a>
-                                                </h4>
-                                                <div class="description">
-                                                    Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi v..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/9-260x190.jpg" alt="Aestibulum ipsum a ornare lectus">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Aestibulum ipsum a ornare lectus" target="_self">Aestibulum ipsum a ornare lectus</a>
-                                                </h4>
-                                                <div class="description">
-                                                    Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi v..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/5-260x190.jpg" alt="Baby Came Back! Missed Out? Grab Your">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Baby Came Back! Missed Out? Grab Your" target="_self">Baby Came Back! Missed Out? Grab Your</a>
-                                                </h4>
-                                                <div class="description">
-                                                    Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi v..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/2-260x190.jpg" alt="Biten demonstraverunt lector ">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Biten demonstraverunt lector " target="_self">Biten demonstraverunt lector </a>
-                                                </h4>
-                                                <div class="description">
-                                                    Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi v..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/7-260x190.jpg" alt="Commodo laoreet semper">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Commodo laoreet semper" target="_self">Commodo laoreet semper</a>
-                                                </h4>
-                                                <div class="description">
-                                                    Commodo laoreet semper tincidunt lorem Vestibulum nunc at In Curabitur magna. Euismod euismod Suspendisse tortor ante ad..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item head-button">
-                                        <div class="content-img col-sm-6 col-xs-12">
-                                            <a href="product.html" target="_self">
-                                                <img src="{{asset('public/frontend/')}}/image/catalog/demo/blog/3-260x190.jpg" alt="Neque porro quisquam est">
-                                            </a>
-                                        </div>
-                                        <div class="content-detail col-sm-6 col-xs-12">
-                                            <div class="media-content so-block">
-                                                <div class="entry-date font-ct date-bottom">
-                                                    <span class="media-date-added"><i class="fa fa-clock-o"></i> 17 Oct 2017</span>
-                                                </div>
-                                                <h4 class="media-heading head-item">
-                                                    <a href="product.html" title="Neque porro quisquam est" target="_self">Neque porro quisquam est</a>
-                                                </h4>
-                                                <div class="description">
-                                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius ..
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="product.html" target="_self">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_swee  block block_12">
-                <div id="content_slider_mfn4" class="yt-content-slider owl2-theme yt-content-slider-style-default arrow-default top-brand owl2-carousel owl2-responsive-1200 owl2-loaded yt-testimonials-slider" data-transitionin="fadeIn" data-transitionout="fadeOut" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column00="6" data-items_column0="6" data-items_column1="5" data-items_column2="4" data-items_column3="3" data-items_column4="2" data-arrows="yes" data-pagination="no" data-lazyload="no" data-loop="yes" data-hoverpause="yes">
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-1.jpg" alt="title_dsdfg">
-                    </div>
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-2.jpg" alt="title_dsdfg">
-                    </div>
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-3.jpg" alt="title_dsdfg">
-                    </div>
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-4.jpg" alt="title_dsdfg">
-                    </div>
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-5.jpg" alt="title_dsdfg">
-                    </div>
-                    <div class="yt-content-slide yt-clearfix yt-content-wrap"> <img src="{{asset('public/frontend/')}}/image/catalog/demo/brand/brand-6.jpg" alt="title_dsdfg">
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+<!-- <script type="text/javascript">
+      $(document).ready(function() {
+         $('.name').on('click', function(){
+             var id = $(this).data('id');
+            // alert(id);
+             if(id){
+                 $.ajax({
+                     url: "{{ url('/product/details/page/') }}/"+id,
+                     type:"GET",
+                     dataType:"json",
+                     processData: false,
+                     beforeSend: function(){
+                     }
+                 });
+             } else {
+                 alert('danger');
+             }
+
+         });
+     });
+</script> -->
 @endsection

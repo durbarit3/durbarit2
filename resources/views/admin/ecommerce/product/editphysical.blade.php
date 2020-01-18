@@ -314,7 +314,7 @@
 											<div class="col-md-4">
 												<div class="img-upload-preview">
 													<button type="button" class="btn btn-danger close-btn remove-files"><i class="fa fa-times"></i></button>
-													<img src="{{asset('/'.$data->thumbnail_img)}}" alt="" class="img-responsive" height="100px">
+													<img src="{{asset('public/uploads/products/thumbnail/productdetails/'.$data->thumbnail_img)}}" alt="" class="img-responsive" height="200px">
 													<input type="hidden" name="previous_thumbnail_img" value="{{ $data->thumbnail_img }}">
 												</div>
 											</div>
