@@ -225,4 +225,8 @@ class BrandController extends Controller
            return Redirect()->back()->with($notification); 
             }
     }
+    // terms and condition
+    public function termsandcondition(){
+        return view('admin.termsandcondition.add');
+    }
 }

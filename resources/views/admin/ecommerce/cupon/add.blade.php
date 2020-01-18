@@ -1,11 +1,11 @@
 @extends('layouts.adminapp')
-@section('admin_content')  
+@section('admin_content')
 <link rel="stylesheet" href="{{asset('public/adminpanel')}}/assets/plugins/select2/css/select2.min.css">
       <!-- content wrpper -->
 			<div class="content_wrapper">
 				<!--middle content wrapper-->
 				<div class="middle_content_wrapper">
-					
+
 				<section class="page_area">
 					<div class="panel">
 						<div class="panel_header">
@@ -17,7 +17,7 @@
 									<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-award"></i> <a href="{{route('admin.cupon.all')}}" style="color: #fff;">All Cupon</a></button>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="panel_body">
 							<form action="{{route('admin.cupon.insert')}}" method="POST" id="choice_form" enctype="multipart/form-data">
@@ -35,11 +35,11 @@
 								  <div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Cupon Code:</label>
 								    <div class="col-sm-6">
-								      <input type="text" class="form-control" name="cupon_code">
+								      <input type="text" class="form-control" name="cupon_code" required>
 								    </div>
 								  </div>
 								<div id="fortotalorder" style="display: none">
-								  
+
 								  <div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Minimum Shopping:</label>
 								    <div class="col-sm-6">
@@ -53,10 +53,11 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product</label>
 								   <div class="col-sm-6">
 											<div class="select2-purple">
-												<select class="select2" name="product_id[]" id="product_id" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
+												<select class="select2" name="product_id[]" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;">
 													@php
 														$allproduct=App\Product::where('is_deleted',0)->OrderBy('id','DESC')->get();
 													@endphp
+													<option value="1" selected>select</option>
 													@foreach($allproduct as $product)
 													<option value="{{$product->id}}">{{$product->product_name}}</option>
 													@endforeach
@@ -81,48 +82,23 @@
 								<div class="form-group row">
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Date</label>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date">
+								      <input type="date" class="form-control" name="cupon_start_date" placeholder="Start Date" required>
 								    </div>
 								    <div class="col-sm-3">
-								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date">
+								      <input type="date" class="form-control" name="cupon_end_date" placeholder="End Date" required>
 								    </div>
 								</div>
-								  
-								 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								<div class="form-group row">
 									<div class="col-md-12 text-center">
 										<button type="submit" class="btn btn-primary">Add Cupon</button>
 									</div>
 								</div>
 							</form>
-								
-						</div>	
+
+						</div>
 					</div>
 				</section>
-			</div><!--/middle content wrapper-->  
+			</div><!--/middle content wrapper-->
 			</div><!--/ content wrapper -->
    <!-- script code start -->
  <script>
@@ -148,7 +124,7 @@
         	$("#forproduct").hide();
         	$("#fortotalorder").hide();
         }
-        
+
 
      });
  });

@@ -60,7 +60,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product SubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="subcate_id" id="subcate_id">
-								      	<option>Select</option>
+								      	<option value="0">Select</option>
 								      </select>
 								    </div>
 								  </div>
@@ -68,7 +68,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product ReSubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="resubcate_id" id="resubcate_id">
-								      	<option>Select</option>
+								      	<option value="0">Select</option>
 								      </select>
 								    </div>
 								  </div>
