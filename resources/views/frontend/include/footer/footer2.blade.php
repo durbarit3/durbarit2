@@ -63,19 +63,28 @@
                                         <div class="newsletter_promo">And receive <span>$29</span>coupon for first shopping</div>
                                     </div>
                                     <div class="modcontent block_content">
-                                        <form method="post" id="signup" name="signup" class="form-group form-inline signup send-mail">
+                                    <form method="post" action="{{ route('frontend.subscriber.insert') }}" id="signup" class="form-group form-inline signup send-mail subscriber_form">
+                                            @csrf
                                             <div class="input-group form-group required">
                                                 <div class="input-box">
-                                                    <input type="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" name="txtemail" size="55">
+                                                    <input type="email" required name="subscriber_email" id="subscriber_email" placeholder="Your email address..." value="{{ old('subscriber_email') }}" class="form-control" id="txtemail" name="txtemail" size="55">
                                                 </div>
-                                                <div class="input-group-btn subcribe">
+                                                {{-- <div class="input-group-btn subcribe">
                                                     <button class="btn btn-primary" type="submit" onclick="return subscribe_newsletter();" name="submit">
+                                                        <i class="fa fa-envelope hidden"></i>
+                                                        <span>Subscribe</span>
+                                                    </button>
+                                                </div> --}}
+                                                <div class="input-group-btn subcribe">
+                                                    <button class="btn btn-primary" type="submit"  name="submit">
                                                         <i class="fa fa-envelope hidden"></i>
                                                         <span>Subscribe</span>
                                                     </button>
                                                 </div>
                                             </div>
                                         </form>
+                                        <span class="text-danger alert alert-danger error-msg"></span>
+                                        <span class="text-success alert alert-success success-msg mt-2 d-block"></span>
                                     </div>
                                     <!--/.modcontent-->
                                 </div>
@@ -517,3 +526,50 @@
     </div>
 </footer>
 <!-- //end Footer Container -->
+<script type="text/javascript" src="{{asset('public/frontend/js/jquery-2.2.4.min.js')}}"></script>
+<script>
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+
+    $('.success-msg').hide();
+    $('.error-msg').hide();
+    $(document).ready(function(){
+        $('.subscriber_form').on('submit', function(e){
+            e.preventDefault();
+            var subscriber_email = $('#subscriber_email').val();
+            var url = $(this).attr('action');
+            var method = $(this).attr('method');
+            var data = $(this).serialize();
+            var method = $(this).attr('method');
+            $.ajax({
+                url:url,
+                type:'get',
+                data:{
+                    subscriber_email:subscriber_email
+                },
+                dataType:'json',
+                success:function (data) {
+                    if (data) {
+                        $('.success-msg').hide(100);
+                        $('.success-msg').show(100);
+                        $('.error-msg').hide();
+                        $('.success-msg').text(data.successMsg)
+                        $('#subscriber_email').val('');
+                    }
+                },
+                error:function(err){
+                    //console.log(err.responseJSON.errors.subscriber_email);
+                    $('.error-msg').hide(100);
+                    $('.error-msg').show(100);
+                    $('.error-msg').text(err.responseJSON.errors.subscriber_email);
+                    $('.success-msg').hide();
+
+                }
+            });
+        })
+    });
+</script>
+
