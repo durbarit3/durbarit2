@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\AboutUs' => $baseDir . '/app/AboutUs.php',
+    'App\\AddToCart' => $baseDir . '/app/AddToCart.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Brand' => $baseDir . '/app/Brand.php',
     'App\\Category' => $baseDir . '/app/Category.php',
@@ -17,14 +18,18 @@ return array(
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
 
+    'App\\Faq' => $baseDir . '/app/Faq.php',
+    'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
+    'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
+
+
 
     'App\\FooterOption' => $baseDir . '/app/FooterOption.php',
-
-
-
     'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
     'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
     'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
+
+
 
     'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
 
@@ -35,12 +40,16 @@ return array(
     'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
     'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
     'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
+
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\ColorController' => $baseDir . '/app/Http/Controllers/Admin/ColorController.php',
     'App\\Http\\Controllers\\Admin\\CuponController' => $baseDir . '/app/Http/Controllers/Admin/CuponController.php',
     'App\\Http\\Controllers\\Admin\\FlashDealController' => $baseDir . '/app/Http/Controllers/Admin/FlashDealController.php',
+
+    'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
+
     'App\\Http\\Controllers\\Admin\\ForntendSetupController' => $baseDir . '/app/Http/Controllers/Admin/ForntendSetupController.php',
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
     'App\\Http\\Controllers\\Admin\\MeasurementController' => $baseDir . '/app/Http/Controllers/Admin/MeasurementController.php',
@@ -64,7 +73,11 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+
+    'App\\Http\\Controllers\\Frontend\\AddToCartController' => $baseDir . '/app/Http/Controllers/Frontend/AddToCartController.php',
+
     'App\\Http\\Controllers\\Frontend\\ContractUsController' => $baseDir . '/app/Http/Controllers/Frontend/ContractUsController.php',
+
     'App\\Http\\Controllers\\Frontend\\FrontendController' => $baseDir . '/app/Http/Controllers/Frontend/FrontendController.php',
     'App\\Http\\Controllers\\Frontend\\SubscribeController' => $baseDir . '/app/Http/Controllers/Frontend/SubscribeController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
@@ -96,6 +109,7 @@ return array(
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
 
+
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
 
 
@@ -105,6 +119,7 @@ return array(
 
 
     'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
+
 
 
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
@@ -154,6 +169,21 @@ return array(
     'Cron\\HoursField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+    'Darryldecode\\Cart\\Cart' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Cart.php',
+    'Darryldecode\\Cart\\CartCollection' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartCollection.php',
+    'Darryldecode\\Cart\\CartCondition' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartCondition.php',
+    'Darryldecode\\Cart\\CartConditionCollection' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartConditionCollection.php',
+    'Darryldecode\\Cart\\CartServiceProvider' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartServiceProvider.php',
+    'Darryldecode\\Cart\\Exceptions\\InvalidConditionException' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/InvalidConditionException.php',
+    'Darryldecode\\Cart\\Exceptions\\InvalidItemException' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/InvalidItemException.php',
+    'Darryldecode\\Cart\\Exceptions\\UnknownModelException' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/UnknownModelException.php',
+    'Darryldecode\\Cart\\Facades\\CartFacade' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Facades/CartFacade.php',
+    'Darryldecode\\Cart\\Helpers\\Helpers' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Helpers/Helpers.php',
+    'Darryldecode\\Cart\\ItemAttributeCollection' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/ItemAttributeCollection.php',
+    'Darryldecode\\Cart\\ItemCollection' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/ItemCollection.php',
+    'Darryldecode\\Cart\\Validators\\CartConditionValidator' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Validators/CartConditionValidator.php',
+    'Darryldecode\\Cart\\Validators\\CartItemValidator' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Validators/CartItemValidator.php',
+    'Darryldecode\\Cart\\Validators\\Validator' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Validators/Validator.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

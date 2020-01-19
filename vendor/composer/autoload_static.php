@@ -140,6 +140,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'DeepCopy\\' => 9,
+            'Darryldecode\\' => 13,
         ),
         'C' => 
         array (
@@ -399,6 +400,10 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Darryldecode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -436,6 +441,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
 
     public static $classMap = array (
         'App\\AboutUs' => __DIR__ . '/../..' . '/app/AboutUs.php',
+        'App\\AddToCart' => __DIR__ . '/../..' . '/app/AddToCart.php',
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
@@ -445,14 +451,14 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\ContractImage' => __DIR__ . '/../..' . '/app/ContractImage.php',
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-
+        'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
+        'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
+        'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
         'App\\FooterOption' => __DIR__ . '/../..' . '/app/FooterOption.php',
-
-
-
         'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
         'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
         'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+
 
         'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
 
@@ -464,12 +470,16 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
         'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
         'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\ColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ColorController.php',
         'App\\Http\\Controllers\\Admin\\CuponController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CuponController.php',
         'App\\Http\\Controllers\\Admin\\FlashDealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FlashDealController.php',
+
+        'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
+
         'App\\Http\\Controllers\\Admin\\ForntendSetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ForntendSetupController.php',
         'App\\Http\\Controllers\\Admin\\GatewayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GatewayController.php',
         'App\\Http\\Controllers\\Admin\\MeasurementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MeasurementController.php',
@@ -493,7 +503,11 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+
+        'App\\Http\\Controllers\\Frontend\\AddToCartController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/AddToCartController.php',
+
         'App\\Http\\Controllers\\Frontend\\ContractUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ContractUsController.php',
+
         'App\\Http\\Controllers\\Frontend\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendController.php',
         'App\\Http\\Controllers\\Frontend\\SubscribeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/SubscribeController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -524,6 +538,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+
 
         'App\\Subscriber' => __DIR__ . '/../..' . '/app/Subscriber.php',
 
@@ -583,6 +598,21 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Darryldecode\\Cart\\Cart' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Cart.php',
+        'Darryldecode\\Cart\\CartCollection' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/CartCollection.php',
+        'Darryldecode\\Cart\\CartCondition' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/CartCondition.php',
+        'Darryldecode\\Cart\\CartConditionCollection' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/CartConditionCollection.php',
+        'Darryldecode\\Cart\\CartServiceProvider' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/CartServiceProvider.php',
+        'Darryldecode\\Cart\\Exceptions\\InvalidConditionException' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/InvalidConditionException.php',
+        'Darryldecode\\Cart\\Exceptions\\InvalidItemException' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/InvalidItemException.php',
+        'Darryldecode\\Cart\\Exceptions\\UnknownModelException' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Exceptions/UnknownModelException.php',
+        'Darryldecode\\Cart\\Facades\\CartFacade' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Facades/CartFacade.php',
+        'Darryldecode\\Cart\\Helpers\\Helpers' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Helpers/Helpers.php',
+        'Darryldecode\\Cart\\ItemAttributeCollection' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/ItemAttributeCollection.php',
+        'Darryldecode\\Cart\\ItemCollection' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/ItemCollection.php',
+        'Darryldecode\\Cart\\Validators\\CartConditionValidator' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Validators/CartConditionValidator.php',
+        'Darryldecode\\Cart\\Validators\\CartItemValidator' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Validators/CartItemValidator.php',
+        'Darryldecode\\Cart\\Validators\\Validator' => __DIR__ . '/..' . '/darryldecode/cart/src/Darryldecode/Cart/Validators/Validator.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
