@@ -78,14 +78,16 @@
                                             <table class="table table-sm table-bordered">
                                                 <thead>
                                                     <tr class="text-center">
-                                                        <th colspan="2">Product</th>
+                                                        <th >Product Code</th>
+                                                        <th >Name</th>
+                                                        <th >Photo</th>
                                                         <th>Base Price</th>
                                                         <th>Discount</th>
                                                         <th>Type</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="products-table-body">
-                                                 
+
                                                 </tbody>
                                             </table>
                                         </div>

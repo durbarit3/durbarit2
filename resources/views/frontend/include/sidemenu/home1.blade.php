@@ -162,37 +162,37 @@
 													<b class="fa fa-caret-right"></b>
 												</a>
 												<div class="sub-menu" data-subwidth="65"">
-																														<div class=" content">
-													<div class="row">
-														<div class="col-sm-5">
-															<div class="html item-1">
-																<div class="label-vertical">
-																	<div><a href="#"><span class="color1">Hot!</span>Best Sellers </a></div>
-																	<div><a href="#"><span class="color2">New!</span>New Arrivals </a> </div>
-																	<div><a href="#"><span class="color3">Sale!</span>Special Offers </a></div>
-																</div>
-																<ul>
-																	<li class=""><a href="#" title="Hotel &amp; Resort">Hotel &amp; Resort</a></li>
-																	<li class=""><a href="#" title="Best Tours">Best Tours</a></li>
-																	<li class=""><a href="#" title="Vacation Rentanls">Vacation Rentanls</a></li>
-																	<li class=""><a href="#" title="Infocus">Infocus</a></li>
-																	<li class=""><a href="#" title="Restaurants">Restaurants</a></li>
-																	<li class=""><a href="#" title="Travel Trekking">Travel Trekking</a></li>
-																	<li class=""><a href="#" title="Destinations">Destinations</a></li>
-																	<li class=""><a href="#" title="Cruises">Cruises</a></li>
-																	<li class=""><a href="#" title="Water Parks">Water Parks</a></li>
-																</ul>
-															</div>
-														</div>
-														<div class="col-sm-7">
-															<div class="html ">
-																<div class="row img-banner">
-																	<a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/menu/ver-img-1.jpg" alt="banner"></a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+													<div class=" content">
+                                                        <div class="row">
+                                                            <div class="col-sm-5">
+                                                                <div class="html item-1">
+                                                                    <div class="label-vertical">
+                                                                        <div><a href="#"><span class="color1">Hot!</span>Best Sellers </a></div>
+                                                                        <div><a href="#"><span class="color2">New!</span>New Arrivals </a> </div>
+                                                                        <div><a href="#"><span class="color3">Sale!</span>Special Offers </a></div>
+                                                                    </div>
+                                                                    <ul>
+                                                                        <li class=""><a href="#" title="Hotel &amp; Resort">Hotel &amp; Resort</a></li>
+                                                                        <li class=""><a href="#" title="Best Tours">Best Tours</a></li>
+                                                                        <li class=""><a href="#" title="Vacation Rentanls">Vacation Rentanls</a></li>
+                                                                        <li class=""><a href="#" title="Infocus">Infocus</a></li>
+                                                                        <li class=""><a href="#" title="Restaurants">Restaurants</a></li>
+                                                                        <li class=""><a href="#" title="Travel Trekking">Travel Trekking</a></li>
+                                                                        <li class=""><a href="#" title="Destinations">Destinations</a></li>
+                                                                        <li class=""><a href="#" title="Cruises">Cruises</a></li>
+                                                                        <li class=""><a href="#" title="Water Parks">Water Parks</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <div class="html ">
+                                                                    <div class="row img-banner">
+                                                                        <a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/menu/ver-img-1.jpg" alt="banner"></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+												    </div>
 									</div>
 									</li>
 									<li class="item-vertical">
@@ -410,7 +410,7 @@
 								</div>
 							</div>
 						</div>
-				</div>
+				    </div>
 				</nav>
 			</div>
 		</div>

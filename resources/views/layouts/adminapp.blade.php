@@ -17,7 +17,7 @@
     <!--bootstrap-->
         <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/css/bootstrap.min.css') }}">
         <!--font awesome-->
-        <!-- <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/css/all.min.css') }}"> -->
+        <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/css/all.min.css') }}">
         <!-- metis menu -->
         <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/plugins/metismenu-3.0.4/assets/css/metisMenu.min.css') }}">
         <link rel="stylesheet" href="{{ asset('public/adminpanel/assets/plugins/metismenu-3.0.4/assets/css/mm-vertical-hover.css') }}">
@@ -313,7 +313,6 @@
                                 <li><a href="{{route('admin.category.all')}}">All Category</a></li>
                                 <li><a href="{{route('admin.subcategory.all')}}">All SubCategory</a></li>
                                 <li><a href="{{route('admin.resubcategory.all')}}">All ReSubCategory</a></li>
-
                               </ul>
                         </li>
                          <li class="single-nav-wrapper">
@@ -351,6 +350,16 @@
                         <li class="single-nav-wrapper">
                             <a class="has-arrow menu-item" href="#" aria-expanded="false">
                               <span class="left-icon"><i class="fas fa-people-carry"></i></span>
+                                <span class="menu-text">Messaging</span>
+                            </a>
+                            <ul class="dashboard-menu">
+                                <li><a href="{{ route('admin.subscriber.send.section') }}">Newsletter</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="single-nav-wrapper">
+                            <a class="has-arrow menu-item" href="#" aria-expanded="false">
+                              <span class="left-icon"><i class="fas fa-people-carry"></i></span>
                                 <span class="menu-text">Forntend Setup</span>
                             </a>
                               <ul class="dashboard-menu">
@@ -360,7 +369,7 @@
                                 <li><a href="{{route('admin.page.all')}}">Page</a></li>
                               </ul>
                         </li>
-                        
+
 
 
                         <li class="single-nav-wrapper">
@@ -388,13 +397,10 @@
                                 <li><a href="{{route('admin.trash.color')}}">Color</a></li>
                                 <li><a href="{{route('admin.trash.brand')}}">Brand</a></li>
                                 <li><a href="{{route('admin.trash.measurement')}}">Measurement</a></li>
-
                                 <li><a href="{{route('admin.flash.deal.trash.view')}}">Flash Deal</a></li>
-
                                 <li><a href="{{route('admin.trash.cupon')}}">Cupon</a></li>
                                 <li><a href="{{route('admin.trash.faq')}}">Faq</a></li>
                                 <li><a href="{{route('admin.trash.page')}}">Page</a></li>
-
                               </ul>
                         </li>
 
@@ -462,14 +468,33 @@
         <script src="{{asset('public/adminpanel')}}/assets/plugins/ckeditor/ckeditor.js"></script>
         <script src="{{asset('public/adminpanel')}}/assets/plugins/ckeditor/ckeditor-active.js"></script>
         <script src="{{asset('public/adminpanel')}}/assets/plugins/select2/js/select2.full.min.js"></script>
+
+        {{-- TestJs --}}
+
+			<!-- nice scroll bar -->
+			{{-- <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script> --}}
+            <!-- Specific Page Scripts Put Here -->
+			<!-- <script type="text/javascript" src="assets/plugins/bootstrap-wysiwyg/js/wysihtml5-0.3.0.min.js"></script> -->
+			<script src="{{asset('public/adminpanel')}}/assets/plugins/bootstrap-wysiwyg/js/bootstrap-wysihtml5-0.0.2.js"></script>
+			<script src="{{asset('public/adminpanel')}}/assets/plugins/isotope/isotope.pkgd.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+			<!-- summernote -->
+			{{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js'></script> --}}
+			<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script>
+            {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote-bs4.js'></script> --}}
+            <script src="{{asset('public/adminpanel')}}/assets/js/main.js"></script>
+
+
+        {{-- TestJs --}}
         <script>
-            CKEDITOR.replace('editor2');
+        CKEDITOR.replace('editor2');
         </script>
         <script>
         CKEDITOR.replace('editor3');
        </script>
        <script>
          CKEDITOR.replace('aboutus');
+
     </script>
       <!--   <script>
             CKEDITOR.replace('editor3');
@@ -527,7 +552,7 @@
                 })
                 .then((willDelete) => {
                 if (willDelete) {
-                window.location.href = link;
+                    window.location.href = link;
                 } else {
                 swal("Safe Data!");
                 }
@@ -645,5 +670,7 @@
       });
     });
   </script>
+
+
 </body>
 </html>

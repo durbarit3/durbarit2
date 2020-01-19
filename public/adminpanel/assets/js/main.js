@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$(".preloader").fadeOut();
 	});
 
-	
+
 	$('.sidbar-toggler-btn').click(function(){
 		$('.wrapper').toggleClass('wrapper_active');
 		$('.sidebar-wrapper').toggleClass('active-nav-wrapper');
@@ -17,15 +17,6 @@ $(document).ready(function(){
 
 
 	  $('[data-toggle="tooltip"]').tooltip();
-	
 
 
-
-
-
-
-
-	
-
-	
 });
