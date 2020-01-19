@@ -16,6 +16,19 @@ return array(
     'App\\ContractImage' => $baseDir . '/app/ContractImage.php',
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+
+
+    'App\\FooterOption' => $baseDir . '/app/FooterOption.php',
+
+
+
+    'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
+    'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
+    'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
+
+    'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
+
+
     'App\\Faq' => $baseDir . '/app/Faq.php',
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
     'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
@@ -36,7 +49,9 @@ return array(
     'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\SeoController' => $baseDir . '/app/Http/Controllers/Admin/SeoController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
+
     'App\\Http\\Controllers\\Admin\\SubscriberController' => $baseDir . '/app/Http/Controllers/Admin/SubscriberController.php',
+
     'App\\Http\\Controllers\\Admin\\ThemeOptionController' => $baseDir . '/app/Http/Controllers/Admin/ThemeOptionController.php',
     'App\\Http\\Controllers\\Admin\\TrashController' => $baseDir . '/app/Http/Controllers/Admin/TrashController.php',
     'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
@@ -61,9 +76,13 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+
     'App\\MailDraft' => $baseDir . '/app/MailDraft.php',
     'App\\Mail\\SendMailToSubscriber' => $baseDir . '/app/Mail/SendMailToSubscriber.php',
     'App\\Mail\\WelcomeSubscribeMessage' => $baseDir . '/app/Mail/WelcomeSubscribeMessage.php',
+
+    'App\\Logo' => $baseDir . '/app/Logo.php',
+
     'App\\Mesurement' => $baseDir . '/app/Mesurement.php',
     'App\\Page' => $baseDir . '/app/Page.php',
     'App\\Product' => $baseDir . '/app/Product.php',
@@ -76,7 +95,18 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
+
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
+
+
+
+    'App\\ThemeOption' => $baseDir . '/app/ThemeOption.php',
+
+
+
+    'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
+
+
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
     'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
     'App\\User' => $baseDir . '/app/User.php',

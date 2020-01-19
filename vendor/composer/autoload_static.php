@@ -445,6 +445,19 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\ContractImage' => __DIR__ . '/../..' . '/app/ContractImage.php',
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+
+        'App\\FooterOption' => __DIR__ . '/../..' . '/app/FooterOption.php',
+
+
+
+        'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
+        'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
+        'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
+
+        'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
+
+
+
         'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
         'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
         'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
@@ -465,7 +478,9 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\SeoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SeoController.php',
         'App\\Http\\Controllers\\Admin\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategoryController.php',
+
         'App\\Http\\Controllers\\Admin\\SubscriberController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubscriberController.php',
+
         'App\\Http\\Controllers\\Admin\\ThemeOptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ThemeOptionController.php',
         'App\\Http\\Controllers\\Admin\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrashController.php',
         'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
@@ -490,9 +505,13 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+
         'App\\MailDraft' => __DIR__ . '/../..' . '/app/MailDraft.php',
         'App\\Mail\\SendMailToSubscriber' => __DIR__ . '/../..' . '/app/Mail/SendMailToSubscriber.php',
         'App\\Mail\\WelcomeSubscribeMessage' => __DIR__ . '/../..' . '/app/Mail/WelcomeSubscribeMessage.php',
+
+        'App\\Logo' => __DIR__ . '/../..' . '/app/Logo.php',
+
         'App\\Mesurement' => __DIR__ . '/../..' . '/app/Mesurement.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
@@ -505,7 +524,18 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+
         'App\\Subscriber' => __DIR__ . '/../..' . '/app/Subscriber.php',
+
+
+        'App\\ThemeOption' => __DIR__ . '/../..' . '/app/ThemeOption.php',
+
+
+
+
+        'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
+
+
         'App\\TermsAndCondition' => __DIR__ . '/../..' . '/app/TermsAndCondition.php',
         'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',

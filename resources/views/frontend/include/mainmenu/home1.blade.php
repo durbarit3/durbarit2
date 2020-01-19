@@ -61,7 +61,7 @@
 																						<a href="#" class="title-submenu">Product pages</a>
 																						<div>
 																							<ul class="row-list">
-																								<li><a href="{{route('product.details')}}">Product Details</a></li>
+																								<li><a href="">Product Details</a></li>
 																								<li><a href="product-v2.html">Image size - medium</a></li>
 																								<li><a href="product-v3.html">Image size - big</a></li>
 																							</ul>

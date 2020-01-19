@@ -139,12 +139,14 @@ Route::get('/get/resubcategory/all/{subcate_id}', 'Admin\ProductController@resub
 Route::post('/get/admin/todays_deal', 'Admin\ProductController@updatetodaydeal')->name('products.todays_deal');
 Route::post('/get/admin/published', 'Admin\ProductController@updatepublished')->name('products.published');
 Route::get('admin/product/view/{id}', 'Admin\ProductController@view');
-Route::get('admin/product/varient', 'Admin\ProductController@provarient')->name('products.variant_price');
+
 Route::post('admin/product/multisoftdelete', 'Admin\ProductController@productmultisoftdelete');
 Route::get('admin/product/restore/{id}', 'Admin\ProductController@prorecover');
 Route::get('admin/product/lincencepro/{id}', 'Admin\ProductController@licencepro')->name('admin.licencepro.delete');
 Route::get('admin/product/softdelete/{id}', 'Admin\ProductController@softdelete');
 Route::get('admin/product/hearddelete/{id}', 'Admin\ProductController@hearddelete');
+
+
 
 
 // product type physical edit
@@ -208,6 +210,12 @@ Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurement
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
 
+// footer option area start
+Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->name('admin.footer.option');
+
+Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')->name('admin.footer.option.update');
+
+
 
 
 //  Frontend route start from here ============================================ //
@@ -217,11 +225,14 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
 Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('product.page');
-Route::get(md5('/product/details/page'), 'Frontend\FrontendController@productDetails')->name('product.details');
+
+Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
+
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
 
 
 Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
@@ -234,7 +245,12 @@ Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrd
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
 
+
 // Route Created By Harrison
+
+Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
+
+
 
 Route::group(['prefix' => 'subscriber', 'namespace' => 'Frontend'], function () {
 
@@ -255,6 +271,10 @@ Route::group(['prefix' => 'contract_us', 'namespace' => 'Frontend'], function ()
 
 Route::get(md5('admin/theme/selector/show'), 'Admin\ThemeOptionController@themeSelectorPageShow')->name('theme.selector.show');
 Route::post('admin/theme/selector/change', 'Admin\ThemeOptionController@themeSelectorPageChange')->name('admin.theme.option.change');
+
+
+Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal');
+
 
 // cupon
 Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');

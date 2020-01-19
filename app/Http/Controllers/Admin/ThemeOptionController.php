@@ -35,4 +35,10 @@ class ThemeOptionController extends Controller
         
         return 1;
     }
+
+
+    public function productModal()
+    {
+        return view('frontend.product_modal.home1');
+    }
 }

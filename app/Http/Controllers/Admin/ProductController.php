@@ -37,15 +37,15 @@ class ProductController extends Controller
         return view('admin.ecommerce.product.affiliate');
     }
     public function index(){
-        // $allproduct=Product::where('is_deleted',0)->where('status',1)->get();
-        $allproduct = DB::table('products')
-            ->join('categories', 'products.cate_id', '=', 'categories.id')
-            ->join('sub_categories', 'products.subcate_id', '=', 'sub_categories.id')
-            ->join('re_sub_categories', 'products.resubcate_id', '=', 're_sub_categories.id')
-            ->select('products.*', 'categories.cate_name', 'sub_categories.subcate_name', 're_sub_categories.resubcate_name')
-            ->where('products.is_deleted',0)
-            ->OrderBy('products.id','DESC')
-            ->get();
+         $allproduct=Product::where('is_deleted',0)->where('status',1)->get();
+        // $allproduct = DB::table('products')
+        //     ->join('categories', 'products.cate_id', '=', 'categories.id')
+        //     ->join('sub_categories', 'products.subcate_id', '=', 'sub_categories.id')
+        //     ->join('re_sub_categories', 'products.resubcate_id', '=', 're_sub_categories.id')
+        //     ->select('products.*', 'categories.cate_name', 'sub_categories.subcate_name', 're_sub_categories.resubcate_name')
+        //     ->where('products.is_deleted',0)
+        //     ->OrderBy('products.id','DESC')
+        //     ->get();
         return view('admin.ecommerce.product.all',compact('allproduct'));
     }
 
@@ -183,8 +183,10 @@ class ProductController extends Controller
         if($request->hasFile('thumbnail_img')){
                 $image=$request->file('thumbnail_img');
                 $ImageName='th'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(350,182)->save('public/uploads/products/thumbnail/'.$ImageName);
-                $product->thumbnail_img = 'public/uploads/products/thumbnail/'.$ImageName;
+                Image::make($image)->resize(270,270)->save('public/uploads/products/thumbnail/'.$ImageName);
+                Image::make($image)->resize(120,120)->save('public/uploads/products/thumbnail/smallthum/'.$ImageName);
+                Image::make($image)->resize(600,600)->save('public/uploads/products/thumbnail/productdetails/'.$ImageName);
+                $product->thumbnail_img =$ImageName;
         }
 
         if($request->has('colors_active') && $request->has('colors') && count($request->colors) > 0){
@@ -614,37 +616,7 @@ class ProductController extends Controller
         return view('admin.ecommerce.product.view',compact('view'));
     }
 
-    public function provarient(Request $request){
-        // $id=Product::find($request->id);
-         $product = Product::find($request->id);
-        //return json_encode($id);
-        $str = '';
-        $quantity = 0;
-
-        if($request->has('color')){
-            $data['color'] = $request['color'];
-            $str = Color::where('color_code', $request['color'])->first()->color_name;
-        }
-
-        foreach (json_decode(Product::find($request->id)->choice_options) as $key => $choice) {
-            if($str != null){
-                $str .= '-'.str_replace(' ', '', $request[$choice->name]);
-            }
-            else{
-                $str .= str_replace(' ', '', $request[$choice->name]);
-            }
-        }
-
-        if($str != null){
-            $price = json_decode($product->variations)->$str->price;
-            //$quantity = json_decode($product->variations)->$str->qty;
-        }
-        else{
-            $price = $product->product_price;
-        }
-        return array('price' => $price);
-    }
-
+    
     // multisoft delete
     public function productmultisoftdelete(Request $request){
 
@@ -857,8 +829,10 @@ class ProductController extends Controller
         if($request->hasFile('thumbnail_img')){
                 $image=$request->file('thumbnail_img');
                 $ImageName='th'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(350,182)->save('public/uploads/products/thumbnail/'.$ImageName);
-                $product->thumbnail_img = 'public/uploads/products/thumbnail/'.$ImageName;
+                Image::make($image)->resize(270,270)->save('public/uploads/products/thumbnail/'.$ImageName);
+                Image::make($image)->resize(120,120)->save('public/uploads/products/thumbnail/smallthum/'.$ImageName);
+                Image::make($image)->resize(600,600)->save('public/uploads/products/thumbnail/productdetails/'.$ImageName);
+                $product->thumbnail_img =$ImageName;
         }
 
         //combinations start
@@ -1392,5 +1366,6 @@ if($request->has('colors_active') && $request->has('colors') && count($request->
 
 
    }
+  
  
 }
