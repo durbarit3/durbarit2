@@ -1,4 +1,5 @@
 <!-- Header Container  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header id="header" class=" typeheader-1">
 	<!-- Header Top -->
 	<div class="header-top hidden-compact">
@@ -44,61 +45,41 @@
 				<div class="col-lg-2 col-xs-6 header-cart">
 					<div class="shopping_cart">
 						<div id="cart" class="btn-shopping-cart">
-							<a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+						@php
+							$userid = Request::ip();
+						@endphp
+							<button onclick="myAddToCartData(this)" value="{{$userid}}" data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
 								<div class="shopcart">
 									<span class="handle pull-left"></span>
 									<div class="cart-info">
 										<h2 class="title-cart">Shopping cart</h2>
 										<h2 class="title-cart2 hidden">My Cart</h2>
 										<span class="total-shopping-cart cart-total-full">
-											<span class="items_cart">2 </span>
+											
+											<span class="items_cart">{{Cart::session($userid)->getContent()->count()}}
+										
+										</span>
 											<span class="items_cart2">item(s)</span>
-											<span class="items_carts"> - $206.80</span>
+											<span class="items_carts"> - $ {{Cart::session($userid)->getTotal()}}</span>
 										</span>
 									</div>
 								</div>
-							</a>
+							</button>
+
 							<ul class="dropdown-menu pull-right shoppingcart-box">
-								<li class="content-item">
-									<table class="table table-striped" style="margin-bottom:10px;">
-										<tbody>
-											<tr>
-												<td class="text-center size-img-cart">
-													<a href="product.html"><img src="{{asset('public/frontend/image/catalog/demo/product/travel/10-54x54.jpg')}}" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-thumbnail"></a>
-												</td>
-												<td class="text-left"><a href="product.html">Bougainvilleas on Lombard Street, San Francisco, Tokyo</a>
-													<br> - <small>Size M</small> </td>
-												<td class="text-right">x1</td>
-												<td class="text-right">$120.80</td>
-												<td class="text-center">
-													<button type="button" title="Remove" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="table table-striped" style="margin-bottom:10px;">
-										<tbody>
-											<tr>
-												<td class="text-center size-img-cart">
-													<a href="product.html"><img src="{{asset('public/frontend/image/catalog/demo/product/travel/2-54x54.jpg')}}" alt="Canada Travel One or Two European Facials at  Studio" title="Canada Travel One or Two European Facials at  Studio" class="img-thumbnail"></a>
-												</td>
-												<td class="text-left"><a href="product.html">Canada Travel One or Two European Facials at Studio</a>
-													<br> - <small>Size M</small> </td>
-												<td class="text-right">x1</td>
-												<td class="text-right">$86.00</td>
-												<td class="text-center">
-													<button type="button" title="Remove" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+								<li class="content-item" id="addtocartshow">
+
+								
+									
+
+
 								</li>
 								<li>
 									<div class="checkout clearfix">
 										<a href="cart.html" class="btn btn-view-cart inverse"> View Cart</a>
 										<a href="checkout.html" class="btn btn-checkout pull-right">Checkout</a>
 									</div>
-								</li>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -176,3 +157,20 @@
 	</div>
 </header>
 <!-- //Header Container  -->
+
+<script>
+    function myAddToCartData(el) {
+        
+        $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: el.value},
+            function(data) {
+			   $('#addtocartshow').html(data); 
+			console.log(data);
+               
+            });
+	}
+	
+	myAddToCartData();
+</script>
+
+
+

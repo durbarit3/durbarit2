@@ -258,6 +258,16 @@ Route::post('admin/theme/selector/change', 'Admin\ThemeOptionController@themeSel
 Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal');
 
 
+
+// add to cart area start
+
+Route::post('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
+Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
+Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
+
+
+
+
 // cupon
 Route::get(md5('admin/trash/cupon'), 'Admin\TrashController@cupon')->name('admin.trash.cupon');
 Route::post('admin/trash/cupon/multipledelete', 'Admin\TrashController@cuponmultidelete')->name('admin.trash.cupondelete');
