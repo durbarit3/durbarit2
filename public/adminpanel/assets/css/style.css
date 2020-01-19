@@ -89,7 +89,7 @@ button,
 .btn-blue:hover{
   background-color: #079AFF!important;
 }
-/***  Check Box 
+/***  Check Box
 ------------------------------------------------*/
 .chech_container {
   display: block;
@@ -354,10 +354,10 @@ section{
 }
 .header_area .header_menu>li:nth-child(1)>a>span{
   background-color: #00a65a;
-} 
+}
 .header_area .header_menu>li:nth-child(2)>a>span{
   background: #f39c12 ;
-} 
+}
 .header_area .header_menu li .responsive_menu_toggle{
     display: none;
   }
@@ -917,7 +917,7 @@ footer .developby a:hover{
   color:#000;
   opacity: .5;
 }
-/*** index 
+/*** index
 ==========================================================================================================*/
 .counter_area{
 
@@ -1008,7 +1008,7 @@ footer .developby a:hover{
   .center_container{
     padding-bottom: 73px;
   }
-  
+
 }
 @media screen and (max-width: 576px) {
   .center_content{
@@ -1171,8 +1171,8 @@ div.dataTables_wrapper div.dataTables_length label{
 }
 .btn-default.active.focus, .btn-default.active:focus,
 .btn-default.active:hover, .btn-default:active.focus,
-.btn-default:active:focus, .btn-default:active:hover, 
-.open>.dropdown-toggle.btn-default.focus, 
+.btn-default:active:focus, .btn-default:active:hover,
+.open>.dropdown-toggle.btn-default.focus,
 .open>.dropdown-toggle.btn-default:focus,
 .open>.dropdown-toggle.btn-default:hover {
     color: #333;
@@ -1704,7 +1704,7 @@ div.dataTables_wrapper div.dataTables_length label{
     transition: none;
     -webkit-transition: none;
 }
-/*** invoice 
+/*** invoice
 =========================================================================================================================*/
 .invoice_area{}
 .invoice_area .item_right{
@@ -1748,7 +1748,7 @@ div.dataTables_wrapper div.dataTables_length label{
   height:auto;
 }
 .upload_file_wrapper #uploads div{
-  
+
 }
 .upload_file_wrapper #uploads div:first-child{
   overflow:hidden;
@@ -1853,7 +1853,7 @@ div.dataTables_wrapper div.dataTables_length label{
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -1904,4 +1904,227 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+/*** Mailbox page
+==============================================================================*/
+
+.mailbox {
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 30px 0;
+    overflow: hidden;
+    border: 1px solid #e1e6ef;
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(113, 106, 202, 0.08);
+    box-shadow: 0px 1px 15px 1px rgba(113, 106, 202, 0.08);
+}
+
+.mailbox-header {
+    padding: 0 25px;
+    border-bottom: 1px solid #e1e6ef;
+}
+
+.inbox-toolbar {
+    padding-top: 16.5px;
+    float: right;
+}
+
+.mailbox .btn {
+    border-radius: 25px;
+    border-width: 2px;
+    padding: 4px 15px;
+}
+
+.mailbox .btn:hover {
+    border-width: 2px;
+}
+
+.mailbox .btn-default {
+    color: #89949B;
+    border-color: #efefef;
+    background-color: #fff;
+}
+
+.mailbox .btn-default:hover {
+    color: #fff;
+    border-color: #223f4a;
+    background-color: #223f4a;
+}
+
+.mailbox-body .row {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.mailbox-body .inbox-nav,
+.mailbox-body .inbox-mail {
+    display: table-cell;
+    vertical-align: top;
+    float: none;
+}
+
+.mailbox-sideber {
+    margin-top: 20px;
+}
+
+.mailbox_inner{
+    position: relative;
+    border-bottom: 1px solid #e4e5e7;
+}
+
+.profile-usermenu ul {
+    margin-bottom: 20px;
+}
+.profile-usermenu ul li{
+    float: none;
+    display: block;
+    width:100%;
+}
+.profile-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+    padding:12px 15px;
+    -webkit-transition-duration: .7s;
+         -o-transition-duration: .7s;
+            transition-duration: .7s;
+}
+
+
+.profile-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+    background-color: #26ABE2;
+    color:rgba(250,250,250,.9);
+    color:#fff;
+}
+
+.profile-usermenu ul li.active {
+    border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+    background-color: #26ABE2 ;
+    border-left: 2px solid #e6ebeb;
+    margin-left: -2px;
+    color:rgba(250,250,250,.9);
+}
+
+.profile-usermenu h6 {
+    margin: 0 15px 10px;
+    border-bottom: 1px solid #e4e5e7;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.inbox_item {
+    color: inherit;
+    display: block;
+    padding-bottom: 0 !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-bottom: 1px solid #e4e5e7;
+    background: #f9f9f9;
+}
+
+.unread {
+    background: white;
+}
+
+.inbox_item:hover,
+.inbox_item:focus {
+    color: inherit;
+    background: #eefafb;
+}
+
+.inbox_item:last-child {
+    border-bottom: none !important;
+}
+
+.inbox-avatar {
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    padding: 25px;
+}
+
+.inbox-avatar .i-check {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.inbox-avatar img {
+    padding: 2px;
+    border-radius: 100px;
+    border: 1px solid #d4d4d4;
+    height: 40px;
+    width: 40px;
+}
+
+.inbox-avatar-text {
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    color: #93a3b5;
+}
+
+.avatar-name {
+    color: #43525A;
+    font-weight: 600;
+}
+
+.badge.avatar-text {
+    margin-right: 5px;
+    display: inline;
+    color: #fff;
+    font-size: 72%;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.inbox-date {
+    float: right;
+    color: #CDCCC8;
+    text-align: right;
+    position: absolute;
+    bottom:3%;
+    right:3%;
+}
+
+.inbox-date .date {
+    position: relative;
+    top: 5px;
+}
+.compose .dropdown-toggle::after{
+  display: none!important;
+}
+
+@media(max-width:767px) {
+    .mailbox .btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media(min-width:1200px) {
+    .inbox-avatar-text {
+        padding-left: 12.5px;
+    }
+}
+.mail-check{
+  left:10px!important;
+  top:28px!important;
+}
+/*compose page*/
+.note-editor.note-frame .note-editing-area .note-editable{
+    padding:10px 10px 10px 30px;
+}
+.invalid-feedback{
+    padding:10px;
 }

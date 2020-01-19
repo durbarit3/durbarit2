@@ -23,7 +23,7 @@
 							<form action="{{route('admin.flash.deal.multiple.soft.delete')}}" method="Post">
 						     @csrf
 							<button type="submit" style="margin: 5px;" class="btn btn-danger" ><i class="fa fa-trash"></i> Delete All</button>
-             				<button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-recycle"></i> <a href="" style="color: #fff;">Restore</a></button>
+                            <button type="button"  style="margin: 5px;" class="btn btn-success" ><i class="fas fa-recycle"></i> <a href="{{ route('admin.flash.deal.trash.view') }}" style="color: #fff;">Restore</a></button>
 							<div class="panel_body">
 								<div class="table-responsive">
 		                         <table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
@@ -54,7 +54,7 @@
 		                                      <td>{{$flashDeal->title}}</td>
 		                                      <td>{{$flashDeal->start_date}}</td>
 		                                      <td>{{$flashDeal->end_date}}</td>
-								              @if($flashDeal->status==1)
+								              @if($flashDeal->status == 1)
 					                          <td class="center"><span class="badge-success rounded px-1">Active</span></td>
 					                          @else
 					                          <td class="center"><span class="badge-danger rounded px-1">Deactive</span></td>
@@ -65,7 +65,6 @@
 													@else
 													<a  href="{{ route('admin.flash.deal.change.status', $flashDeal->id) }}" class="btn btn-default btn-sm text-white" data-toggle="tooltip" data-placement="right" title="active" data-original-title="Deactive"><i class="far fa-thumbs-down"></i></a> |
 													@endif
-
                                                     <a href="{{ route('admin.flash.deal.edit', $flashDeal->id) }}" class="btn btn-sm btn-blue text-white" ><i class="fas fa-pencil-alt"></i></a> |
 		                                            <a id="delete" href="{{ route('admin.flash.deal.soft.delete', $flashDeal->id) }}" class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-placement="right" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
 		                                       </td>
@@ -105,9 +104,7 @@
                 $(".checkbox").prop('checked',false);
 
             }
-
         });
-
     });
 
 </script>

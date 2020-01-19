@@ -245,9 +245,27 @@ Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrd
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
 
+
+// Route Created By Harrison
+
 Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
 
 
+
+Route::group(['prefix' => 'subscriber', 'namespace' => 'Frontend'], function () {
+
+    Route::get('add', 'SubscribeController@insert')->name('frontend.subscriber.insert');
+
+});
+
+Route::group(['prefix' => 'contract_us', 'namespace' => 'Frontend'], function () {
+
+    Route::get('/', 'ContractUsController@index')->name('frontend.contract.us.index');
+    Route::post('send/message', 'ContractUsController@sendMessage')->name('frontend.contract.us.send.message');
+
+});
+
+// Route Created By Harrison Ended
 
 // Theme Selector area start
 
@@ -267,7 +285,7 @@ Route::post('admin/trash/multihearddelfaq', 'Admin\TrashController@multihearddel
 // page trash
 Route::get(md5('admin/trash/page'), 'Admin\TrashController@page')->name('admin.trash.page');
 Route::post(md5('admin/trash/multidelpage'), 'Admin\TrashController@pagemultdel')->name('admin.trash.pagemultidel');
-// foysal new new 
+// foysal new new
 
 
 
@@ -295,6 +313,25 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
     Route::get('get/selected/products/by/ajax', 'FlashDealController@getProductsByAjax');
     Route::get('get/selected/previous/and/new/products/by/ajax', 'FlashDealController@getProductsPreviousAndNewByAjax');
     // Ajax call route end
+
+});
+
+
+Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
+
+    Route::get('send/section', 'SubscriberController@mailSendSection')->name('admin.subscriber.send.section');
+    Route::get('mail/details/{mailId}', 'SubscriberController@mailDetails')->name('admin.subscriber.mail.details');
+    Route::get('/compose', 'SubscriberController@mailComposeSection')->name('admin.subscriber.mail.compose');
+    Route::post('send', 'SubscriberController@mailSend')->name('admin.subscriber.send.mail');
+    Route::post('multiple/delete', 'SubscriberController@multipleDelete')->name('contract.multiple.delete');
+    Route::get('reply/{mailId}', 'SubscriberController@replyMail')->name('admin.contract.reply.mail');
+    Route::post('reply/or/draft/{mailId}', 'SubscriberController@mailReplyOrDraft')->name('admin.mail.reply.or.draft');
+    Route::get('all/draft', 'SubscriberController@allDraftMails')->name('admin.mail.all.draft');
+    Route::post('delete/draft', 'SubscriberController@deleteDraft')->name('admin.delete.draft.mail');
+    Route::get('trash', 'SubscriberController@trashMails')->name('admin.trash.mail');
+    Route::post('force/delete/or/restore', 'SubscriberController@forceDeleteOrRestore')->name('admin.mail.delete.or.restore');
+    Route::get('send/draft/mail/{draftId}', 'SubscriberController@sendDraftMailSection')->name('admin.send.draft.mail');
+    Route::post('reply/or/draft/from/draft/mail{draftId}', 'SubscriberController@replyOrDraft')->name('admin.mail.reply.or.draft.from.draft');
 
 });
 //Harrison start ended

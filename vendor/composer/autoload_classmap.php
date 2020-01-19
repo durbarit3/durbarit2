@@ -12,8 +12,11 @@ return array(
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Color' => $baseDir . '/app/Color.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Contract' => $baseDir . '/app/Contract.php',
+    'App\\ContractImage' => $baseDir . '/app/ContractImage.php',
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+
 
     'App\\FooterOption' => $baseDir . '/app/FooterOption.php',
 
@@ -27,25 +30,18 @@ return array(
 
 
     'App\\Faq' => $baseDir . '/app/Faq.php',
-
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
-
     'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
-
-
-
-
-
+    'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
+    'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
+    'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\ColorController' => $baseDir . '/app/Http/Controllers/Admin/ColorController.php',
     'App\\Http\\Controllers\\Admin\\CuponController' => $baseDir . '/app/Http/Controllers/Admin/CuponController.php',
-
     'App\\Http\\Controllers\\Admin\\FlashDealController' => $baseDir . '/app/Http/Controllers/Admin/FlashDealController.php',
-
     'App\\Http\\Controllers\\Admin\\ForntendSetupController' => $baseDir . '/app/Http/Controllers/Admin/ForntendSetupController.php',
-
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
     'App\\Http\\Controllers\\Admin\\MeasurementController' => $baseDir . '/app/Http/Controllers/Admin/MeasurementController.php',
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
@@ -53,6 +49,9 @@ return array(
     'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\SeoController' => $baseDir . '/app/Http/Controllers/Admin/SeoController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
+
+    'App\\Http\\Controllers\\Admin\\SubscriberController' => $baseDir . '/app/Http/Controllers/Admin/SubscriberController.php',
+
     'App\\Http\\Controllers\\Admin\\ThemeOptionController' => $baseDir . '/app/Http/Controllers/Admin/ThemeOptionController.php',
     'App\\Http\\Controllers\\Admin\\TrashController' => $baseDir . '/app/Http/Controllers/Admin/TrashController.php',
     'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
@@ -65,7 +64,9 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Frontend\\ContractUsController' => $baseDir . '/app/Http/Controllers/Frontend/ContractUsController.php',
     'App\\Http\\Controllers\\Frontend\\FrontendController' => $baseDir . '/app/Http/Controllers/Frontend/FrontendController.php',
+    'App\\Http\\Controllers\\Frontend\\SubscribeController' => $baseDir . '/app/Http/Controllers/Frontend/SubscribeController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -75,7 +76,13 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+
+    'App\\MailDraft' => $baseDir . '/app/MailDraft.php',
+    'App\\Mail\\SendMailToSubscriber' => $baseDir . '/app/Mail/SendMailToSubscriber.php',
+    'App\\Mail\\WelcomeSubscribeMessage' => $baseDir . '/app/Mail/WelcomeSubscribeMessage.php',
+
     'App\\Logo' => $baseDir . '/app/Logo.php',
+
     'App\\Mesurement' => $baseDir . '/app/Mesurement.php',
     'App\\Page' => $baseDir . '/app/Page.php',
     'App\\Product' => $baseDir . '/app/Product.php',
@@ -89,6 +96,9 @@ return array(
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
 
+    'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
+
+
 
     'App\\ThemeOption' => $baseDir . '/app/ThemeOption.php',
 
@@ -96,8 +106,9 @@ return array(
 
     'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
 
-    'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
 
+    'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
+    'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

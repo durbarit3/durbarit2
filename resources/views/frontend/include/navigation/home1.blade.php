@@ -9,7 +9,6 @@
                     <li class="neo3"><a href="#box-link3"><span>Fashion</span></a></li>
                     <li class="neo4"><a href="#box-link4"><span>Travel</span></a></li>
                     <li class="neo5"><a href="#box-link5"><span>Digital</span></a></li>
-
                 </ul>
             </div>
         </div>
