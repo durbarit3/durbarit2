@@ -9,6 +9,7 @@ return array(
     'App\\AboutUs' => $baseDir . '/app/AboutUs.php',
     'App\\AddToCart' => $baseDir . '/app/AddToCart.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Banner' => $baseDir . '/app/Banner.php',
     'App\\Brand' => $baseDir . '/app/Brand.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Color' => $baseDir . '/app/Color.php',
@@ -17,6 +18,7 @@ return array(
     'App\\ContractImage' => $baseDir . '/app/ContractImage.php',
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+
 
     'App\\Faq' => $baseDir . '/app/Faq.php',
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
@@ -34,6 +36,7 @@ return array(
     'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
 
 
+
     'App\\Faq' => $baseDir . '/app/Faq.php',
     'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
     'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
@@ -42,13 +45,16 @@ return array(
     'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
 
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
+    'App\\Http\\Controllers\\Admin\\BannerController' => $baseDir . '/app/Http/Controllers/Admin/BannerController.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\ColorController' => $baseDir . '/app/Http/Controllers/Admin/ColorController.php',
     'App\\Http\\Controllers\\Admin\\CuponController' => $baseDir . '/app/Http/Controllers/Admin/CuponController.php',
     'App\\Http\\Controllers\\Admin\\FlashDealController' => $baseDir . '/app/Http/Controllers/Admin/FlashDealController.php',
 
+
     'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
+
 
     'App\\Http\\Controllers\\Admin\\ForntendSetupController' => $baseDir . '/app/Http/Controllers/Admin/ForntendSetupController.php',
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
@@ -59,7 +65,9 @@ return array(
     'App\\Http\\Controllers\\Admin\\SeoController' => $baseDir . '/app/Http/Controllers/Admin/SeoController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
 
+
     'App\\Http\\Controllers\\Admin\\SubscriberController' => $baseDir . '/app/Http/Controllers/Admin/SubscriberController.php',
+
 
     'App\\Http\\Controllers\\Admin\\ThemeOptionController' => $baseDir . '/app/Http/Controllers/Admin/ThemeOptionController.php',
     'App\\Http\\Controllers\\Admin\\TrashController' => $baseDir . '/app/Http/Controllers/Admin/TrashController.php',
@@ -108,6 +116,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
+
 
 
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',

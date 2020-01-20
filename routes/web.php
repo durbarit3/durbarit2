@@ -224,17 +224,17 @@ Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')
 
 Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us');
-Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('product.page');
+// category
+Route::get('product/page/{slug}', 'Frontend\FrontendController@cateproduct');
+// subcategory
+Route::get('subacete/{cate_slug}/{subacet_slug}', 'Frontend\FrontendController@subcateproduct');
 
 Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
-
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
 Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
-
-
 Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
 Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
 
@@ -246,9 +246,14 @@ Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerO
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
 
 
+
 // Route Created By Harrison
 
+
 Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
+
+//Route::get('category/details/{slug}', 'Frontend\FrontendController@categorydetails');
+
 
 
 
@@ -350,7 +355,14 @@ Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'midd
 Route::view('/website', 'layouts.websiteapp');
 // qayum hasan route end
 
+// asif-foysal-new
+// front end controller
 
+
+
+Route::get('/fhjsdgfhdsgf', 'Frontend\FrontendController@newh');// front end controller
+
+Route::get('/dsfkjhsdfdshb', 'Frontend\FrontendController@new');
 
 
 

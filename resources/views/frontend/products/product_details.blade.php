@@ -925,7 +925,7 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container">
-                                                    <a href="#" title="Portable  Compact Charger (External Battery) t45 ">
+                                                    <a href="{{url('/product/details/page/'.$products->id)}}" title="Portable  Compact Charger (External Battery) t45 ">
                                                         <img src="{{asset('public/uploads/products/thumbnail/productdetails/'.$products->thumbnail_img)}}" alt="Portable  Compact Charger (External Battery) t45" title="Portable  Compact Charger (External Battery) t45 " class="img-1 img-responsive">
                                                     </a>
                                                 </div>
@@ -937,7 +937,7 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">{{Str::limit($products->product_name,40)}}</a></h4>
+                                                    <h4><a href="{{url('/product/details/page/'.$products->id)}}">{{Str::limit($products->product_name,40)}}</a></h4>
                                                     <div class="total-price clearfix" style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
                                                             <span class="price-new">{{$products->product_price}}</span>

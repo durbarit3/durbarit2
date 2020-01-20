@@ -10438,13 +10438,8 @@ span.fa-stack .fa-star.fa-stack-2x:before {
   padding: 15px; }
 
 #content .filter-horizontal ul {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
+  
+  }
 
 #content .filter-horizontal li.so-filter-options {
   -webkit-box-flex: 1;
