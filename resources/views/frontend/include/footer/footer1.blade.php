@@ -81,12 +81,14 @@
                             @foreach(App\SubCategory::where('is_deleted',0)->get() as $subcategores)
                             <div class="col-lg-15 col-md-15 col-sm-4 col-xs-6 col_yb5e footer--link">
                                 <h3 class="title-footer">
+                                    <a href="{{url('subacete/'.$subcategores->category->cate_slug.'/'.$subcategores->subcate_slug)}}">
                                     {{$subcategores->subcate_name}}
+                                    </a>
                                 </h3>
                                 <ul class="links">
-                                    @foreach(App\ReSubCategory::where('subcate_id',$subcategores->id)->where('is_deleted',0)->get() as $subcategores)
+                                    @foreach(App\ReSubCategory::where('subcate_id',$subcategores->id)->where('is_deleted',0)->get() as $resubcategores)
                                         <li>
-                                            <a href="#">{{$subcategores->resubcate_name}}</a>
+                                            <a href="{{url('resubacete/'.$resubcategores->category->cate_slug.'/'.$resubcategores->subcate->subcate_slug.'/'.$resubcategores->resubcate_slug)}}">{{$resubcategores->resubcate_name}}</a>
                                         </li>
                                     @endforeach
                                 </ul>

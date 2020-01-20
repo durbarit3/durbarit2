@@ -189,6 +189,21 @@ Route::post('admin/page/update', 'Admin\PageController@update')->name('admin.pag
 Route::post('admin/page/multisoftdelete', 'Admin\PageController@pagemultidel')->name('admin.page.multisoftdelete');
 Route::get('admin/page/recover/{id}','Admin\PageController@recover');
 Route::get('admin/page/hearddelete/{id}','Admin\PageController@hearddelete');
+// banner
+Route::get(md5('admin/banner/all'),'Admin\BannerController@index')->name('admin.banner.all');
+Route::post(md5('admin/banner/insert'),'Admin\BannerController@insert')->name('admin.banner.insert');
+
+Route::get('admin/banner/active/{id}','Admin\BannerController@active');
+Route::get('admin/banner/restore/{id}','Admin\BannerController@restore');
+Route::get('admin/banner/deactive/{id}','Admin\BannerController@deactive');
+Route::get('admin/banner/softdelete/{id}','Admin\BannerController@softdelete');
+
+Route::get('admin/banner/multihearddelete/{id}','Admin\BannerController@multihearddelete');
+
+Route::post('admin/banner/multisoftdelete','Admin\BannerController@multisoftdelete')->name('admin.banner.multisoftdelete');
+Route::get('/get/admin/banner/edit/{ban_id}','Admin\BannerController@edit');
+Route::post('admin/banner/update','Admin\BannerController@update')->name('admin.banner.update');
+
 
 
 
@@ -211,10 +226,15 @@ Route::post('admin/trash/measurement/delete', 'Admin\TrashController@measurement
 Route::get(md5('admin/trash/product'), 'Admin\TrashController@product')->name('admin.trash.product');
 Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@producthearddel')->name('admin.trash.producthearddel');
 
+Route::get(md5('admin/trash/banner'), 'Admin\TrashController@banner')->name('admin.trash.banner');
+Route::post(md5('admin/trash/banmultidel'), 'Admin\TrashController@banmultidel')->name('admin.trash.multidelban');
+
 // footer option area start
 Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->name('admin.footer.option');
 
+
 Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')->name('admin.footer.option.update');
+
 
 
 
@@ -229,6 +249,8 @@ Route::get('/about-us', 'Frontend\FrontendController@aboutus')->name('about.us')
 Route::get('product/page/{slug}', 'Frontend\FrontendController@cateproduct');
 // subcategory
 Route::get('subacete/{cate_slug}/{subacet_slug}', 'Frontend\FrontendController@subcateproduct');
+// resubcate
+Route::get('resubacete/{cate_slug}/{subacet_slug}/{resub_slug}', 'Frontend\FrontendController@resubcateproduct');
 
 Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
@@ -249,6 +271,8 @@ Route::get(md5('/customer/order'), 'Frontend\FrontendController@customerOrder')-
 Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrderInfo')->name('customer.order.info');
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
 Route::get(md5('/customer/gift/voucher'), 'Frontend\FrontendController@customerGiftVoucher')->name('customer.gift.voucher');
+
+Route::get('/product/detailssearch/', 'Frontend\FrontendController@searchcate')->name('products.search.cate');
 
 
 
