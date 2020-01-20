@@ -360,7 +360,7 @@
 																			<li><a class="subcategory_item" href="faq.html">FAQ</a></li>
 
 																			<li><a class="subcategory_item" href="sitemap.html">Site Map</a></li>
-																			<li><a class="subcategory_item" href="contact.html">Contact us</a></li>
+                                                                        <li><a class="subcategory_item" href="{{ route('frontend.contract.us.index') }}">Contact us</a></li>
 																			<li><a class="subcategory_item" href="banner-effect.html">Banner Effect</a></li>
 																		</ul>
 																	</div>
