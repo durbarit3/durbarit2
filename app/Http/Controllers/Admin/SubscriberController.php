@@ -12,8 +12,7 @@ use App\Mail\SendMailToSubscriber;
 use App\Http\Controllers\Controller;
 use App\MailDraft;
 use Illuminate\Support\Facades\Mail;
-
-
+use PhpParser\Node\Expr\AssignOp\Concat;
 
 class SubscriberController extends Controller
 {
@@ -110,6 +109,7 @@ class SubscriberController extends Controller
                 'alert-type' => 'success'
             );
             return redirect()->route('admin.mail.all.draft')->with($notification);
+           
         }
     }
 
@@ -221,7 +221,7 @@ class SubscriberController extends Controller
                 'reply_subject' => $request->reply_subject,
                 'reply_content' => $request->reply_content,
             ]);
-            
+
             $notification = array(
                 'messege' => 'Successfully this draft is updated.',
                 'alert-type' => 'success'

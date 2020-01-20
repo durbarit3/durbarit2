@@ -87,8 +87,8 @@
 																						<a href="#" class="title-submenu">My Account pages</a>
 																						<div>
 																							<ul class="row-list">
-																								<li><a href="{{route('customer.login')}}">Login Page</a></li>
-																								<li><a href="{{route('customer.register')}}">Register Page</a></li>
+																								<li><a href="{{route('login')}}">Login Page</a></li>
+																								<li><a href="{{route('register')}}">Register Page</a></li>
 																								<li><a href="{{route('customer.account')}}">My Account</a></li>
 																								<li><a href="{{route('customer.order')}}">Order History</a></li>
 																								<li><a href="{{route('customer.order.info')}}">Order Information</a></li>

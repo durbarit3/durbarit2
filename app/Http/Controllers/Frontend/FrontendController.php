@@ -15,6 +15,7 @@ use DB;
 
 class FrontendController extends Controller
 {
+
     // Frontend showing page
 
     public function index ()
@@ -45,7 +46,7 @@ class FrontendController extends Controller
     public function cateproduct($slug)
     {
            $category=Category::where('cate_slug',$slug)->first();
-          
+
 
         return view('frontend.products.products',compact('category'));
     }
@@ -61,7 +62,7 @@ class FrontendController extends Controller
     public function productDetails($id)
     {    $productdetails=Product::where('id',$id)->first();
         return view('frontend.products.product_details',compact('productdetails'));
-        
+
     }
 
     // Add to cart page show
@@ -82,30 +83,30 @@ class FrontendController extends Controller
         return view('frontend.shopping.product_compare');
     }
     // Product wishlist page show
-    
+
     public function productWishlist()
     {
         return view('frontend.shopping.wishlist');
     }
 
-    // Customer Login page show
-    public function customerLogin ()
-    {
-        return view('frontend.accounts.login');
-    }
+    // // Customer Login page show
+    // public function customerLogin ()
+    // {
+    //     return view('frontend.accounts.login');
+    // }
 
-     
-    // Customer Register page show
-    public function customerRegister ()
-    {
-        return view('frontend.accounts.register');
-    }
-    
+
+    // // Customer Register page show
+    // public function customerRegister ()
+    // {
+    //     return view('frontend.accounts.register');
+    // }
+
     // Customer Account page show
-    public function customerAccount ()
-    {
-        return view('frontend.accounts.account');
-    }
+    // public function customerAccount ()
+    // {
+    //     return view('frontend.accounts.account');
+    // }
 
     // customer Order page show
     public function customerOrder ()
@@ -113,7 +114,7 @@ class FrontendController extends Controller
         return view('frontend.accounts.order_history');
     }
 
-    
+
     // customer Order information page show
     public function customerOrderInfo ()
     {
@@ -142,9 +143,9 @@ class FrontendController extends Controller
    // price show variant wise
    public function provarient(Request $request){
         //echo "ok";
-      
+
          $product = Product::find($request->id);
-      
+
         $str = '';
         $quantity = 0;
 
@@ -164,7 +165,7 @@ class FrontendController extends Controller
 
         if($str != null){
             $price = json_decode($product->variations)->$str->price;
-            
+
         }
         else{
             $price = $product->product_price;
@@ -178,8 +179,8 @@ class FrontendController extends Controller
     //     return view('frontend.products.products',compact('varname'))
     // }
 
-     
-     
 
-     
+
+
+
 }
