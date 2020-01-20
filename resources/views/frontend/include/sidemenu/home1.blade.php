@@ -69,7 +69,7 @@
 																		<div class="col-md-7 col-sm-8">
 																			@foreach($subcategory as $subcate)
 																			<div class="item-3 col-md-6 cat-child icon-2 parent">
-																			<a href="#" title="Sound">{{$subcate->subcate_name}}</a>
+																			<a href="{{url('subacete/'.$subcate->category->cate_slug.'/'.$subcate->subcate_slug)}}" title="Sound">{{$subcate->subcate_name}}</a>
 																				<ul>
 																					@php
 																						$resubcate=App\ReSubCategory::where('is_deleted',0)->where('subcate_id',$subcate->id)->get();
@@ -97,13 +97,11 @@
 												</div>
 												@else
 												<p class="close-menu"></p>
-												<a class="clearfix">
+												<a class="clearfix" href="{{url('product/page/'.$menu->cate_slug)}}">
 													<span>
 														<strong><img src="{{asset('public/uploads/category/'.$menu->cate_icon)}}" alt="">{{$menu->cate_name}}</strong>
 													</span>
-													
 												</a>
-
 												@endif
 											</li>
 										@endforeach

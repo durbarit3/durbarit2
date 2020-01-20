@@ -48,7 +48,7 @@
 																						<a href="#" class="title-submenu">Listing pages</a>
 																						<div>
 																							<ul class="row-list">
-																								<li><a href="{{route('product.page')}}">Product </a></li>
+																								<li><a href="">Product </a></li>
 																								<li><a href="category-v2.html">Category Page 2</a></li>
 																								<li><a href="category-v3.html">Category Page 3</a></li>
 																							</ul>

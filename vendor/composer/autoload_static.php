@@ -437,39 +437,27 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
     public static $classMap = array (
         'App\\AboutUs' => __DIR__ . '/../..' . '/app/AboutUs.php',
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Banner' => __DIR__ . '/../..' . '/app/Banner.php',
         'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Color' => __DIR__ . '/../..' . '/app/Color.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cupon' => __DIR__ . '/../..' . '/app/Cupon.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-
+        'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
+        'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
+        'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
         'App\\FrontenFooter' => __DIR__ . '/../..' . '/app/FrontenFooter.php',
         'App\\FrontenHeader' => __DIR__ . '/../..' . '/app/FrontenHeader.php',
         'App\\FrontendCssJs' => __DIR__ . '/../..' . '/app/FrontendCssJs.php',
-
-        'App\\FrontendSelector' => __DIR__ . '/../..' . '/app/FrontendSelector.php',
-
-
-        'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
-
-        'App\\FlashDeal' => __DIR__ . '/../..' . '/app/FlashDeal.php',
-
-        'App\\FlashDealDetail' => __DIR__ . '/../..' . '/app/FlashDealDetail.php',
-
-
-
-
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\Admin\\BannerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BannerController.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\ColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ColorController.php',
         'App\\Http\\Controllers\\Admin\\CuponController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CuponController.php',
-
         'App\\Http\\Controllers\\Admin\\FlashDealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FlashDealController.php',
-
         'App\\Http\\Controllers\\Admin\\ForntendSetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ForntendSetupController.php',
-
         'App\\Http\\Controllers\\Admin\\GatewayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GatewayController.php',
         'App\\Http\\Controllers\\Admin\\MeasurementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MeasurementController.php',
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
@@ -477,6 +465,7 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\SeoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SeoController.php',
         'App\\Http\\Controllers\\Admin\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategoryController.php',
+        'App\\Http\\Controllers\\Admin\\ThemeOptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ThemeOptionController.php',
         'App\\Http\\Controllers\\Admin\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrashController.php',
         'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\AdminLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminLoginController.php',
@@ -510,15 +499,8 @@ class ComposerStaticInit229ef598f15ef1b57ceb6f751a711138
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\ReSubCategory' => __DIR__ . '/../..' . '/app/ReSubCategory.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
-
-        'App\\ThemeOption' => __DIR__ . '/../..' . '/app/ThemeOption.php',
-
-
-
-        'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
-
         'App\\TermsAndCondition' => __DIR__ . '/../..' . '/app/TermsAndCondition.php',
-
+        'App\\ThemeSelector' => __DIR__ . '/../..' . '/app/ThemeSelector.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

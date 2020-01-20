@@ -8,40 +8,27 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\AboutUs' => $baseDir . '/app/AboutUs.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Banner' => $baseDir . '/app/Banner.php',
     'App\\Brand' => $baseDir . '/app/Brand.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Color' => $baseDir . '/app/Color.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Cupon' => $baseDir . '/app/Cupon.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-
+    'App\\Faq' => $baseDir . '/app/Faq.php',
+    'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
+    'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
     'App\\FrontenFooter' => $baseDir . '/app/FrontenFooter.php',
     'App\\FrontenHeader' => $baseDir . '/app/FrontenHeader.php',
     'App\\FrontendCssJs' => $baseDir . '/app/FrontendCssJs.php',
-
-    'App\\FrontendSelector' => $baseDir . '/app/FrontendSelector.php',
-
-
-    'App\\Faq' => $baseDir . '/app/Faq.php',
-
-    'App\\FlashDeal' => $baseDir . '/app/FlashDeal.php',
-
-    'App\\FlashDealDetail' => $baseDir . '/app/FlashDealDetail.php',
-
-
-
-
-
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
+    'App\\Http\\Controllers\\Admin\\BannerController' => $baseDir . '/app/Http/Controllers/Admin/BannerController.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\ColorController' => $baseDir . '/app/Http/Controllers/Admin/ColorController.php',
     'App\\Http\\Controllers\\Admin\\CuponController' => $baseDir . '/app/Http/Controllers/Admin/CuponController.php',
-
     'App\\Http\\Controllers\\Admin\\FlashDealController' => $baseDir . '/app/Http/Controllers/Admin/FlashDealController.php',
-
     'App\\Http\\Controllers\\Admin\\ForntendSetupController' => $baseDir . '/app/Http/Controllers/Admin/ForntendSetupController.php',
-
     'App\\Http\\Controllers\\Admin\\GatewayController' => $baseDir . '/app/Http/Controllers/Admin/GatewayController.php',
     'App\\Http\\Controllers\\Admin\\MeasurementController' => $baseDir . '/app/Http/Controllers/Admin/MeasurementController.php',
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
@@ -49,6 +36,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\ReSubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/ReSubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\SeoController' => $baseDir . '/app/Http/Controllers/Admin/SeoController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
+    'App\\Http\\Controllers\\Admin\\ThemeOptionController' => $baseDir . '/app/Http/Controllers/Admin/ThemeOptionController.php',
     'App\\Http\\Controllers\\Admin\\TrashController' => $baseDir . '/app/Http/Controllers/Admin/TrashController.php',
     'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\AdminLoginController' => $baseDir . '/app/Http/Controllers/Auth/AdminLoginController.php',
@@ -82,14 +70,8 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
-
-    'App\\ThemeOption' => $baseDir . '/app/ThemeOption.php',
-
-
-    'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
-
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',
-
+    'App\\ThemeSelector' => $baseDir . '/app/ThemeSelector.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

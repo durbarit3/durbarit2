@@ -5,7 +5,7 @@
     <div class="container page-builder-ltr">
         <div class="row row_a90w  row-style ">
 
-            <!-- Include all categores for home page one ============================================ -->
+         <!-- Include all categores for home page one ============================================ -->
             @include('frontend.include.sidemenu.home1')
 
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col_anla  slider-right">
@@ -15,27 +15,21 @@
                             <div class="modcontent">
                                 <div id="sohomepage-slider1">
                                     <div class="so-homeslider yt-content-slider full_slider owl-drag" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="yes" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
+                                        @php
+                                            $ban=App\Banner::where('is_deleted',0)->get();
+                                        @endphp
+                                        @foreach($ban as $banner)
                                         <div class="item">
                                             <a href=" #   " title="slide 1 - 1" target="_self">
-                                                <img class="responsive"src="{{asset('public/frontend/')}}/image/catalog/demo/slider/home1/slider.jpg" alt="slide 1 - 1">
+                                                <img class="responsive"src="{{asset('public/uploads/banner/'.$banner->ban_image)}}" alt="slide 1 - 1">
                                             </a>
                                             <div class="sohomeslider-description">
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <a href=" #   " title="slide 1 - 2" target="_self">
-                                                <img class="responsive" src="{{asset('public/frontend/')}}/image/catalog/demo/slider/home1/slider-2.jpg" alt="slide 1 - 2">
-                                            </a>
-                                            <div class="sohomeslider-description">
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <a href=" #   " title="slide 1 - 3" target="_self">
-                                                <img class="responsive" src="{{asset('public/frontend/')}}/image/catalog/demo/slider/home1/slider-3.jpg" alt="slide 1 - 3">
-                                            </a>
-                                            <div class="sohomeslider-description">
-                                            </div>
-                                        </div>
+                                        @endforeach
+
+                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +39,12 @@
                         <div class="home1-banner-1 clearfix">
                             <div class="item-1 col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-1.jpg" alt="Static Image"></a>
+                                    <a title="Static Image" href="#"><img src="{{asset('public')}}/1222.png" alt="Static Image"></a>
                                 </div>
                             </div>
                             <div class="item-2 col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-2.jpg" alt="Static Image"></a>
+                                     <a title="Static Image" href="#"><img src="{{asset('public')}}/1222.png" alt="Static Image"></a>
                                 </div>
                             </div>
                         </div>
@@ -77,13 +71,24 @@
                             <div class="so-deal modcontent products-list grid clearfix clearfix preset00-3 preset01-3 preset02-2 preset03-2 preset04-1  button-type1  style2">
                                 <div class="category-slider-inner products-list yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="5" data-items_column0="5" data-items_column1="5" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="no" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
                                     <!-- product start -->
+                                    @php
+                                        $flash_id=$hotdeals->id;
+                                        $flashdetails=App\FlashDealDetail::where('flash_deal_id',$flash_id)->get();
+
+
+                                    @endphp
+                                    @foreach($flashdetails as $flasdetail)
+                                        @php
+                                            $pro_id=$flasdetail->product_id;
+                                            $mainproduct=App\Product::where('id',$pro_id)->first();
+                                        @endphp
                                     <div class="item">
                                         <div class="transition product-layout">
                                             <div class="product-item-container ">
                                                 <div class="left-block so-quickview">
                                                     <div class="image">
                                                         <a href="product.html" target="_self">
-                                                            <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/10-370x370.jpg" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-responsive">
+                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$mainproduct->thumbnail_img)}}" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-responsive">
                                                         </a>
                                                     </div>
                                                     <div class="box-label">
@@ -93,7 +98,7 @@
                                                         <div class="button-inner so-quickview">
                                                             <a class="lt-image hidden" data-product="35" href="#" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">
                                                             </a>
-                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="quickview.html" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
+                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$mainproduct->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
                                                             <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('35');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
                                                             <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('35');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
                                                             <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
@@ -102,15 +107,15 @@
                                                 </div>
                                                 <div class="right-block">
                                                     <div class="caption">
-                                                        <h4><a href="product.html" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">Bougainvilleas on Lombard Street, San Francisco, Tokyo</a></h4>
+                                                        <h4><a href="{{url('/product/details/page/'.$mainproduct->id)}}" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">{{Str::limit($mainproduct->product_name,40)}}</a></h4>
                                                         <div class="total-price clearfix">
                                                             <div class="price price-left">
-                                                                <span class="price-new">$108.80</span>
+                                                                <span class="price-new">{{$mainproduct->product_price}}</span>
                                                                 <span class="price-old">$122.00</span>
                                                             </div>
                                                             <div class="price-sale price-right">
                                                                 <span class="discount">
-                                                                    -11%
+                                                                       -{{$flasdetail->discount}}%
                                                                     <strong>OFF</strong>
                                                                 </span>
                                                             </div>
@@ -120,6 +125,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- end product -->
                                     
                                 </div>
@@ -130,12 +136,12 @@
                         <div class="home1-banner-2 clearfix">
                             <div class="item-1 col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-3.jpg" alt="Static Image"></a>
+                                    <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
                                 </div>
                             </div>
                             <div class="item-2 col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-4.jpg" alt="Static Image"></a>
+                                    <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
                                 </div>
                             </div>
                         </div>
@@ -464,7 +470,7 @@
                                                                 <div class="left-block">
                                                                     <div class="image product-image-container ">
                                                                         <a class="lt-image" href="#" target="_self" title="Invisible Hidden Spy Earphone Micro Wireless">
-                                                                            <img src="{{asset('/'.$product->    thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
+                                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Invisible Hidden Spy Earphone Micro Wireless">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -866,12 +872,12 @@
                                             <div class="row clearfix banner-tab">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 banners">
                                                     <div>
-                                                        <a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-5.jpg" alt="Image Client"></a>
+                                                        <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 banners">
                                                     <div>
-                                                        <a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/bn-6.jpg" alt="Image Client"></a>
+                                                       <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
                                                     </div>
                                                 </div>
                                             </div>

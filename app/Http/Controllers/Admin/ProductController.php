@@ -187,6 +187,9 @@ class ProductController extends Controller
                 Image::make($image)->resize(120,120)->save('public/uploads/products/thumbnail/smallthum/'.$ImageName);
                 Image::make($image)->resize(600,600)->save('public/uploads/products/thumbnail/productdetails/'.$ImageName);
                 $product->thumbnail_img =$ImageName;
+
+                Image::make($image)->resize(64,64)->save('public/uploads/products/thumbnail/cartthum/'.$ImageName);
+                $product->thumbnail_img =$ImageName;
         }
 
         if($request->has('colors_active') && $request->has('colors') && count($request->colors) > 0){
@@ -832,6 +835,9 @@ class ProductController extends Controller
                 Image::make($image)->resize(270,270)->save('public/uploads/products/thumbnail/'.$ImageName);
                 Image::make($image)->resize(120,120)->save('public/uploads/products/thumbnail/smallthum/'.$ImageName);
                 Image::make($image)->resize(600,600)->save('public/uploads/products/thumbnail/productdetails/'.$ImageName);
+                $product->thumbnail_img =$ImageName;
+
+                Image::make($image)->resize(64,64)->save('public/uploads/products/thumbnail/cartthum/'.$ImageName);
                 $product->thumbnail_img =$ImageName;
         }
 

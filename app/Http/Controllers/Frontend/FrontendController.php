@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use App\ThemeSelector;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use App\SubCategory;
+use App\FlashDeal;
 use App\Color;
+use Carbon\Carbon;
+use DB;
 
 class FrontendController extends Controller
 {
@@ -16,7 +21,15 @@ class FrontendController extends Controller
     {
         foreach(ThemeSelector::where('status',1)->get() as $themeselector){
 
-            return view($themeselector->theme_name);
+            $to = Carbon::now()->format('Y-m-d');
+
+            $from = date('Y-m-d', strtotime('+30 days', strtotime($to)));
+
+            $hotdeals = FlashDeal::where('status',1)->where('is_deleted',0)->orderBy('id','DESC')->first();
+            //return  $hotdeals;
+
+
+            return view($themeselector->theme_name,compact('hotdeals'));
         }
     }
 
@@ -29,9 +42,18 @@ class FrontendController extends Controller
 
     // Category page show
 
-    public function product()
+    public function cateproduct($slug)
     {
-        return view('frontend.products.products');
+           $category=Category::where('cate_slug',$slug)->first();
+          
+
+        return view('frontend.products.products',compact('category'));
+    }
+
+    // subcategory show
+    public function subcateproduct($cate_slug,$subcate_slug){
+        $subcate=SubCategory::where('subcate_slug',$subcate_slug)->first();
+        return view('frontend.products.subcate',compact('subcate'));
     }
 
     // Product Details page show
@@ -149,6 +171,12 @@ class FrontendController extends Controller
         }
         return array('price' => $price);
     }
+
+    // category details
+    // public function categorydetails($slug){
+    //     $catedetails=Category::where('cate_slug',$slug)->first();
+    //     return view('frontend.products.products',compact('varname'))
+    // }
 
      
      
