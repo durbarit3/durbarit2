@@ -18,9 +18,11 @@
     <div class="row">
         <aside class="col-md-3 col-sm-4 col-xs-12 content-aside left_column sidebar-offcanvas">
             <span id="close-sidebar" class="fa fa-times"></span>
+            <!-- start search -->
             <div class="module so_filter_wrap filter-horizontal">
                 <h3 class="modtitle"><span>SHOP BY</span></h3>
                 <div class="modcontent">
+                    <form id="search-item">
                     <ul>
                         <li class="so-filter-options" data-option="search">
                             <div class="so-filter-heading" id="so-filter-heading">
@@ -29,13 +31,12 @@
                                 </div>
                                 <i class="fa fa-chevron-down"></i>
                             </div>
-
                             <div class="so-filter-content-opts">
                                 <div class="so-filter-content-opts-container">
                                     <div class="so-filter-option" data-type="search">
                                         <div class="so-option-container">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="text_search" id="text_search" value="">
+                                                <input type="text" class="form-control" name="searchmain" id="searchmain">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="button" id="submit_text_search"><i class="fa fa-search"></i></button>
                                                 </div>
@@ -156,193 +157,209 @@
                                                     </div>
                                                 </div>
                                                 <div class="content_scroll">
-                                                    <div id="slider-range" </div> </div> </div> </div> </div> </div> </div> </li> </ul> <div class="clear_filter">
-                                                        <a href="javascript:;" class="btn btn-default inverse" id="btn_resetAll">
-                                                            <span class="hidden fa fa-times" aria-hidden="true"></span> Reset All
-                                                        </a>
+                                                    <div id="slider-range"> 
+                                                    </div> 
+                                                </div> 
+                                            </div>
+                                             </div> 
+
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                             </li> 
+                         </ul> 
+                         <div class="clear_filter">
+                            <a href="javascript:;" class="btn btn-default inverse" id="btn_resetAll">
+                             <span class="hidden fa fa-times" aria-hidden="true"></span> Reset All
+                             </a>
+                          </div>
+                        </div>
+                    </form>
+                  </div>
+
+
+                  <!-- end search item -->
+            <div class="moduletable module so-extraslider-ltr best-seller best-seller-custom">
+                <h3 class="modtitle"><span>Best Sellers</span></h3>
+                <div class="modcontent">
+                    <div id="so_extra_slider" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
+                        <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate" data-effect="none">
+                            <div class="item ">
+                                <div class="item-wrap style1 ">
+                                    <div class="item-wrap-inner">
+                                        <div class="media-left">
+                                            <div class="item-image">
+                                                <div class="item-img-info product-image-container ">
+                                                    <div class="box-label">
                                                     </div>
+                                                    <a class="lt-image" data-product="104" href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/25.jpg" alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="moduletable module so-extraslider-ltr best-seller best-seller-custom">
-                                                <h3 class="modtitle"><span>Best Sellers</span></h3>
-                                                <div class="modcontent">
-                                                    <div id="so_extra_slider" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
-                                                        <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate" data-effect="none">
-                                                            <div class="item ">
-                                                                <div class="item-wrap style1 ">
-                                                                    <div class="item-wrap-inner">
-                                                                        <div class="media-left">
-                                                                            <div class="item-image">
-                                                                                <div class="item-img-info product-image-container ">
-                                                                                    <div class="box-label">
-                                                                                    </div>
-                                                                                    <a class="lt-image" data-product="104" href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
-                                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/25.jpg" alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <div class="item-info">
-                                                                                <!-- Begin title -->
-                                                                                <div class="item-title">
-                                                                                    <a href="product.html" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
-                                                                                        Toshiba Pro 21"(21:9) FHD IPS LED 1920X1080 HDMI(2)
-                                                                                    </a>
-                                                                                </div>
-                                                                                <!-- Begin ratting -->
-                                                                                <div class="rating">
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                </div>
-                                                                                <!-- Begin item-content -->
-                                                                                <div class="price">
-                                                                                    <span class="old-price product-price">$62.00</span>
-                                                                                    <span class="price-old">$337.99</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- End item-info -->
-                                                                    </div>
-                                                                    <!-- End item-wrap-inner -->
-                                                                </div>
-                                                                <!-- End item-wrap -->
-                                                                <div class="item-wrap style1 ">
-                                                                    <div class="item-wrap-inner">
-                                                                        <div class="media-left">
-                                                                            <div class="item-image">
-                                                                                <div class="item-img-info product-image-container ">
-                                                                                    <div class="box-label">
-                                                                                    </div>
-                                                                                    <a class="lt-image" data-product="66" href="#" target="_self" title="Compact Portable Charger (Power Bank) with Premium">
-                                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/19.jpg" alt="Compact Portable Charger (Power Bank) with Premium">
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <div class="item-info">
-                                                                                <!-- Begin title -->
-                                                                                <div class="item-title">
-                                                                                    <a href="product.html" target="_self" title="Compact Portable Charger (Power Bank) with Premium ">
-                                                                                        Compact Portable Charger (Power Bank) with Premium
-                                                                                    </a>
-                                                                                </div>
-                                                                                <!-- Begin ratting -->
-                                                                                <div class="rating">
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                </div>
-                                                                                <!-- Begin item-content -->
-                                                                                <div class="price">
-                                                                                    <span class="old-price product-price">$74.00</span>
-                                                                                    <span class="price-old">$241.99</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- End item-info -->
-                                                                    </div>
-                                                                    <!-- End item-wrap-inner -->
-                                                                </div>
-                                                                <!-- End item-wrap -->
-                                                                <div class="item-wrap style1 ">
-                                                                    <div class="item-wrap-inner">
-                                                                        <div class="media-left">
-                                                                            <div class="item-image">
-                                                                                <div class="item-img-info product-image-container ">
-                                                                                    <div class="box-label">
-                                                                                    </div>
-                                                                                    <a class="lt-image" data-product="50" href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan ">
-                                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/8.jpg" alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <div class="item-info">
-                                                                                <!-- Begin title -->
-                                                                                <div class="item-title">
-                                                                                    <a href="product.html" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
-                                                                                        Philipin Tour Group Manila/ Pattaya / Mactan
-                                                                                    </a>
-                                                                                </div>
-                                                                                <!-- Begin ratting -->
-                                                                                <div class="rating">
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                </div>
-                                                                                <!-- Begin item-content -->
-                                                                                <div class="price">
-                                                                                    <span class="old-price product-price">$74.00</span>
-                                                                                    <span class="price-old">$122.00</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- End item-info -->
-                                                                    </div>
-                                                                    <!-- End item-wrap-inner -->
-                                                                </div>
-                                                                <!-- End item-wrap -->
-                                                                <div class="item-wrap style1 ">
-                                                                    <div class="item-wrap-inner">
-                                                                        <div class="media-left">
-                                                                            <div class="item-image">
-                                                                                <div class="item-img-info product-image-container ">
-                                                                                    <div class="box-label">
-                                                                                    </div>
-                                                                                    <a class="lt-image" data-product="78" href="#" target="_self" title="Portable  Compact Charger (External Battery) t45">
-                                                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg" alt="Portable  Compact Charger (External Battery) t45">
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <div class="item-info">
-                                                                                <!-- Begin title -->
-                                                                                <div class="item-title">
-                                                                                    <a href="product.html" target="_self" title="Portable  Compact Charger (External Battery) t45 ">
-                                                                                        Portable Compact Charger (External Battery) t45
-                                                                                    </a>
-                                                                                </div>
-                                                                                <!-- Begin ratting -->
-                                                                                <div class="rating">
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                                                </div>
-                                                                                <!-- Begin item-content -->
-                                                                                <div class="price">
-                                                                                    <span class="old-price product-price">$74.00</span>
-                                                                                    <span class="price-old">$122.00</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- End item-info -->
-                                                                    </div>
-                                                                    <!-- End item-wrap-inner -->
-                                                                </div>
-                                                                <!-- End item-wrap -->
-                                                            </div>
-                                                        </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="item-info">
+                                                <!-- Begin title -->
+                                                <div class="item-title">
+                                                    <a href="product.html" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
+                                                        Toshiba Pro 21"(21:9) FHD IPS LED 1920X1080 HDMI(2)
+                                                    </a>
+                                                </div>
+                                                <!-- Begin ratting -->
+                                                <div class="rating">
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                </div>
+                                                <!-- Begin item-content -->
+                                                <div class="price">
+                                                    <span class="old-price product-price">$62.00</span>
+                                                    <span class="price-old">$337.99</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End item-info -->
+                                    </div>
+                                    <!-- End item-wrap-inner -->
+                                </div>
+                                <!-- End item-wrap -->
+                                <div class="item-wrap style1 ">
+                                    <div class="item-wrap-inner">
+                                        <div class="media-left">
+                                            <div class="item-image">
+                                                <div class="item-img-info product-image-container ">
+                                                    <div class="box-label">
                                                     </div>
+                                                    <a class="lt-image" data-product="66" href="#" target="_self" title="Compact Portable Charger (Power Bank) with Premium">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/19.jpg" alt="Compact Portable Charger (Power Bank) with Premium">
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="module banner-left hidden-xs ">
-                                                <div class="static-image-home-left banners">
-                                                    <div><a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a></div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="item-info">
+                                                <!-- Begin title -->
+                                                <div class="item-title">
+                                                    <a href="product.html" target="_self" title="Compact Portable Charger (Power Bank) with Premium ">
+                                                        Compact Portable Charger (Power Bank) with Premium
+                                                    </a>
+                                                </div>
+                                                <!-- Begin ratting -->
+                                                <div class="rating">
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                </div>
+                                                <!-- Begin item-content -->
+                                                <div class="price">
+                                                    <span class="old-price product-price">$74.00</span>
+                                                    <span class="price-old">$241.99</span>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <!-- End item-info -->
+                                    </div>
+                                    <!-- End item-wrap-inner -->
+                                </div>
+                                <!-- End item-wrap -->
+                                <div class="item-wrap style1 ">
+                                    <div class="item-wrap-inner">
+                                        <div class="media-left">
+                                            <div class="item-image">
+                                                <div class="item-img-info product-image-container ">
+                                                    <div class="box-label">
+                                                    </div>
+                                                    <a class="lt-image" data-product="50" href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/8.jpg" alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="item-info">
+                                                <!-- Begin title -->
+                                                <div class="item-title">
+                                                    <a href="product.html" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
+                                                        Philipin Tour Group Manila/ Pattaya / Mactan
+                                                    </a>
+                                                </div>
+                                                <!-- Begin ratting -->
+                                                <div class="rating">
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                </div>
+                                                <!-- Begin item-content -->
+                                                <div class="price">
+                                                    <span class="old-price product-price">$74.00</span>
+                                                    <span class="price-old">$122.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End item-info -->
+                                    </div>
+                                    <!-- End item-wrap-inner -->
+                                </div>
+                                <!-- End item-wrap -->
+                                <div class="item-wrap style1 ">
+                                    <div class="item-wrap-inner">
+                                        <div class="media-left">
+                                            <div class="item-image">
+                                                <div class="item-img-info product-image-container ">
+                                                    <div class="box-label">
+                                                    </div>
+                                                    <a class="lt-image" data-product="78" href="#" target="_self" title="Portable  Compact Charger (External Battery) t45">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg" alt="Portable  Compact Charger (External Battery) t45">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="item-info">
+                                                <!-- Begin title -->
+                                                <div class="item-title">
+                                                    <a href="product.html" target="_self" title="Portable  Compact Charger (External Battery) t45 ">
+                                                        Portable Compact Charger (External Battery) t45
+                                                    </a>
+                                                </div>
+                                                <!-- Begin ratting -->
+                                                <div class="rating">
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                </div>
+                                                <!-- Begin item-content -->
+                                                <div class="price">
+                                                    <span class="old-price product-price">$74.00</span>
+                                                    <span class="price-old">$122.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End item-info -->
+                                    </div>
+                                    <!-- End item-wrap-inner -->
+                                </div>
+                                <!-- End item-wrap -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module banner-left hidden-xs ">
+                <div class="static-image-home-left banners">
+                    <div><a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a></div>
+                </div>
+            </div>
+                   
         </aside>
         <div id="content" class="col-md-9 col-sm-12 col-xs-12">
             <div class="module banners-effect-9 form-group">
@@ -398,7 +415,8 @@
 
                         </div>
                     </div>
-                    <div class="products-list grid row number-col-3 so-filter-gird" id="filter">
+             
+                    <div class="products-list grid row number-col-3 so-filter-gird search_main_top" id="search_main_top">
                         <!-- category product -->
                         @php
                         $products=App\Product::where('is_deleted',0)->where('cate_id',$category->id)->orderBy('id','DESC')->limit(9)->get();
@@ -457,8 +475,9 @@
                         </div>
                         @endforeach
                         <!-- endcategory product -->
-
                     </div>
+               
+                 
 
                     <div class="product-filter product-filter-bottom filters-panel">
                         <div class="col-sm-6 text-left">
@@ -492,6 +511,42 @@
 });
    
 
+</script>
+<!-- <script>
+   $('input[name="searchmain"]').on('keyup', function() {
+        search();
+    }); 
+    
+    function search(){
+
+        $.ajax({
+            type: "GET",
+            url: '{{ route('products.search.cate')}}',
+            dataType:'json',
+            data: $('#search-item').serializeArray(),
+            success: function(data) {
+                 $('#search-main-top').html(data);
+               
+            }
+        });
+        
+    }
+</script> -->
+<script>
+    $(document).on('keyup','#searchmain',function(){
+            var search_content=$(this).val();
+             $.ajax({
+                    type: "GET",
+                    url: '{{ route('products.search.cate')}}',
+                    data: {search_content},
+                    dataType:'json',
+                    success: function(data) {
+                         $('#neew #search_main_top').html(data);
+                       
+                    }
+                });
+    });
+    
 </script>
 
 @endsection 

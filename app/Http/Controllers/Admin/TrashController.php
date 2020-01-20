@@ -14,6 +14,7 @@ use App\Brand;
 use App\Cupon;
 use App\Faq;
 use App\Page;
+use App\Banner;
 use Carbon\Carbon;
 use Session;
 use Image;
@@ -722,6 +723,76 @@ class TrashController extends Controller
                   $deleteid=$request['delid'];
                  if($deleteid){
                     $delet=Page::whereIn('id',$deleteid)->update([
+                        'is_deleted'=>'0',
+                        'updated_at'=>Carbon::now()->toDateTimeString(),
+                    ]);
+                      if($delet){
+                            $notification=array(
+                            'messege'=>'Multiple Recover Successfully',
+                            'alert-type'=>'success'
+                             );
+                            return Redirect()->back()->with($notification); 
+                        }
+                        else{
+                            $notification=array(
+                                'messege'=>'Multiple Recover Faild',
+                                'alert-type'=>'errors'
+                                 );
+                               return Redirect()->back()->with($notification); 
+                        }
+                    }else{
+                        $notification=array(
+                                'messege'=>'Nothing To Recover',
+                                'alert-type'=>'info'
+                                 );
+                               return Redirect()->back()->with($notification);
+                    }
+                break;
+            }
+    }
+    // banner
+    public function banner(){
+      $allbanner=Banner::where('is_deleted',1)->get();
+      return view('admin.ecommerce.trash.banner',compact('allbanner'));
+    }
+
+    public function banmultidel(Request $request){
+      switch($request->input('submit')){
+                case 'delete':
+                  $deleteid=$request['delid'];
+                  if($deleteid){
+                      $deleid=Banner::whereIn('id',$deleteid)->first();
+                      $image_thumb=$deleid->ban_image;
+
+                      unlink('public/uploads/banner/'.$image_thumb);
+                      $deletpost=Banner::whereIn('id',$deleteid)->delete();
+                      if($deletpost){
+                            $notification=array(
+                            'messege'=>'Multiple Delete Successfully',
+                            'alert-type'=>'success'
+                             );
+                            return Redirect()->back()->with($notification); 
+                        }
+                        else{
+                            $notification=array(
+                                'messege'=>'Multiple Delete Faild',
+                                'alert-type'=>'errors'
+                                 );
+                               return Redirect()->back()->with($notification); 
+                        }
+                    }
+                 else{
+                        $notification=array(
+                            'messege'=>'Nothing To Delete',
+                            'alert-type'=>'info'
+                             );
+                           return Redirect()->back()->with($notification);
+                    }
+                break;
+                case 'restore':
+                  $deleteid=$request['delid'];
+                 if($deleteid){
+                    $delet=Banner::whereIn('id',$deleteid)->update([
                         'is_deleted'=>'0',
                         'updated_at'=>Carbon::now()->toDateTimeString(),
                     ]);

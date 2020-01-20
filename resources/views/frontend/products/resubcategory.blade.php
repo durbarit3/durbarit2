@@ -5,11 +5,11 @@
 <div class="breadcrumbs">
     <div class="container">
         <div class="title-breadcrumb">
-            {{$category->cate_name}}
+            {{$resubcate->resubcate_name}}
         </div>
         <ul class="breadcrumb-cate">
             <li><a href="{{url('/')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="">{{$category->cate_name}}</a></li>
+            <li><a href="">{{$resubcate->resubcate_name}}</a></li>
         </ul>
     </div>
 </div>
@@ -356,7 +356,7 @@
 
             <div class="products-category">
                 <div class="form-group clearfix">
-                    <h3 class="title-category ">{{$category->cate_name}}</h3>
+                    <h3 class="title-category ">{{$resubcate->resubcate_name}}</h3>
                 </div>
                 <div class="products-category">
                     <div class="product-filter filters-panel">
@@ -401,7 +401,7 @@
                     <div class="products-list grid row number-col-3 so-filter-gird" id="filter">
                         <!-- category product -->
                         @php
-                        $products=App\Product::where('is_deleted',0)->where('cate_id',$category->id)->orderBy('id','DESC')->limit(9)->get();
+                        $products=App\Product::where('is_deleted',0)->where('resubcate_id',$resubcate->id)->orderBy('id','DESC')->limit(9)->get();
                         @endphp
                         @foreach($products as $product)
                         <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-6">

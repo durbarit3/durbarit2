@@ -88,7 +88,7 @@
                                                 <div class="left-block so-quickview">
                                                     <div class="image">
                                                         <a href="product.html" target="_self">
-                                                            <img src="{{asset('public/uploads/products/thumbnail/'.$mainproduct->thumbnail_img)}}" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-responsive">
+                                                            <img src="" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-responsive">
                                                         </a>
                                                     </div>
                                                     <div class="box-label">
@@ -99,7 +99,7 @@
                                                             <a class="lt-image hidden" data-product="35" href="#" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">
                                                             </a>
 
-                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$mainproduct->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
+                                                            <a class="btn-button btn-quickview quickview quickview_handler" href="" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
 
 
                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('admin/product/modal/show')}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
@@ -115,10 +115,10 @@
                                                 </div>
                                                 <div class="right-block">
                                                     <div class="caption">
-                                                        <h4><a href="{{url('/product/details/page/'.$mainproduct->id)}}" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">{{Str::limit($mainproduct->product_name,40)}}</a></h4>
+                                                        <h4><a href="" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo"></a></h4>
                                                         <div class="total-price clearfix">
                                                             <div class="price price-left">
-                                                                <span class="price-new">{{$mainproduct->product_price}}</span>
+                                                                <span class="price-new"></span>
                                                                 <span class="price-old">$122.00</span>
                                                             </div>
                                                             <div class="price-sale price-right">

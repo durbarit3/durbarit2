@@ -9,6 +9,7 @@ use App\Product;
 use App\Category;
 use App\SubCategory;
 use App\FlashDeal;
+use App\ReSubCategory;
 use App\Color;
 use Carbon\Carbon;
 use DB;
@@ -54,6 +55,12 @@ class FrontendController extends Controller
     public function subcateproduct($cate_slug,$subcate_slug){
         $subcate=SubCategory::where('subcate_slug',$subcate_slug)->first();
         return view('frontend.products.subcate',compact('subcate'));
+    }
+    // resubcate product
+     public function resubcateproduct($cate_slug,$subcate_slug,$resub_slug){
+         
+        $resubcate=ReSubCategory::where('resubcate_slug',$resub_slug)->first();
+        return view('frontend.products.resubcategory',compact('resubcate'));
     }
 
     // Product Details page show
@@ -177,6 +184,15 @@ class FrontendController extends Controller
     //     $catedetails=Category::where('cate_slug',$slug)->first();
     //     return view('frontend.products.products',compact('varname'))
     // }
+
+    public function searchcate(){
+            $new = $_GET['search_content'];
+            $productsearch=Product::where('product_sku','LIKE','%'.$new.'%')->orderBy('id','DESC')->get();
+
+            // return json_encode($productsearch);
+            return view('frontend.products.search',compact('productsearch'));
+           
+    }
 
      
      
