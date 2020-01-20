@@ -160,6 +160,7 @@ Route::get('admin/product/producteditfour/{id}', 'Admin\ProductController@produc
 
 // general setting
 
+
 Route::get(md5('admin/forntendsetup/aboutus'), 'Admin\ForntendSetupController@aboutus')->name('admin.aboutus');
 Route::post('admin/forntendsetup/aboutus/update', 'Admin\ForntendSetupController@aboutusupdate')->name('admin.aboutus.update');
 Route::get(md5('admin/forntendsetup/termscondition'), 'Admin\ForntendSetupController@termsandcondition')->name('admin.termscondition');
@@ -257,11 +258,15 @@ Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout'
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
 Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
-Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
-Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
+// Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
+
+// Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
 
 
-Route::get(md5('/customer/account'), 'Frontend\FrontendController@customerAccount')->name('customer.account');
+Route::group(['prefix' => 'dashboard', 'namespace'=> 'Frontend',], function () {
+    Route::get('customer/account', 'CustomerController@customerAccount')->name('customer.account');
+});
+
 Route::get(md5('/customer/order'), 'Frontend\FrontendController@customerOrder')->name('customer.order');
 Route::get(md5('/customer/order/info'), 'Frontend\FrontendController@customerOrderInfo')->name('customer.order.info');
 Route::get(md5('/customer/order/return'), 'Frontend\FrontendController@customerOrderReturn')->name('customer.order.return');
@@ -291,6 +296,14 @@ Route::group(['prefix' => 'contract_us', 'namespace' => 'Frontend'], function ()
 
     Route::get('/', 'ContractUsController@index')->name('frontend.contract.us.index');
     Route::post('send/message', 'ContractUsController@sendMessage')->name('frontend.contract.us.send.message');
+
+});
+
+Route::group(['prefix' => 'authentication', 'namespace' => 'Auth'], function () {
+
+    Route::get('users/registred/success/{email}', 'RegisterController@userRegistrationSuccess')->name('user.auth.registration.success');
+    Route::get('users/email/verification/{token}', 'RegisterController@emailVerification')->name('user.auth.verification');
+
 
 });
 

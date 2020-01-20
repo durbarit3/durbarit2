@@ -30,4 +30,7 @@
     body {
         font-family: Roboto, sans-serif;
     }
+    .error_text{
+        color:crimson;
+    }
 </style>

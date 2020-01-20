@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Mail\UserVerificationMail;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -46,14 +50,22 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator($request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        return $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'phone' => 'required|numeric|unique:users,phone',
+            'password' => 'required|string|min:3|confirmed',
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        return view('frontend.accounts.register');
+    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -61,12 +73,47 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+
+    protected function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+
+        $this->validator($request);
+
+        $user = User::create([
+            'first_name' => $request->firstname,
+            'last_name' => $request->lastname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+            'remember_token' => md5($request->email),
+            'ip_address' => $request->ip()
         ]);
+
+        Mail::to($user->email)->send(new UserVerificationMail($user->first_name, $user->remember_token));
+        session()->flash('successMsg', 'Registration Successful, Please Check your Mail And Verify Your Account.');
+        return redirect()->route('user.auth.registration.success', $user->email);
+
     }
+
+    public function emailVerification($token)
+    {
+        $user = User::where('remember_token',$token)->firstOrFail();
+        if ($user) {
+            $user->update([
+                'status' => 1,
+                'remember_token' => NULL,
+                'email_verified_at' => Carbon::now(),
+            ]);
+            session()->flash('successMsg', 'Successfully your email is verified.');
+            return redirect()->route('login');
+        }
+    }
+
+    public function userRegistrationSuccess($email)
+    {
+        $user = User::where('email', $email)->first();
+        return view('frontend.accounts.registration_success_page', compact('user'));
+    }
+
+
 }
