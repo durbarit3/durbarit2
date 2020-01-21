@@ -48,7 +48,7 @@
 																						<a href="#" class="title-submenu">Listing pages</a>
 																						<div>
 																							<ul class="row-list">
-																								<li><a href="{{route('product.page')}}">Product </a></li>
+																								<li><a href="">Product </a></li>
 																								<li><a href="category-v2.html">Category Page 2</a></li>
 																								<li><a href="category-v3.html">Category Page 3</a></li>
 																							</ul>
@@ -87,8 +87,8 @@
 																						<a href="#" class="title-submenu">My Account pages</a>
 																						<div>
 																							<ul class="row-list">
-																								<li><a href="{{route('customer.login')}}">Login Page</a></li>
-																								<li><a href="{{route('customer.register')}}">Register Page</a></li>
+																								<li><a href="{{route('login')}}">Login Page</a></li>
+																								<li><a href="{{route('register')}}">Register Page</a></li>
 																								<li><a href="{{route('customer.account')}}">My Account</a></li>
 																								<li><a href="{{route('customer.order')}}">Order History</a></li>
 																								<li><a href="{{route('customer.order.info')}}">Order Information</a></li>
@@ -360,7 +360,7 @@
 																			<li><a class="subcategory_item" href="faq.html">FAQ</a></li>
 
 																			<li><a class="subcategory_item" href="sitemap.html">Site Map</a></li>
-																			<li><a class="subcategory_item" href="contact.html">Contact us</a></li>
+                                                                        <li><a class="subcategory_item" href="{{ route('frontend.contract.us.index') }}">Contact us</a></li>
 																			<li><a class="subcategory_item" href="banner-effect.html">Banner Effect</a></li>
 																		</ul>
 																	</div>

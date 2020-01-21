@@ -20,6 +20,7 @@
 <link id="color_scheme" href="{{asset('public/frontend/css/theme.css')}}" rel="stylesheet">
 <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
 <link href="{{asset('public/frontend/css/quickview/quickview.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('public/frontend/css/toaster_alert.css')}}">
 <!-- Google web fonts
 				 ============================================ -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
@@ -28,5 +29,8 @@
 <style type="text/css">
     body {
         font-family: Roboto, sans-serif;
+    }
+    .error_text{
+        color:crimson;
     }
 </style>

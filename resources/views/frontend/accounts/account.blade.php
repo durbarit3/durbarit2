@@ -79,9 +79,7 @@
                             <legend>Payment Address</legend>
                             <div class="form-group">
                                 <label for="input-company" class="control-label">Company</label>
-
                                 <input type="text" class="form-control" placeholder="Company" value="" name="company">
-
                             </div>
                             <div class="form-group required">
                                 <label for="input-address-1" class="control-label">Address 1</label>
@@ -202,11 +200,26 @@
         <aside class="col-md-3 col-sm-4 col-xs-12 content-aside right_column sidebar-offcanvas">
             <span id="close-sidebar" class="fa fa-times"></span>
             <div class="module">
-                <h3 class="modtitle"><span>My Account </span></h3>
+                <h3 class="modtitle"><span> My Account </span></h3>
                 <div class="module-content custom-border">
                     <ul class="list-box">
-
+                        @auth
+                        <li>
+                            <a onclick="
+                                event.preventDefault();
+                                document.getElementById('logout').submit();
+                            "
+                            href="#">Logout
+                            </a>
+                        </li>
+                        <form style="display:none;" id="logout" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
+                        @endauth
+                        @guest
                         <li><a href="login.html">Login </a> / <a href="register.html">Register </a></li>
+                        @endguest
+
                         <li><a href="#">Forgotten Password </a></li>
 
                         <li><a href="#">My Account </a></li>

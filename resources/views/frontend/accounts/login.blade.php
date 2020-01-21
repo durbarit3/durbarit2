@@ -7,7 +7,16 @@
             <li><a href="#">Account</a></li>
             <li><a href="#">Login</a></li>
         </ul>
+
         <div id="content" class="col-md-9">
+            <div class="session-message">
+                @if (Session::has('successMsg'))
+                    <span class="alert alert-success d-block">{{ session('successMsg') }}</span>
+                @endif
+                @if (Session::has('errorMsg'))
+                    <span class="alert alert-danger d-block">{{ session('errorMsg') }}</span>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="well ">
@@ -23,14 +32,17 @@
 
                         <h2>Returning Customer</h2>
                         <p><strong>I am a returning customer</strong></p>
-                        <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
                             <div class="form-group">
                                 <label class="control-label" for="input-email">E-Mail Address</label>
-                                <input type="text" name="email" value="" placeholder="E-Mail Address" id="input-email" class="form-control">
+                            <input type="text" name="email" value="{{ old('email') }}" placeholder="E-Mail Address" id="input-email" class="form-control">
+                                <span class="error_text"> {{ $errors->first('email') }} </span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="input-password">Password</label>
                                 <input type="password" name="password" value="" placeholder="Password" id="input-password" class="form-control">
+                                <span class="error_text"> {{ $errors->first('password') }} </span><br/>
                                 <a href="#">Forgotten Password</a></div>
 
                             <input type="submit" value="Login" class="btn btn-primary pull-left">

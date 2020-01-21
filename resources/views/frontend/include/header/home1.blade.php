@@ -56,6 +56,7 @@
 										<h2 class="title-cart2 hidden">My Cart</h2>
 										<span class="total-shopping-cart cart-total-full">
 
+
 											@php
 											$items =0;
 											$price =0;
@@ -69,6 +70,9 @@
 											
 											<span class="items_cart" id="cartdatacount">{{$items }}
 										
+
+											<span class="items_cart">{{Cart::session($userid)->getContent()->count()}}
+
 										</span>
 											<span class="items_cart2">item(s)</span>
 											<span class="items_carts" id="product_price"> - $ {{$price}}</span>
@@ -80,8 +84,8 @@
 							<ul class="dropdown-menu pull-right shoppingcart-box">
 								<li class="content-item" id="addtocartshow">
 
-								
-									
+
+
 
 
 								</li>
@@ -99,9 +103,9 @@
 		</div>
 	</div>
 	<!-- //Header Top -->
-	
+
 	<!-- include main menu area -->
-	
+
 	@include('frontend.include.mainmenu.home1')
 
 
@@ -159,27 +163,30 @@
 				<li class="wishlist"><a href="wishlist.html" id="wishlist-total" class="top-link-wishlist" title="Wish List (2) "><span>Wish List (0) </span></a></li>
 				<li class="checkout"><a href="cart.html" class="top-link-checkout" title="Checkout"><span>Checkout</span></a></li>
 			</ul>
-		</div>
-		<div class="button-user">
+        </div>
+
+        {{-- <div class="button-user">
 			<div class="user-info asd">
 				<a data-toggle="modal" data-target="#so_sociallogin" href="#">Login</a>
 			</div>
-		</div>
+		</div> --}}
+
+
 	</div>
 </header>
 <!-- //Header Container  -->
 
 <script>
     function myAddToCartData(el) {
-        
+
         $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: el.value},
             function(data) {
-			   $('#addtocartshow').html(data); 
+			   $('#addtocartshow').html(data);
 			console.log(data);
-               
+
             });
 	}
-	
+
 	myAddToCartData();
 </script>
 

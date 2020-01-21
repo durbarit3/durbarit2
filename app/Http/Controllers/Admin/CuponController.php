@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use DB;
+use Session;
 use App\Cupon;
 use Carbon\Carbon;
-use Session;
-use DB;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CuponController extends Controller
 {
@@ -39,7 +39,7 @@ class CuponController extends Controller
                 'messege'=>'Cupon Insert Success',
                 'alert-type'=>'success'
                  );
-                return Redirect()->back()->with($notification); 
+                return Redirect()->back()->with($notification);
             }else{
                 $notification=array(
                 'messege'=>'Cupon Insert Faild',
