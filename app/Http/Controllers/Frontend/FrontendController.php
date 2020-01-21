@@ -72,12 +72,6 @@ class FrontendController extends Controller
 
     }
 
-    // Add to cart page show
-
-    public function cart()
-    {
-        return view('frontend.shopping.cart');
-    }
 
     // Product Checkout page show
     public function checkout()

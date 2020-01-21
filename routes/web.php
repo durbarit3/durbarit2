@@ -253,7 +253,14 @@ Route::get('subacete/{cate_slug}/{subacet_slug}', 'Frontend\FrontendController@s
 Route::get('resubacete/{cate_slug}/{subacet_slug}/{resub_slug}', 'Frontend\FrontendController@resubcateproduct');
 
 Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
+
+
+
+
+// product add to cart in front end
+
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
+
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 
 
@@ -268,6 +275,12 @@ Route::get('/product/wishlist', 'Frontend\WishlistController@index')->name('prod
 Route::get('/product/add/wishlist/{id}', 'Frontend\WishlistController@insert');
 Route::get('/wishlist/delete/{id}', 'Frontend\WishlistController@delete');
 Route::get('/allproduct/wishlist', 'Frontend\WishlistController@getproduct');
+
+
+
+Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
+Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
+
 
 
 Route::get('/product/compare/page', 'Frontend\CompareProductController@productCompare')->name('product.compare');
@@ -338,6 +351,13 @@ Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->n
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
 
 
+// Product view cart
+Route::get(md5('/product/cart/page'), 'Frontend\AddToCartController@productViewCart')->name('product.cart.add');
+Route::post('/product/cart/update', 'Frontend\AddToCartController@viewCartUpdate')->name('product.cart.update');
+Route::post('/product/cart/delete', 'Frontend\AddToCartController@viewCartDelete')->name('product.cart.delete');
+
+
+
 
 
 // cupon
@@ -381,6 +401,7 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
 });
 
 
+
 Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('send/section', 'SubscriberController@mailSendSection')->name('admin.subscriber.send.section');
@@ -400,9 +421,9 @@ Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'midd
 });
 //Harrison start ended
 
-// qayum hasan route start
-Route::view('/website', 'layouts.websiteapp');
-// qayum hasan route end
+
+
+Route::get('hllow worldff', 'afdsafllsdkafhe@getProductsfsafldsafhldsaafh');
 
 
 

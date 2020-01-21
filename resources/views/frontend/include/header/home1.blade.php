@@ -56,11 +56,26 @@
 										<h2 class="title-cart2 hidden">My Cart</h2>
 										<span class="total-shopping-cart cart-total-full">
 
+
+											@php
+											$items =0;
+											$price =0;
+											$userid = Request::ip();
+
+											foreach(Cart::session($userid)->getContent() as $item){
+												$items += $item->quantity;
+												$price += $item->price * $items;
+											}
+											@endphp
+											
+											<span class="items_cart" id="cartdatacount">{{$items }}
+										
+
 											<span class="items_cart">{{Cart::session($userid)->getContent()->count()}}
 
 										</span>
 											<span class="items_cart2">item(s)</span>
-											<span class="items_carts"> - $ {{Cart::session($userid)->getTotal()}}</span>
+											<span class="items_carts" id="product_price"> - $ {{$price}}</span>
 										</span>
 									</div>
 								</div>
@@ -76,7 +91,7 @@
 								</li>
 								<li>
 									<div class="checkout clearfix">
-										<a href="cart.html" class="btn btn-view-cart inverse"> View Cart</a>
+										<a href="{{route('product.cart.add')}}" class="btn btn-view-cart inverse"> View Cart</a>
 										<a href="checkout.html" class="btn btn-checkout pull-right">Checkout</a>
 									</div>
                                 </li>
