@@ -71,7 +71,7 @@
                         <div class="row row_wprs  ">
 
 
-                            @foreach(App\SubCategory::where('is_deleted',0)->get() as $subcategores)
+                            @foreach(App\SubCategory::where('is_deleted',0)->limit(10)->get() as $subcategores)
                             <div class="col-lg-15 col-md-15 col-sm-4 col-xs-6 col_yb5e footer--link">
                                 <h3 class="title-footer">
                                     {{$subcategores->subcate_name}}

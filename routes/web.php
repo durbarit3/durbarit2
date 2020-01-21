@@ -228,11 +228,14 @@ Route::get(md5('/product/page'), 'Frontend\FrontendController@product')->name('p
 
 Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
 
-Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
+
+
+// product add to cart in front end
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
 Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
 Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
 Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
+
 
 
 Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
@@ -264,6 +267,13 @@ Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal
 Route::post('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
+
+
+// Product view cart
+Route::get(md5('/product/cart/page'), 'Frontend\AddToCartController@productViewCart')->name('product.cart.add');
+Route::post('/product/cart/update', 'Frontend\AddToCartController@viewCartUpdate')->name('product.cart.update');
+Route::post('/product/cart/delete', 'Frontend\AddToCartController@viewCartDelete')->name('product.cart.delete');
+
 
 
 
@@ -307,11 +317,9 @@ Route::group(['prefix' => 'admin/flash/deal', 'middleware' => 'auth:admin', 'nam
     // Ajax call route end
 
 });
-//Harrison start ended
 
-// qayum hasan route start
-Route::view('/website', 'layouts.websiteapp');
-// qayum hasan route end
+
+Route::get('hllow worldff', 'afdsafllsdkafhe@getProductsfsafldsafhldsaafh');
 
 
 

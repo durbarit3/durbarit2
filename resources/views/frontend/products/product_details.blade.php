@@ -637,7 +637,7 @@
 
 
 
-          <form id="option-choice-form input">
+          <form id="option-choice-form">
                 <div class="product-view product-detail">
                     <div class="product-view-inner clearfix">
                         <div class="content-product-left  col-md-5 col-sm-6 col-xs-12">
@@ -716,6 +716,12 @@
                                                     <span class="option-content-box active" data-title="" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
+                                                    <script>
+                                                           
+                                                            if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
+                                                                var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
+                                                            }
+                                                        </script>
                                                 </label>
                                             </div>
                                             @endforeach
@@ -731,14 +737,23 @@
                                                     <label>
                                                         <input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
                                                         <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
+
+                                                        <script>
+                                                           
+                                                            if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
+                                                                var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
+                                                            }
+                                                        </script>
+                                                        
                                                     </label>
                                                 </div>
                                                 @endforeach
+                                                
                                             </div>
                                         </div>
                                         @endforeach
                                     </div>
-
+                                    
                                     <!-- variation end -->
                                     @else
 
@@ -767,7 +782,7 @@
                                         </div>
 
 
-                                    </form>
+                                  
 
 
 
@@ -797,27 +812,8 @@
                         </div>
                     </div>
                 </div>
-
-          
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+</form>
 
 
             <div class="product-attribute module">
@@ -1153,7 +1149,24 @@
 <script>
 $(document).ready(function(){
 	$('#addtocart').click(function(params) {
+    
     var addtocart_id = $(this).val();
+    if(productcolorname){
+        var productcolorname =colorname.value;
+    }else{
+        var productcolorname =0;
+    }
+
+    if(productsizename){
+        var productsizename =sizename.value;
+    }else{
+        var productsizename =0;
+    }
+    
+    
+    
+
+    var price =document.getElementById('chosen_price').innerHTML;
 
 	$.ajaxSetup({
 		headers: {
@@ -1164,12 +1177,19 @@ $(document).ready(function(){
 $.ajax({
 	type:'POST',
 	url:'{{ route('product.add.cart') }}',
-	data: {addtocart_id: addtocart_id},
+	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
 	success: function (data) {
-        if (data == 1) {
-                    toastr.success("Product Add To Cart");
-                } 
- 
+        console.log(data);
+        
+            
+        document.getElementById('cartdatacount').innerHTML =data.quantity;
+        document.getElementById('product_price').innerHTML =data.price;
+
+        
+
+        
+        
+            
 		
 		}
 	});

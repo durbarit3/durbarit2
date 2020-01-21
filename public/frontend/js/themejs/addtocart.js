@@ -11,13 +11,13 @@
 	// Cart add remove functions
 	var cart = {
 		'add': function(product_id, quantity) {
-			addProductNotice('Product added to Cart', '<img src="image/catalog/demo/product/travel/1.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
+			addProductNotice('Product added to Cart', '<img src="image/catalog/demo/product/travel/1.jpg" alt="">', '<h3> Added to <a href="#">shopping cart</a>!</h3>', 'success');
 		}
 	}
 
 	var wishlist = {
 		'add': function(product_id) {
-			addProductNotice('Product added to Wishlist', '<img src="image/catalog/demo/product/travel/1.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
+			addProductNotice('Product added to Wishlist', '<img src="image/catalog/demo/product/travel/1.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save to your <a href="#">wish list</a>!</h3>', 'success');
 		}
 	}
 	var compare = {
