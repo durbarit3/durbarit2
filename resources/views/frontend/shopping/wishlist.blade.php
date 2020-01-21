@@ -1,6 +1,7 @@
 @extends('layouts.websiteapp')
 @section('main_content') 
 <!-- Main Container  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="index.html"><i class="fa fa-home"></i></a></li>
@@ -23,49 +24,31 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach($allwishlist as $wish)
+                        
                         <tr>
                             <td class="text-center">
-                                <a href="product.html"><img src="{{asset('public/frontend/')}}/image/catalog/demo/product/spa/9.jpg"
-                                        alt="Burger King Japan debuts Monster  Baby Force Bralette"
-                                        title="Burger King Japan debuts Monster  Baby Force Bralette"
-                                        class="img-thumbnail"></a>
+                                <a href=""><img src="{{asset('public/uploads/products/thumbnail/'.$wish->product->thumbnail_img)}}" alt="Burger King Japan debuts Monster  Baby Force Bralette"title="Burger King Japan debuts Monster  Baby Force Bralette" height="75px" width= "75px"></a>
                             </td>
-                            <td class="text-left"><a href="product.html">Burger King Japan debuts Monster Baby Force
-                                    Bralette</a></td>
-                            <td class="text-left">Product 3</td>
+                        <td class="text-left"><a href="product.html">{{ Str::limit($wish->product->product_name,40) }}</a></td>
+                        <td class="text-left">{{$wish->product->product_sku}}</td>
+                            @if($wish->product->product_qty > 0)
                             <td class="text-right">In Stock</td>
+                            @else
+                            <td class="text-right">Out of Stock</td>
+                            @endif
                             <td class="text-right">
-                                <div class="price"> <b>$80.00</b> <s>$100.00</s> </div>
+                                <div class="price"> <b>{{$wish->product->product_price}}</b></div>
                             </td>
                             <td class="text-right">
                                 <button type="button" onclick="cart.add('106');" data-toggle="tooltip" title=""
                                     class="btn btn-primary" data-original-title="Add to Cart"><i
                                         class="fa fa-shopping-cart"></i></button>
-                                <a href="#" data-toggle="tooltip" title="" class="btn btn-danger"
-                                    data-original-title="Remove"><i class="fa fa-times"></i></a></td>
+
+                                    <a  title="Remove" class="delete btn btn-danger" data-id="{{$wish->id}}"><i class="fa fa-times"></i></a></td>
                         </tr>
-                        <tr>
-                            <td class="text-center">
-                                <a href="product.html"><img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/2.jpg"
-                                        alt="Canada Travel One or Two European Facials at  Studio"
-                                        title="Canada Travel One or Two European Facials at  Studio"
-                                        class="img-thumbnail"></a>
-                            </td>
-                            <td class="text-left"><a href="product.html">Canada Travel One or Two European Facials at
-                                    Studio</a></td>
-                            <td class="text-left">Simple Product</td>
-                            <td class="text-right">In Stock</td>
-                            <td class="text-right">
-                                <div class="price"> <b>$70.00</b> <s>$100.00</s> </div>
-                            </td>
-                            <td class="text-right">
-                                <button type="button" onclick="cart.add('108');" data-toggle="tooltip" title=""
-                                    class="btn btn-primary" data-original-title="Add to Cart"><i
-                                        class="fa fa-shopping-cart"></i></button>
-                                <a href="#" data-toggle="tooltip" title="" class="btn btn-danger"
-                                    data-original-title="Remove"><i class="fa fa-times"></i></a></td>
-                        </tr>
+                        @endforeach
+                       
                     </tbody>
 
                 </table>
@@ -104,5 +87,45 @@
         </aside>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type : 'GET',
+            url:"{{url('')}}",
+
+            success : function(response) {
+                $( "#AllProducts" ).html(response);
+            }
+
+        });
+    });
+</script>
+
+   <script>
+    $(document).ready(function() {
+       $('.delete').on('click', function(){
+       var id = $(this).data('id');
+            //alert(id);
+     if(id){
+        $.ajax({
+        url: "{{ url('/wishlist/delete/') }}/"+id,
+        type:"GET",
+        dataType:"json",
+        processData: false,
+        success: function (data) {
+            // console.log(data);
+              if (data ==1){
+                toastr.success("wishlist delete");
+                }else{
+                toastr.error("wishlist delete faild");
+             }
+        }
+     });
+        } else {
+               alert('danger');
+        }
+    });
+    });
+    </script>
 
 @endsection

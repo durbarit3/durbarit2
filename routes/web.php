@@ -255,12 +255,24 @@ Route::get('resubacete/{cate_slug}/{subacet_slug}/{resub_slug}', 'Frontend\Front
 Route::get('/product/details/page/{id}', 'Frontend\FrontendController@productDetails')->name('product.details');
 Route::get(md5('/product/cart/page'), 'Frontend\FrontendController@cart')->name('product.cart.add');
 Route::get(md5('/product/checkout/page'), 'Frontend\FrontendController@checkout')->name('product.checkout');
-Route::get(md5('/product/compare/page'), 'Frontend\FrontendController@productCompare')->name('product.compare');
-Route::get(md5('/product/wishlist/page'), 'Frontend\FrontendController@productWishlist')->name('product.wishlist');
+
+
 Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
+
 // Route::get(md5('/customer/login'), 'Frontend\FrontendController@customerLogin')->name('customer.login');
 
 // Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegister')->name('customer.register');
+// wish list
+
+Route::get('/product/wishlist', 'Frontend\WishlistController@index')->name('product.wishlist');
+Route::get('/product/add/wishlist/{id}', 'Frontend\WishlistController@insert');
+Route::get('/wishlist/delete/{id}', 'Frontend\WishlistController@delete');
+Route::get('/allproduct/wishlist', 'Frontend\WishlistController@getproduct');
+
+
+Route::get('/product/compare/page', 'Frontend\CompareProductController@productCompare')->name('product.compare');
+Route::get('/product/compare/{com_id}', 'Frontend\CompareProductController@necompare');
+// wish list end
 
 
 Route::group(['prefix' => 'dashboard', 'namespace'=> 'Frontend',], function () {
@@ -392,14 +404,8 @@ Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'midd
 Route::view('/website', 'layouts.websiteapp');
 // qayum hasan route end
 
-// asif-foysal-new
-// front end controller
 
 
-
-Route::get('/fhjsdgfhdsgf', 'Frontend\FrontendController@newh');// front end controller
-
-Route::get('/dsfkjhsdfdshb', 'Frontend\FrontendController@new');
 
 
 

@@ -24,8 +24,13 @@ class FlashDealDetail extends Model
         return $this->belongsTo(FlashDeal::class);
     }
 
+    // public function product()
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
+
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo('App\Product', 'product_id', 'id');
     }
 }
