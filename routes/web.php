@@ -305,6 +305,13 @@ Route::get('/product/detailssearch/', 'Frontend\FrontendController@searchcate')-
 
 // Route Created By Harrison
 
+Route::get('search/product/by/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByAjax');
+Route::get('search/product/by/main/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByMainCatByAjax');
+Route::get('search/product/by/sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductBySubCatByAjax');
+Route::get('search/product/by/re_sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByResubCatByAjax');
+
+// Route Created By Harrison Ended
+
 
 Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
 

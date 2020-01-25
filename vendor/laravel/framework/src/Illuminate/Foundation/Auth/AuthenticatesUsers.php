@@ -161,7 +161,7 @@ trait AuthenticatesUsers
 
         $request->session()->regenerateToken();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return $this->loggedOut($request) ?: redirect()->url()->previous();;
     }
 
     /**
