@@ -17,13 +17,9 @@ class WishlistController extends Controller
     {
          $this->middleware('auth:web');
     }
-    public function index(){
-		$user_id = Auth::id();
-		$allwishlist=wishlist::where('user_id',$user_id)->get();
-    	return view('frontend.shopping.wishlist',compact('allwishlist'));
-    }
+    
     public function insert(Request $request,$id){
-		if(Auth::check()){
+
     		$user_id = Auth::id();
     		$check=wishlist::where('product_id',$id)->first();
     		if($check){
@@ -38,15 +34,40 @@ class WishlistController extends Controller
 	    			return response()->json($insert);
 	    		}
 			}
-		}else{
-			return redirect()->back();
-		}
+		
     		
 	}
 	// delete
 	public function delete($id){
+		// return $id;
 		$delete=wishlist::where('id',$id)->delete();
-		return response()->json($delete);
+
+		  if($delete){
+	             	 $notification=array(
+	                'messege'=>'Wish List Delete Success',
+	                'alert-type'=>'success'
+	                 );
+	               return Redirect()->back()->with($notification); 
+             }else{
+             	 $notification=array(
+                'messege'=>'Wish List Delete Faild',
+                'alert-type'=>'error'
+                 );
+               return Redirect()->back()->with($notification); 
+             }
+		
+	}
+
+
+	public function index(){
+    	return view('frontend.shopping.wishlist');
+	}
+	
+	public function getwish(){
+		$user_id = Auth::id();
+		$allwishlist=wishlist::where('user_id',$user_id)->get();
+		return view('frontend.shopping.wishproduct',compact('allwishlist'));
+		
 	}
 
 	
@@ -56,3 +77,5 @@ class WishlistController extends Controller
 
 
 }
+
+
