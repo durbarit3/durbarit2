@@ -4,15 +4,21 @@
 	<!-- Header Top -->
 	<div class="header-top hidden-compact">
 		<div class="container">
+			@php
+				$frontlogo=App\Logo::where('id',1)->first();
+			@endphp
 			<div class="row">
 				<div class="col-lg-3 col-xs-6 header-logo ">
 					<div class="navbar-logo">
-						<a href="#"><img src="{{asset('public/frontend/image/catalog/demo/logo/logo-2.png')}}" alt="Your Store" width="110" height="27" title="Your Store"></a>
+						<a href="{{url('/')}}"><img src="{{asset('/'.$frontlogo->front_logo)}}" alt="Your Store" width="110" height="27" title="Your Store"></a>
 					</div>
 				</div>
 				<div class="col-lg-7 header-sevices">
 					<div class="module html--sevices ">
 						<div class="clearfix sevices-menu">
+							@php
+                               $footeroption = App\FooterOption::findOrFail(11); 
+                            @endphp
 							<ul>
 								<li class="col-md-4 item home">
 									<div class="icon"></div>
@@ -27,8 +33,8 @@
 								<li class="col-md-4 item mail">
 									<div class="icon"> </div>
 									<div class="text">
-										<a class="name" href="#">Sales@MagenTech.Com</a>
-										<p>( +123 ) 456 7890</p>
+										<a class="name" href="#">{{ $footeroption->email}}</a>
+										<p>{{ $footeroption->phone}}</p>
 									</div>
 								</li>
 								<li class="col-md-4 item delivery">

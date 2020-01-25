@@ -22,28 +22,26 @@
                             <th>Product name</th>
                             <th>Image</th>
                             <th>Price</th>
-                            <th>Brand</th>
+                            
                             <th>Availability</th>
                             <th>Manage</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php
-                            $userid =  \Request::getClientIp(true);
-                            $cartCollection = Cart::session($userid)->getContent();
+                            $compare=App\CompareProduct::get();
                         @endphp
-                     @foreach($cartCollection as $product)
+                     @foreach($compare as $product)
                         <tr>
-                            <td>{{Str::limit($product->name,40)}}</td>
+                            <td>{{Str::limit($product->product->product_name,40)}}</td>
                             <td>
-                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->img)}}" height="55px">
+                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->product->thumbnail_img)}}" height="55px">
                             </td>
-                            <td>{{$product->price}}</td>
-                            <td></td>
-                            <td>in Stock</td>
+                            <td>{{$product->product->product_price}}</td>
+                            <td>in Stock({{$product->product->product_qty}})</td>
                             <td>
                             <input type="button" value="Add to Cart" class="btn btn-primary btn-block" onclick="cart.add('30', '1');" />
-                            <a href="#" class="btn btn-danger btn-block">Remove</a>
+                            <a href="{{url('product/compare/delete/'.$product->id)}}" class="btn btn-danger btn-block">Remove</a>
                             </td>
                         </tr>
                     @endforeach

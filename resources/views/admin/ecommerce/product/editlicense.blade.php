@@ -50,7 +50,7 @@
 											$category=App\Category::where('is_deleted',0)->where('cate_status',1)->get();
 								    	@endphp
 								      <select class="form-control" name="cate_id" id="cate_id">
-								      	<option >Select</option>
+								      	<option value="0">Select</option>
 								      	@foreach($category as $cate)
 								      	<option  value="{{$cate->id}}" @if($data->cate_id==$cate->id) selected @else @endif>{{$cate->cate_name}}</option>
 								      	@endforeach
@@ -65,6 +65,7 @@
 											$subcategory=App\SubCategory::where('is_deleted',0)->get();
 								    	@endphp
 								      <select class="form-control" name="subcate_id" id="subcate_id">
+								      	<option value="0">Select</option>
 								      	@foreach($subcategory as $subcate)
 								      	<option value="{{$subcate->id}}"@if($data->subcate_id==$subcate->id) selected @endif>{{$subcate->subcate_name}}</option>
 								      	@endforeach
@@ -136,7 +137,7 @@
 								  @foreach($mainlicenceid as $productlicense)
 								  
 									  <div class="form-group row">
-									    <label for="inputPassword" class="col-sm-3 col-form-label text-right"></label>
+									    <label for="inputPassword" class="col-sm-2 col-form-label text-right"></label>
 									    <div class="col-md-2">
 									      <input type="text" class="form-control" name="license_key[]" placeholder="License Key" value="{{$productlicense->license_key}}">
 									      <input type="hidden" name="licenseid[]" value="{{$productlicense->id}}">
@@ -148,6 +149,9 @@
 									    </div>
 									    <div class="col-md-2">
 									      <input type="number" class="form-control" name="license_duration[]" placeholder="License Duration" value="{{$productlicense->license_duration}}">
+									    </div>
+									    <div class="col-md-2">
+									      <input type="number" class="form-control" name="license_price[]" placeholder="License Price" value="{{$productlicense->license_price}}">
 									    </div>
 									    <div class="col-md-1"><a href="{{url('admin/product/lincencepro/'.$productlicense->id)}}" class="delete" id="{{$productlicense->id}}"><i class="fas fa-trash text-danger"></i></a></div>
 									  </div>
