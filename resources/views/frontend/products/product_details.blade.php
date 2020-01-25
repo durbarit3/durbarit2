@@ -2,6 +2,22 @@
 @section('main_content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Main Container  -->
+
+<div class="search-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-content">
+                    <div class="row" id="search_result_product">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main_content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="title-breadcrumb">
@@ -717,7 +733,7 @@
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
                                                     <script>
-                                                           
+
                                                             if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
                                                                 var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
                                                             }
@@ -739,21 +755,21 @@
                                                         <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 
                                                         <script>
-                                                           
+
                                                             if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
                                                                 var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
                                                             }
                                                         </script>
-                                                        
+
                                                     </label>
                                                 </div>
                                                 @endforeach
-                                                
+
                                             </div>
                                         </div>
                                         @endforeach
                                     </div>
-                                    
+
                                     <!-- variation end -->
                                     @else
 
@@ -782,7 +798,7 @@
                                         </div>
 
 
-                                  
+
 
 
 
@@ -806,13 +822,13 @@
                                 </div>
                             </div>
 
-                           
+
 
 
                         </div>
                     </div>
                 </div>
-        
+
 </form>
 
 
@@ -952,7 +968,7 @@
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
+                                                    <a  class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="{{ url('admin/product/modal/show/') }}" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
                                                         <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                                         <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
                                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
@@ -1112,7 +1128,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- //Main Container -->
 <script>
     $(document).ready(function() {
@@ -1145,11 +1161,11 @@
 
 <!-- add to cart area start -->
 
- 
+
 <script>
 $(document).ready(function(){
 	$('#addtocart').click(function(params) {
-    
+
     var addtocart_id = $(this).val();
     if(productcolorname){
         var productcolorname =colorname.value;
@@ -1162,9 +1178,9 @@ $(document).ready(function(){
     }else{
         var productsizename =0;
     }
-    
-    
-    
+
+
+
 
     var price =document.getElementById('chosen_price').innerHTML;
 
@@ -1173,24 +1189,24 @@ $(document).ready(function(){
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
 	});
- 
+
 $.ajax({
 	type:'POST',
 	url:'{{ route('product.add.cart') }}',
 	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
 	success: function (data) {
         console.log(data);
-        
-            
+
+
         document.getElementById('cartdatacount').innerHTML =data.quantity;
         document.getElementById('product_price').innerHTML =data.price;
 
-        
 
-        
-        
-            
-		
+
+
+
+
+
 		}
 	});
 	});

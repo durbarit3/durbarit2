@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+
 use App\Contract;
+use Carbon\Carbon;
 use App\ContractImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 
 class ContractUsController extends Controller
