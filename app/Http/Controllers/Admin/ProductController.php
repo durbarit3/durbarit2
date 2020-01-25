@@ -564,6 +564,7 @@ class ProductController extends Controller
                 'license_key'=>$request->license_key[$item],
                 'license_quantity'=>$request->license_quantity[$item],
                 'license_duration'=>$request->license_duration[$item],
+                'license_price'=>$request->license_price[$item],
                 'created_at'=>Carbon::now()->toDateTimeString(),
 
                );
@@ -1253,6 +1254,7 @@ if($request->has('colors_active') && $request->has('colors') && count($request->
                 'license_key'=>$request->license_key[$item],
                 'license_quantity'=>$request->license_quantity[$item],
                 'license_duration'=>$request->license_duration[$item],
+                'license_price'=>$request->license_price[$item],
                 'created_at'=>Carbon::now()->toDateTimeString(),
                );
                ProductLicense::insert($data4);

@@ -385,6 +385,7 @@
                             </div>
                         </div>
                     </div>
+
                     <a href="javascript:void(0)" class="open-sidebar hidden-lg hidden-md"><i class="fa fa-bars"></i>Sidebar</a>
 
                     <div class="products-category">
@@ -431,10 +432,31 @@
                                                 </select>
                                             </div>
                                             <div class="form-group product-compare"><a id="compare-total" class="btn btn-default">Product Compare (0)</a></div>
+
+             
+                    <div class="products-list grid row number-col-3 so-filter-gird search_main_top" id="search_main_top">
+                        <!-- category product -->
+                        @php
+                        $products=App\Product::where('is_deleted',0)->where('cate_id',$category->id)->orderBy('id','DESC')->paginate(9);
+                        @endphp
+                        @foreach($products as $product)
+                        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <div class="product-item-container">
+                                <div class="left-block">
+                                    <div class="product-image-container  second_img  ">
+                                        <a href="#" title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium ">
+                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " class="img-1 img-responsive">
+                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " class="img-2 img-responsive">
+                                        </a>
+                                    </div>
+                                    <!-- <div class="countdown_box">
+                                        <div class="countdown_inner">
+
                                         </div>
 
                                     </div>
                                 </div>
+
 
                                 <div class="products-list grid row number-col-3 so-filter-gird search_main_top" id="search_main_top">
                                     <!-- category product -->
@@ -460,6 +482,14 @@
                                                         Sale
                                                     </span>
                                                 </div>
+
+                                <div class="right-block">
+                                    <div class="caption">
+                                        <h4><a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a></h4>
+                                        <div class="total-price">
+                                            <div class="price price-left">
+                                                <span class="price-new">$98.00 </span> <span class="price-old">$122.00 </span>
+
                                             </div>
 
                                             <div class="right-block">
@@ -492,6 +522,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     @endforeach
                                     <!-- endcategory product -->
@@ -511,6 +542,33 @@
                                             <li><a href="#">&gt;|</a>
                                             </li>
                                         </ul>
+
+                                        <div class="description item-desc hidden">
+                                            <p>{!! Str::limit($product->product_description,100) !!}</p>
+                                        </div>
+                                        <div class="list-block hidden">
+                                            <button class="addToCart" type="button" data-toggle="tooltip" title="" onclick="cart.add('30 ', '1 ');" data-original-title="Add to Cart "><span>Add to Cart </span></button>
+
+                                            @if(Auth::guard('web')->check())
+                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                            @else
+                                              <a href="{{route('login')}}" class="mywishlist btn-button"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                            <button class="compare btn-button" type="button" id="compareproduct" value="{{$product->id }}"><i class="fa fa-retweet"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="button-group">
+                                        <a class="quickview iframe-link visible-lg btn-button" data-fancybox-type="iframe" href="{{url('product/details/'.$product->id)}}"> <i class="fa fa-search"></i> </a>
+
+                                            @if(Auth::guard('web')->check())
+                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                            @else
+                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+
+                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('105', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+
                                     </div>
                                     <div class="col-sm-6 text-right">Showing 1 to 9 of 9 (1 Pages)</div>
                                 </div>
@@ -518,7 +576,24 @@
                         </div>
 
 
-                    </div>
+
+
+                    <div class="product-filter product-filter-bottom filters-panel">
+                        <div class="col-sm-6 text-left">
+                          
+                           <!--  <ul class="pagination">
+                                <li class="active"><span>1</span>
+                                </li>
+                                <li><a href="#">2</a>
+                                </li>
+                                <li><a href="#">&gt;</a>
+                                </li>
+                                <li><a href="#">&gt;|</a>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="col-sm-6 text-right">{{ $products->links() }}</div>
+                   </div>
                 </div>
             </div>
 

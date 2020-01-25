@@ -272,6 +272,7 @@ Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
 // wish list
 
 Route::get('/product/wishlist', 'Frontend\WishlistController@index')->name('product.wishlist');
+Route::get('/get/wishlist', 'Frontend\WishlistController@getwish');
 Route::get('/product/add/wishlist/{id}', 'Frontend\WishlistController@insert');
 Route::get('/wishlist/delete/{id}', 'Frontend\WishlistController@delete');
 Route::get('/allproduct/wishlist', 'Frontend\WishlistController@getproduct');
@@ -285,6 +286,7 @@ Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegis
 
 Route::get('/product/compare/page', 'Frontend\CompareProductController@productCompare')->name('product.compare');
 Route::get('/product/compare/{com_id}', 'Frontend\CompareProductController@necompare');
+Route::get('product/compare/delete/{id}', 'Frontend\CompareProductController@delete');
 // wish list end
 
 
@@ -353,9 +355,11 @@ Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal
 
 // add to cart area start
 
-Route::post('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
+Route::get('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
+
+Route::get('addtocart/test/', 'Frontend\AddToCartController@adtest')->name('addtest.cart');
 
 
 // Product view cart

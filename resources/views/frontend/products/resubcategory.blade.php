@@ -23,7 +23,12 @@
         </div>
         <ul class="breadcrumb-cate">
             <li><a href="{{url('/')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="">{{$resubcate->resubcate_name}}</a></li>
+             <li><a href="{{url('product/page/'.$resubcate->category->cate_slug)}}">{{$resubcate->category->cate_name}}</a></li>
+
+             <li><a href="{{url('subacete/'.$resubcate->category->cate_slug.'/'.$resubcate->subcate->subcate_slug)}}">{{$resubcate->subcate->subcate_name}}</a></li>
+            
+
+             <li><a href="">{{$resubcate->resubcate_name}}</a></li>
         </ul>
     </div>
 </div>
@@ -375,6 +380,7 @@
                     <div class="search_category_product">
 
                     </div>
+
                     <div class="all_category_wise_product">
                         <div class="products-category">
                             <div class="product-filter filters-panel">
@@ -384,6 +390,22 @@
                                             <button class="btn btn-default grid active" data-view="grid" data-toggle="tooltip" data-original-title="Grid"><i class="fa fa-th"></i></button>
                                             <button class="btn btn-default list" data-view="list" data-toggle="tooltip" data-original-title="List"><i class="fa fa-th-list"></i></button>
                                         </div>
+
+                    <div class="products-list grid row number-col-3 so-filter-gird" id="filter">
+                        <!-- category product -->
+                        @php
+                        $products=App\Product::where('is_deleted',0)->where('resubcate_id',$resubcate->id)->orderBy('id','DESC')->paginate(9);
+                        @endphp
+                        @foreach($products as $product)
+                        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <div class="product-item-container">
+                                <div class="left-block">
+                                    <div class="product-image-container  second_img  ">
+                                        <a href="#" title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium ">
+                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " class="img-1 img-responsive">
+                                            <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " title="Lorem Ipsum dolor at vero eos et iusto odi  with Premium " class="img-2 img-responsive">
+                                        </a>
+
                                     </div>
 
                                     <div class="short-by-show form-inline text-right col-md-10 col-sm-12">
@@ -413,6 +435,7 @@
                                         </div>
                                         <div class="form-group product-compare"><a id="compare-total" class="btn btn-default">Product Compare (0)</a></div>
                                     </div>
+
 
                                 </div>
                             </div>
@@ -472,11 +495,52 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                <div class="right-block">
+                                    <div class="caption">
+                                        <h4><a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a></h4>
+                                        <div class="total-price">
+                                            <div class="price price-left">
+                                                <span class="price-new">‎৳{{$product->product_price}} </span> <!-- <span class="price-old">$122.00 </span> -->
+                                            </div>
+                                            <div class="price-sale price-right">
+                                              <!--   <span class="discount">-20%
+                                                    <strong>OFF</strong>
+                                                </span> -->
+                                            </div>
+                                        </div>
+                                        <div class="description item-desc hidden">
+                                            <p>{!! Str::limit($product->product_description,60) !!}</p>
+                                        </div>
+                                        <div class="list-block hidden">
+                                            <button class="addToCart" type="button" data-toggle="tooltip" title="" onclick="cart.add('30 ', '1 ');" data-original-title="Add to Cart "><span>Add to Cart </span></button>
+                                            @if(Auth::guard('web')->check())
+                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                            @else
+                                            <a href="{{route('login')}}" class="mywishlist btn-button"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="button-group">
+                                        <a class="quickview iframe-link visible-lg btn-button" data-fancybox-type="iframe" href="quickview.html"> <i class="fa fa-search"></i> </a>
+
+                                          @if(Auth::guard('web')->check())
+                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                            @else
+                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+
+                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('105', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+                                    </div>
+
                                 </div>
                                 @endforeach
                                 <!-- endcategory product -->
 
                             </div>
+
 
                             <div class="product-filter product-filter-bottom filters-panel">
                                 <div class="col-sm-6 text-left">
@@ -494,6 +558,22 @@
                                 <div class="col-sm-6 text-right">Showing 1 to 9 of 9 (1 Pages)</div>
                             </div>
                         </div>
+
+                    <div class="product-filter product-filter-bottom filters-panel">
+                        <div class="col-sm-6 text-left">
+                            <!-- <ul class="pagination">
+                                <li class="active"><span>1</span>
+                                </li>
+                                <li><a href="#">2</a>
+                                </li>
+                                <li><a href="#">&gt;</a>
+                                </li>
+                                <li><a href="#">&gt;|</a>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="col-sm-6 text-right">{{ $products->links() }}</div>
+
                     </div>
             </div>
         </div>
@@ -501,6 +581,7 @@
 </div>
 
 <!-- //Main Container -->
+
 
 
 @endsection
@@ -584,4 +665,5 @@
     });
 </script>
 @endpush
+
 

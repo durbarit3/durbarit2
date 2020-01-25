@@ -76,7 +76,7 @@
                             <span>Hot Deals</span>
                             </h2>
                             <div class="cs-item-timer">
-                                <div class="Countdown-1"></div>
+                                <div class="Countdown-1">1</div>
                             </div>
                         </div>
                         <div class="modcontent">
@@ -107,23 +107,51 @@
                                                             </a>
 
                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('admin/product/modal/show')}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
-                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title=""data-original-title=" to Wish List"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('35');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
+
+                                                            @if(Auth::guard('web')->check())
+                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$flasdetail->product->id}}"> <i class="fa fa-heart"></i></button>
+                                                            @else
+                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                            @endif
+
+                                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$flasdetail->id }}"><i class="fa fa-exchange"></i></button>
+
                                                             <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="right-block">
                                                     <div class="caption">
-                                                    <h4><a href="" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">{{Str::limit($flasdetail->product->product_name,40)}}</a></h4>
+                                                    <h4><a href="{{url('/product/details/page/'.$flasdetail->product->id)}}" target="_self" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo">{{Str::limit($flasdetail->product->product_name,40)}}</a></h4>
                                                         <div class="total-price clearfix">
+                                                            @php
+                                                             $proid=$flasdetail->product_id;
+                                                                if($flasdetail->discount_type==1){
+                                                                    $product=App\Product::where('id',$proid)->first();
+                                                                    $product_price=$product->product_price;
+                                                                    $discount_price=$flasdetail->discount;
+                                                                    $mainprice=$product_price - $discount_price;
+                                                                }else{
+                                                                    $product=App\Product::where('id',$proid)->first();
+                                                                    $product_price=$product->product_price;
+                                                                    $discount_price=$flasdetail->discount;
+                                                                    $calculate= ($discount_price*$product_price)/100;
+                                                                    $mainprice=$product_price -  $calculate;
+
+
+                                                                }
+                                                            @endphp
                                                             <div class="price price-left">
-                                                            <span class="price-new">৳ {{$flasdetail->product->product_price}}</span>
-                                                                <span class="price-old">$122.00</span>
+                                                            <span class="price-new">৳ {{ $mainprice }}</span>
+                                                                <span class="price-old">৳ {{$flasdetail->product->product_price}}</span>
                                                             </div>
                                                             <div class="price-sale price-right">
                                                                 <span class="discount">
+                                                                    @if($flasdetail->discount_type==1)
+                                                                    -{{$flasdetail->discount}}৳
+                                                                    @else
                                                                     -{{$flasdetail->discount}}%
+                                                                    @endif
                                                                     <strong>OFF</strong>
                                                                 </span>
                                                             </div>
@@ -228,11 +256,22 @@
                                                                             <i class="fa fa-search"></i>
                                                                         </a>
 
+
                                                                         <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
 
                                                                         <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}">
                                                                         <i class="fa fa-exchange"></i>
                                                                         </button>
+
+                                                                        @if(Auth::guard('web')->check())
+                                                                        <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                        @else
+                                                                        <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                        @endif
+                                                                        <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+                                                                       
+                                                                       
+
                                                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
                                                                         <span class="hidden">Add to cart</span>
                                                                         </button>
@@ -275,12 +314,13 @@
                                                                         <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                             <i class="fa fa-search"></i>
                                                                         </a>
-                                                                        <button class="mywishlist btn-button" type="button" data-toggle="tooltip" data-id="{{$product->id}}" title=""data-original-title="Add to Wish List">
-                                                                        <i class="fa fa-heart"></i>
-                                                                        </button>
-                                                                        <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}">
-                                                                        <i class="fa fa-exchange"></i>
-                                                                        </button>
+                                                                        @if(Auth::guard('web')->check())
+                                                                        <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                        @else
+                                                                        <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                        @endif
+                                                                        <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+                                                                      
                                                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('114');" data-original-title="Add to cart">
                                                                         <span class="hidden">Add to cart</span>
                                                                         </button>
@@ -434,6 +474,7 @@
                                                                                 data-fancybox-type="iframe">
                                                                                 <i class="fa
                                                                                 fa-search"></i>
+
                                                                             </a>
                                                                             <button
                                                                             class="mywishlist
@@ -447,6 +488,15 @@
                                                                             class="fa
                                                                             fa-heart"></i>
                                                                             </button> <button
+
+                                                                            </a> 
+                                                                            @if(Auth::guard('web')->check())
+                                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                            @else
+                                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                            @endif
+                                                                             <button
+
                                                                             class="compare
                                                                             btn-button"
                                                                             type="button"
@@ -541,6 +591,7 @@
                                                                                 data-fancybox-type="iframe">
                                                                                 <i class="fa
                                                                                 fa-search"></i>
+
                                                                             </a> <button
                                                                             class="mywishlist
                                                                             btn-button"
@@ -554,6 +605,15 @@
                                                                             class="fa
                                                                             fa-heart"></i>
                                                                             </button> <button
+
+                                                                          </a> 
+                                                                            @if(Auth::guard('web')->check())
+                                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                            @else
+                                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                            @endif
+                                                                            <button
+
                                                                             class="compare
                                                                             btn-button"
                                                                             type="button"
@@ -649,6 +709,7 @@
                                                                                 data-fancybox-type="iframe">
                                                                                 <i class="fa
                                                                                 fa-search"></i>
+
                                                                             </a> <button
                                                                             class="mywishlist
                                                                             btn-button"
@@ -661,7 +722,16 @@
                                                                             class="fa
                                                                             fa-heart"></i>
                                                                             </button> <button
-                                                                            class="compare
+
+                                                                            </a> 
+                                                                            
+                                                                            @if(Auth::guard('web')->check())
+                                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                            @else
+                                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                            @endif
+                                                                            <button
+                                                             class="compare
                                                                             btn-button"
                                                                             type="button"
                                                                             data-toggle="tooltip"
@@ -792,6 +862,7 @@
                                                                                     <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                         <i class="fa fa-search"></i>
                                                                                     </a>
+
                                                                                     <button class="mywishlist
                                                                                     btn-button"
                                                                                     type="button"
@@ -802,6 +873,14 @@
 
                                                                                     data-original-title="Add to Wish List"> <i class="fa fa-heart"></i>
                                                                                     </button> <button class="compare btn-button" type="button"
+
+                                                                                    @if(Auth::guard('web')->check())
+                                                                                    <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                                    @else
+                                                                                    <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                                    @endif
+                                                                                     <button class="compare btn-button" type="button"
+
                                                                                     data-toggle="tooltip" title="" onclick="compare.add('28');"
                                                                                     data-original-title="Compare this Product"> <i class="fa
                                                                                     fa-exchange"></i> </button> <button class="addToCart btn-button"
@@ -865,10 +944,14 @@
                                                                         class="btn-button btn-quickview quickview quickview_handler"
                                                                         href="{{url('product/details/'.$product->id)}}" title="Quick View"
                                                                         data-title="Quick View" data-fancybox-type="iframe"> <i class="fa
-                                                                    fa-search"></i> </a> <button class="mywishlist btn-button" type="button"
-                                                                        data-toggle="tooltip" title="" data-id="{{$product->id}}"
-                                                                    data-original-title="Add to Wish List"> <i class="fa fa-heart"></i>
-                                                                    </button> <button class="compare btn-button" type="button"
+                                                                    fa-search"></i> </a> 
+                                                                    
+                                                                    @if(Auth::guard('web')->check())
+                                                                    <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                    @else
+                                                                    <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                    @endif
+                                                                    <button class="compare btn-button" type="button"
                                                                     data-toggle="tooltip" title="" onclick="compare.add('28');"
                                                                     data-original-title="Compare this Product"> <i class="fa
                                                                     fa-exchange"></i> </button> <button class="addToCart btn-button"
@@ -969,9 +1052,11 @@
                                                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('product/details/'.$product->id)}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe">
                                                                                                 <i class="fa fa-search"></i>
                                                                                             </a>
-                                                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-id="{{$product->id}}" data-original-title="Add to Wish List">
-                                                                                            <i class="fa fa-heart"></i>
-                                                                                            </button>
+                                                                                            @if(Auth::guard('web')->check())
+                                                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
+                                                                                            @else
+                                                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                                                            @endif
                                                                                             <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('114');" data-original-title="Compare this Product">
                                                                                             <i class="fa fa-exchange"></i>
                                                                                             </button>
@@ -1139,10 +1224,14 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
     <script type="text/javascript">
+
+   <script type="text/javascript">
+
     $(document).ready(function() {
         $('.mywishlist').on('click', function(){
          var id = $(this).data('id');
@@ -1191,5 +1280,10 @@
 
     });
 });
+
     </script>
 @endsection
+
+    </script> -->
+@endsection
+
