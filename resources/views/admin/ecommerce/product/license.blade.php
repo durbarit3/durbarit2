@@ -48,7 +48,7 @@
 											$category=App\Category::where('is_deleted',0)->where('cate_status',1)->get();
 								    	@endphp
 								      <select class="form-control" name="cate_id" id="cate_id">
-								      	<option >Select</option>
+								      	<option value="0">Select</option>
 								      	@foreach($category as $cate)
 								      	<option  value="{{$cate->id}}">{{$cate->cate_name}}</option>
 								      	@endforeach
@@ -59,7 +59,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product SubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="subcate_id" id="subcate_id">
-								      	<option>Select</option>
+								      	<option value="0">Select</option>
 								      </select>
 								    </div>
 								  </div>
@@ -67,7 +67,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product ReSubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="resubcate_id" id="resubcate_id">
-								      	<option>Select</option>
+								      	<option value="0">Select</option>
 								      </select>
 								    </div>
 								  </div>
@@ -113,7 +113,7 @@
 								    </div>
 								  </div>
 								  <div class="form-group row">
-								    <label for="inputPassword" class="col-sm-3 col-form-label text-right"></label>
+								    <label for="inputPassword" class="col-sm-2 col-form-label text-right"></label>
 								    <div class="col-md-2">
 								      <input type="text" class="form-control" name="license_key[]" placeholder="License Key">
 								    </div>
@@ -122,6 +122,9 @@
 								    </div>
 								    <div class="col-md-2">
 								      <input type="number" class="form-control" name="license_duration[]" placeholder="License Duration">
+								    </div>
+								     <div class="col-md-2">
+								      <input type="number" class="form-control" name="license_price[]" placeholder="License Price">
 								    </div>
 								    <div class="col-md-1"><i class="fas fa-trash text-danger"></i></div>
 								  </div>
@@ -245,7 +248,7 @@
       var i = 0;
 
  		function add_more_customer_choice_option(){
-		$('#customer_choice_options').append('<div class="form-group row"><label for="" class="col-sm-3 col-form-label text-right"></label><div class="col-md-2"><input type="text" class="form-control" name="license_key[]" placeholder="License Key"></div><div class="col-md-2"><input type="number" class="form-control" name="license_quantity[]" placeholder="License Quantity"></div><div class="col-md-2"><input type="number" class="form-control" name="license_duration[]" placeholder="License Duration"></div><div class="col-md-1"><i class="fas fa-trash text-danger" onclick="delete_row(this)"></i></div></div>');
+		$('#customer_choice_options').append('<div class="form-group row"><label for="" class="col-sm-2 col-form-label text-right"></label><div class="col-md-2"><input type="text" class="form-control" name="license_key[]" placeholder="License Key"></div><div class="col-md-2"><input type="number" class="form-control" name="license_quantity[]" placeholder="License Quantity"></div><div class="col-md-2"><input type="number" class="form-control" name="license_duration[]" placeholder="License Duration"></div><div class="col-md-2"><input type="number" class="form-control" name="license_price[]" placeholder="License Price"></div><div class="col-md-1"><i class="fas fa-trash text-danger" onclick="delete_row(this)"></i></div></div>');
 		i++;
 	}
 	 function delete_row(em){

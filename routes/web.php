@@ -272,6 +272,7 @@ Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
 // wish list
 
 Route::get('/product/wishlist', 'Frontend\WishlistController@index')->name('product.wishlist');
+Route::get('/get/wishlist', 'Frontend\WishlistController@getwish');
 Route::get('/product/add/wishlist/{id}', 'Frontend\WishlistController@insert');
 Route::get('/wishlist/delete/{id}', 'Frontend\WishlistController@delete');
 Route::get('/allproduct/wishlist', 'Frontend\WishlistController@getproduct');
@@ -285,6 +286,7 @@ Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegis
 
 Route::get('/product/compare/page', 'Frontend\CompareProductController@productCompare')->name('product.compare');
 Route::get('/product/compare/{com_id}', 'Frontend\CompareProductController@necompare');
+Route::get('product/compare/delete/{id}', 'Frontend\CompareProductController@delete');
 // wish list end
 
 
@@ -302,6 +304,13 @@ Route::get('/product/detailssearch/', 'Frontend\FrontendController@searchcate')-
 
 
 // Route Created By Harrison
+
+Route::get('search/product/by/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByAjax');
+Route::get('search/product/by/main/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByMainCatByAjax');
+Route::get('search/product/by/sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductBySubCatByAjax');
+Route::get('search/product/by/re_sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByResubCatByAjax');
+
+// Route Created By Harrison Ended
 
 
 Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
@@ -347,11 +356,15 @@ Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal
 // add to cart area start
 
 Route::get('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
+
 Route::get('get/cart/data', 'Frontend\AddToCartController@getCartData')->name('get.cart.data');
+
 
 
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
+
+Route::get('addtocart/test/', 'Frontend\AddToCartController@adtest')->name('addtest.cart');
 
 
 // Product view cart

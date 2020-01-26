@@ -23,3 +23,4 @@
 <script type="text/javascript" src="{{asset('public/frontend/js/themejs/custom_h2.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/frontend/js/themejs/addtocart.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/frontend/js/toaster_alert.js')}}"></script>
+@stack('js')

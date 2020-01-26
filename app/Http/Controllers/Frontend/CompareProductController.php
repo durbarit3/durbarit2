@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Cart;
 use App\Product;
 use App\CompareProduct;
 use Session;
+
 
 class CompareProductController extends Controller
 {
@@ -21,6 +23,8 @@ class CompareProductController extends Controller
 
     
     public function necompare(Request $request,$com_id){
+         
+      // return $this->saveSession($request);
         $userid = $request->ip();
         $checkproduct=CompareProduct::where('product_id',$com_id)->first();
         $checkip=CompareProduct::where('ip_address',$userid)->first();
@@ -37,6 +41,27 @@ class CompareProductController extends Controller
                 return response()->json(['compare'=>$compare]);
             }
         }
+
+       $ipstore=$request->session()->put('user_ip',$request->ip());
+       $getip=$ipstore=$request->session()->put('user_ip');
+       echo "$getip";
            
 	}
+
+    public function delete($id){
+        $delete=CompareProduct::where('id',$id)->delete();
+          if($delete){
+                 $notification=array(
+                'messege'=>'Compare Product Success',
+                'alert-type'=>'success'
+                 );
+               return Redirect()->back()->with($notification); 
+             }else{
+                 $notification=array(
+                'messege'=>'Compare Product Faild',
+                'alert-type'=>'error'
+                 );
+               return Redirect()->back()->with($notification); 
+             }
+    }
 }
