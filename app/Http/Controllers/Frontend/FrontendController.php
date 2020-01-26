@@ -74,13 +74,7 @@ class FrontendController extends Controller
         return view('frontend.products.product_details',compact('productdetails'));
 
     }
-
-
-    // Product Checkout page show
-    public function checkout()
-    {
-        return view('frontend.shopping.checkout');
-    }
+    
     // Product compare page show
 
     // Product wishlist page show
