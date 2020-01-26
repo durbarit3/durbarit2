@@ -58,24 +58,12 @@
 
 
 											@php
-											$items =0;
-											$price =0;
-											$userid = Request::ip();
-
-											foreach(Cart::session($userid)->getContent() as $item){
-												$items += $item->quantity;
-												$price += $item->price * $items;
-											}
+												$userid =  \Request::getClientIp(true);
 											@endphp
 											
-											<span class="items_cart" id="cartdatacount">{{$items }}
-										
-
-											<span class="items_cart">{{Cart::session($userid)->getContent()->count()}}
-
-										</span>
+											<span class="items_cart" id="cartdatacount">{{Cart::session($userid)->getTotalQuantity() }}</span>
 											<span class="items_cart2">item(s)</span>
-											<span class="items_carts" id="product_price"> - $ {{$price}}</span>
+											<span class="items_carts" id="product_price"> - {{Cart::session($userid)->getTotal()}}</span>
 										</span>
 									</div>
 								</div>
@@ -92,7 +80,7 @@
 								<li>
 									<div class="checkout clearfix">
 										<a href="{{route('product.cart.add')}}" class="btn btn-view-cart inverse"> View Cart</a>
-										<a href="checkout.html" class="btn btn-checkout pull-right">Checkout</a>
+										<a href="{{route('checkout.page.show')}}" class="btn btn-checkout pull-right">Checkout</a>
 									</div>
                                 </li>
 							</ul>

@@ -771,7 +771,7 @@
                                         <div class="option quantity">
                                             <div class="input-group quantity-control" unselectable="on" style="user-select: none;">
                                                 <input class="form-control" type="number" id="quantity" name="quantity" value="1">
-                                                <input type="hidden" name="product_id" value="108">
+                                                <input type="hidden" name="product_id" value="{{$productdetails->id}}">
                                                 <span class="input-group-addon product_quantity_down fa fa-caret-down"></span>
                                                 <span class="input-group-addon product_quantity_up fa fa-caret-up"></span>
                                             </div>
@@ -1147,43 +1147,43 @@
 
  
 <script>
-$(document).ready(function(){
-	$('#addtocart').click(function(params) {
+// $(document).ready(function(){
+// 	$('#addtocart').click(function(params) {
     
-    var addtocart_id = $(this).val();
-    if(productcolorname){
-        var productcolorname =colorname.value;
-    }else{
-        var productcolorname =0;
-    }
+//     var addtocart_id = $(this).val();
+//     if(productcolorname){
+//         var productcolorname =colorname.value;
+//     }else{
+//         var productcolorname =0;
+//     }
 
-    if(productsizename){
-        var productsizename =sizename.value;
-    }else{
-        var productsizename =0;
-    }
+//     if(productsizename){
+//         var productsizename =sizename.value;
+//     }else{
+//         var productsizename =0;
+//     }
     
     
     
 
-    var price =document.getElementById('chosen_price').innerHTML;
+    // var price =document.getElementById('chosen_price').innerHTML;
 
-	$.ajaxSetup({
-		headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		}
-	});
+	// $.ajaxSetup({
+	// 	headers: {
+	// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	// 	}
+	// });
  
-$.ajax({
-	type:'POST',
-	url:'{{ route('product.add.cart') }}',
-	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
-	success: function (data) {
-        console.log(data);
+// $.ajax({
+// 	type:'POST',
+// 	url:'{{ route('product.add.cart') }}',
+// 	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
+// 	success: function (data) {
+//         console.log(data);
         
             
-        document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
+//         document.getElementById('cartdatacount').innerHTML =data.quantity;
+//         document.getElementById('product_price').innerHTML =data.price;
 
         
 
@@ -1191,9 +1191,32 @@ $.ajax({
         
             
 		
-		}
-	});
-	});
+// 		}
+// 	});
+// 	});
+// });
+</script>
+
+<script>
+
+$(document).ready(function() {
+$('#addtocart').on('click', function(){
+
+
+$.ajax({
+type:'GET',
+url:"{{ route('product.add.cart') }}",
+data: $('#option-choice-form').serializeArray(),
+success: function (data) {
+    console.log(data);
+    document.getElementById('cartdatacount').innerHTML =data.quantity;
+        document.getElementById('product_price').innerHTML =data.price;
+
+}
+});
+
+
+});
 });
 </script>
 

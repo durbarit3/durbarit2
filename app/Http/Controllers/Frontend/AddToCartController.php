@@ -15,10 +15,14 @@ class AddToCartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $product_price = $request->price;
-        $product = Product::findOrFail($request->addtocart_id);
-
+       
+         
+       
+        
+       $product = Product::findOrFail($request->product_id);
+        $product_price = $product->product_price;
         $userid = $request->ip();
+
 
         // variation product add
 
@@ -26,7 +30,7 @@ class AddToCartController extends Controller
         if ($product->product_type == 1) {
 
 
-            $flashDealdiscounts = FlashDealDetail::where('product_id', $request->addtocart_id)->first();
+            $flashDealdiscounts = FlashDealDetail::where('product_id', $request->product_id)->first();
             if ($flashDealdiscounts) {
                 if ($flashDealdiscounts->discount_type == 1) {
 
@@ -39,6 +43,7 @@ class AddToCartController extends Controller
             } else {
                 $product_price = $product_price;
             }
+
 
             $id = rand(5, 15);
 
@@ -150,13 +155,23 @@ class AddToCartController extends Controller
 
     public function productViewCart()
     {
-
-        $userid =  \Request::getClientIp(true);
-
-        $usercartdatas = Cart::session($userid)->getContent();
-
-        return view('frontend.shopping.cart', compact('usercartdatas'));
+        return view('frontend.shopping.cart');
     }
+
+
+    // get cart data
+
+    public function getCartData()
+    {
+        $userid =  \Request::getClientIp(true);
+        
+        $usercartdatas = Cart::session($userid)->getContent();
+       
+
+        return view('frontend.shopping.cartajaxdata', compact('usercartdatas'));
+        
+    }
+
 
     // update view cart product
 
@@ -177,19 +192,16 @@ class AddToCartController extends Controller
 
         if ($updatecart) {
 
-            $items = 0;
-            $price = 0;
+           
+
+        $userid =  \Request::getClientIp(true);
+        
+        $usercartdatas = Cart::session($userid)->getContent();
+       
+
+        return view('frontend.shopping.cartajaxdata', compact('usercartdatas'));
 
 
-            foreach (Cart::session($userid)->getContent() as $item) {
-                $items += $item->quantity;
-                $price += $item->quantity * $item->price;
-            }
-
-            return response()->json([
-                'quantity' => $items,
-                'price' => $price
-            ]);
         } else {
             return 0;
         }
@@ -207,9 +219,4 @@ class AddToCartController extends Controller
         return redirect()->route('product.cart.add');
     }
 
-
-    public function cuponCart()
-    {
-        
-    }
 }

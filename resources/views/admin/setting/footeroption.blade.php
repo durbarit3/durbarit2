@@ -106,3 +106,28 @@
     </div>
 </div>
 @endsection
+
+
+<script>
+    $(document).ready(function() {
+        $('.modalbtn').click(function(params) {
+            var room_id = $(this).data('id');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('admin/hostel/room/edit') }}",
+                data: {
+                    room_id: room_id
+                },
+                success: function(data) {
+                    
+
+                }
+            });
+        });
+    });
+</script>

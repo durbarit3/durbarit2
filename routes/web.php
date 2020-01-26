@@ -346,7 +346,10 @@ Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal
 
 // add to cart area start
 
-Route::post('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
+Route::get('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
+Route::get('get/cart/data', 'Frontend\AddToCartController@getCartData')->name('get.cart.data');
+
+
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
 
@@ -355,6 +358,27 @@ Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete'
 Route::get(md5('/product/cart/page'), 'Frontend\AddToCartController@productViewCart')->name('product.cart.add');
 Route::post('/product/cart/update', 'Frontend\AddToCartController@viewCartUpdate')->name('product.cart.update');
 Route::post('/product/cart/delete', 'Frontend\AddToCartController@viewCartDelete')->name('product.cart.delete');
+
+
+// checkout route start here
+Route::get(md5('/checkout/page/show'), 'Frontend\CheckoutController@checkoutshow')->name('checkout.page.show');
+Route::get(md5('/checkout/customer/login'), 'Frontend\CheckoutController@CustomerLogin')->name('checkout.login.show');
+Route::post(md5('/checkout/customer/login'), 'Frontend\CheckoutController@authenticate')->name('checkout.login');
+Route::get(md5('/checkout/order/data'), 'Frontend\CheckoutController@orderData')->name('get.order.data');
+Route::post(md5('/order/data/update'), 'Frontend\CheckoutController@orderDataUpdate')->name('product.order.update');
+
+// used cupon area start
+
+Route::post('customer/used/cupon', 'Frontend\CheckoutController@usedCupon')->name('customer.used.cupon');
+
+Route::post('customer/apply/cupon', 'Frontend\CheckoutController@applyCupon')->name('customer.apply.cupon');
+
+// place order area start
+
+Route::post('place/order/submit', 'Frontend\CheckoutController@orderSubmit')->name('place.order.submit');
+Route::get('/user/division/name/{id}', 'Frontend\CheckoutController@userCountrySubmit');
+Route::get('/user/district/name/{id}', 'Frontend\CheckoutController@userDivisionSubmit');
+Route::get('/user/upazila/name/{id}', 'Frontend\CheckoutController@userUpazilaSubmit');
 
 
 
