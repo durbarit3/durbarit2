@@ -1284,6 +1284,4 @@
     </script>
 @endsection
 
-    </script> -->
-@endsection
 
