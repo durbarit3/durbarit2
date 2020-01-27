@@ -1297,6 +1297,4 @@
     </script>
 @endsection
 
-    </script> -->
-@endsection
 
