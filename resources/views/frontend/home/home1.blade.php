@@ -33,16 +33,17 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_hmsd block block_2">
                         <div class="home1-banner-1 clearfix">
-                            <div class="item-1 col-lg-6 col-md-6 col-sm-6 banners">
+                            @php
+                                $topsiteban=App\SiteBanner::where('section',1)->where('status',1)->where('is_deleted',0)->limit(2)->inRandomOrder()->get()
+                            @endphp
+                            @foreach($topsiteban as $key => $bandata)
+                            <div class="item-{{++$key}} col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public')}}/1222.png" alt="Static Image"></a>
+                                    <a title="Banner" href="{{$bandata->link}}"><img src="{{asset('public/uploads/banner/sitebanner/'.$bandata->image)}}" alt="Static Image"></a>
                                 </div>
                             </div>
-                            <div class="item-2 col-lg-6 col-md-6 col-sm-6 banners">
-                                <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public')}}/1222.png" alt="Static Image"></a>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>
@@ -153,16 +154,16 @@
                     </div>
                     <div>
                         <div class="home1-banner-2 clearfix">
+                             @php
+                                $topsecsiteban=App\SiteBanner::where('section',2)->where('status',1)->where('is_deleted',0)->limit(2)->inRandomOrder()->get()
+                            @endphp
+                            @foreach($topsecsiteban as $key => $bandata)
                             <div class="item-1 col-lg-6 col-md-6 col-sm-6 banners">
                                 <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
+                                    <a title="Image" href="{{$bandata->link}}"><img src="{{asset('public/uploads/banner/sitebanner/'.$bandata->image)}}" alt="Static Image"></a>
                                 </div>
                             </div>
-                            <div class="item-2 col-lg-6 col-md-6 col-sm-6 banners">
-                                <div>
-                                    <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -216,10 +217,12 @@
                                                     <div class="item-inner product-layout transition product-grid ">
                                                         <div class="product-item-container">
                                                             <div class="left-block">
-                                                                <div class="image product-image-container ">
+                                                                <div class="image product-image-container">
+                                                                   
                                                                     <a class="lt-image" href="#" target="_self" title="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                         <img src="{{asset('public/uploads/products/thumbnail/'.$product->thumbnail_img)}}" alt="Anantara Dhigu Resort &amp;amp; Spa, Maldives Hair Spa">
                                                                     </a>
+
                                                                 </div>
                                                                 <div class="box-label"><span class="label-product label-sale">Sale</span></div>
                                                             </div>
@@ -368,9 +371,14 @@
                                     <div class="wap-listing-tabs products-list grid">
                                         <div class="item-cat-image banners">
                                             <div>
-                                                <a href="product.html" title="" target="_self">
-                                                    <img class="categories-loadimage" title="" alt="" src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/md-banner-1.jpg">
+                                                  @php
+                                                    $sideban=App\SiteBanner::where('section',3)->where('status',1)->where('is_deleted',0)->limit(1)->inRandomOrder()->get()
+                                                @endphp
+                                                @foreach($sideban as $key => $bandata)
+                                                <a href="{{$bandata->link}}" title="" target="_self">
+                                                    <img class="categories-loadimage" src="{{asset('public/uploads/banner/sitebanner/'.$bandata->image)}}">
                                                 </a>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div class="ltabs-items-container">
@@ -743,9 +751,14 @@
                                             <div class="wap-listing-tabs products-list grid">
                                                 <div class="item-cat-image banners">
                                                     <div>
+                                                         @php
+                                                            $middsecsiteban=App\SiteBanner::where('section',3)->where('status',1)->where('is_deleted',0)->skip(1)->limit(1)->inRandomOrder()->get()
+                                                        @endphp
+                                                        @foreach($middsecsiteban as $key => $bandata)
                                                         <a href="product.html" title="" target="_self">
-                                                            <img class="categories-loadimage" title="" alt="" src="{{asset('public/frontend/')}}/image/catalog/demo/banners/home1/md-banner-2.jpg">
+                                                            <img class="categories-loadimage" title="" alt="" src="{{asset('public/uploads/banner/sitebanner/'.$bandata->image)}}">
                                                         </a>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="ltabs-items-container">
@@ -995,16 +1008,16 @@
                                                                 <div class="ltabs-loading"></div>
                                                             </div>
                                                             <div class="row clearfix banner-tab">
+                                                                @php
+                                                                    $bottomsecsiteban=App\SiteBanner::where('section',2)->where('status',1)->where('is_deleted',0)->skip(2)->limit(2)->inRandomOrder()->get()
+                                                                @endphp
+                                                                @foreach($bottomsecsiteban as $key => $bandata)
                                                                 <div class="col-lg-6 col-md-6 col-sm-6 banners">
                                                                     <div>
                                                                         <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 banners">
-                                                                    <div>
-                                                                        <a title="Static Image" href="#"><img src="{{asset('public/')}}/1555.png" alt="Static Image"></a>
-                                                                    </div>
-                                                                </div>
+                                                              @endforeach
                                                             </div>
                                                         </div>
                                                     </div>

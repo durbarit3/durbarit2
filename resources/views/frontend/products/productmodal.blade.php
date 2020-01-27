@@ -96,7 +96,7 @@
 
 
 										<div class="product_page_price price" id="chosen_price_div">
-											<div id="chosen_price">
+											৳<div id="chosen_price">
 											 {{$productdetails->product_price}}
 											</div>
 										</div>
