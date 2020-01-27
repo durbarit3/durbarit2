@@ -19,8 +19,8 @@ class FooterController extends Controller
 
     public function footerShow()
     {
-            $footeroption = FooterOption::findOrFail(11); 
-            return view('admin.setting.footeroption',compact('footeroption'));
+        $footeroption = FooterOption::findOrFail(11);
+        return view('admin.setting.footeroption', compact('footeroption'));
     }
 
 
@@ -29,6 +29,22 @@ class FooterController extends Controller
     public function footerupdate(Request $request)
     {
 
+
+        $request->validate([
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'copyright' => 'required',
+            'footer_text' => 'required',
+        ]);
+
+        $footer_update = FooterOption::findOrFail(11)->update([
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'copyright' => $request->copyright,
+            'footer_text' => $request->footer_text,
+
         $id=$request->id;
        $update=FooterOption::where('id',$id)->update([
             'address'=>$request->address,
@@ -36,6 +52,7 @@ class FooterController extends Controller
             'email'=>$request->email,
             'copyright'=>$request->copyright,
             'footer_text'=>$request->footer_text,
+
 
         ]);
         if (request()->hasFile('payment_image')) {
@@ -46,6 +63,7 @@ class FooterController extends Controller
                 'payment_image' => $imagename,
             ]);
         }
+
         if($update){
             $notification=array(
                 'messege'=>'Update Success',
@@ -62,7 +80,22 @@ class FooterController extends Controller
        
 
 
-    }
 
-    
+        if ($footer_update) {
+            $notification = array(
+                'messege' => 'Data Deactive Success',
+                'alert-type' => 'success'
+            );
+
+            $footeroption = FooterOption::findOrFail(11);
+            return view('admin.setting.footeroption', compact('footeroption'));
+        } else {
+            $notification = array(
+                'messege' => 'Data Deactive Faild',
+                'alert-type' => 'error'
+            );
+            $footeroption = FooterOption::findOrFail(11);
+            return view('admin.setting.footeroption', compact('footeroption'));
+        }
+    }
 }

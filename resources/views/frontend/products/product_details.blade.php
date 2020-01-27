@@ -2,6 +2,22 @@
 @section('main_content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Main Container  -->
+
+<div class="search-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-content">
+                    <div class="row" id="search_result_product">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main_content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="title-breadcrumb">
@@ -720,7 +736,7 @@
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
                                                     <script>
-                                                           
+
                                                             if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
                                                                 var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
                                                             }
@@ -742,20 +758,25 @@
                                                         <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 
                                                         <script>
-                                                           
+
                                                             if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
                                                                 var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
                                                             }
                                                         </script>
-                                                        
+
                                                     </label>
                                                 </div>
                                                 @endforeach
-                                                
+
                                             </div>
                                         </div>
                                         @endforeach
                                     </div>
+
+
+                                    <!-- variation end -->
+                                    @else
+
                                     @elseif($productdetails->product_type==2)
                                         <div class="form-group required ">
                                             @if($productdetails->select_upload_type==1)
@@ -766,6 +787,7 @@
                                             <div id="input-option224">
                                             </div>
                                         </div>
+
 
                                     @elseif($productdetails->product_type==3)
                                         <div class="form-group required ">
@@ -842,7 +864,10 @@
                                         <div class="option quantity">
                                             <div class="input-group quantity-control" unselectable="on" style="user-select: none;">
                                                 <input class="form-control" type="number" id="quantity" name="quantity" value="1">
-                                                
+
+                                                <input type="hidden" name="product_id" value="{{$productdetails->id}}">
+
+
                                                 <span class="input-group-addon product_quantity_down fa fa-caret-down"></span>
                                                 <span class="input-group-addon product_quantity_up fa fa-caret-up"></span>
                                             </div>
@@ -851,6 +876,15 @@
                                         <div class="product_page_price price" id="chosen_price_div">
                                             Final Price: ৳<strong id="chosen_price">{{$productdetails->product_price}}</strong>
                                         </div>
+
+
+
+
+
+
+
+
+
                                             <button type="button" id="addtocart" value="{{$productdetails->id }}" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart" id="addtocart">Add to Cart</button>
                                         </div>
                                         <div class="add-to-links wish_comp">
@@ -868,13 +902,13 @@
                                 </div>
                             </div>
 
-                           
+
 
 
                         </div>
                     </div>
                 </div>
-        
+
 </form>
 
 
@@ -1014,6 +1048,11 @@
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
+
+                                                    <a  class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="{{ url('admin/product/modal/show/') }}" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
+                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
+
                                                         <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="{{url('product/details/'.$products->id)}}" data-original-title="Quickview "> <i class="fa fa-search"></i></a>
 
                                                         @if(Auth::guard('web')->check())
@@ -1022,6 +1061,7 @@
                                                         <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
                                                         @endif
                                                         <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$products->id }}"><i class="fa fa-exchange"></i></button>
+
 
                                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
                                                     </div>
@@ -1180,7 +1220,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- //Main Container -->
 <script>
     $(document).ready(function() {
@@ -1212,11 +1252,38 @@
 
 
 <!-- add to cart area start -->
+
+
+
+<script>
+
+// $(document).ready(function(){
+// 	$('#addtocart').click(function(params) {
+    
+//     var addtocart_id = $(this).val();
+//     if(productcolorname){
+//         var productcolorname =colorname.value;
+//     }else{
+//         var productcolorname =0;
+//     }
+
+//     if(productsizename){
+//         var productsizename =sizename.value;
+//     }else{
+//         var productsizename =0;
+//     }
+    
+    
+    
+
+$(document).ready(function(){
+	$('#addtocart').click(function(params) {
+
 <!-- url:'{{ route('product.add.cart') }}', -->
 <script>
 $(document).ready(function(){
  $('#').click(function(params) {
-    
+
     var addtocart_id = $(this).val();
     if(productcolorname){
         var productcolorname =colorname.value;
@@ -1229,11 +1296,37 @@ $(document).ready(function(){
     }else{
         var productsizename =0;
     }
-    
-    
-    
 
-    var price =document.getElementById('chosen_price').innerHTML;
+
+
+
+    // var price =document.getElementById('chosen_price').innerHTML;
+
+
+	// $.ajaxSetup({
+	// 	headers: {
+	// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	// 	}
+	// });
+ 
+// $.ajax({
+// 	type:'POST',
+// 	url:'{{ route('product.add.cart') }}',
+// 	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
+// 	success: function (data) {
+//         console.log(data);
+        
+            
+//         document.getElementById('cartdatacount').innerHTML =data.quantity;
+//         document.getElementById('product_price').innerHTML =data.price;
+
+
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
 
  $.ajaxSetup({
      headers: {
@@ -1247,12 +1340,52 @@ $.ajax({
  data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
  success: function (data) {
         console.log(data);
-        
-            
+
+
         document.getElementById('cartdatacount').innerHTML =data.quantity;
         document.getElementById('product_price').innerHTML =data.price;
 
+
+
         
+        
+            
+		
+// 		}
+// 	});
+// 	});
+// });
+</script>
+
+<script>
+
+$(document).ready(function() {
+$('#addtocart').on('click', function(){
+
+
+$.ajax({
+type:'GET',
+url:"{{ route('product.add.cart') }}",
+data: $('#option-choice-form').serializeArray(),
+success: function (data) {
+    console.log(data);
+    document.getElementById('cartdatacount').innerHTML =data.quantity;
+        document.getElementById('product_price').innerHTML =data.price;
+
+}
+});
+
+
+});
+
+
+
+
+
+
+		}
+	});
+	});
 
         
         
@@ -1289,6 +1422,8 @@ $(document).ready(function() {
 
 
     });
+
+
 });
 </script>
 
