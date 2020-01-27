@@ -465,7 +465,7 @@
                                 <!-- End item-wrap -->
                             </div>
                             <div class="item ">
-                                <div class="item-wrap style1 ">
+                                <div class="item-wrap style1">
                                     <div class="item-wrap-inner">
                                         <div class="media-left">
                                             <div class="item-image">

@@ -95,7 +95,11 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Providers\\WishListProvider' => $baseDir . '/app/Providers/WishListProvider.php',
     'App\\ReSubCategory' => $baseDir . '/app/ReSubCategory.php',
+
+    'App\\SiteBanner' => $baseDir . '/app/SiteBanner.php',
+
     'App\\ShippingAddress' => $baseDir . '/app/ShippingAddress.php',
+
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
     'App\\TermsAndCondition' => $baseDir . '/app/TermsAndCondition.php',

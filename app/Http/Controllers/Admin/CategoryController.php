@@ -28,132 +28,67 @@ class CategoryController extends Controller
 
     	$title=strtolower($request['cate_name']);
     	$cate_slug=$request['cate_slug'];
-
     	$inputslug=preg_replace('/[^A-Za-z0-9-]+/', '-',$cate_slug);
         $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
- if($cate_slug){
-    	$insert=Category::insertGetId([
-    		'cate_name'=>$request['cate_name'],
-    		'cate_image'=>'',
-            'cate_icon'=>'',
-    		'cate_slug'=>$inputslug,
-            'section_id'=>$request['section_id'],
-            'cate_tag'=>$request['cate_tag'],
-    		'created_at'=>Carbon::now()->toDateTimeString(),
 
-    	]);
-            if($request->hasFile('pic') && $request->hasFile('icon')){
-                
-                        $image=$request->file('pic');
-                        $ImageName='category_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                        $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_icon'=>$ImageName,
-                        ]); 
-              }
-              elseif($request->hasFile('pic')){
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-              }
-              elseif($request->hasFile('icon')){
-                    $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_icon'=>$ImageName,
-                        ]);
+        $data = new Category;
+        $data->cate_name=$request->cate_name;
+        $data->section_id=$request->section_id;
+        $data->cate_tag=$request->cate_tag;
 
-              }else{
+        if($cate_slug){
+            $data->cate_slug=$inputslug;
+        }else{
+             $data->cate_slug=$slug;
+        }
+        if($request->hasFile('header_image')){
+                $image=$request->file('header_image');
+                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
+                $data->header_image =$ImageName;
+        }
+        if($request->hasFile('top_image')){
+                $image=$request->file('top_image');
+                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
+                $data->top_image =$ImageName;
+        }
+        if($request->hasFile('side_image')){
+                $image=$request->file('side_image');
+                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
+                $data->side_image =$ImageName;
+        }
+        if($request->hasFile('pic')){
+                $image=$request->file('pic');
+                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
+                $data->cate_image =$ImageName;
+        }
+        if($request->hasFile('icon')){
+                $image=$request->file('icon');
+                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
+                $data->cate_icon =$ImageName;
+        }
 
-              }
-
-
-    	if($insert){
-		  $notification=array(
-                'messege'=>'Category Insert Successfully',
-                'alert-type'=>'success'
-                 );
-               return Redirect()->back()->with($notification); 
-    	}
-    	else{
-    		$notification=array(
-                'messege'=>'Category Insert Faild',
-                'alert-type'=>'danger'
-                 );
-               return Redirect()->back()->with($notification); 
-    	}
-    }else{
-    	$insert=Category::insertGetId([
-    		'cate_name'=>$request['cate_name'],
-    		'cate_image'=>'',
-            'cate_icon'=>'',
-    		'cate_slug'=>$slug,
-            'section_id'=>$request['section_id'],
-            'cate_tag'=>$request['cate_tag'],
-    		'created_at'=>Carbon::now()->toDateTimeString(),
-
-    	]);
-            if($request->hasFile('pic') && $request->hasFile('icon')){
-                   
-                        $image=$request->file('pic');
-                        $ImageName='category_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                        $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_icon'=>$ImageName,
-                        ]); 
-              }
-              elseif($request->hasFile('pic')){
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-              }
-              elseif($request->hasFile('icon')){
-                    $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$insert)->update([
-                            'cate_icon'=>$ImageName,
-                        ]);
-
-              }else{
-
-              }
+        if($data->save()){
+            $notification=array(
+            'messege'=>'Site Banner Insert Successfully',
+            'alert-type'=>'success'
+             );
+            return Redirect()->back()->with($notification);
+       }
+       else{
+            $notification=array(
+            'messege'=>'Site Banner Insert Faild',
+            'alert-type'=>'error'
+             );
+            return Redirect()->back()->with($notification);
+       }
 
 
-    	if($insert){
-		  $notification=array(
-                'messege'=>'Category Insert Successfully',
-                'alert-type'=>'success'
-                 );
-               return Redirect()->back()->with($notification); 
-    	}
-    	else{
-    		$notification=array(
-                'messege'=>'Category Insert Faild',
-                'alert-type'=>'danger'
-                 );
-               return Redirect()->back()->with($notification); 
-    	}
-    }
+ 
    }
 
 
@@ -163,99 +98,132 @@ class CategoryController extends Controller
         return json_encode($data);
    }
 
-   public function update(Request $request){
-   	    $id=$request->id;
-        $old=$request->old_image;
-        $oldicon=$request->old_icon;
-    	$title=strtolower($request['cate_name']);
+
+// update Category
+   public function update(Request $request,$id){
+
+    //return $request;
+
+        $title=strtolower($request['cate_name']);
+        $cate_slug=$request['cate_slug'];
+        $inputslug=preg_replace('/[^A-Za-z0-9-]+/', '-',$cate_slug);
         $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
 
 
-        $update=Category::where('id',$id)->update([
-    		'cate_name'=>$request['cate_name'],
-    		'cate_slug'=>$slug,
-            'cate_tag'=>$request['cate_tag_edit'],
-    		'updated_at'=>Carbon::now()->toDateTimeString(),
-    	]);
+        $header_image=$request->old_header_image;
+        $top_image=$request->old_top_image;
+        $side_image=$request->old_side_image;
+        $image_image=$request->old_image;
+        $icon_image=$request->old_icon;
 
-         if($request->hasFile('pic') && $request->hasFile('icon')){
-                    if($old){
-                        unlink('public/uploads/category/'.$old);
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                      
-                        $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_icon'=>$ImageName,
-                        ]);
-                    }
-                    else{
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                        $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_icon'=>$ImageName,
-                        ]);
-                    }
-              }elseif($request->hasFile('pic')){
+        
 
-                 if($old){
-                        unlink('public/uploads/category/'.$old);
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                    }
-                    else{
-                        $image=$request->file('pic');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(350,182)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_image'=>$ImageName,
-                        ]);
-                    }
 
-              }
-              elseif($request->hasFile('icon')){
-                    $image=$request->file('icon');
-                        $ImageName='_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                        Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                        Category::where('id',$id)->update([
-                            'cate_icon'=>$ImageName,
-                        ]);
+        $data = Category::findOrFail($id);
+        $data->cate_name=$request->cate_name;
+        $data->section_id=$request->section_id;
+        $data->cate_tag=$request->cate_tag;
 
-              }else{
+        if($cate_slug){
+            $data->cate_slug=$inputslug;
+        }else{
+             $data->cate_slug=$slug;
+        }
+        if($request->hasFile('header_image')){
+            if($header_image){
+                unlink('public/uploads/category/'.$header_image);
+                $image=$request->file('header_image');
+                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
+                $data->header_image =$ImageName;
+            }else{
+                $image=$request->file('header_image');
+                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
+                $data->header_image =$ImageName;
+            }
+                
+        }
+        if($request->hasFile('top_image')){
+            if($top_image){
+                unlink('public/uploads/category/'.$top_image);
+                $image=$request->file('top_image');
+                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
+                $data->top_image =$ImageName;
+            }else{
+                $image=$request->file('top_image');
+                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
+                $data->top_image =$ImageName;
+            }
+                
+        }
+        if($request->hasFile('side_image')){
+            if($side_image){
+                unlink('public/uploads/category/'.$side_image);
+                $image=$request->file('side_image');
+                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
+                $data->side_image =$ImageName;
+            }else{
+                $image=$request->file('side_image');
+                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
+                $data->side_image =$ImageName;
+            }
+                
+        }
+        if($request->hasFile('pic')){
+            if($image_image){
+                unlink('public/uploads/category/'.$image_image);
+                $image=$request->file('pic');
+                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
+                $data->cate_image =$ImageName;
+            }else{
+                $image=$request->file('pic');
+                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
+                $data->cate_image =$ImageName;
+            }
+                
+        }
+        if($request->hasFile('icon')){
+            if($icon_image){
+                unlink('public/uploads/category/'.$icon_image); 
+                $image=$request->file('icon');
+                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
+                $data->cate_icon =$ImageName;
+            }else{
+                
+                $image=$request->file('icon');
+                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
+                $data->cate_icon =$ImageName;
+            }
+                
+        }
 
-              }
-
-          if($update){
-	 		 $notification=array(
-            'messege'=>'Category Update Successfully',
+        if($data->save()){
+            $notification=array(
+            'messege'=>'Site Banner Update Successfully',
             'alert-type'=>'success'
              );
-           return Redirect()->route('admin.category.all')->with($notification); 
-			}
-    	else{
-    		$notification=array(
-                'messege'=>'Category Update Faild',
-                'alert-type'=>'danger'
-                 );
-               return Redirect()->back()->with($notification); 
-    	}
+            return Redirect()->back()->with($notification);
+       }
+       else{
+            $notification=array(
+            'messege'=>'Site Banner update Faild',
+            'alert-type'=>'error'
+             );
+            return Redirect()->back()->with($notification);
+       }
+
+
+
+  
 
    }
 

@@ -49,7 +49,7 @@ Route::post('admin/mollie/gateway', 'Admin\GatewayController@MollieUpdate')->nam
 Route::get(md5('admin/category/all'), 'Admin\CategoryController@index')->name('admin.category.all');
 Route::post(md5('admin/category/insert'), 'Admin\CategoryController@insert')->name('admin.category.insert');
 Route::get('/get/category/edit/{cate_id}', 'Admin\CategoryController@edit');
-Route::post(md5('admin/category/update'), 'Admin\CategoryController@update')->name('admin.category.update');
+Route::post('admin/category/update/{id}', 'Admin\CategoryController@update')->name('admin.category.update');
 Route::get('admin/category/softdelete/{id}', 'Admin\CategoryController@softdelete');
 Route::post('admin/category/multiplesoftdelete', 'Admin\CategoryController@multiplesoftdelete');
 Route::get('admin/category/deactive/{id}', 'Admin\CategoryController@deactive');
@@ -132,7 +132,9 @@ Route::get(md5('admin/product/affiliate/add'), 'Admin\ProductController@affiliat
 Route::get(md5('admin/product/digital/license'), 'Admin\ProductController@license')->name('admin.product.license');
 Route::get(md5('admin/product/all'), 'Admin\ProductController@index')->name('admin.product.all');
 Route::post(md5('admin/product/insert'), 'Admin\ProductController@insert')->name('admin.product.insert');
+
 Route::post('admin/product/update/{id}', 'Admin\ProductController@update')->name('admin.product.update');
+
 Route::get('admin/product/combination', 'Admin\ProductController@sku_combination')->name('products.sku_combination');
 Route::get('admin/product/combination/edit', 'Admin\ProductController@sku_combination_edit')->name('products.sku_combination_edit');
 Route::get('/get/resubcategory/all/{subcate_id}', 'Admin\ProductController@resub');
@@ -203,6 +205,20 @@ Route::get('admin/banner/multihearddelete/{id}','Admin\BannerController@multihea
 Route::post('admin/banner/multisoftdelete','Admin\BannerController@multisoftdelete')->name('admin.banner.multisoftdelete');
 Route::get('/get/admin/banner/edit/{ban_id}','Admin\BannerController@edit');
 Route::post('admin/banner/update','Admin\BannerController@update')->name('admin.banner.update');
+// sitebanner
+Route::get(md5('admin/sitebanner/all'),'Admin\BannerController@sitebanner')->name('admin.sitebanner.all');
+
+Route::get('admin/sitebanner/deactive/{id}','Admin\BannerController@sitebannerdeactive');
+Route::get('admin/sitebanner/active/{id}','Admin\BannerController@sitebanneractive');
+Route::get('admin/sitebanner/softdelete/{id}','Admin\BannerController@sitebabnsoftdelete');
+Route::get('/get/admin/sitebanner/edit/{id}','Admin\BannerController@sitebabnsoftedit');
+Route::get('admin/sitebanner/restore/{id}','Admin\BannerController@sitebanrestore');
+Route::get('admin/sitebanner/hearddelete/{id}','Admin\BannerController@sitebahearddel');
+
+
+Route::post(md5('admin/sitebanner/insert'),'Admin\BannerController@sitebannerinsert')->name('admin.sitebanner.insert');
+Route::post(md5('admin/sitebanner/update'),'Admin\BannerController@sitebannerupdate')->name('admin.sitebanner.update');
+Route::post(md5('admin/sitebanner/multisoftdelete'),'Admin\BannerController@sitebanmultisoft')->name('admin.sitebanner.multisoftdelete');
 
 
 
@@ -229,10 +245,11 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 Route::get(md5('admin/trash/banner'), 'Admin\TrashController@banner')->name('admin.trash.banner');
 Route::post(md5('admin/trash/banmultidel'), 'Admin\TrashController@banmultidel')->name('admin.trash.multidelban');
 
+Route::get(md5('admin/trash/sitebanner'), 'Admin\TrashController@SiteBanner')->name('admin.trash.sitebanner');
+Route::post(md5('admin/trash/sitebanner/multipledelete'), 'Admin\TrashController@sitebanmultidel')->name('admin.trash.sitebannerdel');
+
 // footer option area start
 Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->name('admin.footer.option');
-
-
 Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')->name('admin.footer.option.update');
 
 

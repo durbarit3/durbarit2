@@ -82,9 +82,17 @@
                                                                         @endforeach
                                                                     </div>
 
+                                                                      @php
+                                                                        $catebanner=App\SiteBanner::where('section',5)->where('status',1)->where('is_deleted',0)->limit(1)->inRandomOrder()->get()
+                                                                      @endphp
+                                                                    @foreach($catebanner as $key => $bandatacate)
+
+
+
                                                                     <div class="img-banner col-lg-5 col-md-5 col-sm-4">
-                                                                        <a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/menu/img-static-megamenu-h.jpg" alt="banner"></a>
+                                                                        <a href="#"><img src="{{asset('public/uploads/banner/sitebanner/'.$bandatacate->image)}}" alt="banner"></a>
                                                                     </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                         </div>
