@@ -23,14 +23,81 @@ class CategoryController extends Controller
     	return view('admin.ecommerce.category.all',compact('allcategory'));
     }
 
+    public function add(){
+        return view('admin.ecommerce.category.add');
+    }
+
     // insert
     public function insert(Request $request){
+
+        //return $request->tag;
 
     	$title=strtolower($request['cate_name']);
     	$cate_slug=$request['cate_slug'];
 
     	$inputslug=preg_replace('/[^A-Za-z0-9-]+/', '-',$cate_slug);
         $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
+
+
+        $data = new Category;
+        $data->cate_name=$request->cate_name;
+        $data->section_id=$request->section_id;
+        $data->cate_tag=$request->tag;
+
+        if($cate_slug){
+            $data->cate_slug=$inputslug;
+        }else{
+             $data->cate_slug=$slug;
+        }
+        if($request->hasFile('header_image')){
+                $image=$request->file('header_image');
+                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
+                $data->header_image =$ImageName;
+        }
+        if($request->hasFile('top_image')){
+                $image=$request->file('top_image');
+                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
+                $data->top_image =$ImageName;
+        }
+        if($request->hasFile('side_image')){
+                $image=$request->file('side_image');
+                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,427)->save('public/uploads/category/'.$ImageName);
+                $data->side_image =$ImageName;
+        }
+        if($request->hasFile('pic')){
+                $image=$request->file('pic');
+                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
+                $data->cate_image =$ImageName;
+        }
+        if($request->hasFile('icon')){
+                $image=$request->file('icon');
+                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
+                $data->cate_icon =$ImageName;
+        }
+
+        if($data->save()){
+            $notification=array(
+            'messege'=>'Site Banner Insert Successfully',
+            'alert-type'=>'success'
+             );
+            return Redirect()->back()->with($notification);
+       }
+       else{
+            $notification=array(
+            'messege'=>'Site Banner Insert Faild',
+            'alert-type'=>'error'
+             );
+            return Redirect()->back()->with($notification);
+       }
+
+
+ 
+
  if($cate_slug){
     	$insert=Category::insertGetId([
     		'cate_name'=>$request['cate_name'],
@@ -154,6 +221,7 @@ class CategoryController extends Controller
                return Redirect()->back()->with($notification); 
     	}
     }
+
    }
 
 
@@ -162,6 +230,67 @@ class CategoryController extends Controller
        $data=Category::where('id',$cate_id)->first();
         return json_encode($data);
    }
+
+
+// update Category
+   public function update(Request $request,$id){
+
+    //return $id;
+        $cate_id=$request->id;
+
+        $title=strtolower($request['cate_name']);
+        $cate_slug=$request['cate_slug'];
+        $inputslug=preg_replace('/[^A-Za-z0-9-]+/', '-',$cate_slug);
+        $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
+
+
+        $data = Category::findOrFail($cate_id);
+        $data->cate_name=$request->cate_name;
+        $data->section_id=$request->section_id;
+        $data->cate_tag=$request->tag;
+
+        if($cate_slug){
+            $data->cate_slug=$inputslug;
+        }else{
+             $data->cate_slug=$slug;
+        }
+        if($request->hasFile('header_image')){
+                $image=$request->file('header_image');
+                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
+                $data->header_image =$ImageName;
+           
+        }
+        if($request->hasFile('top_image')){
+               
+                $image=$request->file('top_image');
+                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
+                $data->top_image =$ImageName;
+                
+        }
+        if($request->hasFile('side_image')){
+                $image=$request->file('side_image');
+                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,427)->save('public/uploads/category/'.$ImageName);
+                $data->side_image =$ImageName;
+        }
+        if($request->hasFile('pic')){
+                $image=$request->file('pic');
+                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
+                $data->cate_image =$ImageName;
+        }
+        if($request->hasFile('icon')){
+                $image=$request->file('icon');
+                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
+                $data->cate_icon =$ImageName;
+        }
+
+        if($data->save()){
+            $notification=array(
+            'messege'=>'Site Banner Update Successfully',
 
    public function update(Request $request){
    	    $id=$request->id;
@@ -245,6 +374,7 @@ class CategoryController extends Controller
           if($update){
 	 		 $notification=array(
             'messege'=>'Category Update Successfully',
+
             'alert-type'=>'success'
              );
            return Redirect()->route('admin.category.all')->with($notification); 

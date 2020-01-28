@@ -90,8 +90,20 @@
                                                             </a>
                                                             
                                                             <a class="btn-button btn-quickview quickview quickview_handler" href="{{url('admin/product/modal/show')}}" title="Quick View" data-title="Quick View" data-fancybox-type="iframe"> <i class="fa fa-search"></i> </a>
+
+
+                                                            @if(Auth::guard('web')->check())
+                                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$flasdetail->product->id}}"> <i class="fa fa-heart"></i></button>
+                                                            @else
+                                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
+                                                            @endif
+
+                                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$flasdetail->product->id }}"><i class="fa fa-exchange"></i></button>
+
+
                                                             <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title=""data-original-title=" to Wish List"><i class="fa fa-heart"></i></button>
                                                             <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('35');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
+
                                                             <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
                                                         </div>
                                                     </div>

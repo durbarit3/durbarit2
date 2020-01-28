@@ -356,7 +356,9 @@
             </div>
             <div class="module banner-left hidden-xs ">
                 <div class="static-image-home-left banners">
-                    <div><a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a></div>
+                    <div>
+                        <a title="Static Image" href="#"><img src="{{asset('public/uploads/category/'.$category->side_image)}}" alt="Static Image"></a>
+                    </div>
                 </div>
             </div>
                    
@@ -365,7 +367,7 @@
             <div class="module banners-effect-9 form-group">
                 <div class="banners">
                     <div>
-                        <a href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/category/men-cat.jpg"></a>
+                        <a href="#"><img src="{{asset('public/uploads/category/'.$category->top_image)}}"></a>
                     </div>
                 </div>
             </div>

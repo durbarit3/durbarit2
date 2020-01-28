@@ -11,6 +11,7 @@ use Cart;
 class AddToCartController extends Controller
 {
 
+
     // Product Add To cart
 
     public function addToCart(Request $request)
@@ -121,6 +122,7 @@ class AddToCartController extends Controller
 
 
     // product add to cart show
+
 
 
     public function addToCartShow(Request $request)

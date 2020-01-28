@@ -46,6 +46,7 @@ Route::post('admin/mollie/gateway', 'Admin\GatewayController@MollieUpdate')->nam
 
 
 // category
+Route::get(md5('admin/category/add'), 'Admin\CategoryController@add')->name('admin.category.add');
 Route::get(md5('admin/category/all'), 'Admin\CategoryController@index')->name('admin.category.all');
 Route::post(md5('admin/category/insert'), 'Admin\CategoryController@insert')->name('admin.category.insert');
 Route::get('/get/category/edit/{cate_id}', 'Admin\CategoryController@edit');

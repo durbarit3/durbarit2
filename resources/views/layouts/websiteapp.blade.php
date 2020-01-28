@@ -172,8 +172,16 @@
                          $('#user_division').append('<option value="' + divisionobj.id + '">'+divisionobj.name+'</option>');
                        });
                 }
-            });
+
+            }
+         });
+     } else {
+        // alert('danger');
+     }
+
+            
         });
+
     });
 </script>
 
