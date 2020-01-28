@@ -2,22 +2,6 @@
 @section('main_content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Main Container  -->
-
-<div class="search-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="search-content">
-                    <div class="row" id="search_result_product">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="main_content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="title-breadcrumb">
@@ -465,7 +449,7 @@
                                 <!-- End item-wrap -->
                             </div>
                             <div class="item ">
-                                <div class="item-wrap style1">
+                                <div class="item-wrap style1 ">
                                     <div class="item-wrap-inner">
                                         <div class="media-left">
                                             <div class="item-image">
@@ -653,8 +637,7 @@
 
 
 
-          <form id="option-choice-form">
-              
+          <form id="option-choice-form input">
                 <div class="product-view product-detail">
                     <div class="product-view-inner clearfix">
                         <div class="content-product-left  col-md-5 col-sm-6 col-xs-12">
@@ -703,17 +686,13 @@
                                 <a class="reviews_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> / <a class="write_review_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a>
                             </div>
                             <div class="product_page_price price" itemscope="" itemtype="http://data-vocabulary.org/Offer">
-                                <span class="price-new"><strong id="chosen_price">৳ {{$productdetails->product_price}}</strong></span>
-                                <span class="price-old" id="price-old">‎৳ {{$productdetails->product_price}}</span>
-                                
+                                <span class="price-new"><span id="price-special"> ‎৳ {{$productdetails->product_price}}</span></span>
+                                <span class="price-old" id="price-old">$122.00</span>
+                                <!--    <div class="price-tax"><span>Ex Tax:</span> $70.00</div> -->
                             </div>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
-                                    @if($productdetails->brand != NULL)
-                                    <div class="brand"><span>Brand: </span><a href="#">{{$productdetails->brandnew->brand_name}}</a></div>
-                                    @else
-
-                                    @endif
+                                    <div class="brand"><span>Brand: </span><a href="#">{{$productdetails->brand}}</a></div>
                                     <div class="model"><span>Product Code: </span>{{$productdetails-> product_sku}}</div>
                                     <div class="stock"><span>Availability:</span>
                                         @if($productdetails->product_qty > 0)
@@ -724,163 +703,45 @@
                                     </div>
                                     @if($productdetails->product_type==1)
                                     <!--variation start-->
+
                                     <div class="stock row">
                                         <div class="col-md-3">
                                             <span>Color:</span>
-                                            <input type="hidden" name="id" value="{{$productdetails->id}}" class="design">
+                                            <input type="hidden" name="id" value="{{$productdetails->id}}">
                                             @if (count(json_decode($productdetails->colors)) > 0)
                                             @foreach (json_decode($productdetails->colors) as $key => $color)
                                             <div class="radio radio-type-button">
                                                 <label>
-                                                    <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif class="design">
+                                                    <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif>
                                                     <span class="option-content-box active" data-title="" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
-
-                                                    <script>
-
-                                                            if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
-                                                                var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
-                                                            }
-                                                        </script>
                                                 </label>
-
-                                                
-                             
-
-
-
                                             </div>
                                             @endforeach
                                             @endif
                                         </div>
 
-
-
-
-
-                                        
-                            @foreach (json_decode($productdetails->choice_options) as $key => $choice)
-
-
-
-
-                                        
-                            <div id="product">
-                                
-                                <div class="form-group required ">
-                                    <label class="control-label">{{ $choice->title }}:</label>
-                                    <div id="input-option224">
-                                        <div class="radio  radio-type-button">
-                                            @foreach ($choice->options as $key => $option)
-                                            <label>
-                                                <input type="radio" id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
-                                                <span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="">
-                                                    <span class="option-name">M </span>
-                                                </span>
-                                            </label>
-                                            @endforeach
-
-                                                        <script>
-
-                                                            if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
-                                                                var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
-                                                            }
-                                                        </script>
-
+                                        @foreach (json_decode($productdetails->choice_options) as $key => $choice)
+                                        <div class="col-md-3">
+                                            <div class="stock">
+                                                <span>{{ $choice->title }}:</span>
+                                                @foreach ($choice->options as $key => $option)
+                                                <div class="radio radio-type-button">
+                                                    <label>
+                                                        <input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
+                                                        <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
                                                     </label>
                                                 </div>
                                                 @endforeach
-
                                             </div>
-
                                         </div>
-                                        
-                                    </div>
-                                </div>
-
-                            </div>
-
                                         @endforeach
                                     </div>
-
 
                                     <!-- variation end -->
                                     @else
 
-                                    @elseif($productdetails->product_type==2)
-                                        <div class="form-group required ">
-                                            @if($productdetails->select_upload_type==1)
-                                            <label class="control-label">File</label>
-                                            @elseif($productdetails->select_upload_type==2)
-                                            <label class="control-label">Link</label>
-                                            @endif
-                                            <div id="input-option224">
-                                            </div>
-                                        </div>
-
-
-                                    @elseif($productdetails->product_type==3)
-                                        <div class="form-group required ">
-                                            @if($productdetails->select_upload_type==1)
-                                            <label class="control-label">File</label>
-                                            @elseif($productdetails->select_upload_type==2)
-                                            <label class="control-label">Link</label>
-                                            @endif
-                                            <label class="control-label">License Type:</label>
-                                            <div id="input-option224">
-                                                <label>
-                                                    <input type="hidden" name="" value="">
-                                                         <label for="">{{$productdetails->license_type}}</label>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <!-- <label class="control-label">Asif</label>
-                                            <label class="control-label">Foysal</label> -->
-                                            <table class="table table-striped">
-                                              <thead>
-                                                <tr>
-                                                  <th>#</th>
-                                                  <th scope="col">Duration</th>
-                                                  <th scope="col">price</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                @php
-                                                    $pro_id=$productdetails->id;
-                                                    $linceseproduct=App\ProductLicense::where('product_id',$pro_id)->get();
-                                                @endphp
-                                                @foreach($linceseproduct as $key => $license)
-                                                <tr class="text-center">
-                                             
-                                                  <td>
-                                                    <input type="radio" name="option[224]" value="{{$license}}" @if($key == 0) checked @endif>
-                                                  </td>
-                                                  <td>{{$license->license_duration}}</td>
-                                                  <td>110tk</td>
-                                                </tr>
-                                                @endforeach
-                                              </tbody>
-                                            </table>
-                                        </div>
-                                        @elseif($productdetails->product_type==4)
-                                        <div class="form-group required ">
-                                            @if($productdetails->select_upload_type==1)
-                                            <label class="control-label">File</label>
-                                            @elseif($productdetails->select_upload_type==2)
-                                            <label class="control-label">Link</label>
-                                            @endif
-                                            <label class="control-label">Affilient Link: </label>
-                                            <div id="input-option224">
-                                                <p>{{Str::limit($productdetails->affiliate_link,20)}}</p>
-                                            </div>
-                                        </div>
-                                   
-                                    <!-- variation end -->
-                                    <!-- product type 2 -->
-                                  
                                     @endif
 
                                 </div>
@@ -895,35 +756,25 @@
                                         <div class="option quantity">
                                             <div class="input-group quantity-control" unselectable="on" style="user-select: none;">
                                                 <input class="form-control" type="number" id="quantity" name="quantity" value="1">
-
-                                                <input type="hidden" name="product_id" value="{{$productdetails->id}}">
-
-
+                                                <input type="hidden" name="product_id" value="108">
                                                 <span class="input-group-addon product_quantity_down fa fa-caret-down"></span>
                                                 <span class="input-group-addon product_quantity_up fa fa-caret-up"></span>
                                             </div>
                                         </div>
                                         <div class="cart">
                                         <div class="product_page_price price" id="chosen_price_div">
-
-                                            <input type="hidden" name="product_price" value="{{$productdetails->product_price}}" id="product_variation_price">
-                                            <input type="button" id="addtocart" value="Add to Cart" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart"> 
-                                        </div>
-                                            
-
-                                            Final Price: ৳<strong id="chosen_price">{{$productdetails->product_price}}</strong>
+                                            Final Price:<strong id="chosen_price">{{$productdetails->product_price}}</strong>
                                         </div>
 
 
-
-
-
-
+                                    </form>
 
 
 
 
                                             <button type="button" id="addtocart" value="{{$productdetails->id }}" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart" id="addtocart">Add to Cart</button>
+
+
                                         </div>
                                         <div class="add-to-links wish_comp">
                                             <ul class="blank">
@@ -940,14 +791,33 @@
                                 </div>
                             </div>
 
-
+                           
 
 
                         </div>
                     </div>
                 </div>
 
-</form>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <div class="product-attribute module">
@@ -1070,14 +940,14 @@
                                                     <h4><a href="{{url('/product/details/page/'.$products->id)}}">{{Str::limit($products->product_name,40)}}</a></h4>
                                                     <div class="total-price clearfix" style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
-                                                            <span class="price-new">৳ {{$products->product_price}}</span>
-                                                            <!-- <span class="price-old">$122.00</span> -->
+                                                            <span class="price-new">{{$products->product_price}}</span>
+                                                            <span class="price-old">$122.00</span>
                                                         </div>
                                                         <div class="price-sale price-right">
-                                                           <!--  <span class="discount">
+                                                            <span class="discount">
                                                                 -40%
                                                                 <strong>OFF</strong>
-                                                            </span> -->
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="description hidden">
@@ -1086,21 +956,9 @@
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-
-                                                    <a  class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="{{ url('admin/product/modal/show/') }}" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
+                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
                                                         <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                                         <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
-
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="{{url('product/details/'.$products->id)}}" data-original-title="Quickview "> <i class="fa fa-search"></i></a>
-
-                                                        @if(Auth::guard('web')->check())
-                                                        <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$products->id}}"> <i class="fa fa-heart"></i></button>
-                                                        @else
-                                                        <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
-                                                        @endif
-                                                        <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$products->id }}"><i class="fa fa-exchange"></i></button>
-
-
                                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
                                                     </div>
                                                 </div>
@@ -1258,7 +1116,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <!-- //Main Container -->
 <script>
     $(document).ready(function() {
@@ -1279,8 +1137,7 @@
 
                     //console.log(data.price);
                     // $('#option-choice-form #chosen_price_div').removeClass('d-none');
-                    $('#chosen_price').html(data.price);
-                    document.getElementById('product_variation_price').value =data.price;
+                    $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
                     // $('#available-quantity').html(data.quantity);
                 }
             });
@@ -1290,184 +1147,33 @@
 
 
 
-
-
- 
-
 <!-- add to cart area start -->
 
-
-
+ 
 <script>
-
-// $(document).ready(function(){
-// 	$('#addtocart').click(function(params) {
-    
-//     var addtocart_id = $(this).val();
-//     if(productcolorname){
-//         var productcolorname =colorname.value;
-//     }else{
-//         var productcolorname =0;
-//     }
-
-//     if(productsizename){
-//         var productsizename =sizename.value;
-//     }else{
-//         var productsizename =0;
-//     }
-    
-    
-    
-
 $(document).ready(function(){
 	$('#addtocart').click(function(params) {
-
-<!-- url:'{{ route('product.add.cart') }}', -->
-<script>
-$(document).ready(function(){
- $('#').click(function(params) {
-
     var addtocart_id = $(this).val();
-    if(productcolorname){
-        var productcolorname =colorname.value;
-    }else{
-        var productcolorname =0;
-    }
-
-    if(productsizename){
-        var productsizename =sizename.value;
-    }else{
-        var productsizename =0;
-    }
-
-
-
-
-    // var price =document.getElementById('chosen_price').innerHTML;
-
-
-	// $.ajaxSetup({
-	// 	headers: {
-	// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	// 	}
-	// });
- 
-// $.ajax({
-// 	type:'POST',
-// 	url:'{{ route('product.add.cart') }}',
-// 	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
-// 	success: function (data) {
-//         console.log(data);
-        
-            
-//         document.getElementById('cartdatacount').innerHTML =data.quantity;
-//         document.getElementById('product_price').innerHTML =data.price;
-
 
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
 	});
-
-
- $.ajaxSetup({
-     headers: {
-         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-     }
- });
  
 $.ajax({
- type:'GET',
- url:'{{ route('product.add.cart') }}',
- data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
- success: function (data) {
-        console.log(data);
-
-
-        document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
-
-
-
-        
-        
-            
+	type:'POST',
+	url:'{{ route('product.add.cart') }}',
+	data: {addtocart_id: addtocart_id},
+	success: function (data) {
+        if (data == 1) {
+                    toastr.success("Product Add To Cart");
+                } 
+ 
 		
-// 		}
-// 	});
-// 	});
-// });
-</script>
-
-
-<script>
-
-$(document).ready(function() {
-$('#addtocart').on('click', function(){
-
-
-$.ajax({
-type:'GET',
-url:"{{ route('product.add.cart') }}",
-data: $('#option-choice-form').serializeArray(),
-success: function (data) {
-    console.log(data);
-    document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
-
-}
-});
-
-
-});
-
-
-
-
-
-
 		}
 	});
 	});
-
-        
-        
-            
-        
-     }
- });
- });
-});
-</script>
-
-
-<script>
-    
-$(document).ready(function() {
-    $('#addtocart').on('click', function(){
-    var id = $(this).val();
-    //alert (id);
-    $.ajax({
-        type:'GET',
-        url:"{{ route('addtest.cart') }}",
-        data: $('#option-choice-form').serializeArray(),
-        success: function (data) {
-            if (data.checkip){
-                toastr.error("Already This Product Add Compare");
-                
-            }else{
-                toastr.success("product add to compare");
-               
-                }
-
-        }
-     });
-
-
-    });
-
-
 });
 </script>
 
