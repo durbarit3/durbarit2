@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($usercartdatas as $usercartdata )
+            @foreach($usercartdatas as $usercartdata )
                 <tr>
                     <td class="text-center"> <a href="product.html"><img src="{{asset('public/uploads/products/thumbnail/')}}/{{$usercartdata->attributes->thumbnail_img}}" alt="{{$usercartdata->name}}" title="{{$usercartdata->name}}" width="80px" height="80px" class="img-thumbnail""></a> </td>
             <td class=" text-left"><a href="#">{{$usercartdata->name}}</a> <br>

@@ -115,18 +115,19 @@
 								<input type="hidden" name="default_zone_id" id="default_zone_id" value="3655">
 							</fieldset>
 
-
-
-
-
-
-
+								@php
+									$userid =  \Request::getClientIp(true);
+								@endphp
+								<input type="hidden" value="{{Cart::session($userid)->getTotalQuantity()}}" name="total_quantity">
+								
 
 							<div class="checkbox">
 								<label>
 									<input type="checkbox" id="is_shipping" name="is_shipping_address" value="1" checked="checked"> My delivery and billing addresses are the same.
 								</label>
 							</div>
+							
+							<input type="hidden" value="{{Cart::session($userid)->getTotal()}}" name="total_price">
 							<fieldset id="shipping-address" style="display: none">
 								<h2 class="secondary-title"><i class="fa fa-map-marker"></i>Shipping Address</h2>
 								<div class=" checkout-shipping-form">

@@ -8,6 +8,7 @@
                     <div class="panel">
                         <div class="panel_header">
                             <div class="panel_title"><span class="text-center">Footer Option </span></div>
+                            {{$footeroption}}
                         </div>
                         <div class="panel_body">
                             <form class="py-2" action="{{ route('admin.footer.option.update') }}" method="post" enctype="multipart/form-data">
@@ -17,7 +18,6 @@
                                     <label for="example-text-input" class="col-sm-3 col-form-label">Company Address:</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" value="{{$footeroption->address}}" require="" name="address">
-                                        <input  type="hidden" value="{{$footeroption->id}}" name="id">
                                         <small class="text-danger"> 
                                             @error('address')
                                                     {{$message}}
@@ -65,7 +65,7 @@
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-3 col-form-label">Accepted Payment Methods:</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="file" value="" name="payment_image">
+                                        <input class="form-control" type="file" value="" required="" name="payment_image">
                                         <small class="text-danger"> 
                                             @error('payment_image')
                                                     {{$message}}

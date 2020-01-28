@@ -57,10 +57,11 @@ class Handler extends ExceptionHandler
                     //     $login = 'admin.login';
                     // break;
                     case 'web':
-                        return redirect()->route('login');
+                        $login = 'login';
                     break;
                 }
-
+                return redirect()->route($login);
+                break;
         }
         return parent::render($request, $exception);
     }

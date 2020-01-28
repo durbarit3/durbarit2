@@ -23,7 +23,7 @@ class SubscribeController extends Controller
 
         Mail::to($request->subscriber_email)->queue(new WelcomeSubscribeMessage());
 
-        return response()->json(['successMsg' => 'Successfully You have subscribed our web sit, please check your email']);
+        return response()->json(['successMsg' => 'Successfully You have subscribed our web sit, please check you email']);
 
     }
 }

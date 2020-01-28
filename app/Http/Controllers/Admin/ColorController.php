@@ -31,14 +31,14 @@ class ColorController extends Controller
                 'messege'=>'Color Insert Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
            else{
            	$notification=array(
                 'messege'=>'Color Insert Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
     }
 
@@ -53,13 +53,13 @@ class ColorController extends Controller
                 'messege'=>'Color Active Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }else{
            	$notification=array(
                 'messege'=>'Color Active Faild',
                 'alert-type'=>'error'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
 
     }
@@ -73,13 +73,13 @@ class ColorController extends Controller
                 'messege'=>'Color Active Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }else{
            	$notification=array(
                 'messege'=>'Color Active Faild',
                 'alert-type'=>'error'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
     }
     // soft delete
@@ -93,13 +93,13 @@ class ColorController extends Controller
                 'messege'=>'Delete Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }else{
            	$notification=array(
                 'messege'=>'Delete Faild',
                 'alert-type'=>'error'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
     }
     // multiple soft delete
@@ -143,13 +143,13 @@ class ColorController extends Controller
                 'messege'=>'Recover Success',
                 'alert-type'=>'success'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }else{
            	$notification=array(
                 'messege'=>'Recover Faild',
                 'alert-type'=>'error'
                  );
-               return Redirect()->back()->with($notification);
+               return Redirect()->back()->with($notification); 
            }
     }
     // heard delete single

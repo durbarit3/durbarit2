@@ -368,7 +368,6 @@
                                 <li><a href="{{route('admin.faq.all')}}">Faq</a></li>
                                 <li><a href="{{route('admin.page.all')}}">Page</a></li>
                                 <li><a href="{{route('admin.banner.all')}}">Banner</a></li>
-                                <li><a href="{{route('admin.sitebanner.all')}}">Site-Banner</a></li>
                               </ul>
                         </li>
 
@@ -404,7 +403,6 @@
                                 <li><a href="{{route('admin.trash.faq')}}">Faq</a></li>
                                 <li><a href="{{route('admin.trash.page')}}">Page</a></li>
                                 <li><a href="{{route('admin.trash.banner')}}">Banner</a></li>
-                                <li><a href="{{route('admin.trash.sitebanner')}}">SiteBanner</a></li>
                               </ul>
                         </li>
 

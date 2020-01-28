@@ -17,7 +17,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Cart;
-
+use Illuminate\Foundation\Console\Presets\React;
 
 class CheckoutController extends Controller
 {
@@ -69,14 +69,32 @@ class CheckoutController extends Controller
             $cuponuser =Cupon::where('cupon_code',$request->cuponvalue)->first();
 
             if(UserUsedCupon::where('cupon_id',$cuponuser->id)->where('user_ip',Auth::user()->id)->doesntExist()){
-                UserUsedCupon::insert([
-                    'user_ip'=>Auth::user()->id,
-                    'cupon_id'=>$cuponuser->id,
-                    'order_id'=>$request->order,
-                    'created_at'=>Carbon::now(),
-                ]);
 
-                return "Cupon insert sussefull!";
+                if(Cupon::where('cupon_code',$request->cuponvalue)->cupon_type == 1){
+
+                    $userid =  \Request::getClientIp(true);
+                    $cartdata =Cart::session($userid)->getContent();
+                    
+
+
+                    // UserUsedCupon::insert([
+                    //     'user_ip'=>Auth::user()->id,
+                    //     'cupon_id'=>$cuponuser->id,
+                    //     'order_id'=>$request->order,
+                    //     'created_at'=>Carbon::now(),
+                    // ]);
+    
+                    
+                    // return "Cupon insert sussefull!";
+
+                    return 'yes';
+
+                }else{
+                    return "no";
+                }
+
+
+                
 
             }else{
                 return "You are alrady used this cupon";
@@ -140,7 +158,6 @@ class CheckoutController extends Controller
 
 
         $userid =  \Request::getClientIp(true).'_cart_items';
-        $orderuserid =  \Request::getClientIp(true);
         $purchase_key =DatabaseStorageModel::findOrFail($userid)->purchase_key;
 
 
@@ -151,8 +168,8 @@ class CheckoutController extends Controller
             'order_id'=>$request->order_id,
             'user_id'=>Auth::user()->id,
             'cart_id'=>$purchase_key,
-            'total_price'=>Cart::session(\Request::getClientIp(true))->getTotal(),
-            'total_quantity'=>Cart::session(\Request::getClientIp(true))->getTotalQuantity(),
+            'total_price'=>$request->total_price,
+            'total_quantity'=>$request->total_quantity,
             'created_at'=>Carbon::now(),
         ]);
         
@@ -162,6 +179,8 @@ class CheckoutController extends Controller
         
         
         return OrderStorage::where('purchase_key',$purchase_key)->first()->cart_data;
+
+        
 
         
 
@@ -235,6 +254,7 @@ class CheckoutController extends Controller
         }
     }
 
+
      // Order Place delete
      public function orderDataDelete(Request $request)
      {
@@ -243,6 +263,4 @@ class CheckoutController extends Controller
          $usercartdatas = Cart::session($userid)->getContent();
          return view('frontend.shopping.orderajaxdata', compact('usercartdatas'));
      }
-
-    
 }

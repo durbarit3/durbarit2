@@ -49,7 +49,7 @@ Route::post('admin/mollie/gateway', 'Admin\GatewayController@MollieUpdate')->nam
 Route::get(md5('admin/category/all'), 'Admin\CategoryController@index')->name('admin.category.all');
 Route::post(md5('admin/category/insert'), 'Admin\CategoryController@insert')->name('admin.category.insert');
 Route::get('/get/category/edit/{cate_id}', 'Admin\CategoryController@edit');
-Route::post('admin/category/update/{id}', 'Admin\CategoryController@update')->name('admin.category.update');
+Route::post(md5('admin/category/update'), 'Admin\CategoryController@update')->name('admin.category.update');
 Route::get('admin/category/softdelete/{id}', 'Admin\CategoryController@softdelete');
 Route::post('admin/category/multiplesoftdelete', 'Admin\CategoryController@multiplesoftdelete');
 Route::get('admin/category/deactive/{id}', 'Admin\CategoryController@deactive');
@@ -132,9 +132,7 @@ Route::get(md5('admin/product/affiliate/add'), 'Admin\ProductController@affiliat
 Route::get(md5('admin/product/digital/license'), 'Admin\ProductController@license')->name('admin.product.license');
 Route::get(md5('admin/product/all'), 'Admin\ProductController@index')->name('admin.product.all');
 Route::post(md5('admin/product/insert'), 'Admin\ProductController@insert')->name('admin.product.insert');
-
 Route::post('admin/product/update/{id}', 'Admin\ProductController@update')->name('admin.product.update');
-
 Route::get('admin/product/combination', 'Admin\ProductController@sku_combination')->name('products.sku_combination');
 Route::get('admin/product/combination/edit', 'Admin\ProductController@sku_combination_edit')->name('products.sku_combination_edit');
 Route::get('/get/resubcategory/all/{subcate_id}', 'Admin\ProductController@resub');
@@ -205,20 +203,6 @@ Route::get('admin/banner/multihearddelete/{id}','Admin\BannerController@multihea
 Route::post('admin/banner/multisoftdelete','Admin\BannerController@multisoftdelete')->name('admin.banner.multisoftdelete');
 Route::get('/get/admin/banner/edit/{ban_id}','Admin\BannerController@edit');
 Route::post('admin/banner/update','Admin\BannerController@update')->name('admin.banner.update');
-// sitebanner
-Route::get(md5('admin/sitebanner/all'),'Admin\BannerController@sitebanner')->name('admin.sitebanner.all');
-
-Route::get('admin/sitebanner/deactive/{id}','Admin\BannerController@sitebannerdeactive');
-Route::get('admin/sitebanner/active/{id}','Admin\BannerController@sitebanneractive');
-Route::get('admin/sitebanner/softdelete/{id}','Admin\BannerController@sitebabnsoftdelete');
-Route::get('/get/admin/sitebanner/edit/{id}','Admin\BannerController@sitebabnsoftedit');
-Route::get('admin/sitebanner/restore/{id}','Admin\BannerController@sitebanrestore');
-Route::get('admin/sitebanner/hearddelete/{id}','Admin\BannerController@sitebahearddel');
-
-
-Route::post(md5('admin/sitebanner/insert'),'Admin\BannerController@sitebannerinsert')->name('admin.sitebanner.insert');
-Route::post(md5('admin/sitebanner/update'),'Admin\BannerController@sitebannerupdate')->name('admin.sitebanner.update');
-Route::post(md5('admin/sitebanner/multisoftdelete'),'Admin\BannerController@sitebanmultisoft')->name('admin.sitebanner.multisoftdelete');
 
 
 
@@ -245,11 +229,10 @@ Route::post(md5('admin/trash/product/hearddelete'), 'Admin\TrashController@produ
 Route::get(md5('admin/trash/banner'), 'Admin\TrashController@banner')->name('admin.trash.banner');
 Route::post(md5('admin/trash/banmultidel'), 'Admin\TrashController@banmultidel')->name('admin.trash.multidelban');
 
-Route::get(md5('admin/trash/sitebanner'), 'Admin\TrashController@SiteBanner')->name('admin.trash.sitebanner');
-Route::post(md5('admin/trash/sitebanner/multipledelete'), 'Admin\TrashController@sitebanmultidel')->name('admin.trash.sitebannerdel');
-
 // footer option area start
 Route::get(md5('admin/footer/option'), 'Admin\FooterController@footerShow')->name('admin.footer.option');
+
+
 Route::post('admin/footer/option/update', 'Admin\FooterController@footerupdate')->name('admin.footer.option.update');
 
 
@@ -289,7 +272,6 @@ Route::get('product/details/{id}', 'Frontend\FrontendController@productmodal');
 // wish list
 
 Route::get('/product/wishlist', 'Frontend\WishlistController@index')->name('product.wishlist');
-Route::get('/get/wishlist', 'Frontend\WishlistController@getwish');
 Route::get('/product/add/wishlist/{id}', 'Frontend\WishlistController@insert');
 Route::get('/wishlist/delete/{id}', 'Frontend\WishlistController@delete');
 Route::get('/allproduct/wishlist', 'Frontend\WishlistController@getproduct');
@@ -303,7 +285,6 @@ Route::get(md5('/customer/register'), 'Frontend\FrontendController@customerRegis
 
 Route::get('/product/compare/page', 'Frontend\CompareProductController@productCompare')->name('product.compare');
 Route::get('/product/compare/{com_id}', 'Frontend\CompareProductController@necompare');
-Route::get('product/compare/delete/{id}', 'Frontend\CompareProductController@delete');
 // wish list end
 
 
@@ -321,13 +302,6 @@ Route::get('/product/detailssearch/', 'Frontend\FrontendController@searchcate')-
 
 
 // Route Created By Harrison
-
-Route::get('search/product/by/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByAjax');
-Route::get('search/product/by/main/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByMainCatByAjax');
-Route::get('search/product/by/sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductBySubCatByAjax');
-Route::get('search/product/by/re_sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByResubCatByAjax');
-
-// Route Created By Harrison Ended
 
 
 Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->name('products.variant_price');
@@ -373,17 +347,11 @@ Route::get('admin/product/modal/show', 'Admin\ThemeOptionController@productModal
 // add to cart area start
 
 Route::get('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('product.add.cart');
-
 Route::get('get/cart/data', 'Frontend\AddToCartController@getCartData')->name('get.cart.data');
-
-// cart all product show
 
 
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
-Route::post('cart/data/delete', 'Frontend\AddToCartController@cartDataDelete')->name('cart.data.delete');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
-
-Route::get('addtocart/test/', 'Frontend\AddToCartController@adtest')->name('addtest.cart');
 
 
 // Product view cart
@@ -400,6 +368,15 @@ Route::get(md5('/checkout/order/data'), 'Frontend\CheckoutController@orderData')
 Route::post(md5('/order/data/update'), 'Frontend\CheckoutController@orderDataUpdate')->name('product.order.update');
 Route::post(md5('/order/data/delete'), 'Frontend\CheckoutController@orderDataDelete')->name('product.order.delete');
 
+
+// cart all product show
+
+
+Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
+Route::post('cart/data/delete', 'Frontend\AddToCartController@cartDataDelete')->name('cart.data.delete');
+Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
+
+Route::get('addtocart/test/', 'Frontend\AddToCartController@adtest')->name('addtest.cart');
 
 // used cupon area start
 

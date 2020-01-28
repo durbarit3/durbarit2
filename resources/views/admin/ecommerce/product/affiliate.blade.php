@@ -52,7 +52,7 @@
 								    	@php
 											$category=App\Category::where('is_deleted',0)->where('cate_status',1)->get();
 								    	@endphp
-								      <select class="form-control" name="cate_id" id="cate_id" required>
+								      <select class="form-control" name="cate_id" id="cate_id">
 								      	<option >Select</option>
 								      	@foreach($category as $cate)
 								      	<option  value="{{$cate->id}}">{{$cate->cate_name}}</option>
@@ -64,7 +64,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product SubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="subcate_id" id="subcate_id">
-								      	<option value="0">Select</option>
+								      	<option>Select</option>
 								      </select>
 								    </div>
 								  </div>
@@ -72,7 +72,7 @@
 								    <label for="inputPassword" class="col-sm-3 col-form-label text-right">Product ReSubCategory</label>
 								    <div class="col-sm-6">
 								      <select class="form-control" name="resubcate_id" id="resubcate_id">
-								      	<option value="0">Select</option>
+								      	<option>Select</option>
 								      </select>
 								    </div>
 								  </div>

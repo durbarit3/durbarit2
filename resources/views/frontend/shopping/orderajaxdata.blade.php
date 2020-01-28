@@ -19,7 +19,7 @@
                     <div class="input-group">
                         <input type="text" onkeyup="myUpdateOrder(this)" name="quantity" id="{{$usercartdata->id}}" value="{{$usercartdata->quantity}}" size="1" class="form-control">
                         <span class="input-group-btn">
-                            <button type="button" data-toggle="tooltip" onclick="orderDatadelete(this)" value="{{$usercartdata->id}}" id="orderdelete" title="" data-product-key="317" class="btn-delete" data-original-title="Remove"><i class="fa fa-trash-o"></i></button>
+                            <button type="button" onclick="orderDatadelete(this)" data-toggle="tooltip" value="{{$usercartdata->id}}" id="orderdelete" title="" data-product-key="317" class="btn-delete" data-original-title="Remove"><i class="fa fa-trash-o"></i></button>
                             <!-- <button type="submit" data-toggle="tooltip" title="" class="btn btn-primary hidden" data-original-titl="Update"><i class="fa fa-refresh"></i></button> -->
                             <!-- <span data-toggle="tooltip" title="" data-product-key="317" class="btn-update" data-original-title="Update"><i class="fa fa-refresh"></i></span> -->
                         </span>
@@ -57,7 +57,6 @@
     document.getElementById('product_price').innerHTML = <?php echo Cart::session(\Request::getClientIp(true))->getTotal() ?>;
 </script>
 
-
 <script>
     function orderDatadelete(el) {
         
@@ -66,7 +65,7 @@
             function(data) {
                 $('#orderdata').html(data);
                 if (data) {
-                    toastr.success("Product Delete From Cart");
+                    return "hellow";
                 } 
                
             });
