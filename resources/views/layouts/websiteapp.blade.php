@@ -112,7 +112,7 @@
             }
          });
      } else {
-         alert('danger');
+        // alert('danger');
      }
     });
 });

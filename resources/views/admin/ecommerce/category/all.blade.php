@@ -17,7 +17,7 @@
 									</div>
 									<div class="col-md-6 text-right">
 										<div class="panel_title">
-											<a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModal1"><i class="fas fa-plus"></i></span> <span>Add Category</span></a>
+											<a href="{{route('admin.category.add')}}" class="btn btn-success"><i class="fas fa-plus"></i></span> <span>Add Category</span></a>
 										</div>
 									</div>
 								</div>
@@ -119,13 +119,7 @@
                    <p style="font-size: 11px">(If you leave it blank, it will be generated automatically)</p>
                 </div>
                </div>
-               <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Header Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="header_image">
-			  		 <p>(1920px*180px)</p>
-			    </div>
-			  </div>
+               
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Top Image:</label>
 			    <div class="col-sm-8">
@@ -133,13 +127,7 @@
 			  		 <p>(1170px*220px)</p>
 			    </div>
 			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Side Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="side_image">
-			  		 <p>(270px*427)</p>
-			    </div>
-			  </div>
+			
 
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image:</label>
@@ -192,9 +180,6 @@
 			     <br>
 			     <br>
 			     <br>
-
-
-			    
 			    </div>
 			  </div>
 
@@ -202,7 +187,7 @@
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Meta Tag:</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cate_tag" class="form-control">
+			      <input type="text" name="tag" class="form-control">
 			    </div>
 			  </div>
 		    <div class="form-group text-right">
@@ -362,10 +347,16 @@
 		
 			    </div>
 			  </div>
+			    <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Choich Section</label>
+			    <div class="col-sm-8 row" id="section_id1">
+				    
+			    </div>
+			  </div>
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Meta Tag:</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cate_tag_edit" id="cate_tag_edit" class="form-control cate_tag_edit"> 
+			      <input type="text" name="tag" id="cate_tag_edit" class="form-control cate_tag_edit"> 
 			    </div>
 			  </div>
 		    <div class="form-group text-right">
@@ -417,8 +408,11 @@
                       
                             $("#cate_name").val(data.cate_name);
                             $("#id").val(data.id);
+
                             $("#cate_slug").val(data.cate_slug);
                             $("#cate_tag_edit").val(data.cate_tag);
+                           
+
 
                             $("#old_header_image").append("<input type='hidden' name='old_header_image' value='"+data.header_image+"' />");
                             $("#store_header_image").html("<img src={{asset('')}}public/uploads/category/"+data.header_image+" height='70px' width='150px'/>");
@@ -430,12 +424,34 @@
                             $("#store_side_image").html("<img src={{asset('')}}public/uploads/category/"+data.side_image+" height='70px' width='150px'/>");
 
 
-
                             $("#img").html("<img src={{asset('')}}public/uploads/category/"+data.cate_image+" height='70px'/>");
                             $("#store-img").append("<input type='hidden' name='old_image' value='"+data.cate_image+"' />");
                             
                             $("#icon").html("<img src={{asset('')}}public/uploads/category/"+data.cate_icon+" height='70px'/>");
                             $("#store-icon").append("<input type='hidden' name='old_icon' value='"+data.cate_icon+"' />");
+
+                            if(data.section_id === 1){
+                            	$("#section_id1").append("<div class='col-md-8'><input type='radio' name='section_id' value='1' checked><img src='{{asset('public/adminpanel')}}/Capture.PNG' alt='asif' height='70px' width='100px'</div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='2'><img src='{{asset('public/adminpanel')}}/Capture2.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='3'><img src='{{asset('public/adminpanel')}}/Capture3.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='4'><img src='{{asset('public/adminpanel')}}/Capture4.PNG' alt='asif' height='70px' width='100px'></div><div class='col-md-8'><input type='radio' name='section_id' value='5'><img src='{{asset('public/adminpanel')}}/Capture5.PNG' alt='asif' height='70px' width='100px'></div><br><br><br>");
+
+
+
+                            }else if(data.section_id === 2){
+                            	$("#section_id1").append("<div class='col-md-8'><input type='radio' name='section_id' value='1'><img src='{{asset('public/adminpanel')}}/Capture.PNG' alt='asif' height='70px' width='100px'</div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='2' checked><img src='{{asset('public/adminpanel')}}/Capture2.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='3'><img src='{{asset('public/adminpanel')}}/Capture3.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='4'><img src='{{asset('public/adminpanel')}}/Capture4.PNG' alt='asif' height='70px' width='100px'></div><div class='col-md-8'><input type='radio' name='section_id' value='5'><img src='{{asset('public/adminpanel')}}/Capture5.PNG' alt='asif' height='70px' width='100px'></div><br><br><br>");
+                            }
+                            else if(data.section_id === 3){
+                            	$("#section_id1").append("<div class='col-md-8'><input type='radio' name='section_id' value='1'><img src='{{asset('public/adminpanel')}}/Capture.PNG' alt='asif' height='70px' width='100px'</div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='2'><img src='{{asset('public/adminpanel')}}/Capture2.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='3' checked><img src='{{asset('public/adminpanel')}}/Capture3.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='4'><img src='{{asset('public/adminpanel')}}/Capture4.PNG' alt='asif' height='70px' width='100px'></div><div class='col-md-8'><input type='radio' name='section_id' value='5'><img src='{{asset('public/adminpanel')}}/Capture5.PNG' alt='asif' height='70px' width='100px'></div><br><br><br>");
+                            }
+                            else if(data.section_id === 4){
+                            	$("#section_id1").append("<div class='col-md-8'><input type='radio' name='section_id' value='1'><img src='{{asset('public/adminpanel')}}/Capture.PNG' alt='asif' height='70px' width='100px'</div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='2'><img src='{{asset('public/adminpanel')}}/Capture2.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='3'><img src='{{asset('public/adminpanel')}}/Capture3.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='4' checked><img src='{{asset('public/adminpanel')}}/Capture4.PNG' alt='asif' height='70px' width='100px'></div><div class='col-md-8'><input type='radio' name='section_id' value='5'><img src='{{asset('public/adminpanel')}}/Capture5.PNG' alt='asif' height='70px' width='100px'></div><br><br><br>");
+                            }
+                            else if(data.section_id === 5){
+                            	$("#section_id1").append("<div class='col-md-8'><input type='radio' name='section_id' value='1'><img src='{{asset('public/adminpanel')}}/Capture.PNG' alt='asif' height='70px' width='100px'</div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='2'><img src='{{asset('public/adminpanel')}}/Capture2.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='3'><img src='{{asset('public/adminpanel')}}/Capture3.PNG' alt='asif' height='70px' width='100px'></div><br><br><br><div class='col-md-8'><input type='radio' name='section_id' value='4'><img src='{{asset('public/adminpanel')}}/Capture4.PNG' alt='asif' height='70px' width='100px'></div><div class='col-md-8'><input type='radio' name='section_id' value='5' checked><img src='{{asset('public/adminpanel')}}/Capture5.PNG' alt='asif' height='70px' width='100px'></div><br><br><br>");
+                            }
+                            else{
+                            	
+                            }
+
+                        	
                           
                         } 
                  });

@@ -98,7 +98,7 @@
                                                             <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
                                                             @endif
 
-                                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$flasdetail->id }}"><i class="fa fa-exchange"></i></button>
+                                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$flasdetail->product->id }}"><i class="fa fa-exchange"></i></button>
 
                                                             <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('35');" data-original-title="Add to Cart"> <span class="hidden">Add to Cart</span></button>
                                                         </div>

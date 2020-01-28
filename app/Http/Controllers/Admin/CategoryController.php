@@ -23,8 +23,14 @@ class CategoryController extends Controller
     	return view('admin.ecommerce.category.all',compact('allcategory'));
     }
 
+    public function add(){
+        return view('admin.ecommerce.category.add');
+    }
+
     // insert
     public function insert(Request $request){
+
+        //return $request->tag;
 
     	$title=strtolower($request['cate_name']);
     	$cate_slug=$request['cate_slug'];
@@ -34,7 +40,7 @@ class CategoryController extends Controller
         $data = new Category;
         $data->cate_name=$request->cate_name;
         $data->section_id=$request->section_id;
-        $data->cate_tag=$request->cate_tag;
+        $data->cate_tag=$request->tag;
 
         if($cate_slug){
             $data->cate_slug=$inputslug;
@@ -56,7 +62,7 @@ class CategoryController extends Controller
         if($request->hasFile('side_image')){
                 $image=$request->file('side_image');
                 $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
+                Image::make($image)->resize(270,427)->save('public/uploads/category/'.$ImageName);
                 $data->side_image =$ImageName;
         }
         if($request->hasFile('pic')){
@@ -102,7 +108,8 @@ class CategoryController extends Controller
 // update Category
    public function update(Request $request,$id){
 
-    //return $request;
+    //return $id;
+        $cate_id=$request->id;
 
         $title=strtolower($request['cate_name']);
         $cate_slug=$request['cate_slug'];
@@ -110,19 +117,10 @@ class CategoryController extends Controller
         $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
 
 
-        $header_image=$request->old_header_image;
-        $top_image=$request->old_top_image;
-        $side_image=$request->old_side_image;
-        $image_image=$request->old_image;
-        $icon_image=$request->old_icon;
-
-        
-
-
-        $data = Category::findOrFail($id);
+        $data = Category::findOrFail($cate_id);
         $data->cate_name=$request->cate_name;
         $data->section_id=$request->section_id;
-        $data->cate_tag=$request->cate_tag;
+        $data->cate_tag=$request->tag;
 
         if($cate_slug){
             $data->cate_slug=$inputslug;
@@ -130,80 +128,37 @@ class CategoryController extends Controller
              $data->cate_slug=$slug;
         }
         if($request->hasFile('header_image')){
-            if($header_image){
-                unlink('public/uploads/category/'.$header_image);
                 $image=$request->file('header_image');
                 $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
                 $data->header_image =$ImageName;
-            }else{
-                $image=$request->file('header_image');
-                $ImageName='header_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(1920,180)->save('public/uploads/category/'.$ImageName);
-                $data->header_image =$ImageName;
-            }
-                
+           
         }
         if($request->hasFile('top_image')){
-            if($top_image){
-                unlink('public/uploads/category/'.$top_image);
+               
                 $image=$request->file('top_image');
                 $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
                 $data->top_image =$ImageName;
-            }else{
-                $image=$request->file('top_image');
-                $ImageName='top_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(1170,220)->save('public/uploads/category/'.$ImageName);
-                $data->top_image =$ImageName;
-            }
                 
         }
         if($request->hasFile('side_image')){
-            if($side_image){
-                unlink('public/uploads/category/'.$side_image);
                 $image=$request->file('side_image');
                 $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
+                Image::make($image)->resize(270,427)->save('public/uploads/category/'.$ImageName);
                 $data->side_image =$ImageName;
-            }else{
-                $image=$request->file('side_image');
-                $ImageName='side_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(220,427)->save('public/uploads/category/'.$ImageName);
-                $data->side_image =$ImageName;
-            }
-                
         }
         if($request->hasFile('pic')){
-            if($image_image){
-                unlink('public/uploads/category/'.$image_image);
                 $image=$request->file('pic');
                 $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
                 $data->cate_image =$ImageName;
-            }else{
-                $image=$request->file('pic');
-                $ImageName='pic_'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(270,270)->save('public/uploads/category/'.$ImageName);
-                $data->cate_image =$ImageName;
-            }
-                
         }
         if($request->hasFile('icon')){
-            if($icon_image){
-                unlink('public/uploads/category/'.$icon_image); 
                 $image=$request->file('icon');
                 $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
                 $data->cate_icon =$ImageName;
-            }else{
-                
-                $image=$request->file('icon');
-                $ImageName='icon'.'_'.time().'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(20,20)->save('public/uploads/category/'.$ImageName);
-                $data->cate_icon =$ImageName;
-            }
-                
         }
 
         if($data->save()){
