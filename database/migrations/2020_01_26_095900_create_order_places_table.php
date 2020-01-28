@@ -21,6 +21,8 @@ class CreateOrderPlacesTable extends Migration
             $table->string('order_id');
             $table->string('user_id');
             $table->string('cart_id');
+            $table->string('total_price');
+            $table->string('total_quantity');
             $table->timestamps();
         });
     }

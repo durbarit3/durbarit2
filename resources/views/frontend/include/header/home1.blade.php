@@ -54,7 +54,7 @@
 						@php
 							$userid = Request::ip();
 						@endphp
-							<button onclick="myAddToCartData(this)" value="{{$userid}}" data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+							<a onclick="myAddToCartData(this)" data-id="{{$userid}}" value="{{$userid}}" data-loading-text="Loading... " id="getuserid" class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
 								<div class="shopcart">
 									<span class="handle pull-left"></span>
 									<div class="cart-info">
@@ -73,7 +73,7 @@
 										</span>
 									</div>
 								</div>
-							</button>
+							</a>
 
 							<ul class="dropdown-menu pull-right shoppingcart-box">
 								<li class="content-item" id="addtocartshow">
@@ -172,8 +172,10 @@
 
 <script>
     function myAddToCartData(el) {
-
-        $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: el.value},
+		var getuserid = document.getElementById('getuserid');
+		var userdataid = getuserid.getAttribute('data-id');
+		
+        $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: userdataid},
             function(data) {
 			   $('#addtocartshow').html(data);
 			console.log(data);

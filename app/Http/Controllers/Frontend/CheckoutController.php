@@ -140,6 +140,7 @@ class CheckoutController extends Controller
 
 
         $userid =  \Request::getClientIp(true).'_cart_items';
+        $orderuserid =  \Request::getClientIp(true);
         $purchase_key =DatabaseStorageModel::findOrFail($userid)->purchase_key;
 
 
@@ -150,6 +151,8 @@ class CheckoutController extends Controller
             'order_id'=>$request->order_id,
             'user_id'=>Auth::user()->id,
             'cart_id'=>$purchase_key,
+            'total_price'=>Cart::session(\Request::getClientIp(true))->getTotal(),
+            'total_quantity'=>Cart::session(\Request::getClientIp(true))->getTotalQuantity(),
             'created_at'=>Carbon::now(),
         ]);
         
@@ -158,7 +161,7 @@ class CheckoutController extends Controller
             
         
         
-        return OrderStorage::where('purchase_key',5)->first()->cart_data;
+        return OrderStorage::where('purchase_key',$purchase_key)->first()->cart_data;
 
         
 
@@ -231,4 +234,15 @@ class CheckoutController extends Controller
             return 0;
         }
     }
+
+     // Order Place delete
+     public function orderDataDelete(Request $request)
+     {
+         $userid =  \Request::getClientIp(true);
+         $datadelete = Cart::session($userid)->remove($request->user_id);
+         $usercartdatas = Cart::session($userid)->getContent();
+         return view('frontend.shopping.orderajaxdata', compact('usercartdatas'));
+     }
+
+    
 }

@@ -376,9 +376,11 @@ Route::get('add/to/cart', 'Frontend\AddToCartController@addToCart')->name('produ
 
 Route::get('get/cart/data', 'Frontend\AddToCartController@getCartData')->name('get.cart.data');
 
+// cart all product show
 
 
 Route::post('add/to/cart/show', 'Frontend\AddToCartController@addToCartShow')->name('add.cart.show');
+Route::post('cart/data/delete', 'Frontend\AddToCartController@cartDataDelete')->name('cart.data.delete');
 Route::post('add/to/cart/delete', 'Frontend\AddToCartController@addToCartDelete')->name('add.cart.delete');
 
 Route::get('addtocart/test/', 'Frontend\AddToCartController@adtest')->name('addtest.cart');
@@ -396,6 +398,8 @@ Route::get(md5('/checkout/customer/login'), 'Frontend\CheckoutController@Custome
 Route::post(md5('/checkout/customer/login'), 'Frontend\CheckoutController@authenticate')->name('checkout.login');
 Route::get(md5('/checkout/order/data'), 'Frontend\CheckoutController@orderData')->name('get.order.data');
 Route::post(md5('/order/data/update'), 'Frontend\CheckoutController@orderDataUpdate')->name('product.order.update');
+Route::post(md5('/order/data/delete'), 'Frontend\CheckoutController@orderDataDelete')->name('product.order.delete');
+
 
 // used cupon area start
 

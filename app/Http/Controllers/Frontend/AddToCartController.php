@@ -13,15 +13,17 @@ class AddToCartController extends Controller
 
     // Product Add To cart
 
+
+ 
     public function addToCart(Request $request,$id)
     {
        
 
          
-       
+ 
         
        $product = Product::findOrFail($request->product_id);
-        $product_price = $product->product_price;
+        $product_price = $request->product_price;
         $userid = $request->ip();
 
 
@@ -35,9 +37,9 @@ class AddToCartController extends Controller
             if ($flashDealdiscounts) {
                 if ($flashDealdiscounts->discount_type == 1) {
 
-                    $product_price = $product_price - $flashDealdiscounts->discount;
+                    $product_price = $request->product_price - $flashDealdiscounts->discount;
                 } else {
-                    $perdiscount = ($flashDealdiscounts->discount * $product_price) / 100;
+                    $perdiscount = ($flashDealdiscounts->discount * $request->product_price) / 100;
 
                     $product_price = $product_price - $perdiscount;
                 }
@@ -48,17 +50,30 @@ class AddToCartController extends Controller
 
             $id = rand(5, 15);
 
-            $add = Cart::session($userid)->add([
-                'id' => $id,
-                'name' => $product->product_name,
-                'price' => $product_price,
-                'quantity' => +1,
-                'attributes' => [
-                    'product_sku' => $product->product_sku,
-                    'colors' => $request->productcolorname,
-                    'thumbnail_img' => $product->thumbnail_img,
-                ],
-            ]);
+            
+
+            $data = array();
+            $data['id'] = $id;
+            $data['name'] = $product->product_name;
+            $data['price'] = $product_price;
+            $data['price'] = $product_price;
+            $data['quantity'] = + $request->quantity;
+            $data['attributes']['thumbnail_img'] = $product->thumbnail_img;
+            $data['attributes']['colors'] = $request->color;
+            $data['attributes']['product_id'] = $product->id;
+
+            $productdetails =Product::findOrFail($request->id);
+            
+            foreach(json_decode($productdetails->choice_options) as $key => $choice){
+                    $choicename =$choice->name;
+                            
+                    $data['attributes'][$choice->title] = $request->$choicename;
+            }
+
+            $add =Cart::session($userid)->add($data);
+
+
+
             // non variation product add
 
         } else {
@@ -81,13 +96,15 @@ class AddToCartController extends Controller
                 'id' => $product->id,
                 'name' => $product->product_name,
                 'price' => $product_price,
-                'quantity' => +1,
+                'quantity' => + $request->quantity,
                 'attributes' => [
-                    'product_sku' => $product->product_sku,
-                    'colors' => $product->colors,
                     'thumbnail_img' => $product->thumbnail_img,
+                    'product_id' => $product->id,
                 ],
             ]);
+
+
+            
         }
 
         $getcartdatas = Cart::session($userid)->getContent();
@@ -259,6 +276,7 @@ class AddToCartController extends Controller
         $userid =  \Request::getClientIp(true);
         
         $usercartdatas = Cart::session($userid)->getContent();
+        
        
 
         return view('frontend.shopping.cartajaxdata', compact('usercartdatas'));
@@ -312,6 +330,15 @@ class AddToCartController extends Controller
         return redirect()->route('product.cart.add');
     }
 
+
+
+    // shopping cart delete
+    public function cartDataDelete(Request $request)
+    {
+        $userid =  \Request::getClientIp(true);
+        $datadelete = Cart::session($userid)->remove($request->user_id);
+        $usercartdatas = Cart::session($userid)->getContent();
+        return view('frontend.shopping.cartajaxdata', compact('usercartdatas'));
 
     public function cuponCart()
     {
