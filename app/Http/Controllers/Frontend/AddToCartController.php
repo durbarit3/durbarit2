@@ -13,8 +13,14 @@ class AddToCartController extends Controller
 
     // Product Add To cart
 
-    public function addToCart(Request $request)
-    { 
+
+ 
+    public function addToCart(Request $request,$id)
+    {
+       
+
+         
+ 
         
        $product = Product::findOrFail($request->product_id);
         $product_price = $request->product_price;
@@ -121,6 +127,98 @@ class AddToCartController extends Controller
         } else {
             return 0;
         }
+
+       
+        return $id;
+
+        // $product_price = $request->price;
+        // $product = Product::findOrFail($request->addtocart_id);
+
+        // $userid = $request->ip();
+
+        // // variation product add
+        // if ($product->product_type == 1) {
+
+
+        //     $flashDealdiscounts = FlashDealDetail::where('product_id', $request->addtocart_id)->first();
+        //     if ($flashDealdiscounts) {
+        //         if ($flashDealdiscounts->discount_type == 1) {
+
+        //             $product_price = $product_price - $flashDealdiscounts->discount;
+        //         } else {
+        //             $perdiscount = ($flashDealdiscounts->discount * $product_price) / 100;
+
+        //             $product_price = $product_price - $perdiscount;
+        //         }
+        //     } else {
+        //         $product_price = $product_price;
+        //     }
+
+        //     $id = rand(5, 15);
+
+        //     $add = Cart::session($userid)->add([
+        //         'id' => $id,
+        //         'name' => $product->product_name,
+        //         'price' => $product_price,
+        //         'quantity' => +1,
+        //         'attributes' => [
+        //             'product_sku' => $product->product_sku,
+        //             'colors' => $request->productcolorname,
+        //             'thumbnail_img' => $product->thumbnail_img,
+        //         ],
+        //     ]);
+        //     // non variation product add
+
+        // } else {
+        //     $flashDealdiscounts = FlashDealDetail::where('product_id', $request->addtocart_id)->first();
+        //     if ($flashDealdiscounts) {
+        //         if ($flashDealdiscounts->discount_type == 1) {
+
+        //             $product_price = $product_price - $flashDealdiscounts->discount;
+        //         } else {
+        //             $perdiscount = ($flashDealdiscounts->discount * $product_price) / 100;
+
+        //             $product_price = $product_price - $perdiscount;
+        //         }
+        //     } else {
+        //         $product_price = $product_price;
+        //     }
+
+
+        //     $add = Cart::session($userid)->add([
+        //         'id' => $product->id,
+        //         'name' => $product->product_name,
+        //         'price' => $product_price,
+        //         'quantity' => +1,
+        //         'attributes' => [
+        //             'product_sku' => $product->product_sku,
+        //             'colors' => $product->colors,
+        //             'thumbnail_img' => $product->thumbnail_img,
+        //         ],
+        //     ]);
+        // }
+
+        // $getcartdatas = Cart::session($userid)->getContent();
+        // $gettotal = Cart::getTotal();
+        // if ($add) {
+
+        //     $items = 0;
+        //     $price = 0;
+
+
+        //     foreach (Cart::session($userid)->getContent() as $item) {
+        //         $items += $item->quantity;
+        //         $price += $item->quantity * $item->price;
+        //     }
+
+        //     return response()->json([
+        //         'quantity' => $items,
+        //         'price' => $price
+        //     ]);
+        // } else {
+        //     return 0;
+        // }
+
     }
 
 
@@ -233,6 +331,7 @@ class AddToCartController extends Controller
     }
 
 
+
     // shopping cart delete
     public function cartDataDelete(Request $request)
     {
@@ -240,6 +339,15 @@ class AddToCartController extends Controller
         $datadelete = Cart::session($userid)->remove($request->user_id);
         $usercartdatas = Cart::session($userid)->getContent();
         return view('frontend.shopping.cartajaxdata', compact('usercartdatas'));
+
+    public function cuponCart()
+    {
+        
+    }
+
+    // test
+    public function adtest(Request $request){
+        return $request;
     }
 
 }
