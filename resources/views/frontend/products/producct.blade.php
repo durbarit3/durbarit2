@@ -1,13 +1,5 @@
 @extends('layouts.websiteapp')
 @section('main_content')
-<style>
-    #product .radio-type-button .option-content-box :hover {
-    background: #ff5e00;
-    border-color: #ff5e00;
-    color: white;
-    padding: 5px;
-}
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Main Container  -->
 <div class="breadcrumbs">
@@ -714,69 +706,54 @@
                                     @if($productdetails->product_type==1)
                                     <!--variation start-->
 
-
-
-
-
-
-
-                                    
-                                        <div class="col-md-12">
-                                        <div id="product">
-                                        <div class="form-group required " style="display: block; margin-left:17px">
+                                    <div class="stock row">
+                                        <div class="col-md-3">
                                             <span>Color:</span>
                                             <input type="hidden" name="id" value="{{$productdetails->id}}">
                                             @if (count(json_decode($productdetails->colors)) > 0)
                                             @foreach (json_decode($productdetails->colors) as $key => $color)
-                                           
-
-
-                                            <div class="radio  radio-type-button">
-												<label>
-													<input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif>
-													<span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
-														<span class="option-name"> </span>
-													</span>
-												</label>
+                                            <div class="radio radio-type-button">
+                                                <label>
+                                                    <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif>
+                                                    <span class="option-content-box active" data-title="" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
+                                                        <span style="background:{{ $color }};"></span>
+                                                    </span>
+                                                    <script>
+                                                           
+                                                            if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
+                                                                var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
+                                                            }
+                                                        </script>
+                                                </label>
                                             </div>
-
-
                                             @endforeach
                                             @endif
                                         </div>
-                                        </div>
 
                                         @foreach (json_decode($productdetails->choice_options) as $key => $choice)
-                                        
-                                        <div class="col-md-12">
-                                        <div id="product">
-                                    
-                                        
+                                        <div class="col-md-3">
+                                            <div class="stock">
+                                                <span>{{ $choice->title }}:</span>
+                                                @foreach ($choice->options as $key => $option)
+                                                <div class="radio radio-type-button">
+                                                    <label>
+                                                        <input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
+                                                        <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 
-                                        
-									<div class="form-group required " style="display: block;">
-										<label class="control-label">{{ $choice->title }}:</label>
-										<div id="input-option224">
+                                                        <script>
+                                                           
+                                                            if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
+                                                                var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
+                                                            }
+                                                        </script>
 
-                                        @foreach ($choice->options as $key => $option)
-											<div class="radio  radio-type-button">
-												<label>
-													<input type="radio" id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
-													<span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="" style="background: none;">
-														<span class="option-name">{{ $option }} </span>
-													</span>
-												</label>
+                                                        
+                                                        
+                                                    </label>
+                                                </div>
+                                                @endforeach
+                                                
                                             </div>
-                                            
-                                        @endforeach
-											
-										</div>
-									</div>
-								
-                                </div>
-                                
-
-
                                         </div>
                                         @endforeach
                                     </div>
@@ -788,24 +765,6 @@
 
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                             <div class="short_description form-group">
                                 <h3>OverView</h3>

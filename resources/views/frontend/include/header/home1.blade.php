@@ -4,21 +4,15 @@
 	<!-- Header Top -->
 	<div class="header-top hidden-compact">
 		<div class="container">
-			@php
-				$frontlogo=App\Logo::where('id',1)->first();
-			@endphp
 			<div class="row">
 				<div class="col-lg-3 col-xs-6 header-logo ">
 					<div class="navbar-logo">
-						<a href="{{url('/')}}"><img src="{{asset('/'.$frontlogo->front_logo)}}" alt="Your Store" width="110" height="27" title="Your Store"></a>
+						<a href="#"><img src="{{asset('public/frontend/image/catalog/demo/logo/logo-2.png')}}" alt="Your Store" width="110" height="27" title="Your Store"></a>
 					</div>
 				</div>
 				<div class="col-lg-7 header-sevices">
 					<div class="module html--sevices ">
 						<div class="clearfix sevices-menu">
-							@php
-                               $footeroption = App\FooterOption::findOrFail(11); 
-                            @endphp
 							<ul>
 								<li class="col-md-4 item home">
 									<div class="icon"></div>
@@ -33,8 +27,8 @@
 								<li class="col-md-4 item mail">
 									<div class="icon"> </div>
 									<div class="text">
-										<a class="name" href="#">{{ $footeroption->email}}</a>
-										<p>{{ $footeroption->phone}}</p>
+										<a class="name" href="#">Sales@MagenTech.Com</a>
+										<p>( +123 ) 456 7890</p>
 									</div>
 								</li>
 								<li class="col-md-4 item delivery">
@@ -54,7 +48,7 @@
 						@php
 							$userid = Request::ip();
 						@endphp
-							<a onclick="myAddToCartData(this)" data-id="{{$userid}}" value="{{$userid}}" data-loading-text="Loading... " id="getuserid" class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+							<a onclick="myAddToCartData()" data-id="{{$userid}}" id="cartdataid" data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
 								<div class="shopcart">
 									<span class="handle pull-left"></span>
 									<div class="cart-info">
@@ -171,11 +165,10 @@
 <!-- //Header Container  -->
 
 <script>
-    function myAddToCartData(el) {
-		var getuserid = document.getElementById('getuserid');
-		var userdataid = getuserid.getAttribute('data-id');
+    function myAddToCartData() {
+		var userip =$("#cartdataid").data("id");
 		
-        $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: userdataid},
+        $.post('{{ route('add.cart.show') }}', {_token: '{{ csrf_token() }}',user_id: userip},
             function(data) {
 			   $('#addtocartshow').html(data);
 			console.log(data);

@@ -168,16 +168,15 @@
                                     </div>
                                     <div class="cart">
                                         <input type="button" value="Add to Cart" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg ">
-                                        
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank">
-                                            <!-- <li class="wishlist">
+                                            <li class="wishlist">
                                                 <a onclick="wishlist.add(108);"><i class="fa fa-heart"></i></a>
                                             </li>
- -->                                            <!-- <li class="compare">
+                                            <li class="compare">
                                                 <a onclick="compare.add(108);"><i class="fa fa-random"></i></a>
-                                            </li> -->
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -228,28 +227,6 @@
     <script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/homepage.js"></script>
     <script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/custom_h1.js"></script>
     <script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/addtocart.js"></script>
-    <script>
-
-$(document).ready(function() {
-$('#addtocart').on('click', function(){
-
-
-$.ajax({
-type:'GET',
-url:"{{ route('product.add.cart') }}",
-data: $('#option-choice-form').serializeArray(),
-success: function (data) {
-    console.log(data);
-    document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
-
-}
-});
-
-
-});
-});
-</script>
 
 
 

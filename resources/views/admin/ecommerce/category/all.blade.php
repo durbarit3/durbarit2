@@ -119,29 +119,8 @@
                    <p style="font-size: 11px">(If you leave it blank, it will be generated automatically)</p>
                 </div>
                </div>
-               <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Header Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="header_image">
-			  		 <p>(1920px*180px)</p>
-			    </div>
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Top Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="top_image">
-			  		 <p>(1170px*220px)</p>
-			    </div>
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Side Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="side_image">
-			  		 <p>(270px*427)</p>
-			    </div>
-			  </div>
 
-			  <div class="form-group row">
+			   <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image:</label>
 			    <div class="col-sm-8">
 			      <input type="file" name="pic" required>
@@ -202,7 +181,7 @@
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Meta Tag:</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cate_tag" class="form-control">
+			      <input type="text" name="cate_tag" class="form-control" required>
 			    </div>
 			  </div>
 		    <div class="form-group text-right">
@@ -235,7 +214,7 @@
         </button>
       </div>
       <div class="modal-body">
-           <form class="form-horizontal" action="{{route('admin.category.update',$data->id)}}" method="POST" enctype="multipart/form-data" >
+           <form class="form-horizontal" action="{{route('admin.category.update')}}" method="POST" enctype="multipart/form-data" >
 
           	@csrf
 			 <div class="form-group row">
@@ -252,74 +231,6 @@
                    <p style="font-size: 11px">(If you leave it blank, it will be generated automatically)</p>
                 </div>
                </div>
-
-               <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Header Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="header_image">
-			  		 <p>(1920px*180px)</p>
-			  		
-			    </div>
-			  </div>
-			  <!-- old header image -->
-			  <div id="old_header_image">
-			    
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right"></label>
-			    <div class="col-sm-8" id="store_header_image">
-
-			      
-			  		
-			    </div>
-			  </div>
-			  <!-- end olde header image -->
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Top Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="top_image">
-			  		 <p>(1170px*220px)</p>
-			    </div>
-			  </div>
-			   <!-- old header image -->
-			  <div id="old_top_image">
-			    
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right"></label>
-			    <div class="col-sm-8" id="store_top_image">
-
-			      
-			  		
-			    </div>
-			  </div>
-			  <!-- end olde header image -->
-
-
-
-
-
-
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Side Image:</label>
-			    <div class="col-sm-8">
-			      <input type="file" name="side_image">
-			  		 <p>(270px*427)</p>
-			    </div>
-			  </div>
-			  <!-- old header image -->
-			  <div id="old_side_image">
-			    
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right"></label>
-			    <div class="col-sm-8" id="store_side_image">
-
-			      
-			  		
-			    </div>
-			  </div>
-			  <!-- end olde header image -->
 
 			   <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image:</label>
@@ -346,7 +257,7 @@
 
 			    <div class="col-sm-6">
 			      <input type="file" name="icon">
-			      <p style="margin-bottom: -10px">(20px*20px)</p>
+			      <p style="margin-bottom: -10px">(32px*32px)</p>
 
 			    </div>
 			    <div class="col-sm-3" id="store-icon">
@@ -420,20 +331,8 @@
                             $("#cate_slug").val(data.cate_slug);
                             $("#cate_tag_edit").val(data.cate_tag);
 
-                            $("#old_header_image").append("<input type='hidden' name='old_header_image' value='"+data.header_image+"' />");
-                            $("#store_header_image").html("<img src={{asset('')}}public/uploads/category/"+data.header_image+" height='70px' width='150px'/>");
-
-                            $("#old_top_image").append("<input type='hidden' name='old_top_image' value='"+data.top_image+"' />");
-                            $("#store_top_image").html("<img src={{asset('')}}public/uploads/category/"+data.top_image+" height='70px' width='150px'/>");
-
-                            $("#old_side_image").append("<input type='hidden' name='old_side_image' value='"+data.side_image+"' />");
-                            $("#store_side_image").html("<img src={{asset('')}}public/uploads/category/"+data.side_image+" height='70px' width='150px'/>");
-
-
-
                             $("#img").html("<img src={{asset('')}}public/uploads/category/"+data.cate_image+" height='70px'/>");
                             $("#store-img").append("<input type='hidden' name='old_image' value='"+data.cate_image+"' />");
-                            
                             $("#icon").html("<img src={{asset('')}}public/uploads/category/"+data.cate_icon+" height='70px'/>");
                             $("#store-icon").append("<input type='hidden' name='old_icon' value='"+data.cate_icon+"' />");
                           

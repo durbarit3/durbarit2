@@ -6360,7 +6360,7 @@ left-content-product.product-view .flexslider-thumb.not_full_slider {
   #product .radio-type-button input {
     visibility: hidden; }
   #product .radio-type-button .option-content-box {
-    background: #999;
+    /* background: #999; */
     border: 1px solid #999;
     display: block;
     text-align: center;
@@ -10153,7 +10153,7 @@ header .megamenu-style-dev .navbar-default .horizontal .navbar-toggle {
   #product .radio-type-button input {
     visibility: hidden; }
   #product .radio-type-button .option-content-box {
-    background: #999;
+    /* background: #999; */
     border: 1px solid #999;
     display: block;
     text-align: center;

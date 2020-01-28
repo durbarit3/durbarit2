@@ -19,8 +19,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{asset('public/frontend')}}/css/responsive.css" rel="stylesheet">
-    <link href="{{asset('public/frontend')}}/css/quickview/quickview.css" rel="stylesheet">
 
 
 	<link rel="shortcut icon" type="image/png" href="ico/favicon-16x16.png" />
@@ -93,7 +91,6 @@
             }
         @endif
 </script>
-
 
 
 <script>
@@ -238,58 +235,6 @@
         });
     });
 </script>
-
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('.mywishlist').on('click', function(){
-         var id = $(this).data('id');
-             //alert(id);
-        if(id){
-            $.ajax({
-                url: "{{ url('/product/add/wishlist/') }}/"+id,
-                type:"GET",
-                dataType:"json",
-                processData: false,
-                 success: function (data) {
-                    console.log(data);
-             if (data.check){
-                 toastr.error("Already This Product Add wishlist");
-            }else{
-                 toastr.success("Product Add To wishlist");
-                }
-            }
-         });
-     } else {
-         alert('danger');
-     }
-    });
-});
-</script>
-<script>
-     $(document).ready(function() {
-        $('.compareproduct').on('click', function(){
-            var com_id = $(this).val();
-            $.ajax({
-                type:'GET',
-                url:"{{ url('/product/compare') }}/"+com_id,
-                processData: false,
-                success: function (data) {
-                    if (data.checkip){
-                        toastr.error("Already This Product Add Compare");
-                        
-                    }else{
-                        toastr.success("product add to compare");
-                       
-                        }
-
-                }
-             });
-
-        
-    });
-});
-    </script>
 
 </body>
 

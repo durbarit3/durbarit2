@@ -141,10 +141,10 @@
             }
             $.post('{{ route('products.todays_deal') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    toastr.success("Done");
+                    showAlert('success');
                 }
                 else{
-                   toastr.error("Error");
+                    showAlert('danger', 'Something went wrong');
                 }
             });
         }
@@ -159,10 +159,10 @@
             }
             $.post('{{ route('products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                   toastr.success("Done");
+                    showAlert('success', 'Published products updated successfully');
                 }
                 else{
-                   toastr.error("Error");
+                    showAlert('danger', 'Something went wrong');
                 }
             });
         }

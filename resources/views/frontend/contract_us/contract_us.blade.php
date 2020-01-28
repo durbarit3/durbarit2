@@ -65,24 +65,12 @@
 
 
 <!-- Main Container  -->
-<div class="search-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="search-content">
-                    <div class="row" id="search_result_product">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="main_content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="title-breadcrumb">
+
             Contact Us
+
         </div>
         <ul class="breadcrumb-cate">
             <li><a href="index.html"><i class="fa fa-home"></i></a></li>
@@ -179,7 +167,6 @@
 
         </div>
     </div>
-</div>
 </div>
 
 <!-- //Main Container -->
