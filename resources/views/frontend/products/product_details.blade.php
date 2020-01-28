@@ -638,6 +638,7 @@
 
 
           <form id="option-choice-form">
+              
                 <div class="product-view product-detail">
                     <div class="product-view-inner clearfix">
                         <div class="content-product-left  col-md-5 col-sm-6 col-xs-12">
@@ -686,9 +687,9 @@
                                 <a class="reviews_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> / <a class="write_review_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a>
                             </div>
                             <div class="product_page_price price" itemscope="" itemtype="http://data-vocabulary.org/Offer">
-                                <span class="price-new"><span id="price-special"> ‎৳ {{$productdetails->product_price}}</span></span>
-                                <span class="price-old" id="price-old">$122.00</span>
-                                <!--    <div class="price-tax"><span>Ex Tax:</span> $70.00</div> -->
+                                <span class="price-new"><strong id="chosen_price">৳ {{$productdetails->product_price}}</strong></span>
+                                <span class="price-old" id="price-old">‎৳ {{$productdetails->product_price}}</span>
+                                
                             </div>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
@@ -716,6 +717,7 @@
                                                     <span class="option-content-box active" data-title="" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
+
                                                     <script>
                                                            
                                                             if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
@@ -723,34 +725,48 @@
                                                             }
                                                         </script>
                                                 </label>
+
+                                                
+                             
+
+
+
                                             </div>
                                             @endforeach
                                             @endif
                                         </div>
 
-                                        @foreach (json_decode($productdetails->choice_options) as $key => $choice)
-                                        <div class="col-md-3">
-                                            <div class="stock">
-                                                <span>{{ $choice->title }}:</span>
-                                                @foreach ($choice->options as $key => $option)
-                                                <div class="radio radio-type-button">
-                                                    <label>
-                                                        <input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
-                                                        <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 
-                                                        <script>
-                                                           
-                                                            if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
-                                                                var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
-                                                            }
-                                                        </script>
-                                                        
-                                                    </label>
-                                                </div>
-                                                @endforeach
-                                                
-                                            </div>
+
+
+                                        
+                            @foreach (json_decode($productdetails->choice_options) as $key => $choice)
+
+
+
+
+                                        
+                            <div id="product">
+                                
+                                <div class="form-group required ">
+                                    <label class="control-label">{{ $choice->title }}:</label>
+                                    <div id="input-option224">
+                                        <div class="radio  radio-type-button">
+                                            @foreach ($choice->options as $key => $option)
+                                            <label>
+                                                <input type="radio" id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
+                                                <span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="">
+                                                    <span class="option-name">M </span>
+                                                </span>
+                                            </label>
+                                            @endforeach
                                         </div>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+
                                         @endforeach
                                     </div>
                                     
@@ -778,16 +794,10 @@
                                         </div>
                                         <div class="cart">
                                         <div class="product_page_price price" id="chosen_price_div">
-                                            Final Price:<strong id="chosen_price">{{$productdetails->product_price}}</strong>
+                                            <input type="hidden" name="product_price" value="{{$productdetails->product_price}}" id="product_variation_price">
+                                            <input type="button" id="addtocart" value="Add to Cart" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart"> 
                                         </div>
-
-
-                                  
-
-
-
-
-                                            <button type="button" id="addtocart" value="{{$productdetails->id }}" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart" id="addtocart">Add to Cart</button>
+                                            
 
 
                                         </div>
@@ -1133,7 +1143,8 @@
 
                     //console.log(data.price);
                     // $('#option-choice-form #chosen_price_div').removeClass('d-none');
-                    $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
+                    $('#chosen_price').html(data.price);
+                    document.getElementById('product_variation_price').value =data.price;
                     // $('#available-quantity').html(data.quantity);
                 }
             });
@@ -1143,59 +1154,8 @@
 
 
 
-<!-- add to cart area start -->
 
  
-<script>
-// $(document).ready(function(){
-// 	$('#addtocart').click(function(params) {
-    
-//     var addtocart_id = $(this).val();
-//     if(productcolorname){
-//         var productcolorname =colorname.value;
-//     }else{
-//         var productcolorname =0;
-//     }
-
-//     if(productsizename){
-//         var productsizename =sizename.value;
-//     }else{
-//         var productsizename =0;
-//     }
-    
-    
-    
-
-    // var price =document.getElementById('chosen_price').innerHTML;
-
-	// $.ajaxSetup({
-	// 	headers: {
-	// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	// 	}
-	// });
- 
-// $.ajax({
-// 	type:'POST',
-// 	url:'{{ route('product.add.cart') }}',
-// 	data: {addtocart_id: addtocart_id,price:price,productcolorname:productcolorname,productsizename:productsizename},
-// 	success: function (data) {
-//         console.log(data);
-        
-            
-//         document.getElementById('cartdatacount').innerHTML =data.quantity;
-//         document.getElementById('product_price').innerHTML =data.price;
-
-        
-
-        
-        
-            
-		
-// 		}
-// 	});
-// 	});
-// });
-</script>
 
 <script>
 

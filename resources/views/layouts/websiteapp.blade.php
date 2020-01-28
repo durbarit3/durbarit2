@@ -19,6 +19,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{asset('public/frontend')}}/css/responsive.css" rel="stylesheet">
+    <link href="{{asset('public/frontend')}}/css/quickview/quickview.css" rel="stylesheet">
 
 
 	<link rel="shortcut icon" type="image/png" href="ico/favicon-16x16.png" />
