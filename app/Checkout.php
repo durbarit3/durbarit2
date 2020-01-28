@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CompareProduct extends Model
+class Checkout extends Model
 {
     //
 }

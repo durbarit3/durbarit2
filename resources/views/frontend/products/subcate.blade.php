@@ -9,9 +9,7 @@
         </div>
         <ul class="breadcrumb-cate">
             <li><a href="{{url('/')}}"><i class="fa fa-home"></i></a></li>
-
-            <li><a href="{{url('product/page/'.$subcate->category->cate_slug)}}">{{$subcate->category->cate_name}}</a></li>
-
+            <li><a href="{{url('/')}}">{{$subcate->category->cate_name}}</a></li>
             <li><a href="">{{$subcate->subcate_name}}</a></li>
         </ul>
     </div>
@@ -404,7 +402,7 @@
                     <div class="products-list grid row number-col-3 so-filter-gird" id="filter">
                         <!-- category product -->
                         @php
-                        $products=App\Product::where('is_deleted',0)->where('subcate_id',$subcate->id)->orderBy('id','DESC')->paginate(9);
+                        $products=App\Product::where('is_deleted',0)->where('subcate_id',$subcate->id)->orderBy('id','DESC')->limit(9)->get();
                         @endphp
                         @foreach($products as $product)
                         <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-6">
@@ -429,7 +427,7 @@
 
                                 <div class="right-block">
                                     <div class="caption">
-                                        <h4><a href="{{url('/product/details/page/'.$product->id)}}">{{Str::limit($product->product_name,40)}}</a></h4>
+                                        <h4><a href="product.html">{{Str::limit($product->product_name,40)}}</a></h4>
                                         <div class="total-price">
                                             <div class="price price-left">
                                                 <span class="price-new">$98.00 </span> <span class="price-old">$122.00 </span>
@@ -441,27 +439,18 @@
                                             </div>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>{!! Str::limit($product->product_description,60) !!}</p>
+                                            <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the.. </p>
                                         </div>
                                         <div class="list-block hidden">
                                             <button class="addToCart" type="button" data-toggle="tooltip" title="" onclick="cart.add('30 ', '1 ');" data-original-title="Add to Cart "><span>Add to Cart </span></button>
-                                            @if(Auth::guard('web')->check())
-                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
-                                            @else
-                                            <a href="{{route('login')}}" class="mywishlist btn-button"><i class="fa fa-heart"></i></a>
-                                            @endif
-                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
+                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('30 ');" data-original-title="Add to Wish List "><i class="fa fa-heart-o"></i></button>
+                                            <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('30 ');" data-original-title="Compare this Product "><i class="fa fa-retweet"></i></button>
                                         </div>
                                     </div>
                                     <div class="button-group">
                                         <a class="quickview iframe-link visible-lg btn-button" data-fancybox-type="iframe" href="quickview.html"> <i class="fa fa-search"></i> </a>
-                                            @if(Auth::guard('web')->check())
-                                            <button class="mywishlist btn-button" type="button" data-toggle="tooltip" title="" data-original-title="add to Wish List" data-id="{{$product->id}}"> <i class="fa fa-heart"></i></button>
-                                            @else
-                                            <a href="{{route('login')}}" class="compare btn-button"><i class="fa fa-heart"></i></a>
-                                            @endif
-                                            <button class="compare btn-button compareproduct" type="button"  id="compareproduct" value="{{$product->id }}"><i class="fa fa-exchange"></i></button>
-
+                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('105');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('105');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
                                         <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('105', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
                                     </div>
                                 </div>
@@ -474,8 +463,7 @@
 
                     <div class="product-filter product-filter-bottom filters-panel">
                         <div class="col-sm-6 text-left">
-
-                           <!--  <ul class="pagination">
+                            <ul class="pagination">
                                 <li class="active"><span>1</span>
                                 </li>
                                 <li><a href="#">2</a>
@@ -484,9 +472,9 @@
                                 </li>
                                 <li><a href="#">&gt;|</a>
                                 </li>
-                            </ul> -->
+                            </ul>
                         </div>
-                        <div class="col-sm-6 text-right">{{ $products->links() }}</div>
+                        <div class="col-sm-6 text-right">Showing 1 to 9 of 9 (1 Pages)</div>
                     </div>
                 </div>
 

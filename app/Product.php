@@ -13,10 +13,6 @@ class Product extends Model
     {
         return $this->belongsTo('App\SubCategory', 'subcate_id', 'id');
     }
-    public function brandnew()
-    {
-        return $this->belongsTo('App\Brand', 'brand', 'id');
-    }
 
 
 }

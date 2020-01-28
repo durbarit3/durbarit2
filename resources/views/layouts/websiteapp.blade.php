@@ -91,56 +91,159 @@
             }
         @endif
 </script>
-    <script type="text/javascript">
+
+
+<script>
+    function cuponApply() {
+      
+	
+	var cuponvalue =document.getElementById('input-coupon');
+        
+        $.post('{{ route('customer.apply.cupon') }}', {_token: '{{ csrf_token() }}',cuponvalue: cuponvalue.value},
+            function(data) {
+				
+                console.log(data);
+        
+                
+                if (data.quantity) {
+                    toastr.success("Product Quantity Changed successfully");
+                } 
+            });
+    }
+    cuponApply();
+
+
+	
+    
+</script>
+
+<script>
+    function cuponApply() {
+      
+	
+	var cuponvalue =document.getElementById('input-coupon').value;
+    var ordervalue =document.getElementById('input_order').value;
+    
+    
+    
+        
+        $.post('{{ route('customer.apply.cupon') }}', {_token: '{{ csrf_token() }}',cuponvalue: cuponvalue, order:ordervalue},
+            function(data) {
+				
+                console.log(data);
+        
+                
+                if (data.quantity) {
+                    toastr.success("Product Quantity Changed successfully");
+                } 
+            });
+    }
+    cuponApply();
+
+ 
+
+
+	
+    
+</script>
+
+
+<script>
     $(document).ready(function() {
-        $('.mywishlist').on('click', function(){
-         var id = $(this).data('id');
-             //alert(id);
-        if(id){
-            $.ajax({
-                url: "{{ url('/product/add/wishlist/') }}/"+id,
-                type:"GET",
-                dataType:"json",
-                processData: false,
-                 success: function (data) {
-                    console.log(data);
-             if (data.check){
-                 toastr.error("Already This Product Add wishlist");
-            }else{
-                 toastr.success("Product Add To wishlist");
+        $('#user_country').click(function(params) {
+            var country_id = $(this).val();
+			
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
+            });
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/user/division/name') }}/" +country_id,
+				dataType:"json",
+                
+                success: function(data) {
+                  
+						
+                        $('#user_division').empty();
+                        $('#user_division').append(' <option value="0">--Please Select Your Division--</option>');
+                        $.each(data,function(index,divisionobj){
+                         $('#user_division').append('<option value="' + divisionobj.id + '">'+divisionobj.name+'</option>');
+                       });
+                }
+
             }
          });
      } else {
         // alert('danger');
      }
+
+            
+        });
+
     });
-});
 </script>
+
 <script>
-     $(document).ready(function() {
-        $('.compareproduct').on('click', function(){
-            var com_id = $(this).val();
-            $.ajax({
-                type:'GET',
-                url:"{{ url('/product/compare') }}/"+com_id,
-                processData: false,
-                success: function (data) {
-                    if (data.checkip){
-                        toastr.error("Already This Product Add Compare");
-                        
-                    }else{
-                        toastr.success("product add to compare");
-                       
-                        }
-
+    $(document).ready(function() {
+        $('#user_division').click(function(params) {
+            
+            var division_id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-             });
-
-        
+            });
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/user/district/name') }}/" +division_id,
+				dataType:"json",
+                
+                success: function(data) {
+                  
+						console.log(data);
+                        $('#user_district').empty();
+                        $('#user_district').append(' <option value="0">--Please Select Your Division--</option>');
+                        $.each(data,function(index,districtbj){
+                         $('#user_district').append('<option value="' + districtbj.id + '">'+districtbj.name+'</option>');
+                       });
+                }
+            });
+        });
     });
-});
-    </script>
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#user_district').click(function(params) {
+            
+            var upazila_id = $(this).val();
+            
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/user/upazila/name') }}/" +upazila_id,
+				dataType:"json",
+                
+                success: function(data) {
+                  
+						console.log(data);
+                        $('#user_upazila').empty();
+                        $('#user_upazila').append(' <option value="0">--Please Select Your Division--</option>');
+                        $.each(data,function(index,upazilabj){
+                         $('#user_upazila').append('<option value="' + upazilabj.id + '">'+upazilabj.name+'</option>');
+                       });
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

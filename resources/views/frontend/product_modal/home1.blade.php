@@ -171,12 +171,12 @@
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank">
-                                            <!-- <li class="wishlist">
+                                            <li class="wishlist">
                                                 <a onclick="wishlist.add(108);"><i class="fa fa-heart"></i></a>
                                             </li>
- -->                                            <!-- <li class="compare">
+                                            <li class="compare">
                                                 <a onclick="compare.add(108);"><i class="fa fa-random"></i></a>
-                                            </li> -->
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

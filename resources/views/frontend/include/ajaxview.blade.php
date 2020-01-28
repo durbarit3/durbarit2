@@ -8,7 +8,7 @@
                 @endphp
                 
                 <td class="text-center size-img-cart">
-                    <a href="product.html"><img src="http:///public/uploads/products/thumbnail/<?php echo  $thumbnail_img ?>" alt="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" title="Bougainvilleas on Lombard Street,  San Francisco, Tokyo" class="img-thumbnail"></a>
+                    <a href="product.html"><img src="{{asset('public/uploads/products/thumbnail/')}}/{{$cartitems->attributes->thumbnail_img}}" alt="{{$cartitems->attributes->thumbnail_img}}" title="{{$cartitems->attributes->thumbnail_img}}" class="img-thumbnail"></a>
                 </td>
                 <td class="text-left"><a href="product.html">{{Illuminate\Support\Str::limit($cartitems->name,55)}}</a>
                     <br>

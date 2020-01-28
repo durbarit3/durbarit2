@@ -46,12 +46,10 @@
 		font-family: Roboto, sans-serif;
 		}
 		</style>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body class="loaded page-quickview">
 		<div id="wrapper">
 			<!-- Main Container -->
-		<form id="option-choice-form">
 			<div class="product-detail">
 				<div id="product-quick" class="product-info">
 					<div class="product-view row">
@@ -93,12 +91,10 @@
 												<a class="reviews_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a>
 											</div>
 										</div>
-
-
-										<div class="product_page_price price" id="chosen_price_div">
-											৳<div id="chosen_price">
-											 {{$productdetails->product_price}}
-											</div>
+										<div class="product_page_price price" itemscope="" itemtype="http://data-vocabulary.org/Offer">
+											<span class="price-new"><span id="price-special">‎৳{{$productdetails->product_price}}</span></span>
+											<!-- <span class="price-old" id="price-old">$122.00</span> -->
+											<!-- <div class="price-tax"><span>Ex Tax:</span> $70.00</div> -->
 										</div>
 									</div>
 									<div class="col-sm-6 col-xs-12">
@@ -119,7 +115,7 @@
 								</div>
 								<div id="product">
 									<h3>Available Options </h3>
-									@if($productdetails->product_type==1)
+
 									<div class="form-group required ">
 										<label class="control-label">Color</label>
 										<div id="input-option224">
@@ -127,15 +123,13 @@
 									        @foreach (json_decode($productdetails->colors) as $key => $color)
 											<div class="radio radio-type-button">
 												<label>
-													 <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif>
-													<span class="option-content-box active" data-title="{{$color}}" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
-														<!-- <span class="option-name"></span> -->
+													<input type="radio" name="option[224]" value="13">
+													<span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
+														<span style="background:{{ $color }};"></span>
 													</span>
 												</label>
-											
 											</div>
 											@endforeach
-
 									    @endif
 										</div>
 									</div>
@@ -147,9 +141,10 @@
 											@foreach ($choice->options as $key => $option)
 											<div class="radio radio-type-button">
 												<label>
-													<input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
-													<span class="option-content-box active" data-toggle="tooltip" data-original-title="" title="" style="background:#000;">
-														{{ $option }}
+													<input type="radio"  id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}" value="{{ $option }}" @if($key == 0) checked @endif>
+													<span class="option-content-box active" data-title="M +$12.00" data-toggle="tooltip" data-original-title="" title="" style="background:#000;">
+														<!-- <span style="">{{ $option }}</span> -->
+														 <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 													</span>
 												</label>
 											</div>
@@ -158,82 +153,13 @@
 										</div>
 									</div>
 									@endforeach
-									@elseif($productdetails->product_type==2)
-										<div class="form-group required ">
-											@if($productdetails->select_upload_type==1)
-											<label class="control-label">File</label>
-											@elseif($productdetails->select_upload_type==2)
-											<label class="control-label">Link</label>
-											@endif
-											<div id="input-option224">
-										    </div>
-									    </div>
-
-									@elseif($productdetails->product_type==3)
-										<div class="form-group required ">
-											@if($productdetails->select_upload_type==1)
-											<label class="control-label">File</label>
-											@elseif($productdetails->select_upload_type==2)
-											<label class="control-label">Link</label>
-											@endif
-											<label class="control-label">License Type:</label>
-											<div id="input-option224">
-												<label>
-													<input type="hidden" name="license_type" value="{{$productdetails->license_type}}">
-														 <label for="">{{$productdetails->license_type}}</label>
-													</span>
-												</label>
-										    </div>
-									    </div>
-									    <div class="form-group required">
-											<!-- <label class="control-label">Asif</label>
-											<label class="control-label">Foysal</label> -->
-											<table class="table table-striped">
-											  <thead>
-											    <tr>
-											      <th>#</th>
-											      <th scope="col">Duration</th>
-											      <th scope="col">price</th>
-											    </tr>
-											  </thead>
-											  <tbody>
-											  	@php
-											  		$pro_id=$productdetails->id;
-													$linceseproduct=App\ProductLicense::where('product_id',$pro_id)->get();
-											  	@endphp
-											  	@foreach($linceseproduct as $key => $license)
-											    <tr class="text-center">
-											 
-											      <td>
-													<input type="radio" name="option[224]" value="{{$license}}" @if($key == 0) checked @endif>
-											      </td>
-											      <td>{{$license->license_duration}} Month</td>
-											      <td>{{$license->license_price}} ৳</td>
-											    </tr>
-											    @endforeach
-											  </tbody>
-											</table>
-									    </div>
-									    @elseif($productdetails->product_type==4)
-									    <div class="form-group required ">
-											@if($productdetails->select_upload_type==1)
-											<label class="control-label">File</label>
-											@elseif($productdetails->select_upload_type==2)
-											<label class="control-label">Link</label>
-											@endif
-											<label class="control-label">Affilient Link: </label>
-											<div id="input-option224">
-												<p>{{Str::limit($productdetails->affiliate_link,20)}}</p>
-										    </div>
-									    </div>
-									@endif
-								
+								</div>
 								<div class="box-cart clearfix">
 									<div class="form-group box-info-product">
 										<div class="option quantity">
 											<div class="input-group quantity-control" unselectable="on" style="user-select: none;">
-												<input class="form-control" type="text" name="quantity" id="quantity" value="1">
-												<input type="hidden" name="id" value="{{$productdetails->id}}">
+												<input class="form-control" type="text" name="quantity" value="1">
+												<input type="hidden" name="product_id" value="108">
 												<span class="input-group-addon product_quantity_down fa fa-caret-down"></span>
 												<span class="input-group-addon product_quantity_up fa fa-caret-up"></span>
 											</div>
@@ -259,7 +185,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 			<!-- //Main Container -->
 		</div>
 		<!-- End Color Scheme
@@ -289,31 +214,9 @@
 		<script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/homepage.js"></script>
 		<script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/custom_h1.js"></script>
 		<script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/addtocart.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#option-choice-form input').on('change', function() {
-            getVariantPrice();
-        });
-    });
-
-    function getVariantPrice() {
-        //alert("success");
-        if ($('#option-choice-form input[id=quantity]').val() > 0) {
-
-            $.ajax({
-                type: "GET",
-                url: '{{ route('products.variant_price')}}',
-                data: $('#option-choice-form').serializeArray(),
-                success: function(data) {
-
-                    //console.log(data.price);
-                    // $('#option-choice-form #chosen_price_div').removeClass('d-none');
-                    $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
-                    // $('#available-quantity').html(data.quantity);
-                }
-            });
-        }
-    }
-</script>
+		<script>
+			
+			
+		</script>
 	</body>
 </html>
