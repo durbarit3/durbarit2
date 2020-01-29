@@ -97,25 +97,19 @@ class AddToCartController extends Controller
             ]);
         }
 
-        $getcartdatas = Cart::session($userid)->getContent();
+        // $getcartdatas = Cart::session($userid)->getContent();
+        $quantity = Cart::session($userid)->getTotalQuantity();
         $gettotal = Cart::session($userid)->getTotal();
+
+        
+
         if ($add) {
-
-            $items = 0;
-            $price = 0;
-
-
-            foreach (Cart::session($userid)->getContent() as $item) {
-                $items += $item->quantity;
-                $price += $item->quantity * $item->price;
-            }
-
             return response()->json([
-                'quantity' => $items,
-                'price' => $price
+                
+                'quantity' => $quantity,
+                'total' => $gettotal,
             ]);
-        } else {
-            return 0;
+           
         }
     }
 

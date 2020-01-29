@@ -152,6 +152,7 @@
     $(document).ready(function() {
         $('#user_country').click(function(params) {
             var country_id = $(this).val();
+            console.log(country_id);
 			
             $.ajaxSetup({
                 headers: {
@@ -173,15 +174,11 @@
                        });
                 }
 
-            }
-         });
-     } else {
-        // alert('danger');
-     }
-
+            });
+   
             
-        });
-
+    
+            });
     });
 </script>
 

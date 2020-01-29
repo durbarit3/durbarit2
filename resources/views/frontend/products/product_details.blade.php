@@ -1208,7 +1208,7 @@ data: $('#option-choice-form').serializeArray(),
 success: function (data) {
     console.log(data);
     document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
+    document.getElementById('product_price').innerHTML =data.total;
 
 }
 });
