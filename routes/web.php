@@ -316,24 +316,17 @@ Route::get('admin/product/varient', 'Frontend\FrontendController@provarient')->n
 
 
 Route::group(['prefix' => 'subscriber', 'namespace' => 'Frontend'], function () {
-
     Route::get('add', 'SubscribeController@insert')->name('frontend.subscriber.insert');
-
 });
 
 Route::group(['prefix' => 'contract_us', 'namespace' => 'Frontend'], function () {
-
     Route::get('/', 'ContractUsController@index')->name('frontend.contract.us.index');
     Route::post('send/message', 'ContractUsController@sendMessage')->name('frontend.contract.us.send.message');
-
 });
 
 Route::group(['prefix' => 'authentication', 'namespace' => 'Auth'], function () {
-
     Route::get('users/registred/success/{email}', 'RegisterController@userRegistrationSuccess')->name('user.auth.registration.success');
     Route::get('users/email/verification/{token}', 'RegisterController@emailVerification')->name('user.auth.verification');
-
-
 });
 
 // Route Created By Harrison Ended
@@ -460,6 +453,23 @@ Route::group(['prefix' => 'admin/subscriber/mail', 'namespace' => 'Admin', 'midd
     Route::get('send/draft/mail/{draftId}', 'SubscriberController@sendDraftMailSection')->name('admin.send.draft.mail');
     Route::post('reply/or/draft/from/draft/mail{draftId}', 'SubscriberController@replyOrDraft')->name('admin.mail.reply.or.draft.from.draft');
 
+});
+
+Route::group(['prefix' => 'admin/courier', 'namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
+    Route::get('selected/show', 'CourierController@index')->name('courier.index');
+    Route::get('sync', 'CourierController@courierSyncView')->name('courier.sync.view');
+    Route::post('sync/insert', 'CourierController@courierSyncInsert')->name('courier.sync.insert');
+    Route::get('sync/edit/{subDistrictId}', 'CourierController@courierSyncEdit')->name('courier.sync.edit');
+    Route::post('sync/sync/update/{subDistrictId}', 'CourierController@courierSyncUpdate')->name('courier.sync.update');
+    Route::get('sync/sync/delete/{subDistrictId}', 'CourierController@courierSyncDelete')->name('courier.sync.delete');
+    Route::post('store', 'CourierController@courierStore')->name('courier.store');
+
+    // Ajax Route
+    Route::get('get/district/by/division/id/{divisionId}', 'CourierController@getDistrictByAjax');
+    Route::get('get/sub_district/by/district/id/{districtId}', 'CourierController@getSubDistrictByAjax');
+    Route::get('get/couriers/by/courier_id', 'CourierController@getCouriersByAjax');
+    Route::get('get/courier/for/update', 'CourierController@getCouriersForUpdateByAjax');
+    // Ajax Route Ended
 });
 //Harrison start ended
 
