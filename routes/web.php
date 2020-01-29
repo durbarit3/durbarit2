@@ -395,6 +395,14 @@ Route::get('/user/division/name/{id}', 'Frontend\CheckoutController@userCountryS
 Route::get('/user/district/name/{id}', 'Frontend\CheckoutController@userDivisionSubmit');
 Route::get('/user/upazila/name/{id}', 'Frontend\CheckoutController@userUpazilaSubmit');
 
+// Search Route Created By Harrison
+
+Route::get('search/product/by/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByAjax');
+Route::get('search/product/by/main/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByMainCatByAjax');
+Route::get('search/product/by/sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductBySubCatByAjax');
+Route::get('search/product/by/re_sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByResubCatByAjax');
+
+// Search Route Created By Harrison Ended
 
 
 
@@ -463,9 +471,7 @@ Route::get('hllow worldff', 'afdsafllsdkafhe@getProductsfsafldsafhldsaafh');
 
 Route::get('hllow worlfadsfsadfsdfdff', 'afdsafllsdkafhe@getPxczxczxcrofsadfasdfductsfsafldsafhldfsdfsdfsaafh');
 Route::get('hllow/fererer', 'ewrqw3wkkj@urjdsuds');
-/// Test Route Created By Harrison
-Route::get('Harrison', 'HarrisonController@Harrison');
-/// Test Route Created By Harrison
+
 
 
 

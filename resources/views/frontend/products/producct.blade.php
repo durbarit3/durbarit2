@@ -24,7 +24,8 @@
                     <ul class="accordion" id="accordion-category">
                         <li class="panel">
                             <a href="#">Book Stationery </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category0 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category0 "></a></span>
                             <div id="category0" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -44,7 +45,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Spa &amp; Massage </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category2 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category2 "></a></span>
                             <div id="category2" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -67,7 +69,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Sport &amp; Entertaiment </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category3 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category3 "></a></span>
                             <div id="category3" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -90,7 +93,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Travel &amp; Vacation </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category4 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category4 "></a></span>
                             <div id="category4" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -113,7 +117,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Laptops &amp; Notebooks </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category5 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category5 "></a></span>
                             <div id="category5" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -127,7 +132,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Food &amp; Restaurant </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category6 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category6 "></a></span>
                             <div id="category6" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -153,7 +159,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Shop Collection </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category7 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category7 "></a></span>
                             <div id="category7" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -179,7 +186,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Fashion &amp; Accessories </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category8 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category8 "></a></span>
                             <div id="category8" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -211,7 +219,8 @@
                         </li>
                         <li class="panel">
                             <a href="#">Digital &amp; Electronics </a>
-                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse" data-parent="#accordion-category" href="#category9 "></a></span>
+                            <span class="head"><a class="pull-right accordion-toggle " data-toggle="collapse"
+                                    data-parent="#accordion-category" href="#category9 "></a></span>
                             <div id="category9" class="panel-collapse collapse  " style="clear:both">
                                 <ul>
                                     <li>
@@ -280,8 +289,10 @@
             <div class="moduletable module so-extraslider-ltr best-seller best-seller-custom">
                 <h3 class="modtitle"><span>Best Sellers</span></h3>
                 <div class="modcontent">
-                    <div id="so_extra_slider" class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
-                        <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate" data-effect="none">
+                    <div id="so_extra_slider"
+                        class="so-extraslider buttom-type1 preset00-1 preset01-1 preset02-1 preset03-1 preset04-1 button-type1">
+                        <div class="extraslider-inner owl2-carousel owl2-theme owl2-loaded extra-animate"
+                            data-effect="none">
                             <div class="item ">
                                 <div class="item-wrap style1 ">
                                     <div class="item-wrap-inner">
@@ -290,8 +301,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" data-product="104" href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/25.jpg" alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                    <a class="lt-image" data-product="104" href="#" target="_self"
+                                                        title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/25.jpg"
+                                                            alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
                                                     </a>
                                                 </div>
                                             </div>
@@ -300,17 +313,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
+                                                    <a href="#" target="_self"
+                                                        title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
                                                         Toshiba Pro 21"(21:9) FHD IPS LED 1920X1080 HDMI(2)
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -331,8 +350,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" data-product="66" href="#" title="Compact Portable Charger (Power Bank) with Premium">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/19.jpg" alt="Compact Portable Charger (Power Bank) with Premium">
+                                                    <a class="lt-image" data-product="66" href="#"
+                                                        title="Compact Portable Charger (Power Bank) with Premium">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/19.jpg"
+                                                            alt="Compact Portable Charger (Power Bank) with Premium">
                                                     </a>
                                                 </div>
                                             </div>
@@ -341,17 +362,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Compact Portable Charger (Power Bank) with Premium ">
+                                                    <a href="#" target="_self"
+                                                        title="Compact Portable Charger (Power Bank) with Premium ">
                                                         Compact Portable Charger (Power Bank) with Premium
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -372,8 +399,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan ">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/8.jpg" alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                    <a class="lt-image" target="_self"
+                                                        title="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/8.jpg"
+                                                            alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
                                                     </a>
                                                 </div>
                                             </div>
@@ -382,17 +411,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
+                                                    <a href="#" target="_self"
+                                                        title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
                                                         Philipin Tour Group Manila/ Pattaya / Mactan
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -414,7 +449,8 @@
                                                     <div class="box-label">
                                                     </div>
                                                     <a class="lt-image" data-product="78" href="#">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg" alt="Portable  Compact Charger (External Battery) t45">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg"
+                                                            alt="Portable  Compact Charger (External Battery) t45">
                                                     </a>
                                                 </div>
                                             </div>
@@ -423,17 +459,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Portable  Compact Charger (External Battery) t45 ">
+                                                    <a href="#" target="_self"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
                                                         Portable Compact Charger (External Battery) t45
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -456,8 +498,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" data-product="104" href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/15.jpg" alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                    <a class="lt-image" data-product="104" href="#" target="_self"
+                                                        title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/15.jpg"
+                                                            alt="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2)">
                                                     </a>
                                                 </div>
                                             </div>
@@ -466,17 +510,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
+                                                    <a href="#" target="_self"
+                                                        title="Toshiba Pro 21&quot;(21:9) FHD  IPS LED 1920X1080 HDMI(2) ">
                                                         Toshiba Pro 21"(21:9) FHD IPS LED 1920X1080 HDMI(2)
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -497,8 +547,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" data-product="66" href="#" title="Compact Portable Charger (Power Bank) with Premium">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/14.jpg" alt="Compact Portable Charger (Power Bank) with Premium">
+                                                    <a class="lt-image" data-product="66" href="#"
+                                                        title="Compact Portable Charger (Power Bank) with Premium">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/14.jpg"
+                                                            alt="Compact Portable Charger (Power Bank) with Premium">
                                                     </a>
                                                 </div>
                                             </div>
@@ -507,17 +559,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Compact Portable Charger (Power Bank) with Premium ">
+                                                    <a href="#" target="_self"
+                                                        title="Compact Portable Charger (Power Bank) with Premium ">
                                                         Compact Portable Charger (Power Bank) with Premium
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -538,8 +596,10 @@
                                                 <div class="item-img-info product-image-container ">
                                                     <div class="box-label">
                                                     </div>
-                                                    <a class="lt-image" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan ">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/4.jpg" alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                    <a class="lt-image" target="_self"
+                                                        title="Philipin Tour Group Manila/ Pattaya / Mactan ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/travel/4.jpg"
+                                                            alt="Philipin Tour Group Manila/ Pattaya / Mactan ">
                                                     </a>
                                                 </div>
                                             </div>
@@ -548,17 +608,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
+                                                    <a href="#" target="_self"
+                                                        title="Philipin Tour Group Manila/ Pattaya / Mactan  ">
                                                         Philipin Tour Group Manila/ Pattaya / Mactan
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -580,7 +646,8 @@
                                                     <div class="box-label">
                                                     </div>
                                                     <a class="lt-image" data-product="78" href="#">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/6.jpg" alt="Portable  Compact Charger (External Battery) t45">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/6.jpg"
+                                                            alt="Portable  Compact Charger (External Battery) t45">
                                                     </a>
                                                 </div>
                                             </div>
@@ -589,17 +656,23 @@
                                             <div class="item-info">
                                                 <!-- Begin title -->
                                                 <div class="item-title">
-                                                    <a href="#" target="_self" title="Portable  Compact Charger (External Battery) t45 ">
+                                                    <a href="#" target="_self"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
                                                         Portable Compact Charger (External Battery) t45
                                                     </a>
                                                 </div>
                                                 <!-- Begin ratting -->
                                                 <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i
+                                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                                 </div>
                                                 <!-- Begin item-content -->
                                                 <div class="price">
@@ -620,7 +693,9 @@
             </div>
             <div class="module banner-left hidden-xs ">
                 <div class="static-image-home-left banners">
-                    <div><a title="Static Image" href="#"><img src="{{asset('public/frontend/')}}/image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a></div>
+                    <div><a title="Static Image" href="#"><img
+                                src="{{asset('public/frontend/')}}/image/catalog/demo/banners/image-left.jpg"
+                                alt="Static Image"></a></div>
                 </div>
             </div>
         </aside>
@@ -637,7 +712,7 @@
 
 
 
-          <form id="option-choice-form">
+            <form id="option-choice-form">
                 <div class="product-view product-detail">
                     <div class="product-view-inner clearfix">
                         <div class="content-product-left  col-md-5 col-sm-6 col-xs-12">
@@ -648,14 +723,27 @@
                                         -30%
                                     </span>
                                 </div>
-                                <img class="product-image-zoom" src="{{asset('public/uploads/products/thumbnail/productdetails/'.$productdetails->thumbnail_img)}}" data-zoom-image="{{asset('public/uploads/products/thumbnail/productdetails/'.$productdetails->thumbnail_img)}}" title="Canada Travel One or Two European Facials at  Studio" alt="Canada Travel One or Two European Facials at  Studio">
+                                <img class="product-image-zoom"
+                                    src="{{asset('public/uploads/products/thumbnail/productdetails/'.$productdetails->thumbnail_img)}}"
+                                    data-zoom-image="{{asset('public/uploads/products/thumbnail/productdetails/'.$productdetails->thumbnail_img)}}"
+                                    title="Canada Travel One or Two European Facials at  Studio"
+                                    alt="Canada Travel One or Two European Facials at  Studio">
                             </div>
-                            <div id="thumb-slider" class="full_slider category-slider-inner products-list yt-content-slider" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column0="3" data-items_column1="3" data-items_column2="3" data-items_column3="3" data-items_column4="2" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                            <div id="thumb-slider"
+                                class="full_slider category-slider-inner products-list yt-content-slider" data-rtl="no"
+                                data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="10"
+                                data-items_column0="3" data-items_column1="3" data-items_column2="3"
+                                data-items_column3="3" data-items_column4="2" data-arrows="yes" data-lazyload="yes"
+                                data-loop="no" data-hoverpause="yes">
                                 @foreach (json_decode($productdetails->photos) as $key => $photo)
                                 <div class="owl2-item ">
                                     <div class="image-additional">
-                                        <a data-index="0" class="img thumbnail" data-image="{{url('storage/app/'.$photo) }}" title="Canada Travel One or Two European Facials at  Studio">
-                                            <img src="{{url('storage/app/'.$photo) }}" title="Canada Travel One or Two European Facials at  Studio" alt="Canada Travel One or Two European Facials at  Studio">
+                                        <a data-index="0" class="img thumbnail"
+                                            data-image="{{url('storage/app/'.$photo) }}"
+                                            title="Canada Travel One or Two European Facials at  Studio">
+                                            <img src="{{url('storage/app/'.$photo) }}"
+                                                title="Canada Travel One or Two European Facials at  Studio"
+                                                alt="Canada Travel One or Two European Facials at  Studio">
                                         </a>
                                     </div>
                                 </div>
@@ -683,19 +771,26 @@
                                         <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
                                     </div>
                                 </div>
-                                <a class="reviews_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> / <a class="write_review_button" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a>
+                                <a class="reviews_button"
+                                    onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a>
+                                / <a class="write_review_button"
+                                    onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a
+                                    review</a>
                             </div>
-                            <div class="product_page_price price" itemscope="" itemtype="http://data-vocabulary.org/Offer">
+                            <div class="product_page_price price" itemscope=""
+                                itemtype="http://data-vocabulary.org/Offer">
                                 <span class="price-new"><span id="chosen_price""> ‎৳ {{$productdetails->product_price}}</span></span>
-                                
-                                
-                                <span class="price-old" id="price-old">‎৳ {{$productdetails->product_price}}</span>
-                                <!--    <div class="price-tax"><span>Ex Tax:</span> $70.00</div> -->
+
+
+                                <span class=" price-old" id="price-old">‎৳ {{$productdetails->product_price}}</span>
+                                    <!--    <div class="price-tax"><span>Ex Tax:</span> $70.00</div> -->
                             </div>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
-                                    <div class="brand"><span>Brand: </span><a href="#">{{$productdetails->brand}}</a></div>
-                                    <div class="model"><span>Product Code: </span>{{$productdetails-> product_sku}}</div>
+                                    <div class="brand"><span>Brand: </span><a href="#">{{$productdetails->brand}}</a>
+                                    </div>
+                                    <div class="model"><span>Product Code: </span>{{$productdetails-> product_sku}}
+                                    </div>
                                     <div class="stock"><span>Availability:</span>
                                         @if($productdetails->product_qty > 0)
                                         <i class="fa fa-check-square-o"></i>In Stock({{$productdetails->product_qty}})
@@ -714,16 +809,19 @@
                                             @foreach (json_decode($productdetails->colors) as $key => $color)
                                             <div class="radio radio-type-button">
                                                 <label>
-                                                    <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}" name="color" value="{{ $color }}" @if($key==0) checked @endif>
-                                                    <span class="option-content-box active" data-title="" data-toggle="tooltip" data-original-title="" title="" style="background:{{ $color }};">
+                                                    <input type="radio" id="{{ $productdetails->id }}-color-{{ $key }}"
+                                                        name="color" value="{{ $color }}" @if($key==0) checked @endif>
+                                                    <span class="option-content-box active" data-title=""
+                                                        data-toggle="tooltip" data-original-title="" title=""
+                                                        style="background:{{ $color }};">
                                                         <span style="background:{{ $color }};"></span>
                                                     </span>
                                                     <script>
-                                                           
-                                                            if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
-                                                                var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
-                                                            }
-                                                        </script>
+
+                                                        if (document.getElementById("{{ $productdetails->id }}-color-{{ $key }}").checked) {
+                                                            var colorname = document.getElementById('{{ $productdetails->id }}-color-{{ $key }}');
+                                                        }
+                                                    </script>
                                                 </label>
                                             </div>
                                             @endforeach
@@ -737,27 +835,30 @@
                                                 @foreach ($choice->options as $key => $option)
                                                 <div class="radio radio-type-button">
                                                     <label>
-                                                        <input id="{{ $choice->name }}-{{ $option }}" type="radio" name="{{ $choice->name }}" value="{{ $option }}" @if($key==0) checked @endif>
-                                                        <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
+                                                        <input id="{{ $choice->name }}-{{ $option }}" type="radio"
+                                                            name="{{ $choice->name }}" value="{{ $option }}"
+                                                            @if($key==0) checked @endif>
+                                                        <label
+                                                            for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
 
                                                         <script>
-                                                           
+
                                                             if (document.getElementById("{{ $choice->name }}-{{ $option }}").checked) {
                                                                 var sizename = document.getElementById('{{ $choice->name }}-{{ $option }}');
                                                             }
                                                         </script>
 
-                                                        
-                                                        
+
+
                                                     </label>
                                                 </div>
                                                 @endforeach
-                                                
+
                                             </div>
                                         </div>
                                         @endforeach
                                     </div>
-                                    
+
                                     <!-- variation end -->
                                     @else
 
@@ -773,21 +874,29 @@
                                 <div class="box-cart clearfix">
                                     <div class="form-group box-info-product">
                                         <div class="option quantity">
-                                            <div class="input-group quantity-control" unselectable="on" style="user-select: none;">
-                                                <input class="form-control" type="number" id="quantity" name="quantity" value="1">
+                                            <div class="input-group quantity-control" unselectable="on"
+                                                style="user-select: none;">
+                                                <input class="form-control" type="number" id="quantity" name="quantity"
+                                                    value="1">
                                                 <input type="hidden" name="product_id" value="{{$productdetails->id}}">
-                                                <span class="input-group-addon product_quantity_down fa fa-caret-down"></span>
-                                                <span class="input-group-addon product_quantity_up fa fa-caret-up"></span>
+                                                <span
+                                                    class="input-group-addon product_quantity_down fa fa-caret-down"></span>
+                                                <span
+                                                    class="input-group-addon product_quantity_up fa fa-caret-up"></span>
                                             </div>
                                         </div>
                                         <div class="cart">
-                                        <div class="product_page_price price" id="chosen_price_div">
-                                            <input type="hidden" id="product_chosen_price" value="{{$productdetails->product_price}}" name="product_price">
-                                            <input type="button" id="addtocart" value="Add to Cart" class="addToCart btn btn-mega btn-lg " data-toggle="tooltip" title="" onclick="cart.add('30');" data-original-title="Add to cart" id="addtocart">
-                                        </div>
+                                            <div class="product_page_price price" id="chosen_price_div">
+                                                <input type="hidden" id="product_chosen_price"
+                                                    value="{{$productdetails->product_price}}" name="product_price">
+                                                <input type="button" id="addtocart" value="Add to Cart"
+                                                    class="addToCart btn btn-mega btn-lg " data-toggle="tooltip"
+                                                    title="" onclick="cart.add('30');" data-original-title="Add to cart"
+                                                    id="addtocart">
+                                            </div>
 
 
-                                  
+
 
 
 
@@ -810,14 +919,14 @@
                                 </div>
                             </div>
 
-                           
+
 
 
                         </div>
                     </div>
                 </div>
-        
-</form>
+
+            </form>
 
 
             <div class="product-attribute module">
@@ -846,14 +955,17 @@
                                             <div class="form-group required">
                                                 <div class="col-sm-12">
                                                     <label class="control-label" for="input-name">Your Name</label>
-                                                    <input type="text" name="name" value="" id="input-name" class="form-control">
+                                                    <input type="text" name="name" value="" id="input-name"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group required">
                                                 <div class="col-sm-12">
                                                     <label class="control-label" for="input-review">Your Review</label>
-                                                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                                                    <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
+                                                    <textarea name="text" rows="5" id="input-review"
+                                                        class="form-control"></textarea>
+                                                    <div class="help-block"><span class="text-danger">Note:</span> HTML
+                                                        is not translated!</div>
                                                 </div>
                                             </div>
                                             <div class="form-group required">
@@ -874,7 +986,9 @@
                                             </div>
                                             <div class="buttons clearfix" style="visibility: hidden; display: block;">
                                                 <div class="pull-right">
-                                                    <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Continue</button>
+                                                    <button type="button" id="button-review"
+                                                        data-loading-text="Loading..."
+                                                        class="btn btn-primary">Continue</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -915,7 +1029,11 @@
                     <div id="product-related" class="tab-pane fade in active">
                         <div class="clearfix module horizontal">
                             <div class="products-category">
-                                <div class="category-slider-inner products-list yt-content-slider releate-products grid" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="3" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                                <div class="category-slider-inner products-list yt-content-slider releate-products grid"
+                                    data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4"
+                                    data-speed="0.6" data-margin="30" data-items_column0="3" data-items_column1="3"
+                                    data-items_column2="2" data-items_column3="2" data-items_column4="1"
+                                    data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
                                     @php
                                     $procate_id=$productdetails->cate_id;
                                     $related_pro=App\Product::where('cate_id',$procate_id)->orderBy('id','DESC')->limit(6)->get();
@@ -925,8 +1043,12 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container">
-                                                    <a href="{{url('/product/details/page/'.$products->id)}}" title="Portable  Compact Charger (External Battery) t45 ">
-                                                        <img src="{{asset('public/uploads/products/thumbnail/productdetails/'.$products->thumbnail_img)}}" alt="Portable  Compact Charger (External Battery) t45" title="Portable  Compact Charger (External Battery) t45 " class="img-1 img-responsive">
+                                                    <a href="{{url('/product/details/page/'.$products->id)}}"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
+                                                        <img src="{{asset('public/uploads/products/thumbnail/productdetails/'.$products->thumbnail_img)}}"
+                                                            alt="Portable  Compact Charger (External Battery) t45"
+                                                            title="Portable  Compact Charger (External Battery) t45 "
+                                                            class="img-1 img-responsive">
                                                     </a>
                                                 </div>
                                             </div>
@@ -937,8 +1059,11 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="{{url('/product/details/page/'.$products->id)}}">{{Str::limit($products->product_name,40)}}</a></h4>
-                                                    <div class="total-price clearfix" style="visibility: hidden; display: block;">
+                                                    <h4><a
+                                                            href="{{url('/product/details/page/'.$products->id)}}">{{Str::limit($products->product_name,40)}}</a>
+                                                    </h4>
+                                                    <div class="total-price clearfix"
+                                                        style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
                                                             <span class="price-new">{{$products->product_price}}</span>
                                                             <span class="price-old">$122.00</span>
@@ -951,15 +1076,31 @@
                                                         </div>
                                                     </div>
                                                     <div class="description hidden">
-                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the.. </p>
+                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560
+                                                            x 1600 pixel resolution. Designed specifically for the
+                                                            creative professional, this display provides more space for
+                                                            easier access to all the.. </p>
                                                     </div>
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
-                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
-                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+                                                        <a class="quickview iframe-link visible-lg btn-button"
+                                                            data-toggle="tooltip" title="" data-fancybox-type="iframe"
+                                                            href="quickview.html" data-original-title="Quickview "> <i
+                                                                class="fa fa-search"></i> </a>
+                                                        <button class="wishlist btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="wishlist.add('78');"
+                                                            data-original-title="Add to Wish List"><i
+                                                                class="fa fa-heart-o"></i></button>
+                                                        <button class="compare btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="compare.add('78');"
+                                                            data-original-title="Compare this Product"><i
+                                                                class="fa fa-retweet"></i></button>
+                                                        <button class="addToCart btn-button" type="button"
+                                                            data-toggle="tooltip" title=""
+                                                            onclick="cart.add('78', '2');"
+                                                            data-original-title="Add to Cart"><span class="hidden">Add
+                                                                to Cart </span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -974,13 +1115,22 @@
                     <div id="product-upsell" class="tab-pane fade in">
                         <div class="clearfix module horizontal">
                             <div class="products-category">
-                                <div class="category-slider-inner products-list yt-content-slider releate-products grid" releate-products products-list grid contentslider" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="3" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                                <div class="category-slider-inner products-list yt-content-slider releate-products grid"
+                                    releate-products products-list grid contentslider" data-rtl="no" data-autoplay="no"
+                                    data-pagination="no" data-delay="4" data-speed="0.6" data-margin="30"
+                                    data-items_column0="3" data-items_column1="3" data-items_column2="2"
+                                    data-items_column3="2" data-items_column4="1" data-arrows="yes" data-lazyload="yes"
+                                    data-loop="no" data-hoverpause="yes">
                                     <div class="product-layout">
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container">
-                                                    <a href="#" title="Portable  Compact Charger (External Battery) t45 ">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg " alt="Portable  Compact Charger (External Battery) t45" title="Portable  Compact Charger (External Battery) t45 " class="img-1 img-responsive">
+                                                    <a href="#"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/4.jpg "
+                                                            alt="Portable  Compact Charger (External Battery) t45"
+                                                            title="Portable  Compact Charger (External Battery) t45 "
+                                                            class="img-1 img-responsive">
                                                     </a>
                                                 </div>
                                             </div>
@@ -991,8 +1141,10 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a></h4>
-                                                    <div class="total-price clearfix" style="visibility: hidden; display: block;">
+                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a>
+                                                    </h4>
+                                                    <div class="total-price clearfix"
+                                                        style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
                                                             <span class="price-new">$74.00</span>
                                                             <span class="price-old">$122.00</span>
@@ -1005,15 +1157,31 @@
                                                         </div>
                                                     </div>
                                                     <div class="description hidden">
-                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the.. </p>
+                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560
+                                                            x 1600 pixel resolution. Designed specifically for the
+                                                            creative professional, this display provides more space for
+                                                            easier access to all the.. </p>
                                                     </div>
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
-                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
-                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+                                                        <a class="quickview iframe-link visible-lg btn-button"
+                                                            data-toggle="tooltip" title="" data-fancybox-type="iframe"
+                                                            href="quickview.html" data-original-title="Quickview "> <i
+                                                                class="fa fa-search"></i> </a>
+                                                        <button class="wishlist btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="wishlist.add('78');"
+                                                            data-original-title="Add to Wish List"><i
+                                                                class="fa fa-heart-o"></i></button>
+                                                        <button class="compare btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="compare.add('78');"
+                                                            data-original-title="Compare this Product"><i
+                                                                class="fa fa-retweet"></i></button>
+                                                        <button class="addToCart btn-button" type="button"
+                                                            data-toggle="tooltip" title=""
+                                                            onclick="cart.add('78', '2');"
+                                                            data-original-title="Add to Cart"><span class="hidden">Add
+                                                                to Cart </span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1023,8 +1191,12 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container">
-                                                    <a href="#" title="Portable  Compact Charger (External Battery) t45 ">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/28.jpg " alt="Portable  Compact Charger (External Battery) t45" title="Portable  Compact Charger (External Battery) t45 " class="img-1 img-responsive">
+                                                    <a href="#"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/28.jpg "
+                                                            alt="Portable  Compact Charger (External Battery) t45"
+                                                            title="Portable  Compact Charger (External Battery) t45 "
+                                                            class="img-1 img-responsive">
                                                     </a>
                                                 </div>
                                             </div>
@@ -1035,8 +1207,10 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a></h4>
-                                                    <div class="total-price clearfix" style="visibility: hidden; display: block;">
+                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a>
+                                                    </h4>
+                                                    <div class="total-price clearfix"
+                                                        style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
                                                             <span class="price-new">$74.00</span>
                                                             <span class="price-old">$122.00</span>
@@ -1049,15 +1223,31 @@
                                                         </div>
                                                     </div>
                                                     <div class="description hidden">
-                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the.. </p>
+                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560
+                                                            x 1600 pixel resolution. Designed specifically for the
+                                                            creative professional, this display provides more space for
+                                                            easier access to all the.. </p>
                                                     </div>
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
-                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
-                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+                                                        <a class="quickview iframe-link visible-lg btn-button"
+                                                            data-toggle="tooltip" title="" data-fancybox-type="iframe"
+                                                            href="quickview.html" data-original-title="Quickview "> <i
+                                                                class="fa fa-search"></i> </a>
+                                                        <button class="wishlist btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="wishlist.add('78');"
+                                                            data-original-title="Add to Wish List"><i
+                                                                class="fa fa-heart-o"></i></button>
+                                                        <button class="compare btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="compare.add('78');"
+                                                            data-original-title="Compare this Product"><i
+                                                                class="fa fa-retweet"></i></button>
+                                                        <button class="addToCart btn-button" type="button"
+                                                            data-toggle="tooltip" title=""
+                                                            onclick="cart.add('78', '2');"
+                                                            data-original-title="Add to Cart"><span class="hidden">Add
+                                                                to Cart </span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1067,8 +1257,12 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container">
-                                                    <a href="#" title="Portable  Compact Charger (External Battery) t45 ">
-                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/11.jpg " alt="Portable  Compact Charger (External Battery) t45" title="Portable  Compact Charger (External Battery) t45 " class="img-1 img-responsive">
+                                                    <a href="#"
+                                                        title="Portable  Compact Charger (External Battery) t45 ">
+                                                        <img src="{{asset('public/frontend/')}}/image/catalog/demo/product/electronic/11.jpg "
+                                                            alt="Portable  Compact Charger (External Battery) t45"
+                                                            title="Portable  Compact Charger (External Battery) t45 "
+                                                            class="img-1 img-responsive">
                                                     </a>
                                                 </div>
                                             </div>
@@ -1079,8 +1273,10 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a></h4>
-                                                    <div class="total-price clearfix" style="visibility: hidden; display: block;">
+                                                    <h4><a href="#">Portable Compact Charger (External Battery) t45 </a>
+                                                    </h4>
+                                                    <div class="total-price clearfix"
+                                                        style="visibility: hidden; display: block;">
                                                         <div class="price price-left">
                                                             <span class="price-new">$74.00</span>
                                                             <span class="price-old">$122.00</span>
@@ -1093,15 +1289,31 @@
                                                         </div>
                                                     </div>
                                                     <div class="description hidden">
-                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the.. </p>
+                                                        <p>The 30-inch Apple Cinema HD Display delivers an amazing 2560
+                                                            x 1600 pixel resolution. Designed specifically for the
+                                                            creative professional, this display provides more space for
+                                                            easier access to all the.. </p>
                                                     </div>
                                                 </div>
                                                 <div class="button-group">
                                                     <div class="button-inner so-quickview">
-                                                        <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview "> <i class="fa fa-search"></i> </a>
-                                                        <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('78');" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                                                        <button class="compare btn-button" type="button" data-toggle="tooltip" title="" onclick="compare.add('78');" data-original-title="Compare this Product"><i class="fa fa-retweet"></i></button>
-                                                        <button class="addToCart btn-button" type="button" data-toggle="tooltip" title="" onclick="cart.add('78', '2');" data-original-title="Add to Cart"><span class="hidden">Add to Cart </span></button>
+                                                        <a class="quickview iframe-link visible-lg btn-button"
+                                                            data-toggle="tooltip" title="" data-fancybox-type="iframe"
+                                                            href="quickview.html" data-original-title="Quickview "> <i
+                                                                class="fa fa-search"></i> </a>
+                                                        <button class="wishlist btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="wishlist.add('78');"
+                                                            data-original-title="Add to Wish List"><i
+                                                                class="fa fa-heart-o"></i></button>
+                                                        <button class="compare btn-button" type="button"
+                                                            data-toggle="tooltip" title="" onclick="compare.add('78');"
+                                                            data-original-title="Compare this Product"><i
+                                                                class="fa fa-retweet"></i></button>
+                                                        <button class="addToCart btn-button" type="button"
+                                                            data-toggle="tooltip" title=""
+                                                            onclick="cart.add('78', '2');"
+                                                            data-original-title="Add to Cart"><span class="hidden">Add
+                                                                to Cart </span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1119,8 +1331,8 @@
 
 <!-- //Main Container -->
 <script>
-    $(document).ready(function() {
-        $('#option-choice-form input').on('change', function() {
+    $(document).ready(function () {
+        $('#option-choice-form input').on('change', function () {
             getVariantPrice();
         });
     });
@@ -1133,12 +1345,12 @@
                 type: "GET",
                 url: '{{ route('products.variant_price')}}',
                 data: $('#option-choice-form').serializeArray(),
-                success: function(data) {
+                success: function (data) {
 
                     //console.log(data.price);
                     // $('#option-choice-form #chosen_price_div').removeClass('d-none');
                     // $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
-                    $('#chosen_price').html('৳ ' +data.price);
+                    $('#chosen_price').html('৳ ' + data.price);
                     $('#product_chosen_price').val(data.price);
                     // $('#available-quantity').html(data.quantity);
                 }
@@ -1151,30 +1363,30 @@
 
 <!-- add to cart area start -->
 
- 
+
 
 
 <script>
 
-$(document).ready(function() {
-$('#addtocart').on('click', function(){
+    $(document).ready(function () {
+        $('#addtocart').on('click', function () {
 
 
-$.ajax({
-type:'GET',
-url:"{{ route('product.add.cart') }}",
-data: $('#option-choice-form').serializeArray(),
-success: function (data) {
-    console.log(data);
-    document.getElementById('cartdatacount').innerHTML =data.quantity;
-        document.getElementById('product_price').innerHTML =data.price;
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('product.add.cart') }}",
+                data: $('#option-choice-form').serializeArray(),
+                success: function (data) {
+                    console.log(data);
+                    document.getElementById('cartdatacount').innerHTML = data.quantity;
+                    document.getElementById('product_price').innerHTML = data.price;
 
-}
-});
+                }
+            });
 
 
-});
-});
+        });
+    });
 </script>
 
 
