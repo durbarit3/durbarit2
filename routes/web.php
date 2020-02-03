@@ -1,5 +1,7 @@
 <?php
 
+// use Illuminate\Routing\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -365,6 +367,10 @@ Route::get(md5('/checkout/order/data'), 'Frontend\CheckoutController@orderData')
 Route::post(md5('/order/data/update'), 'Frontend\CheckoutController@orderDataUpdate')->name('product.order.update');
 Route::post(md5('/order/data/delete'), 'Frontend\CheckoutController@orderDataDelete')->name('product.order.delete');
 
+//  Add Ajax route for getting courier by upazila ID !
+// Created By Harrison
+Route::get('get/courier/by/upazila/id/{upazilaId}', 'Frontend\CheckoutController@getCourierByUpazila');
+
 
 // cart all product show
 
@@ -395,8 +401,23 @@ Route::get('search/product/by/main/category/{categoryId}/{productName}', 'Fronte
 Route::get('search/product/by/sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductBySubCatByAjax');
 Route::get('search/product/by/re_sub/category/{categoryId}/{productName}', 'Frontend\SearchController@searchProductByResubCatByAjax');
 
+
 // Search Route Created By Harrison Ended
 
+// Payment Route Created By Harrison
+
+Route::group(['prefix' => 'payment', 'namespace' => 'Frontend'], function () {
+    Route::get('stripe/{payment_secure_id}', 'PaymentController@index')->name('stripe.index');
+    Route::post('stripe/submit/{payment_secure_id}', 'PaymentController@stripeSubmit')->name('payment.stripe.submit');
+    Route::get('stripe/success/payment', 'PaymentController@successStripePaymentView')->name('payment.stripe.success.view');
+    //SSL COMMERCEZ
+
+    Route::post('ssl_commercez/success', 'PaymentController@sslSuccess');
+    Route::post('ssl_commercez/fail', 'PaymentController@sslFail');
+    Route::post('ssl_commercez/cancel', 'PaymentController@sslCancel');
+});
+
+// Payment Route Created By Harrison Ended
 
 
 
@@ -474,13 +495,11 @@ Route::group(['prefix' => 'admin/courier', 'namespace' => 'Admin', 'middleware' 
 //Harrison start ended
 
 
+// Route::get('test', function () {
+//     dd(substr(md5(time()), 10, 100));
+// });
 
-Route::get('hllow worldff', 'afdsafllsdkafhe@getProductsfsafldsafhldsaafh');
 
-
-
-Route::get('hllow worlfadsfsadfsdfdff', 'afdsafllsdkafhe@getPxczxczxcrofsadfasdfductsfsafldsafhldfsdfsdfsaafh');
-Route::get('hllow/fererer', 'ewrqw3wkkj@urjdsuds');
 
 
 
