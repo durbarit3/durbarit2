@@ -5,7 +5,14 @@
         <div class="row">
             <div class="col-md-12">
             <a class="btn btn-success" href="{{ url('/') }}">Continue Shopping</a>
-                <h1 class="alert alert-success text-center">Thank you, Successfully Payment Accepted.:)</h1>
+            @if (Session::has('success'))
+            <h1 class="alert alert-success text-center">Thank you, Successfully Payment Accepted.:)</h1>
+            @else
+            @php
+                header('Location:'.url('/'));
+            @endphp
+            @endif
+
             </div>
         </div>
     </div>

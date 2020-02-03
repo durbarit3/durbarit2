@@ -83,8 +83,10 @@ class PaymentController extends Controller
                     'payment_secure_id' => null
                 ]);
             }
+
             session()->flash('success', 'Thank you, Successfully payment accepted');
             return redirect()->route('payment.stripe.success.view');
+
         } catch (CardException $e) {
             return Redirect::refresh()->withErrors(['error', $e->messages]);
         }
@@ -113,6 +115,7 @@ class PaymentController extends Controller
         // echo $amount = $request->input('amount');
         // echo $currency = $request->input('currency');
         //dd($request->all());
+        date_default_timezone_set('Asia/Dhaka');
         $information = $request->all();
         if ($request->status === "VALID") {
 
@@ -137,6 +140,8 @@ class PaymentController extends Controller
                 'store_amount' => $request->store_amount,
                 'card_issuer' => $request->card_issuer,
                 'bank_trans_id' => $request->bank_tran_id,
+                'date' => date('d/m/Y'),
+                'time' => date('h:i:s'),
             ]);
 
             return view('frontend.payment.ssl_commerce.success', compact('information'));

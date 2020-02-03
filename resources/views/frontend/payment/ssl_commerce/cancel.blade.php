@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
             <a class="btn btn-success" href="{{ url('/') }}">Continue Shopping</a>
-                <h1 class="alert alert-success text-center">Your Have cancled your payment.</h1>
+                <h1 class="alert alert-warning text-center">Your Have cancled your payment.</h1>
             </div>
         </div>
     </div>
