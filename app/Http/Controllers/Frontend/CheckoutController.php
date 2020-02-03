@@ -221,7 +221,7 @@ class CheckoutController extends Controller
             $post_data['emi_selected_inst'] = "9";
 
             # CUSTOMER INFORMATION
-            $post_data['cus_name'] = Auth::user()->first_name;
+            $post_data['cus_name'] = Auth::user()->first_name." ". Auth::user()->last_name;
             $post_data['cus_email'] = Auth::user()->email;
              $post_data['cus_add1'] = $request->shipping_customer_address ? $request->shipping_customer_address : "null";
             // $post_data['cus_add2'] = "Dhaka";
