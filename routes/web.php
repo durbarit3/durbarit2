@@ -499,6 +499,10 @@ Route::get('test', function () {
     dd(substr(md5(time()), 10, 100));
 });
 
+Route::get('test2', function () {
+    dd(substr(md5(time()), 10, 100)); //dsafjasdlkfusadifusadf
+});
+
 
 
 
