@@ -495,9 +495,9 @@ Route::group(['prefix' => 'admin/courier', 'namespace' => 'Admin', 'middleware' 
 //Harrison start ended
 
 
-// Route::get('test', function () {
-//     dd(substr(md5(time()), 10, 100));
-// });
+Route::get('test', function () {
+    dd(substr(md5(time()), 10, 100));
+});
 
 
 
