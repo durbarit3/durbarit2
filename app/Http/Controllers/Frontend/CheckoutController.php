@@ -101,7 +101,6 @@ class CheckoutController extends Controller
                         foreach (json_decode($cuponminproducts) as $cuponminproduct) {
 
 
-
                             if ($cartdata->attributes->product_id == $cuponminproduct) {
                                 UserUsedCupon::insert([
                                     'user_ip' => Auth::user()->id,
@@ -200,7 +199,6 @@ class CheckoutController extends Controller
         if ($request->payment_method_id == 2) {
 
             return redirect()->route('stripe.index', $getPaymentSecureId->payment_secure_id);
-
         } elseif ($request->payment_method_id == 4) {
             /* PHP */
             $post_data = array();
@@ -221,9 +219,9 @@ class CheckoutController extends Controller
             $post_data['emi_selected_inst'] = "9";
 
             # CUSTOMER INFORMATION
-            $post_data['cus_name'] = Auth::user()->first_name." ". Auth::user()->last_name;
+            $post_data['cus_name'] = Auth::user()->first_name . " " . Auth::user()->last_name;
             $post_data['cus_email'] = Auth::user()->email;
-             $post_data['cus_add1'] = $request->shipping_customer_address ? $request->shipping_customer_address : "null";
+            $post_data['cus_add1'] = $request->shipping_customer_address ? $request->shipping_customer_address : "null";
             // $post_data['cus_add2'] = "Dhaka";
             $post_data['cus_city'] = DB::table('divisions')->where('id', $request->user_division_id)->select('name')->first()->name;
             //$post_data['cus_state'] = DB::table('countries')->where('id', $request->user_division_id)->select('name')->first()->name;
@@ -376,5 +374,4 @@ class CheckoutController extends Controller
         $getCourierIdByUpId =  UpozilaCouriers::where('upazila_id', $upazilaId)->get();
         return view('frontend.shopping.ajax_view.couriers', compact('getCourierIdByUpId'));
     }
-
 }

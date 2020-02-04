@@ -65,12 +65,25 @@
 								</div>
 								<div id="thumb-slider" class="full_slider category-slider-inner products-list yt-content-slider" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column0="3" data-items_column1="3" data-items_column2="3" data-items_column3="3" data-items_column4="2" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
 
-									<div class="image-additional">
+									{{-- <div class="image-additional">
 										<a data-index="0" class="img thumbnail" data-image="{{asset('public/frontend')}}/image/catalog/demo/product/travel/2.jpg" title="Canada Travel One or Two European Facials at Studio">
 											<img src=" {{asset('public/frontend')}}/image/catalog/demo/product/travel/2.jpg" title="Canada Travel One or Two European Facials at Studio" alt="Canada Travel One or Two European Facials at Studio">
 										</a>
-									</div>
-								
+                                    </div> --}}
+                                    @foreach (json_decode($productdetails->photos) as $key => $photo)
+                                    <div class="owl2-item ">
+                                        <div class="image-additional">
+                                            <a data-index="0" class="img thumbnail"
+                                                data-image="{{url('storage/app/public/'.$photo) }}"
+                                                title="Canada Travel One or Two European Facials at  Studio">
+                                                <img src="{{url('storage/app/public/'.$photo) }}"
+                                                    title="Canada Travel One or Two European Facials at  Studio"
+                                                    alt="Canada Travel One or Two European Facials at  Studio">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
 								</div>
 							</div>
 							<div class="content-product-right col-sm-7">
@@ -149,7 +162,7 @@
 												</label>
 											</div>
 											@endforeach
-											
+
 										</div>
 									</div>
 									@endforeach
@@ -215,8 +228,8 @@
 		<script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/custom_h1.js"></script>
 		<script type="text/javascript" src="{{asset('public/frontend')}}/js/themejs/addtocart.js"></script>
 		<script>
-			
-			
+
+
 		</script>
 	</body>
 </html>
